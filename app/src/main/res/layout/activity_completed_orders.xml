@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cusina.Activities.CompletedOrdersActivity">
+
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/toolbar_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:background="@color/_FFFFFF"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_below="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_15sdp">
+
+        <RelativeLayout
+            android:id="@+id/orderFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp">
+
+            <TextView
+                android:id="@+id/orderNumberTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/OrderNumber"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/_000000"
+                android:fontFamily="@font/cabin_bold"/>
+
+            <TextView
+                android:id="@+id/orderNumberCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_4151"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/_000000"
+                android:layout_toEndOf="@+id/orderNumberTxt"
+                android:fontFamily="@font/cabin_bold"
+                android:layout_toRightOf="@+id/orderNumberTxt" />
+
+            <TextView
+                android:id="@+id/orderDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/orderCompletedDate"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/orderFirst"
+            android:id="@+id/orderSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp">
+
+            <TextView
+                android:id="@+id/serverTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Server"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/_000000"
+                android:fontFamily="@font/cabin_bold"/>
+
+            <TextView
+                android:id="@+id/serverName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_ServerTxt"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/_000000"
+                android:layout_toEndOf="@+id/serverTxt"
+                android:fontFamily="@font/cabin_bold"
+                android:layout_toRightOf="@+id/serverTxt" />
+
+        </RelativeLayout>
+        
+        <TextView
+            android:layout_below="@+id/orderSecond"
+            android:id="@+id/RateServer"
+            android:layout_width="@dimen/_87sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:gravity="center"
+            android:background="@drawable/color_solid_drawable"
+            android:text="@string/RateServer"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_FFFFFF"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:translationY="@dimen/_3sdp"
+            android:translationZ="@dimen/_6sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp" />
+
+        <View
+            android:layout_below="@+id/RateServer"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/_F6F6F6"/>
+
+        <LinearLayout
+            android:layout_below="@+id/view"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/restaurent"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:src="@mipmap/restaurant_img"/>
+
+                <ImageView
+                    android:id="@+id/line"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:src="@mipmap/line_vertical_img"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/locationImg"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:src="@mipmap/location_icon_img"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp">
+
+                <TextView
+                    android:gravity="top"
+                    android:id="@+id/serverNameTxtOnDel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_ServerTxt"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/_000000"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+
+                <TextView
+                    android:id="@+id/serverNameLocationTxtOnDel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_ServerNameLocation"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColor="@color/_000000"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+
+                <TextView
+                    android:id="@+id/deliveryLocationTxtOnDel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_deliveryLocation"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/_000000"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/mainLayout"
+        android:background="@color/_FFFFFF"
+        android:id="@+id/orderSummeryLayout"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:layout_above="@+id/totalAmountLayout">
+
+        <TextView
+            android:id="@+id/oderSummery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/orderSummery"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_16ssp"
+            app:fontFamily="@font/sourcesanspro_semibold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/order_list_item_vertical"
+            android:layout_below="@+id/oderSummery"
+            android:scrollbarThumbVertical="@android:color/transparent"
+            android:nestedScrollingEnabled="false"/>
+
+        <RelativeLayout
+            android:layout_below="@+id/order_list_item_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp">
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total"
+                android:textSize="@dimen/_16ssp"
+                app:fontFamily="@font/sourcesanspro_semibold"
+                android:textColor="@color/_000000"/>
+
+            <TextView
+                android:id="@+id/totalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_70"
+                android:textSize="@dimen/_20ssp"
+                android:layout_alignParentRight="true"
+                app:fontFamily="@font/sourcesanspro_semibold"
+                android:textColor="@color/_000000"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

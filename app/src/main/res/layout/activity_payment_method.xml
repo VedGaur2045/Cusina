@@ -164,17 +164,6 @@
 
     </LinearLayout>
 
-    <hyogeun.github.com.colorratingbarlib.ColorRatingBar
-        android:id="@+id/ratingBar"
-        android:visibility="visible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rating="3"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/paymentMethod"
-        app:empty_color="@color/_33000000"
-        app:progress_color="@color/_EFCE4A" />
-
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"

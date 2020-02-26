@@ -5,121 +5,156 @@
     android:background="@color/white"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Fragments.Setting_Fragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_72sdp">
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:src="@mipmap/back"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_25sdp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/settings"
-            android:textSize="@dimen/_24ssp"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/cabin_semibold"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/favdishes"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_40sdp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fav_dishes"
-            android:textSize="@dimen/_14ssp"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:src="@mipmap/arrow"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+        android:background="#F6F6F6"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_3sdp">
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/msgandnotification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_40sdp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/msg_and_notification"
-            android:textSize="@dimen/_14ssp"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:src="@mipmap/arrow"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+        <include
+            layout="@layout/toolbar_layout"/>
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/toreview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_40sdp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/to_review"
-            android:textSize="@dimen/_14ssp"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:src="@mipmap/arrow"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+        <RelativeLayout
+            android:id="@+id/favDishes"
+            android:background="@color/_FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_59sdp"
+            android:paddingStart="@dimen/_25sdp"
+            android:paddingEnd="@dimen/_25sdp">
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/changepassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_40sdp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/change_password"
-            android:textSize="@dimen/_14ssp"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:src="@mipmap/arrow"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@string/fav_dishes"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
 
-    </RelativeLayout>
-</LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/arrow" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/_FFFFFF"
+            android:id="@+id/msgAndNotification"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_59sdp"
+            android:paddingStart="@dimen/_25sdp"
+            android:paddingEnd="@dimen/_25sdp">
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@string/msg_and_notification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/msgCount"
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/msg"
+                android:layout_toRightOf="@+id/msg"
+                android:background="@drawable/green_oval_drawable"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:gravity="center"
+                android:text="@string/msgCount"
+                android:textColor="@color/_FFFFFF"
+                android:textSize="@dimen/_8ssp" />
+
+            <ImageView
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/arrow" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/_FFFFFF"
+            android:id="@+id/toReview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_59sdp"
+            android:paddingStart="@dimen/_25sdp"
+            android:paddingEnd="@dimen/_25sdp">
+
+            <TextView
+                android:id="@+id/toReviewTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@string/to_review"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/toReviewCount"
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/toReviewTxt"
+                android:layout_toRightOf="@+id/toReviewTxt"
+                android:background="@drawable/light_red_oval_drawable"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:gravity="center"
+                android:text="@string/msgCount"
+                android:textColor="@color/_FFFFFF"
+                android:textSize="@dimen/_8ssp" />
+
+            <ImageView
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/arrow" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@color/_FFFFFF"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:id="@+id/changePassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_59sdp"
+            android:paddingStart="@dimen/_25sdp"
+            android:paddingEnd="@dimen/_25sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@string/change_password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <ImageView
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/arrow" />
+
+        </RelativeLayout>
+    </LinearLayout>
 </FrameLayout>

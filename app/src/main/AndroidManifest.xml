@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.lutongbahay">
+    package="com.example.cusina">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -14,7 +14,7 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <permission
-        android:name="com.example.lutongbahay.Fragments.SearchFragment.MAPS_RECEIVE"
+        android:name="com.example.cusina.Fragments.SearchFragment.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.lutongbahay.Fragments.SearchFragment.MAPS_RECEIVE" />
@@ -36,16 +36,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.PaymentMethodActivity"
+        <activity android:name=".Activities.CompletedOrdersActivity"></activity>
+        <activity
+            android:name=".Activities.PaymentMethodActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
-            tools:ignore="InnerclassSeparator">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            tools:ignore="InnerclassSeparator" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -57,15 +53,16 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".Activities.Complete_details"
+        <activity
+            android:name=".Activities.Complete_details"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
-            tools:ignore="InnerclassSeparator"/>
-        <activity android:name=".Activities.Choose_category"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Activities.Choose_category"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
-            tools:ignore="InnerclassSeparator"/>
-
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Activities.ConfirmOrderActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -149,6 +146,11 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
             tools:ignore="InnerclassSeparator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Activities.Choose_address"

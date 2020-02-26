@@ -105,7 +105,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginLeft="@dimen/_30sdp">
 
                     <ImageView
                         android:id="@+id/ratingImg"
@@ -113,10 +115,8 @@
                         android:layout_height="@dimen/_16sdp"
                         android:src="@mipmap/rating_img"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
                         android:layout_marginEnd="@dimen/_20sdp"
-                        android:layout_marginRight="@dimen/_20sdp"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_marginRight="@dimen/_20sdp" />
 
                     <TextView
                         android:id="@+id/productRatingCount"
@@ -124,14 +124,12 @@
                         android:layout_height="wrap_content"
                         android:text="@string/_productRating"
                         android:textSize="@dimen/_12ssp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginLeft="@dimen/_20sdp"
                         android:textStyle="normal"
                         android:textColor="@color/_80000000"
-                        android:layout_alignParentRight="true"
                         tools:ignore="RelativeOverlap"
-                        app:fontFamily="@font/sourcesanspro_regular"
-                        android:layout_alignParentEnd="true" />
+                        app:fontFamily="@font/sourcesanspro_regular" />
 
                 </RelativeLayout>
 
