@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_10ssp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:paddingTop="@dimen/_10ssp"
+    android:background="@color/_FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/orderNumberLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textAllCaps="false"
+                android:text="@string/OrderNumber"
+                app:fontFamily="@font/sourcesanspro_semibold"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/_000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/orderNumber"
+                android:textAllCaps="false"
+                android:text="@string/_4151"
+                app:fontFamily="@font/sourcesanspro_semibold"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/_000000"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/orderCompletedDate"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:text="@string/orderCompletedDate"
+            android:layout_alignParentEnd="true"
+            app:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/_000000"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ServerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:textAllCaps="false"
+            android:text="@string/Server"
+            app:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/_000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/ServerTxt"
+            android:textAllCaps="false"
+            android:text="@string/_ServerTxt"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/_000000"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TransactionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:textAllCaps="false"
+            android:text="@string/TransactionTxt"
+            app:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/_000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/TransactionID"
+            android:textAllCaps="false"
+            android:text="@string/TransactionID"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/_000000"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/TrayQntLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp">
+
+            <TextView
+                android:textAllCaps="false"
+                android:text="@string/TrayQntTxt"
+                app:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/TrayQuantity"
+                android:textAllCaps="false"
+                android:text="@string/_3"
+                app:fontFamily="@font/sourcesanspro_bold"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/TrayQuantityServing"
+                android:textAllCaps="false"
+                android:text="@string/Serving"
+                app:fontFamily="@font/sourcesanspro_bold"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/totalPriceLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:textAllCaps="false"
+                android:text="@string/_total"
+                app:fontFamily="@font/sourcesanspro_regular"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/totalAmountPHP"
+                android:textAllCaps="false"
+                android:text="@string/_pHp"
+                app:fontFamily="@font/sourcesanspro_bold"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/totalAmount"
+                android:textAllCaps="false"
+                android:text="@string/_70"
+                app:fontFamily="@font/sourcesanspro_bold"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/_000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10ssp">
+
+        <Button
+            android:id="@+id/ORDER_DETAILS_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="25sp"
+            android:background="@drawable/color_solid_drawable"
+            android:text="@string/order_details"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_FFFFFF"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:translationY="@dimen/_3sdp"
+            android:translationZ="@dimen/_6sdp"/>
+
+        <TextView
+            android:id="@+id/deliveredTxt"
+            android:textAllCaps="false"
+            android:text="@string/DELIVERED_Txt"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/_7BCC86"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

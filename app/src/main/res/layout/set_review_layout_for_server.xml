@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/extraTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extraTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/closeImgBtn"
+        android:layout_marginStart="@dimen/_100sdp"
+        android:gravity="center"
+        android:fontFamily="@font/sourcesanspro_semibold"
+        android:textColor="@color/_000000"
+        android:textSize="@dimen/_16ssp"
+        android:layout_marginLeft="@dimen/_100sdp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/extraTxt"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:rating="0"
+        android:numStars="5"
+        android:stepSize="0.5"/>
+
+    <TextView
+        android:id="@+id/aboutServerTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extraTxt_2"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:fontFamily="@font/sourcesanspro_semibold"
+        android:textColor="@color/_000000"
+        android:textSize="@dimen/_16ssp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_below="@+id/ratingBar"/>
+
+    <LinearLayout
+        android:layout_below="@+id/aboutServerTxt"
+        android:id="@+id/option_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/FastTransaction"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/FastTransaction"
+            android:textColor="@color/_000000"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/Punctual"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/Punctual"
+            android:textColor="@color/_000000"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/option_1"
+        android:id="@+id/option_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/CustomerService"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/CustomerService"
+            android:textColor="@color/_000000"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/FastDelivery"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/FastDelivery"
+            android:textColor="@color/_000000"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/option_2"
+        android:id="@+id/option_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/Polite"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/Polite"
+            android:textColor="@color/_000000"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/Products"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/Products"
+            android:textColor="@color/_000000"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF8500</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="terms_color">#FF8500</color>
+    <color name="lightgray">#F6F6F6</color>
+    <color name="fbbutton">#3B5998</color>
+    <color name="_80000000">#80000000</color>
+    <color name="_0D2E2E2E">#0D2E2E2E</color>
+    <color name="_FFFFFF">#FFFFFF</color>
+    <color name="_000000">#000000</color>
+    <color name="_FF8500">#FF8500</color>
+    <color name="_00000000">#00000000</color>
+    <color name="_80FFFFFF">#80FFFFFF</color>
+    <color name="_EC0000">#EC0000</color>
+    <color name="_99000000">#99000000</color>
+    <color name="_707070">#707070</color>
+    <color name="_F6F6F6">#F6F6F6</color>
+    <color name="_333333">#333333</color>
+    <color name="_7BCC86">#7BCC86</color>
+    <color name="_9A9A9A">#9A9A9A</color>
+    <color name="_33000000">#33000000</color>
+    <color name="_B3000000">#B3000000</color>
+    <color name="_EFCE4A">#EFCE4A</color>
+    <color name="_15D528">#15D528</color>
+    <color name="_1A000000">#1A000000</color>
+</resources>

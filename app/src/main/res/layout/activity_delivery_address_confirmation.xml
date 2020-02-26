@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.delivery_address_confirmation">
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar_layout"/>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/_FFFFFF"
+        android:paddingRight="@dimen/_25sdp"
+        android:paddingLeft="@dimen/_25sdp">
+
+        <TextView
+            android:id="@+id/userNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_8ssp"
+            android:layout_marginTop="@dimen/_30sdp"/>
+
+        <EditText
+            android:layout_below="@+id/userNameTxt"
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:hint="@string/username_placeholder"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:inputType="text"
+            android:textColorHint="@color/_000000"
+            android:paddingLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/sourcesanspro_it"
+            android:background="@drawable/userinputbg"
+            android:paddingStart="@dimen/_20sdp"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:layout_below="@+id/username"
+            android:id="@+id/emailTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/useremail"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_8ssp"
+            android:layout_marginTop="@dimen/_30sdp"/>
+
+        <EditText
+            android:layout_below="@+id/emailTxt"
+            android:id="@+id/userEmailId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:hint="@string/useremail_placeholder"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/_000000"
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/sourcesanspro_it"
+            android:background="@drawable/userinputbg"
+            android:paddingStart="@dimen/_20sdp"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/address_detail"
+            android:layout_below="@+id/userEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_detail"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_8ssp"
+            android:layout_marginTop="@dimen/_30sdp"/>
+
+        <EditText
+            android:layout_below="@+id/address_detail"
+            android:id="@+id/addressTxt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:hint="@string/addressTxt"
+            android:textColorHint="@color/_000000"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:paddingStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/sourcesanspro_it"
+            android:background="@drawable/userinputbg"
+            android:paddingLeft="@dimen/_20sdp"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/saveDetails"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:text="@string/save_details"
+            android:background="@drawable/commonbuttonbg"
+            android:textSize="@dimen/_14ssp"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:onClick="saveDetailsBtnOnClick"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:fontFamily="@font/sourcesanspro_semibold"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

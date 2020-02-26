@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.asksira.bsimagepicker.widget.FitWidthRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/imgbg"
+    app:view_aspectRatio="1"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@mipmap/camera_img"
+        android:layout_centerInParent="true"
+        />
+
+    <com.asksira.bsimagepicker.cTextView
+        android:id="@+id/tv_multiselect_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/camera"
+        android:layout_centerHorizontal="true"
+        android:text="@string/newPhoto"
+        android:gravity="center"
+        android:paddingRight="24dp"
+        android:paddingLeft="24dp"
+        android:textSize="18sp"
+        android:textColor="@color/_000000" />
+
+</com.asksira.bsimagepicker.widget.FitWidthRelativeLayout>
