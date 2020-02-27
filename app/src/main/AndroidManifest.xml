@@ -36,12 +36,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.CompletedOrdersActivity"></activity>
+        <activity android:name=".Activities.DishReviewsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="InnerclassSeparator"/>
+        <activity android:name=".Activities.CompletedOrdersActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="InnerclassSeparator"/>
         <activity
             android:name=".Activities.PaymentMethodActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -146,11 +153,11 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
             tools:ignore="InnerclassSeparator">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.Choose_address"
@@ -171,7 +178,9 @@
             android:name=".Activities.Splash"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|stateHidden"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator">
+
+        </activity>
         <activity
             android:name=".Activities.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

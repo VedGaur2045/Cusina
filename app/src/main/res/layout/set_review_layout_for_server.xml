@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
@@ -17,17 +19,28 @@
         android:textSize="@dimen/_16ssp"
         android:layout_marginLeft="@dimen/_100sdp" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
+<!--    <RatingBar-->
+<!--        android:id="@+id/ratingBar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="?android:attr/ratingBarStyleIndicator"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_below="@+id/extraTxt"-->
+<!--        android:layout_marginTop="@dimen/_5sdp"-->
+<!--        android:rating="0"-->
+<!--        android:numStars="5"-->
+<!--        android:stepSize="0.5"/>-->
+
+    <hyogeun.github.com.colorratingbarlib.ColorRatingBar
+        android:id="@+id/ratingBarServer"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="?android:attr/ratingBarStyleIndicator"
+        android:rating="0"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/extraTxt"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:rating="0"
-        android:numStars="5"
-        android:stepSize="0.5"/>
+        app:empty_color="@color/_33000000"
+        app:progress_color="@color/_EFCE4A" />
 
     <TextView
         android:id="@+id/aboutServerTxt"
@@ -40,7 +53,7 @@
         android:textColor="@color/_000000"
         android:textSize="@dimen/_16ssp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_below="@+id/ratingBar"/>
+        android:layout_below="@+id/ratingBarServer"/>
 
     <LinearLayout
         android:layout_below="@+id/aboutServerTxt"

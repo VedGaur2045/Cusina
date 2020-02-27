@@ -101,9 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
-                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(MapsActivity.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
-                startActivity(new Intent(MapsActivity.this, Home.class),bndlAnimation);
-                finish();
+                UtilClass.backbtn(MapsActivity.this);
             }
         });
 

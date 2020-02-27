@@ -10,12 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cusina.Activities.DishReviewsActivity;
 import com.example.cusina.Activities.ViewItemActivity;
 import com.example.cusina.R;
 
@@ -23,10 +25,12 @@ public class adapterFile extends RecyclerView.Adapter<adapterFile.ViewHolder> {
 
     private viewHolderFile[] viewHolderFiles;
     private Context context;
+    private int checkVal ;
 
-    public adapterFile(viewHolderFile[] viewHolderFiles, Context context) {
+    public adapterFile(viewHolderFile[] viewHolderFiles, Context context, int checkVal) {
         this.viewHolderFiles = viewHolderFiles;
         this.context = context;
+        this.checkVal = checkVal;
     }
 
     @NonNull
@@ -57,8 +61,20 @@ public class adapterFile extends RecyclerView.Adapter<adapterFile.ViewHolder> {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
+                if(checkVal == 1){
+                    Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                    context.startActivity(new Intent(context, ViewItemActivity.class),bndlAnimation);
+                }
+            }
+        });
+
+        holder.rating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DishReviewsActivity.class);
                 Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
-                context.startActivity(new Intent(context, ViewItemActivity.class),bndlAnimation);
+                intent.putExtra("ratingVal","51");
+                context.startActivity(intent,bndlAnimation);
             }
         });
 
@@ -75,6 +91,7 @@ public class adapterFile extends RecyclerView.Adapter<adapterFile.ViewHolder> {
         TextView time,productName,productShopName,productPlaceName,productRatingCount,productPrice,productServing,productMinimumServe,productFavCount;
         TextView productDistance,productDeliveryFee;
         LinearLayout mainLayout;
+        RelativeLayout rating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -92,6 +109,7 @@ public class adapterFile extends RecyclerView.Adapter<adapterFile.ViewHolder> {
             this.favImg = itemView.findViewById(R.id.favouriteImg);
             this.productFavCount = itemView.findViewById(R.id.favouriteProductCount);
             this.mainLayout = itemView.findViewById(R.id.mainLayout);
+            this.rating = itemView.findViewById(R.id.rating);
         }
     }
 

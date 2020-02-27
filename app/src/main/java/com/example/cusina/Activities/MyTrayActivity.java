@@ -23,6 +23,7 @@ import com.example.cusina.AdapterClass.ConfirmOrderAdapter.ConfirmOrderAdapter;
 import com.example.cusina.AdapterClass.ConfirmOrderAdapter.ConfirmOrderModel;
 import com.example.cusina.AdapterClass.ordersMyTrayRecyclerListAdapter.ordersAdapterClass;
 import com.example.cusina.AdapterClass.ordersMyTrayRecyclerListAdapter.ordersHolderClass;
+import com.example.cusina.Fragments.MapsActivity;
 import com.example.cusina.R;
 import com.example.cusina.UtilClasses.UtilClass;
 
@@ -50,7 +51,11 @@ public class MyTrayActivity extends AppCompatActivity {
         findViewById(R.id.closeImgBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finishContext();
+                Intent intent=new Intent(MyTrayActivity.this, Home.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(MyTrayActivity.this, R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
+                startActivity(intent,bndlAnimation);
+                finish();
             }
         });
 
@@ -75,11 +80,6 @@ public class MyTrayActivity extends AppCompatActivity {
     private void listFixedSize(RecyclerView itemList){
         itemList.setHasFixedSize(true);
         itemList.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private void finishContext(){
-        finish();
-        overridePendingTransition(R.animator.enter_from_left,R.animator.exit_to_right);
     }
 
     private void recyclerViewSetupSecond(){

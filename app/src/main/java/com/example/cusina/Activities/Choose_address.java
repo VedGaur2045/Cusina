@@ -3,6 +3,9 @@ package com.example.cusina.Activities;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.app.ActivityOptions;
@@ -28,6 +31,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.cusina.Fragments.ordersFragment;
 import com.example.cusina.R;
 import com.example.cusina.SessionClass.SessionmanagerPreferance;
 import com.example.cusina.UtilClasses.UtilClass;
@@ -35,6 +39,7 @@ import com.example.cusina.UtilClasses.UtilClass;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Choose_address extends AppCompatActivity implements LocationListener {
 
@@ -69,16 +74,75 @@ public class Choose_address extends AppCompatActivity implements LocationListene
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                overridePendingTransition(R.animator.enter_from_left,R.animator.exit_to_right);
+                switch (getIntent().getStringExtra("id")) {
+                    case "1": {
+                        Intent intent = new Intent(Choose_address.this, Splash.class);
+                        changeOnlyActivity(intent);
+                        break;
+                    }
+                    case "2":
+                    case "4": {
+                        Intent intent = new Intent(Choose_address.this, Home.class);
+                        changeActivityGoOnFrag(intent, 11);
+                        break;
+                    }
+                    case "3": {
+                        Intent intent = new Intent(Choose_address.this, Home.class);
+                        changeActivityGoOnFrag(intent, 12);
+                        break;
+                    }
+                    case "5": {
+                        Intent intent = new Intent(Choose_address.this, ConfirmOrderActivity.class);
+                        changeOnlyActivity(intent);
+                        break;
+                    }
+                    case "6": {
+                        Intent intent = new Intent(Choose_address.this, CompletedOrdersActivity.class);
+                        changeOnlyActivity(intent);
+                        break;
+                    }
+                    case "7": {
+                        Intent intent = new Intent(Choose_address.this, Home.class);
+                        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Choose_address.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                        startActivity(intent, bndlAnimation);
+                        break;
+                    }
+                }
             }
         });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(getIntent().hasExtra("id")){
-                    startloginscreen();
+                switch (getIntent().getStringExtra("id")) {
+                    case "1":
+                    case "7": {
+                        Intent intent = new Intent(Choose_address.this, Home.class);
+                        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Choose_address.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                        startActivity(intent, bndlAnimation);
+                        break;
+                    }
+                    case "2":
+                    case "4": {
+                        Intent intent = new Intent(Choose_address.this, Home.class);
+                        changeActivityGoOnFrag(intent, 11);
+                        break;
+                    }
+                    case "3": {
+                        Intent intent = new Intent(Choose_address.this, Home.class);
+                        changeActivityGoOnFrag(intent, 12);
+                        break;
+                    }
+                    case "5": {
+                        Intent intent = new Intent(Choose_address.this, ConfirmOrderActivity.class);
+                        changeOnlyActivity(intent);
+                        break;
+                    }
+                    case "6": {
+                        Intent intent = new Intent(Choose_address.this, CompletedOrdersActivity.class);
+                        changeOnlyActivity(intent);
+                        break;
+                    }
                 }
             }
         });
@@ -126,16 +190,30 @@ public class Choose_address extends AppCompatActivity implements LocationListene
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
     }
 
+    private void changeOnlyActivity(Intent intent){
+        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Choose_address.this, R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
+        startActivity(intent, bndlAnimation);
+    }
+
+    private void changeActivityGoOnFrag(Intent intent,int intentVal){
+        intent.putExtra("valFromTUPage",intentVal);
+        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Choose_address.this, R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
+        startActivity(intent, bndlAnimation);
+//        Home home = new Home();
+//        home.changeMenu(R.id.navigation_account);
+        startActivity(intent, bndlAnimation);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public  void startloginscreen(){
+    public  void startHomeScreen(){
         Intent intent=new Intent(Choose_address.this, Home.class);
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
-
     }
 
     @Override
     public void onLocationChanged(Location location) {
+//        UtilClass.showloaderDialog(Choose_address.this,"Location Finding...");
 
         Geocoder geocoder;
         List<Address> addresses=null;
@@ -164,7 +242,7 @@ public class Choose_address extends AppCompatActivity implements LocationListene
         String[] currentAddress = address.split(",");
 
         locationTxt.setText(address);
-
+//        UtilClass.hideloaderDialog();
         session.setCurrentAddress(address);
 
     }

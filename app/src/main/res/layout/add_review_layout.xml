@@ -24,26 +24,42 @@
             android:contentDescription="@string/todo"
             android:layout_marginRight="@dimen/_15sdp" />
 
-        <include
-            layout="@layout/set_review_layout_for_server"/>
+<!--        <include-->
+<!--            layout="@layout/set_review_layout_for_server"/>-->
 
-        <TextView
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_20sdp"
+        <ViewStub
+            android:id="@+id/layout_stub"
+            android:inflatedId="@+id/message_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
             android:id="@+id/TellUsMore"
-            android:layout_width="@dimen/_252sdp"
-            android:layout_height="@dimen/_123sdp"
-            android:background="@drawable/tell_us_more_bg_layout"
-            android:text="@string/TellUsMore"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="top|start"
+            android:layout_gravity="center"
+            android:maxLines="10"
             android:textColor="@color/_000000"
             android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_10ssp"
-            android:padding="@dimen/_15sdp" />
+            android:layout_height="@dimen/_123sdp"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:hint="@string/TellUsMore"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/tell_us_more_bg_layout"/>
 
         <Button
             android:layout_gravity="center"
             android:id="@+id/submitBtn"
-            android:layout_width="@dimen/_252sdp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_height="@dimen/_40sdp"
             android:background="@drawable/btn_bg"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"

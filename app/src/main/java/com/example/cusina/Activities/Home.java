@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -81,7 +82,7 @@ public class Home extends AppCompatActivity {
         }
 
         try {
-            if(getIntent().getExtras().getInt("valFromTUPage") == 12){
+            if(getIntent().getExtras().getInt("valFromTUPage") == 11){
                 Bundle bundle = new Bundle();
                 bundle.putInt("val",11);
                 Profile_Fragment profileFragment = new Profile_Fragment();
@@ -91,6 +92,22 @@ public class Home extends AppCompatActivity {
                 active = profileFragment;
 
                 navView.setSelectedItemId(R.id.navigation_account);
+            }
+        } catch (Exception e){
+            Log.e("Exception2 : ",e.toString());
+        }
+
+        try{
+            if(getIntent().getExtras().getInt("valFromTUPage") == 10){
+                Bundle bundle = new Bundle();
+                bundle.putInt("val",11);
+                ordersFragment ordersFrag = new ordersFragment();
+                ordersFrag.setArguments(bundle);
+
+                fm.beginTransaction().hide(active).show(ordersFrag).commit();
+                active = ordersFrag;
+
+                navView.setSelectedItemId(R.id.navigation_orders);
             }
         } catch (Exception e){
             Log.e("Exception2 : ",e.toString());
@@ -115,7 +132,8 @@ public class Home extends AppCompatActivity {
 //                    active = searchFrag;
                     Intent intent=new Intent(Home.this, MapsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Home.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                    startActivity(intent,bndlAnimation);
                     // selectedFragment = ItemTwoFragment.newInstance();
 
                     return true;

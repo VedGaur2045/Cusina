@@ -2,9 +2,10 @@ package com.example.cusina.AdapterClass.CompletedOrdersListAdapter;
 
 public class CompletedOrdersModalClass {
     private Integer imageName,orderCount;
-    private String productName,productPrice, productSubTotalPrice,deliveryFees;
+    private double productPrice, productSubTotalPrice,deliveryFees;
+    private String productName;
 
-    public CompletedOrdersModalClass(Integer imageName, Integer orderCount, String productName, String productPrice, String productSubTotalPrice, String deliveryFees) {
+    public CompletedOrdersModalClass(Integer imageName, Integer orderCount, String productName, double productPrice, double productSubTotalPrice, double deliveryFees) {
         this.imageName = imageName;
         this.orderCount = orderCount;
         this.productName = productName;
@@ -37,27 +38,27 @@ public class CompletedOrdersModalClass {
         this.productName = productName;
     }
 
-    public String getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 
-    public String getProductSubTotalPrice() {
+    public double getProductSubTotalPrice() {
         return productSubTotalPrice;
     }
 
-    public void setProductSubTotalPrice(String productSubTotalPrice) {
+    public void setProductSubTotalPrice(double productSubTotalPrice) {
         this.productSubTotalPrice = productSubTotalPrice;
     }
 
-    public String getDeliveryFees() {
+    public double getDeliveryFees() {
         return deliveryFees;
     }
 
-    public void setDeliveryFees(String deliveryFees) {
+    public void setDeliveryFees(double deliveryFees) {
         this.deliveryFees = deliveryFees;
     }
 }

@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_200sdp"
-    android:background="@color/_FFFFFF">
+    android:layout_height="wrap_content"
+    android:background="@color/_FFFFFF"
+    android:paddingBottom="@dimen/_20sdp">
 
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp">
+        android:paddingTop="@dimen/_15sdp">
 
         <com.github.florent37.shapeofview.shapes.RoundRectView
             android:id="@+id/prdctImg"
@@ -62,8 +63,8 @@
             android:id="@+id/productNameDelivered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_33sdp"
-            android:layout_marginLeft="@dimen/_33sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
             android:textSize="@dimen/_10ssp"
             app:fontFamily="@font/sourcesanspro_bold"
             android:textColor="@color/_7BCC86"
@@ -88,14 +89,15 @@
             android:layout_marginRight="@dimen/_10sdp" />
 
 
-        <TextView
+        <Button
             android:layout_below="@+id/orderSecond"
-            android:id="@+id/RateServer"
+            android:id="@+id/RateDish"
             android:layout_width="@dimen/_87sdp"
             android:layout_height="@dimen/_25sdp"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:gravity="center"
             android:background="@drawable/color_solid_drawable"
-            android:text="@string/RateServer"
+            android:text="@string/RateDish"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FFFFFF"
             android:fontFamily="@font/sourcesanspro_bold"
@@ -151,31 +153,31 @@
         android:id="@+id/DeliveryFeesLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@+id/subtotalLayout"
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp">
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_DeliveryFees"
+            android:textColor="@color/_000000"
             android:textSize="@dimen/_14ssp"
-            app:fontFamily="@font/sourcesanspro_regular"
-            android:textColor="@color/_000000"/>
+            app:fontFamily="@font/sourcesanspro_regular" />
 
         <TextView
             android:id="@+id/DeliveryFees"
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:text="@string/_4"
-            android:textSize="@dimen/_14ssp"
-            app:fontFamily="@font/sourcesanspro_regular"
             android:textColor="@color/_000000"
-            android:layout_alignParentEnd="true" />
+            android:textSize="@dimen/_14ssp"
+            app:fontFamily="@font/sourcesanspro_regular" />
 
     </RelativeLayout>
 

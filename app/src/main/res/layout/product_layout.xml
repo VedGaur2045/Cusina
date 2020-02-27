@@ -104,7 +104,8 @@
                     app:fontFamily="@font/sourcesanspro_regular"/>
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_30sdp"
                     android:layout_marginLeft="@dimen/_30sdp">

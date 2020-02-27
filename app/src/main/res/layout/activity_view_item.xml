@@ -109,6 +109,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
+                            android:onClick="dishReviewActivityOnClick"
                             android:layout_marginEnd="@dimen/_20sdp"
                             android:layout_marginRight="@dimen/_20sdp"
                             android:src="@mipmap/rating_img" />

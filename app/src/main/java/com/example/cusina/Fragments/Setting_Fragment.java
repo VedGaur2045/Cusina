@@ -63,6 +63,13 @@ public class Setting_Fragment extends Fragment {
             }
         });
 
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return root;
     }
 

@@ -27,7 +27,7 @@ public class Privacy_policy extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startloginscreen();
+                startChooseAddressScreen();
             }
         });
         close=findViewById(R.id.close);
@@ -40,12 +40,11 @@ public class Privacy_policy extends AppCompatActivity {
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public  void startloginscreen(){
+    public  void startChooseAddressScreen(){
         Intent intent=new Intent(Privacy_policy.this, Choose_address.class);
-        intent.putExtra("id",1);
+        intent.putExtra("id","1");
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
-
     }
 
 }

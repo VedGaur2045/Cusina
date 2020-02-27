@@ -11,6 +11,7 @@
         android:id="@+id/completedListItem"
         android:paddingStart="@dimen/_15sdp"
         android:paddingEnd="@dimen/_15sdp"
+        android:background="@color/_FFFFFF"
         android:scrollbarThumbVertical="@android:color/transparent"
         android:nestedScrollingEnabled="false"/>
 

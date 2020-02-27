@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cusina.Activities.Choose_address;
 import com.example.cusina.Activities.MyTrayActivity;
+import com.example.cusina.Activities.Privacy_policy;
 import com.example.cusina.AdapterClass.productListRecyclerAdapterPackage.adapterFile;
 import com.example.cusina.AdapterClass.productListRecyclerAdapterPackage.viewHolderFile;
 import com.example.cusina.AdapterClass.DishLoookingRecyclerHolder.dishHolderClass;
@@ -56,6 +58,16 @@ public class HomeFragment extends Fragment {
 
         root.findViewById(R.id.toolbarPageIcon).setVisibility(View.GONE);
         root.findViewById(R.id.homePageIcon).setVisibility(View.VISIBLE);
+
+        root.findViewById(R.id.backImgBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), Choose_address.class);
+                intent.putExtra("id","1");
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getContext(), R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                startActivity(intent, bndlAnimation);
+            }
+        });
 
         TextView locationOnToolbar = root.findViewById(R.id.locationName);
 
@@ -99,7 +111,7 @@ public class HomeFragment extends Fragment {
 
         listRecyclerMainClass adapterFisrt = new listRecyclerMainClass(holderClasses,getContext());
         productAdapter productAdapter = new productAdapter(holders,getContext());
-        adapterFile adapterFile = new adapterFile(viewHolderFiles,getContext());
+        adapterFile adapterFile = new adapterFile(viewHolderFiles,getContext(),1);
 
         UtilClass.listFixedSize(listViewNear,getContext());
 //        listFixedSize(dishView);

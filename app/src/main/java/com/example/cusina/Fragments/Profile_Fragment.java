@@ -79,21 +79,21 @@ public class Profile_Fragment extends Fragment {
         sell_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sellFood();
+//                sellFood();
             }
         });
 
         fbButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseAddress();
+                chooseAddress("2");
             }
         });
 
         fbButtonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseAddress();
+                chooseAddress("3");
             }
         });
     }
@@ -114,8 +114,9 @@ public class Profile_Fragment extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    private void chooseAddress() {
+    private void chooseAddress(String a) {
         Intent intent=new Intent(getActivity(), Choose_address.class);
+        intent.putExtra("id",a);
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getActivity(), R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
     }
@@ -123,6 +124,7 @@ public class Profile_Fragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void sellFood() {
         Intent intent=new Intent(getActivity(), SellFoodWithLutongBahayActivity.class);
+        intent.putExtra("id",3);
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getActivity(), R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
     }
@@ -171,6 +173,7 @@ public class Profile_Fragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void savedplace(){
         Intent intent=new Intent(getActivity(), Choose_address.class);
+        intent.putExtra("id","4");
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getActivity(), R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
 

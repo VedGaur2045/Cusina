@@ -23,12 +23,12 @@
                 android:layout_below="@+id/headerLayout"
                 android:background="@color/_FFFFFF"
                 android:id="@+id/orderSummeryLayout"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_above="@+id/totalAmountLayout"
-                android:padding="@dimen/_15sdp">
+                android:padding="@dimen/_10sdp">
 
                 <TextView
                     android:id="@+id/oderSummery"
@@ -55,7 +55,7 @@
                 android:id="@+id/totalAmountLayout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_7sdp"
                 android:background="@drawable/bg_white_drawable"
                 android:translationZ="@dimen/_11sdp"
                 android:translationY="@dimen/_3sdp">

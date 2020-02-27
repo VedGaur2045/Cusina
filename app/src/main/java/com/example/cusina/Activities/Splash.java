@@ -35,10 +35,10 @@ RelativeLayout mobilenumberbox;
 
     }
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public  void startloginscreen(){
+    public void startloginscreen(){
         Intent intent=new Intent(Splash.this,Login.class);
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Splash.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
-
+        finish();
     }
 }

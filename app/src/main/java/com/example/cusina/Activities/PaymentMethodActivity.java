@@ -21,7 +21,6 @@ public class PaymentMethodActivity extends AppCompatActivity {
     TextView titleBarTxt;
     RadioGroup radioGroup;
     String getTxtFromRadioBtn;
-    ColorRatingBar ratingBar;
     RadioButton COD_Check,G_Cash_Check,Coins_Ph_check;
 
     @Override
@@ -34,8 +33,6 @@ public class PaymentMethodActivity extends AppCompatActivity {
         }
 
         setObjectId();
-
-        ratingBar = findViewById(R.id.ratingBar);
 
         titleBarTxt.setText(getString(R.string.PaymentMode));
 

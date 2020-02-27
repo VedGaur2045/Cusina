@@ -74,7 +74,7 @@ public class FavouritePageFragment extends Fragment {
                 new viewHolderFile(productName[0],productRating[0],productPrice[0],productServingLeft[0],productPlace[0],productShop[0],productMinimumOrder[0],productDistance[0],productDeliveryFee[0],productCount[0],productTime[0],productImage[0]),
         };
 
-        adapterFile adapterFile = new adapterFile(viewHolderFiles,getContext());
+        adapterFile adapterFile = new adapterFile(viewHolderFiles,getContext(),2);
 
         UtilClass.listFixedSize(favDishListView,getContext());
 

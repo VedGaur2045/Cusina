@@ -303,4 +303,24 @@
     <string name="RateServer">RATE SERVER</string>
     <string name="_ServerNameLocation">5 Oranbo St. Brgy Oranbo, Pasig City</string>
     <string name="_deliveryLocation">1 Canley Road, Pasig City</string>
+    <string name="RateDish">RATE DISH</string>
+    <string name="Reviews">Reviews</string>
+    <string name="_4_rating">4</string>
+    <string name="_5_rating">\u0020 / 5</string>
+    <string name="_600">600</string>
+    <string name="_reviewTxt">\u0020 reviews</string>
+    <string name="All">ALL</string>
+    <string name="_3_">\u0020 (3)</string>
+    <string name="_2">2</string>
+    <string name="_3__">3</string>
+    <string name="_10_">\u0020 (10)</string>
+    <string name="_50_">\u0020 (50)</string>
+    <string name="_4_">4</string>
+    <string name="_400_">\u0020 (400)</string>
+    <string name="_5">5</string>
+    <string name="_137_">\u0020 (137)</string>
+    <string name="_reviewedUserName">Annie C.</string>
+    <string name="_reviewed_hyphen">\u0020 - \u0020</string>
+    <string name="_reviewedTime">7 minutes ago</string>
+    <string name="_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vulputate nunc. Curabitur accumsan mauris ut orci convallis porta. Praesent posuere fermentum cursus.</string>
 </resources>

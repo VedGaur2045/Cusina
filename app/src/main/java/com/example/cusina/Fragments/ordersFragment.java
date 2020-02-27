@@ -1,5 +1,6 @@
 package com.example.cusina.Fragments;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.cusina.Activities.Home;
 import com.example.cusina.AdapterClass.viewPagerAdapter;
 import com.example.cusina.R;
+import com.example.cusina.UtilClasses.UtilClass;
 import com.google.android.material.tabs.TabLayout;
 
 public class ordersFragment extends Fragment {
@@ -34,7 +36,10 @@ public class ordersFragment extends Fragment {
         root.findViewById(R.id.backBtnImg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), Home.class));
+                Intent intent=new Intent(getContext(), Home.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getContext(), R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                startActivity(intent,bndlAnimation);
                 //getActivity().finish();
             }
         });

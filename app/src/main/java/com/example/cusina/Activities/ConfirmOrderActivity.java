@@ -48,8 +48,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
         findViewById(R.id.closeImgBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(ConfirmOrderActivity.this, R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
-                startActivity(new Intent(ConfirmOrderActivity.this,Home.class),bndlAnimation);
+                UtilClass.backbtn(ConfirmOrderActivity.this);
             }
         });
 

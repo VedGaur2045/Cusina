@@ -3,6 +3,8 @@ package com.example.cusina.Activities;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,9 @@ public class Order_placed extends AppCompatActivity {
     }
 
     public void backToFoodMenuOnClick(View view) {
-        UtilClass.backbtn(Order_placed.this);
+        Intent intent = new Intent(Order_placed.this, Home.class);
+        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Order_placed.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+        startActivity(intent, bndlAnimation);
     }
 
     public void backBtnClick(View view) {

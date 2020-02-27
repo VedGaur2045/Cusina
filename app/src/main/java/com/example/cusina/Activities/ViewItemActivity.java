@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class ViewItemActivity extends AppCompatActivity {
     RelativeLayout minus,plus;
     TextView addToTray,productPrice,quantityProduct;
     ImageButton backBtnImg;
+    ImageView ratingImg;
 
     double price;
     private static Integer count=1;
@@ -41,8 +43,10 @@ public class ViewItemActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
-                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(ViewItemActivity.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
-                startActivity(new Intent(ViewItemActivity.this, Home.class),bndlAnimation);
+                Intent intent = new Intent(ViewItemActivity.this, Home.class);
+                intent.putExtra("id","5");
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(ViewItemActivity.this, R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
+                startActivity(intent,bndlAnimation);
                 finish();
             }
         });
@@ -78,6 +82,13 @@ public class ViewItemActivity extends AppCompatActivity {
             }
         });
 
+        addToTray.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UtilClass.backbtn(ViewItemActivity.this);
+            }
+        });
+
     }
 
     private void setIdOfView(){
@@ -87,6 +98,7 @@ public class ViewItemActivity extends AppCompatActivity {
         addToTray = findViewById(R.id.addToTray);
         productPrice = findViewById(R.id.productPrice);
         quantityProduct = findViewById(R.id.quantityProduct);
+        ratingImg = findViewById(R.id.ratingImg);
     }
 
     @SuppressLint("SetTextI18n")
@@ -100,4 +112,10 @@ public class ViewItemActivity extends AppCompatActivity {
         addToTray.setText("Add to Tray - "+dFormat.format(totalPrice));
     }
 
+    public void dishReviewActivityOnClick(View view) {
+        Intent intent = new Intent(ViewItemActivity.this, DishReviewsActivity.class);
+        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(ViewItemActivity.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+        intent.putExtra("ratingVal","52");
+        startActivity(intent,bndlAnimation);
+    }
 }

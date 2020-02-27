@@ -54,7 +54,7 @@ String mobile_number="";
                         //UtilClass.showAlertDialog(Login.this, getString(R.string.alert), getString(R.string.requiredvaildmobile));
                     }
                     else {
-                        startloginscreen();
+                        startPrivacyPolicyScreen();
                     }
                 }
 
@@ -72,11 +72,10 @@ String mobile_number="";
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public  void startloginscreen(){
+    public  void startPrivacyPolicyScreen(){
         Intent intent=new Intent(Login.this, Privacy_policy.class);
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Login.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         startActivity(intent, bndlAnimation);
-
     }
 
     private void requestPermission() {
