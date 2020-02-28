@@ -172,8 +172,8 @@
     <string name="order_details">ORDER DETAILS</string>
     <string name="DELIVERED_Txt">DELIVERED</string>
     <string name="CANCELLED_Txt">CANCELLED</string>
-    <string name="Serving">Servings</string>
-    <string name="_3">3 \u0020</string>
+    <string name="Serving">\u0020 Servings</string>
+    <string name="_3">3</string>
     <string name="_viewOrder">View Order</string>
     <string name="_cancelOrder">Cancel Order</string>
     <string name="Upload_Documents">Upload Documents</string>
@@ -323,4 +323,25 @@
     <string name="_reviewed_hyphen">\u0020 - \u0020</string>
     <string name="_reviewedTime">7 minutes ago</string>
     <string name="_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vulputate nunc. Curabitur accumsan mauris ut orci convallis porta. Praesent posuere fermentum cursus.</string>
+    <string name="OrderReceived">Order Received</string>
+    <string name="OrderConfirmed">Order Confirmed</string>
+    <string name="ProcessingOrder">Processing Order</string>
+    <string name="DeliveringOrder">Delivering Order</string>
+    <string name="OrderDelivered">Order Delivered</string>
+    <string name="galleryTxt_1">Make your Luto stand out!</string>
+    <string name="galleryTxt_2">Tips on how to take a photo of your dish</string>
+    <string name="ins_1">1.</string>
+    <string name="galleryTxt_3">Make your dish presentable</string>
+    <string name="ins_2">2.</string>
+    <string name="galleryTxt_4">Take a photo in a well lit place</string>
+    <string name="galleryTxt_5">Make the surroundings as clean
+        \n as possible</string>
+    <string name="galleryTxt_6">Take a photo of a newly cooked
+        \n dish to make it look fresh.</string>
+    <string name="galleryTxt_7">Choose a top angle shot if you
+        \n are unsure how to take a photo.</string>
+    <string name="ins_5">5.</string>
+    <string name="ins_4">4.</string>
+    <string name="ins_3">3.</string>
+
 </resources>

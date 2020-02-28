@@ -9,23 +9,20 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.example.cusina.AdapterClass.CompletedOrdersListAdapter.CompletedOrdersAdapterClass;
-import com.example.cusina.AdapterClass.CompletedOrdersListAdapter.CompletedOrdersModalClass;
+import com.example.cusina.AdapterClass.FragmentOrdersListAdapter.FragmentOrdersAdapterClass;
+import com.example.cusina.AdapterClass.FragmentOrdersListAdapter.FragmentOrdersModalClass;
 import com.example.cusina.R;
 import com.example.cusina.UtilClasses.UtilClass;
-
-import hyogeun.github.com.colorratingbarlib.ColorRatingBar;
 
 public class CompletedOrdersActivity extends AppCompatActivity {
 
@@ -38,7 +35,7 @@ public class CompletedOrdersActivity extends AppCompatActivity {
     // Popup Object
     private ImageButton closeImgBtn;
     private Button submitBtn;
-    private ColorRatingBar ratingBar;
+    private RatingBar ratingBar;
     private ViewStub viewStub;
     private TextView FastTransaction,Punctual,CustomerService,FastDelivery,Polite,Products;
 
@@ -57,44 +54,54 @@ public class CompletedOrdersActivity extends AppCompatActivity {
         findViewById(R.id.closeImgBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CompletedOrdersActivity.this, Home.class);
-                intent.putExtra("valFromTUPage",10);
-                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(CompletedOrdersActivity.this, R.animator.enter_from_left,R.animator.exit_to_right).toBundle();
-                startActivity(intent, bndlAnimation);
+//                Intent intent = new Intent(CompletedOrdersActivity.this, Home.class);
+//                intent.putExtra("valFromTUPage",10);
+//                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(CompletedOrdersActivity.this, R.animator.enter_from_left,R.animator.exit_to_right).toBundle();
+//                startActivity(intent, bndlAnimation);
+                UtilClass.backbtn(CompletedOrdersActivity.this);
             }
         });
 
         findViewById(R.id.backBtnImg).setVisibility(View.GONE);
 
-        CompletedOrdersModalClass[] ordersModalClasses = new CompletedOrdersModalClass[]{
-                new CompletedOrdersModalClass(R.mipmap.fish_img_6,2,"APPLE",70.00,70.00,50.00),
-                new CompletedOrdersModalClass(R.mipmap.fish_img_6,1,"BANANA",80.00,80.00,30.00),
-                new CompletedOrdersModalClass(R.mipmap.fish_img_6,3,"CAT",60.00,60.00,60.00),
-                new CompletedOrdersModalClass(R.mipmap.fish_img_6,2,"DAWN",80.00,80.00,50.00),
+        try {
+            switch (getIntent().getExtras().getInt("ValCheck")){
+                case 11 :
+                    RateServerBtn.setVisibility(View.GONE);
+                    callOrderFragmentByStatus(3);
+                    break;
+                case 12 :
+                    RateServerBtn.setVisibility(View.VISIBLE);
+                    callOrderFragmentByStatus(1);
+                    break;
+                case 13 :
+                    RateServerBtn.setVisibility(View.GONE);
+                    callOrderFragmentByStatus(2);
+                    break;
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+
+    }
+
+    private void callOrderFragmentByStatus(int check){
+        FragmentOrdersModalClass[] ordersModalClasses = new FragmentOrdersModalClass[]{
+                new FragmentOrdersModalClass(R.mipmap.fish_img_6,2,"APPLE",70.00,70.00,50.00),
+                new FragmentOrdersModalClass(R.mipmap.fish_img_6,1,"BANANA",80.00,80.00,30.00),
+                new FragmentOrdersModalClass(R.mipmap.fish_img_6,3,"CAT",60.00,60.00,60.00),
+                new FragmentOrdersModalClass(R.mipmap.fish_img_6,2,"DAWN",80.00,80.00,50.00),
         };
 
-        CompletedOrdersAdapterClass ordersAdapterClass = new CompletedOrdersAdapterClass(this,ordersModalClasses);
+        FragmentOrdersAdapterClass ordersAdapterClass = new FragmentOrdersAdapterClass(this,ordersModalClasses,check);
 
         UtilClass.listFixedSize(listView,this);
         UtilClass.setDividerOnRecycler(listView,this);
 
         listView.setAdapter(ordersAdapterClass);
-
     }
-
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        try{
-//            window.dismiss();
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                UtilClass.setLightStatusBar(this,"#FFFFFF");
-//            }
-//           // UtilClass.backbtn(this);
-//        } catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }
-//    }
 
     private void setObjectId(){
         titleBartxt = findViewById(R.id.titleName);
@@ -122,9 +129,6 @@ public class CompletedOrdersActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void rateServerBtnOnClick(View view) {
 
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-//                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         final View popUpView = inflater.inflate(R.layout.add_review_layout,null);
 
@@ -132,7 +136,6 @@ public class CompletedOrdersActivity extends AppCompatActivity {
         int height = LinearLayout.LayoutParams.MATCH_PARENT;
         boolean focusable = true;
 
-        // Set Id
         setObjectIdOfPopUp(popUpView);
 
         UtilClass.fullsreenui(this,"#99000000");

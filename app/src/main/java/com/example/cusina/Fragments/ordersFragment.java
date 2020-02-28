@@ -52,6 +52,14 @@ public class ordersFragment extends Fragment {
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
+        try {
+            if(getArguments().getInt("val") == 10){
+                setupViewPagerOnCompletedFragment(viewPager,1);
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         return root;
     }
 
@@ -61,6 +69,11 @@ public class ordersFragment extends Fragment {
         adapter.addFragment(new CompletedFragment(), getString(R.string.Completed));
         adapter.addFragment(new CancelledFragment(), getString(R.string.Cancelled));
         viewPager.setAdapter(adapter);
+    }
+
+    private void setupViewPagerOnCompletedFragment(ViewPager viewPager, int position) {
+
+        viewPager.setCurrentItem(position);
     }
 
 }

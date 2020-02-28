@@ -60,15 +60,49 @@
             android:layout_toEndOf="@+id/productCount"/>
 
         <TextView
+            android:visibility="visible"
             android:id="@+id/productNameDelivered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_27sdp"
+            android:layout_marginLeft="@dimen/_27sdp"
             android:textSize="@dimen/_10ssp"
             app:fontFamily="@font/sourcesanspro_bold"
             android:textColor="@color/_7BCC86"
             android:text="@string/DELIVERED_Txt"
+            android:layout_below="@+id/productName"
+            android:layout_toRightOf="@+id/prdctImg"
+            android:layout_toEndOf="@+id/prdctImg" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/productNameCancelled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_27sdp"
+            android:layout_marginLeft="@dimen/_27sdp"
+            android:textSize="@dimen/_10ssp"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:textColor="@color/_EC0000"
+            android:text="@string/CANCELLED_Txt"
+            android:layout_below="@+id/productName"
+            android:layout_toRightOf="@+id/prdctImg"
+            android:layout_toEndOf="@+id/prdctImg" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/productNameProcessingDeliveryAndPickup"
+            android:layout_width="@dimen/_62sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:layout_marginStart="@dimen/_27sdp"
+            android:layout_marginLeft="@dimen/_27sdp"
+            android:textSize="@dimen/_8ssp"
+            android:background="@drawable/delivery_and_pickup_bg_drawable"
+            app:fontFamily="@font/sourcesanspro_regular"
+            android:gravity="center"
+            android:textColor="@color/_FFFFFF"
+            android:text="@string/_ForDeliveryCheck"
+            android:textAllCaps="true"
             android:layout_below="@+id/productName"
             android:layout_toRightOf="@+id/prdctImg"
             android:layout_toEndOf="@+id/prdctImg" />
@@ -90,7 +124,6 @@
 
 
         <Button
-            android:layout_below="@+id/orderSecond"
             android:id="@+id/RateDish"
             android:layout_width="@dimen/_87sdp"
             android:layout_height="@dimen/_25sdp"

@@ -63,8 +63,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), Choose_address.class);
-                intent.putExtra("id","1");
-                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getContext(), R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                intent.putExtra("id","8");
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(getContext(), R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
                 startActivity(intent, bndlAnimation);
             }
         });

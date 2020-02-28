@@ -1,7 +1,7 @@
 package com.example.cusina.AdapterClass.AddPhotoAdapter;
 
 public class AddPhotoModelClass {
-    String imgStr;
+    private String imgStr;
 
     public AddPhotoModelClass(String imgStr) {
         this.imgStr = imgStr;

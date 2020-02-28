@@ -91,7 +91,8 @@ public class Choose_address extends AppCompatActivity implements LocationListene
                         changeActivityGoOnFrag(intent, 12);
                         break;
                     }
-                    case "5": {
+                    case "5":
+                    case "9": {
                         Intent intent = new Intent(Choose_address.this, ConfirmOrderActivity.class);
                         changeOnlyActivity(intent);
                         break;
@@ -101,7 +102,8 @@ public class Choose_address extends AppCompatActivity implements LocationListene
                         changeOnlyActivity(intent);
                         break;
                     }
-                    case "7": {
+                    case "7":
+                    case "8": {
                         Intent intent = new Intent(Choose_address.this, Home.class);
                         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(Choose_address.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
                         startActivity(intent, bndlAnimation);
@@ -133,13 +135,13 @@ public class Choose_address extends AppCompatActivity implements LocationListene
                         changeActivityGoOnFrag(intent, 12);
                         break;
                     }
-                    case "5": {
-                        Intent intent = new Intent(Choose_address.this, ConfirmOrderActivity.class);
+                    case "6": {
+                        Intent intent = new Intent(Choose_address.this, CompletedOrdersActivity.class);
                         changeOnlyActivity(intent);
                         break;
                     }
-                    case "6": {
-                        Intent intent = new Intent(Choose_address.this, CompletedOrdersActivity.class);
+                    case "9" : {
+                        Intent intent = new Intent(Choose_address.this, ConfirmOrderActivity.class);
                         changeOnlyActivity(intent);
                         break;
                     }

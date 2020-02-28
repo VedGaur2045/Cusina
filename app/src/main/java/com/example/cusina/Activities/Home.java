@@ -100,7 +100,7 @@ public class Home extends AppCompatActivity {
         try{
             if(getIntent().getExtras().getInt("valFromTUPage") == 10){
                 Bundle bundle = new Bundle();
-                bundle.putInt("val",11);
+                bundle.putString("val","10");
                 ordersFragment ordersFrag = new ordersFragment();
                 ordersFrag.setArguments(bundle);
 

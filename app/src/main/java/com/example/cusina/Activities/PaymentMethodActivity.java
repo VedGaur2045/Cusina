@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.example.cusina.R;
 import com.example.cusina.UtilClasses.UtilClass;
 
-import hyogeun.github.com.colorratingbarlib.ColorRatingBar;
 
 public class PaymentMethodActivity extends AppCompatActivity {
 

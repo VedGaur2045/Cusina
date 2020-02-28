@@ -50,6 +50,7 @@ public class listCompletedAdapterClass extends RecyclerView.Adapter<listComplete
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context, CompletedOrdersActivity.class);
+                intent.putExtra("ValCheck",12);
                 Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
                 context.startActivity(intent, bndlAnimation);
             }

@@ -1,55 +1,51 @@
-package com.example.cusina.AdapterClass.CompletedOrdersListAdapter;
+package com.example.cusina.AdapterClass.FragmentOrdersListAdapter;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cusina.Activities.CompletedOrdersActivity;
 import com.example.cusina.R;
 import com.example.cusina.UtilClasses.UtilClass;
 
 import java.text.DecimalFormat;
 
-import hyogeun.github.com.colorratingbarlib.ColorRatingBar;
-
-public class CompletedOrdersAdapterClass extends RecyclerView.Adapter<CompletedOrdersAdapterClass.ViewHolder> {
+public class FragmentOrdersAdapterClass extends RecyclerView.Adapter<FragmentOrdersAdapterClass.ViewHolder> {
     private Context context;
-    private CompletedOrdersModalClass[] modalClasses;
+    private FragmentOrdersModalClass[] modalClasses;
     private ImageButton closeImgBtn;
     private Button submitBtn;
-    private ColorRatingBar ratingBar;
+    private RatingBar ratingBar;
     private ViewStub viewStub;
     private Activity activity;
+    private int check;
 
-    public CompletedOrdersAdapterClass(Activity context, CompletedOrdersModalClass[] modalClasses) {
+    public FragmentOrdersAdapterClass(Activity context, FragmentOrdersModalClass[] modalClasses, int check) {
         this.activity = context;
         this.modalClasses = modalClasses;
+        this.check = check;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.completed_orders_list_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orders_list_on_fragment_button_layout,parent,false);
         return new ViewHolder(view);
     }
 
@@ -64,6 +60,27 @@ public class CompletedOrdersAdapterClass extends RecyclerView.Adapter<CompletedO
         holder.productPrice.setText(String.valueOf(dFormat.format(modalClasses[position].getProductPrice())));
         holder.productSubTotalPrice.setText(dFormat.format(modalClasses[position].getProductSubTotalPrice()));
         holder.deliveryFees.setText(dFormat.format(modalClasses[position].getDeliveryFees()));
+
+        switch (check) {
+            case 1:
+                holder.productNameCancelled.setVisibility(View.GONE);
+                holder.productNameProcessing.setVisibility(View.GONE);
+                holder.productNameDelivered.setVisibility(View.VISIBLE);
+                holder.rateDishBtn.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                holder.productNameCancelled.setVisibility(View.VISIBLE);
+                holder.productNameProcessing.setVisibility(View.GONE);
+                holder.productNameDelivered.setVisibility(View.GONE);
+                holder.rateDishBtn.setVisibility(View.GONE);
+                break;
+            case 3:
+                holder.productNameCancelled.setVisibility(View.GONE);
+                holder.productNameProcessing.setVisibility(View.VISIBLE);
+                holder.productNameDelivered.setVisibility(View.GONE);
+                holder.rateDishBtn.setVisibility(View.GONE);
+                break;
+        }
 
         holder.rateDishBtn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -129,6 +146,8 @@ public class CompletedOrdersAdapterClass extends RecyclerView.Adapter<CompletedO
         ImageView productImg;
         TextView prooductName,productCount,productPrice, productSubTotalPrice,deliveryFees;
         Button rateDishBtn;
+        // For Visibility Gone
+        TextView productNameCancelled,productNameProcessing,productNameDelivered;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -139,6 +158,9 @@ public class CompletedOrdersAdapterClass extends RecyclerView.Adapter<CompletedO
             this.productSubTotalPrice = itemView.findViewById(R.id.subTotal);
             this.deliveryFees = itemView.findViewById(R.id.DeliveryFees);
             this.rateDishBtn = itemView.findViewById(R.id.RateDish);
+            this.productNameProcessing = itemView.findViewById(R.id.productNameProcessingDeliveryAndPickup);
+            this.productNameCancelled = itemView.findViewById(R.id.productNameCancelled);
+            this.productNameDelivered = itemView.findViewById(R.id.productNameDelivered);
         }
     }
 

@@ -1,6 +1,9 @@
 package com.example.cusina.AdapterClass.CancelledListAdapter;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cusina.Activities.CompletedOrdersActivity;
 import com.example.cusina.R;
 
 public class listCancelledAdapterClass extends RecyclerView.Adapter<listCancelledAdapterClass.ViewHolder> {
@@ -42,7 +46,10 @@ public class listCancelledAdapterClass extends RecyclerView.Adapter<listCancelle
         holder.orderDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(context, CompletedOrdersActivity.class);
+                intent.putExtra("ValCheck",13);
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                context.startActivity(intent, bndlAnimation);
             }
         });
 

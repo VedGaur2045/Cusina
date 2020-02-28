@@ -35,6 +35,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Activities.DishReviewsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -79,7 +81,12 @@
             android:name=".Activities.AddPhotoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.RefillDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -154,10 +161,6 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             tools:ignore="InnerclassSeparator">
 
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.Choose_address"

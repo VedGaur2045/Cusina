@@ -90,19 +90,25 @@ public class SignUpDocumentUploadActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case 101:
+                if (resultCode == -1) {
                     fileUri = data.getData();
                     filePath = fileUri.getPath();
                     fileFisrtUpload.setText(filePath);
+                }
                 break;
             case 102:
+                if (resultCode == -1) {
                     fileUri = data.getData();
                     filePath = fileUri.getPath();
                     fileSecondUpload.setText(filePath);
+                }
                 break;
             case 103:
+                if (resultCode == -1) {
                     fileUri = data.getData();
                     filePath = fileUri.getPath();
                     fileThirdUpload.setText(filePath);
+                }
                 break;
         }
     }

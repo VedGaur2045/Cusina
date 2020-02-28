@@ -1,11 +1,11 @@
-package com.example.cusina.AdapterClass.CompletedOrdersListAdapter;
+package com.example.cusina.AdapterClass.FragmentOrdersListAdapter;
 
-public class CompletedOrdersModalClass {
+public class FragmentOrdersModalClass {
     private Integer imageName,orderCount;
     private double productPrice, productSubTotalPrice,deliveryFees;
     private String productName;
 
-    public CompletedOrdersModalClass(Integer imageName, Integer orderCount, String productName, double productPrice, double productSubTotalPrice, double deliveryFees) {
+    public FragmentOrdersModalClass(Integer imageName, Integer orderCount, String productName, double productPrice, double productSubTotalPrice, double deliveryFees) {
         this.imageName = imageName;
         this.orderCount = orderCount;
         this.productName = productName;

@@ -49,14 +49,17 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 UtilClass.backbtn(ConfirmOrderActivity.this);
+                finish();
             }
         });
 
         changeAddressPencilBtnSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(ConfirmOrderActivity.this, R.animator.enter_from_left, R.animator.exit_to_right).toBundle();
-                startActivity(new Intent(ConfirmOrderActivity.this,Choose_address.class),bndlAnimation);
+                Intent intent = new Intent(ConfirmOrderActivity.this, Choose_address.class) ;
+                intent.putExtra("id","9");
+                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(ConfirmOrderActivity.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+                startActivity(intent,bndlAnimation);
             }
         });
 

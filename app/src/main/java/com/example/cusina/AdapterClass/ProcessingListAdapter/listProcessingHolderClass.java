@@ -1,28 +1,29 @@
 package com.example.cusina.AdapterClass.ProcessingListAdapter;
 
 public class listProcessingHolderClass {
-    private String imageStr,servingNumber,orderedProductName;
+    private String orderedProductName;
+    private int imageStr,servingNumber;
 
-    public listProcessingHolderClass(String imageStr, String servingNumber, String orderedProductName) {
+    public listProcessingHolderClass(int imageStr, int servingNumber, String orderedProductName) {
         this.imageStr = imageStr;
         this.servingNumber = servingNumber;
         this.orderedProductName = orderedProductName;
     }
 
-    public String getImageStr() {
+    public int getImageStr() {
         return imageStr;
     }
 
-    public listProcessingHolderClass setImageStr(String imageStr) {
+    public listProcessingHolderClass setImageStr(int imageStr) {
         this.imageStr = imageStr;
         return this;
     }
 
-    public String getServingNumber() {
+    public int getServingNumber() {
         return servingNumber;
     }
 
-    public listProcessingHolderClass setServingNumber(String servingNumber) {
+    public listProcessingHolderClass setServingNumber(int servingNumber) {
         this.servingNumber = servingNumber;
         return this;
     }
