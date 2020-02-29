@@ -1,15 +1,26 @@
 package com.example.cusina.AdapterClass.AddPhotoAdapter;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import androidx.appcompat.app.AlertDialog;
+
+import com.example.cusina.Activities.CameraViewActivity;
+import com.example.cusina.Activities.Login;
 import com.example.cusina.R;
 
 public class AddPhotoAdapter extends BaseAdapter {
@@ -37,18 +48,44 @@ public class AddPhotoAdapter extends BaseAdapter {
     }
 
     @Override
+    public int getViewTypeCount() {
+        return getCount();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
         ImageView imageView;
+        RelativeLayout relativeLayout;
         View galleryImgView = null;
 
         if (view == null) {
             galleryImgView = LayoutInflater.from(context).inflate(R.layout.add_photo_adapter, viewGroup, false);
             imageView = galleryImgView.findViewById(R.id.galleryImg);
+            relativeLayout = galleryImgView.findViewById(R.id.cameraLayout);
 
-            Bitmap bmp = decodeURI(_filePaths[i].getPath());
-            //BitmapFactory.decodeFile(mUrls[position].getPath());
-            imageView.setImageBitmap(bmp);
+            if(i == 0){
+                relativeLayout.setVisibility(View.VISIBLE);
+                imageView.setVisibility(View.GONE);
+
+                relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openAlertBox();
+                    }
+                });
+            } else {
+                relativeLayout.setVisibility(View.GONE);
+                imageView.setVisibility(View.VISIBLE);
+                Bitmap bmp = decodeURI(_filePaths[i].getPath());
+                //BitmapFactory.decodeFile(mUrls[position].getPath());
+                imageView.setImageBitmap(bmp);
+            }
 
         } else {
             galleryImgView = view;
@@ -82,6 +119,42 @@ public class AddPhotoAdapter extends BaseAdapter {
         Bitmap output = BitmapFactory.decodeFile(filePath, options);
 
         return output;
+    }
+
+
+    private void openAlertBox(){
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.started_camera_from_gallery_layout, null);
+
+// create the popup window
+
+
+        final AlertDialog dialog = new AlertDialog.Builder(context).create();
+        dialog.setView(popupView);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        Window window = dialog.getWindow();
+        assert window != null;
+        //window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+        dialog.show();
+        ImageButton closeBtn = popupView.findViewById(R.id.closeImgBtn);
+        Button getStarted = popupView.findViewById(R.id.getStarted);
+
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(context, CameraViewActivity.class);
+//                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+//                context.startActivity(intent, bndlAnimation);
+            }
+        });
     }
 
 

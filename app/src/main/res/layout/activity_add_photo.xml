@@ -83,29 +83,18 @@
 
     </LinearLayout>
 
-<!--    <GridView-->
-<!--        android:visibility="visible"-->
-<!--        android:id="@+id/gridViewMenuList"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:columnWidth="@dimen/_168sdp"-->
-<!--        android:horizontalSpacing="@dimen/_5sdp"-->
-<!--        android:numColumns="5"-->
-<!--        android:listSelector="@android:color/transparent"-->
-<!--        android:cacheColorHint="@android:color/transparent"-->
-<!--        android:verticalSpacing="@dimen/_5sdp"-->
-<!--        android:layout_margin="@dimen/_10ssp"/>-->
-
-    <androidx.recyclerview.widget.RecyclerView
+    <GridView
+        android:visibility="visible"
+        android:id="@+id/gridViewMenuList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/galleryImgListView"
-        android:paddingStart="@dimen/_15sdp"
-        android:paddingEnd="@dimen/_15sdp"
-        android:background="@color/transparent"
-        android:scrollbarThumbVertical="@android:color/transparent"
-        android:nestedScrollingEnabled="false"/>
-
-
+        android:layout_height="match_parent"
+        android:columnWidth="@dimen/_168sdp"
+        android:horizontalSpacing="@dimen/_3sdp"
+        android:numColumns="5"
+        android:scrollbarThumbVertical="@color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:verticalSpacing="@dimen/_3sdp"
+        android:layout_margin="@dimen/_5sdp"/>
 
 </LinearLayout>

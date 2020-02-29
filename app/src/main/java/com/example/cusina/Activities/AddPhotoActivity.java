@@ -36,7 +36,7 @@ public class AddPhotoActivity extends AppCompatActivity {
 
     TextView next;
     ImageView img;
-    RecyclerView gridView;
+    GridView gridView;
 
     private Uri[] mUrls = null;
 
@@ -90,14 +90,7 @@ public class AddPhotoActivity extends AppCompatActivity {
 
             System.out.println(mUrls.length);
 
-            AddPhotoAdapterClass photoAdapter = new AddPhotoAdapterClass(this,mUrls);
-
-            UtilClass.listFixedSize(gridView,this);
-
-            gridView.setLayoutManager(new GridLayoutManager(this, 5));
-
-            int spacingInPixels = getResources().getDimensionPixelSize(R.dimen._3sdp);
-            gridView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
+            AddPhotoAdapter photoAdapter = new AddPhotoAdapter(this,mUrls);
 
             gridView.setAdapter(photoAdapter);
         }
@@ -108,8 +101,8 @@ public class AddPhotoActivity extends AppCompatActivity {
     private void setObjectId(){
         next = findViewById(R.id.next);
         img = findViewById(R.id.img);
-//        gridView = findViewById(R.id.gridViewMenuList);
-        gridView = findViewById(R.id.galleryImgListView);
+        gridView = findViewById(R.id.gridViewMenuList);
+//        gridView = findViewById(R.id.galleryImgListView);
     }
 
     private void requestPermission() {
@@ -131,27 +124,6 @@ public class AddPhotoActivity extends AppCompatActivity {
         return;
 
 
-    }
-
-    public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
-        private int space;
-
-        public SpacesItemDecoration(int space) {
-            this.space = space;
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            outRect.right = space;
-            outRect.bottom = space;
-
-            // Add top margin only for the first item to avoid double space between items
-            if (parent.getChildLayoutPosition(view) == 0) {
-                outRect.top = space;
-            } else {
-                outRect.top = 0;
-            }
-        }
     }
 
 }

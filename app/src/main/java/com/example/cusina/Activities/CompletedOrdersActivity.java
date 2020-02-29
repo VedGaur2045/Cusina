@@ -1,10 +1,12 @@
 package com.example.cusina.Activities;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -129,56 +132,30 @@ public class CompletedOrdersActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void rateServerBtnOnClick(View view) {
 
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        final View popUpView = inflater.inflate(R.layout.add_review_layout,null);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.add_review_layout, null);
 
-        int width = LinearLayout.LayoutParams.MATCH_PARENT;
-        int height = LinearLayout.LayoutParams.MATCH_PARENT;
-        boolean focusable = true;
-
-        setObjectIdOfPopUp(popUpView);
-
-        UtilClass.fullsreenui(this,"#99000000");
+        setObjectIdOfPopUp(popupView);
 
         viewStub.setLayoutResource(R.layout.set_review_layout_for_server);
 
         setViewStubObjectId(viewStub);
 
-        float rating = ratingBar.getRating();
-
-        System.out.println(rating);
-
-        window = new PopupWindow(popUpView,width,height,focusable);
-
-        window.setOutsideTouchable(false);
-
-        window.setFocusable(true);
-
-        window.showAtLocation(popUpView, Gravity.CENTER,0,0);
+        final AlertDialog dialog = new AlertDialog.Builder(this).create();
+        dialog.setView(popupView);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        Window window = dialog.getWindow();
+        assert window != null;
+        //window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        dialog.show();
 
         closeImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                window.dismiss();
-                UtilClass.fullsreenui(CompletedOrdersActivity.this,"#FFFFFF");
+                dialog.dismiss();
             }
         });
-
-//        window.getContentView().setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (keyCode == KeyEvent.KEYCODE_BACK) {
-////                    window.dismiss();
-////                    Intent setIntent = new Intent(Intent.ACTION_MAIN);
-////                    setIntent.addCategory(Intent.CATEGORY_HOME);
-////                    setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-////                    startActivity(setIntent);
-////                    UtilClass.fullsreenui(CompletedOrdersActivity.this,"#FFFFFF");
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cusina.R;
@@ -89,14 +91,6 @@ public class FragmentOrdersAdapterClass extends RecyclerView.Adapter<FragmentOrd
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final View popUpView = inflater.inflate(R.layout.add_review_layout,null);
 
-                int width = LinearLayout.LayoutParams.MATCH_PARENT;
-                int height = LinearLayout.LayoutParams.MATCH_PARENT;
-                boolean focusable = true;
-
-                UtilClass.fullsreenui(activity,"#99000000");
-
-                final PopupWindow popupWindow = new PopupWindow(popUpView,width,height,focusable);
-
                 // Popup Object Id
 
                 viewStub = popUpView.findViewById(R.id.layout_stub);
@@ -112,23 +106,26 @@ public class FragmentOrdersAdapterClass extends RecyclerView.Adapter<FragmentOrd
 
                 //System.out.println(rating);
 
-                popupWindow.showAtLocation(popUpView, Gravity.CENTER,0,0);
-
-                popupWindow.setOutsideTouchable(false);
+                final AlertDialog dialog = new AlertDialog.Builder(context).create();
+                dialog.setView(popUpView);
+                dialog.setCancelable(false);
+                dialog.setCanceledOnTouchOutside(false);
+                Window window = dialog.getWindow();
+                assert window != null;
+                //window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                dialog.show();
 
                 closeImgBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        popupWindow.dismiss();
-                        UtilClass.fullsreenui(activity,"#FFFFFF");
+                        dialog.dismiss();
                     }
                 });
 
                 submitBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        popupWindow.dismiss();
-                        UtilClass.fullsreenui(activity,"#FFFFFF");
+                        dialog.dismiss();
                     }
                 });
 

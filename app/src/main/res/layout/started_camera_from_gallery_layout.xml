@@ -204,6 +204,23 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/getStarted"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:background="@drawable/btn_bg_transition"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@+id/_5"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="@string/_getStarted"
+            android:onClick="buyNowBtnOnClick"
+            android:textAllCaps="false"
+            android:textColor="@color/_FFFFFF"
+            android:textSize="@dimen/_14ssp"
+            android:translationY="@dimen/_3sdp"
+            android:translationZ="@dimen/_6sdp"
+            android:fontFamily="@font/sourcesanspro_semibold"/>
+
     </RelativeLayout>
 
 </RelativeLayout>
