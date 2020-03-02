@@ -1,31 +1,45 @@
 <resources>
     <string name="app_name">Cusina</string>
+
+    <string name="notification_channel_name">App Updates</string>
+    <string name="notification_channel_description">This channel will give you updates about app.</string>
+
+    <string name="internal_storage">Internal storage</string>
+
+
     <string name="net_not_connected">No network available!</string>
     <string name="ok">Ok</string>
     <string name="alert">Alert</string>
-    <!--    SPLASH SCREEN-->
+
+    <!-- SPLASH SCREEN -->
     <string name="splash_message">See what\'s cooking at Lutong Bahay</string>
     <string name="Enter_mobile_hint">Enter Mobile Number</string>
     <string name="Enter_mobile">Enter your mobile number</string>
     <string name="next">Next</string>
-    <!--    TERM SCREEN-->
+
+    <!-- TERMS SCREEN -->
     <string name="term_msg1">By continuing, you agree to the</string>
     <string name="term_msg2">of Lutong Bahay.</string>
     <string name="and">and</string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <!--    ADDRESS SCREEN-->
+
+    <!-- ADDRESS SCREEN -->
     <string name="search_address">Search Address</string>
     <string name="current_location">Current Location</string>
     <string name="use_this_address">Use This Address</string>
     <string name="msg1">Available dishes are only within a 3km radius</string>
     <string name="msg2">from your address at the moment.</string>
-    <!--   ERROR MESSAGES -->
+
+    <!-- ERROR MESSAGES -->
     <string name="requiredmobile">Please enter a mobile number!</string>
     <string name="requiredname">Please enter a valid name !</string>
     <string name="requiredvaildmobile">Please enter a valid mobile number!</string>
     <string name="invalidmobile">Invaild Mobile Number</string>
-    <!--    PLACE ORDER-->
+
+
+    <!-- PLACEHOLDER -->
+
     <string name="placeorder_msg1">Hungry Na? Just a few more steps</string>
     <string name="placeorder_msg2">Complete a few more details to confirm your order.</string>
     <string name="add_more_details">Add more details</string>
@@ -34,13 +48,16 @@
     <string name="order_placed_msg1">Your order was successfully placed and is being</string>
     <string name="order_placed_msg2">prepared by the food server.</string>
     <string name="back_to_food_menu">Back to Food Menu</string>
-    <!--    ADD DISH-->
+
+    <!-- ADD DISH -->
+
     <string name="dish_listed">Dish Listed!</string>
     <string name="dish_listed_msg1">You dish was successfully listed and is being</string>
     <string name="dish_listed_msg2">reviewed for approval by Lutong Bahay.</string>
     <string name="back_to_home">Back to Home</string>
     <string name="add_another_luto">Add Another Luto</string>
-    <!--    SIGN UP-->
+
+    <!-- SIGNUP FORM -->
     <string name="application_received">Application Received!</string>
     <string name="application_received_msg1">Thank you for your application to be a server in</string>
     <string name="application_received_msg2">Lutong Bahay!</string>
@@ -63,7 +80,10 @@
     <string name="city_name">PHILIPPINES</string>
     <string name="usergender">Gender</string>
     <string name="select_gender">Select Gender</string>
-    <!--    PROFILE-->
+
+    <!-- PROFILE-->
+
+
     <string name="samplename">Kathleen Domingo</string>
     <string name="samplemobile">+63 9141567681 </string>
     <string name="sampleemail">Kathd@gmail.com</string>
@@ -73,7 +93,8 @@
     <string name="rewards_and_points">Rewards and Points</string>
     <string name="settings">Settings</string>
     <string name="sell_food">Sell Food with Lutong Bahay</string>
-    <!--    HOME-->
+
+    <!-- HOME -->
     <string name="title_orders">Orders</string>
     <string name="title_earn_rewards">Earn Rewards</string>
     <string name="title_account">Account</string>
@@ -101,7 +122,8 @@
     <string name="todo">todo</string>
     <string name="_productPreOrder">Pre-Order</string>
     <string name="address_detail">Address Detials</string>
-    <!--    PROFILE SETTING-->
+
+    <!-- PROFILE SETTINGS -->
     <string name="fav_dishes">Favorite Dishes</string>
     <string name="msg_and_notification">Message and Notifications</string>
     <string name="to_review">To Review</string>
@@ -157,12 +179,12 @@
     <string name="Completed">Completed</string>
     <string name="Cancelled">Cancelled</string>
     <string name="MyOrders">My Orders</string>
-    <string name="OrderNumber">Order Number: \u0020</string>
+    <string name="OrderNumber">Order Number:</string>
     <string name="_4151">4151</string>
     <string name="OrderDate">Order Date:</string>
     <string name="_OrderDateTxt">November 15, 2019</string>
     <string name="_ServerTxt">Reggie\'s Kitchen</string>
-    <string name="Server">Server: \u0020</string>
+    <string name="Server">Server:</string>
     <string name="TransactionTxt">Transaction ID:</string>
     <string name="TransactionID">LT-151516141-11-19</string>
     <string name="TrayQntTxt">Tray Quantity:</string>
@@ -172,8 +194,8 @@
     <string name="order_details">ORDER DETAILS</string>
     <string name="DELIVERED_Txt">DELIVERED</string>
     <string name="CANCELLED_Txt">CANCELLED</string>
-    <string name="Serving">\u0020 Servings</string>
-    <string name="_3">3</string>
+    <string name="Serving">Servings</string>
+    <string name="_3">3 \u0020</string>
     <string name="_viewOrder">View Order</string>
     <string name="_cancelOrder">Cancel Order</string>
     <string name="Upload_Documents">Upload Documents</string>
@@ -289,60 +311,15 @@
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="list_my_luto">List My Luto</string>
-    <string name="favouriteTxt">Favorites</string>
-    <string name="msgCount">2</string>
-    <string name="inboxTxt">Inbox</string>
-    <string name="_inboxTxt">Earn Points with Lutong Bahay</string>
-    <string name="_inboxDate">November 15, 2019</string>
-    <string name="message">Message</string>
-    <string name="mapWayTxt">Your luto is on the way</string>
-    <string name="timeAway">12 mins away</string>
-    <string name="deliverFinishedTxt">"The server has finished processing your  order is now delivering your order. "</string>
-    <string name="_showOrderDetails">Show order details</string>
-    <string name="completedOrders">Completed Orders</string>
-    <string name="RateServer">RATE SERVER</string>
-    <string name="_ServerNameLocation">5 Oranbo St. Brgy Oranbo, Pasig City</string>
-    <string name="_deliveryLocation">1 Canley Road, Pasig City</string>
-    <string name="RateDish">RATE DISH</string>
-    <string name="Reviews">Reviews</string>
-    <string name="_4_rating">4</string>
-    <string name="_5_rating">\u0020 / 5</string>
-    <string name="_600">600</string>
-    <string name="_reviewTxt">\u0020 reviews</string>
-    <string name="All">ALL</string>
-    <string name="_3_">\u0020 (3)</string>
-    <string name="_2">2</string>
-    <string name="_3__">3</string>
-    <string name="_10_">\u0020 (10)</string>
-    <string name="_50_">\u0020 (50)</string>
-    <string name="_4_">4</string>
-    <string name="_400_">\u0020 (400)</string>
-    <string name="_5">5</string>
-    <string name="_137_">\u0020 (137)</string>
-    <string name="_reviewedUserName">Annie C.</string>
-    <string name="_reviewed_hyphen">\u0020 - \u0020</string>
-    <string name="_reviewedTime">7 minutes ago</string>
-    <string name="_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vulputate nunc. Curabitur accumsan mauris ut orci convallis porta. Praesent posuere fermentum cursus.</string>
-    <string name="OrderReceived">Order Received</string>
-    <string name="OrderConfirmed">Order Confirmed</string>
-    <string name="ProcessingOrder">Processing Order</string>
-    <string name="DeliveringOrder">Delivering Order</string>
-    <string name="OrderDelivered">Order Delivered</string>
-    <string name="galleryTxt_1">Make your Luto stand out!</string>
-    <string name="galleryTxt_2">Tips on how to take a photo of your dish</string>
-    <string name="ins_1">1.</string>
-    <string name="galleryTxt_3">Make your dish presentable</string>
-    <string name="ins_2">2.</string>
-    <string name="galleryTxt_4">Take a photo in a well lit place</string>
-    <string name="galleryTxt_5">Make the surroundings as clean
-        \n as possible</string>
-    <string name="galleryTxt_6">Take a photo of a newly cooked
-        \n dish to make it look fresh.</string>
-    <string name="galleryTxt_7">Choose a top angle shot if you
-        \n are unsure how to take a photo.</string>
-    <string name="ins_5">5.</string>
-    <string name="ins_4">4.</string>
-    <string name="ins_3">3.</string>
-    <string name="_getStarted">GET STARTED</string>
+
+
+
+
+
+
+
+
+
+
 
 </resources>

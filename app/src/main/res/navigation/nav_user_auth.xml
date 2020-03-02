@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_user_auth"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.lutongbahay.user_auth.fragments.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/toRegister"
+            app:popUpTo="@+id/loginFragment" />
+        <action
+            android:id="@+id/toPrivacyFragment"
+            app:destination="@id/policyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/policyFragment"
+        android:name="com.lutongbahay.user_auth.fragments.privacy.PrivacyPolicyFragment"
+        android:label="privacy_fragment"
+        tools:layout="@layout/fragment_privacy_policy">
+
+        <action
+            android:id="@+id/toLocationFragment"
+            app:destination="@id/selectLocationFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/selectLocationFragment"
+        android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"
+        android:label="privacy_fragment"
+        tools:layout="@layout/fragment_select_location">
+    </fragment>
+
+</navigation>

@@ -1,50 +1,183 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'androidx.navigation.safeargs'//navigation editor safe args
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+
     defaultConfig {
-        applicationId "com.example.lutongbahay"
+        applicationId "com.lutongbahay"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         vectorDrawables.useSupportLibrary = true
+
+        multiDexEnabled true
+
+        def filesAuthorityValue = applicationId + ".file_provider"
+        manifestPlaceholders = [filesAuthority: filesAuthorityValue/*,fabric_io_id: fabricAPIKey*/]
+        // Adds a new field for the authority to the BuildConfig class.
+        buildConfigField("String", "FILES_AUTHORITY", "\"${filesAuthorityValue}\"")
+
+
+        buildConfigField 'String', 'STAGING_END_POINT', (project.findProperty("STAGING_END_POINT") ?: "")
+        buildConfigField 'String', 'PRODUCTION_END_POINT', (project.findProperty("PRODUCTION_END_POINT") ?: "")
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            versionNameSuffix ".debug"
+            resValue "string", "app_version", "${defaultConfig.versionName}${versionNameSuffix}"
+            resValue "string", "app_version_code", "${defaultConfig.versionCode}${versionNameSuffix}"
         }
     }
+
+
+    // Specifies two flavor dimensions.
+    flavorDimensions "tier"
+    productFlavors {
+        // Alpha/Dev/Nightly/Preview
+        alpha {
+            dimension "tier"
+            versionNameSuffix ".alpha"
+            resValue "string", "app_version", "${defaultConfig.versionName}${versionNameSuffix}"
+            resValue "string", "app_version_code", "${defaultConfig.versionCode}${versionNameSuffix}"
+            // when building this flavor, any file under
+            // `src/alpha` will override `src/main`
+        }
+
+        // Beta/Demo/Staging
+        beta {
+            dimension "tier"
+            versionNameSuffix ".beta"
+            resValue "string", "app_version", "${defaultConfig.versionName}${versionNameSuffix}"
+            resValue "string", "app_version_code", "${defaultConfig.versionCode}${versionNameSuffix}"
+            // when building this flavor, any file under
+            // `src/beta` will override `src/main`
+        }
+
+        // Prod/Live/Version1
+        prod {
+            dimension "tier"
+            resValue "string", "app_version", "${defaultConfig.versionName}"
+            resValue "string", "app_version_code", "${defaultConfig.versionCode}"
+            // when building this flavor, any file under
+            // `src/prod` will override `src/main`
+        }
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment:2.2.1'
-    implementation 'androidx.navigation:navigation-ui:2.2.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Multidex Application
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //Navigation editor
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0'
+
+    // ButterKnife Dependency Injection
+    implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+    //Glide dependency
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    //Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+
+
+    // alternatively, just ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+
+    //shimmer recyclerview
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //room
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+
+    //svg loader
+    implementation 'com.caverock:androidsvg-aar:1.3'
+
+    //sdp screen size manager
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //fonts
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+
     //custom progress bar
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     //countrycode
     implementation 'com.hbb20:ccp:2.3.7'
     //rectangleshapeimage
-    implementation 'com.github.florent37:shapeofview:1.3.2'
-    //map
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.google.android.gms:play-services-location:17.0.0'
-    implementation 'com.google.android.gms:play-services-places:17.0.0'
-    // Gallery Image
-    implementation 'com.asksira.android:bsimagepicker:1.3.2'
-    implementation project(path: ':bsimagepicker')
+    implementation 'com.github.florent37:shapeofview:1.4.7'
 
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'hyogeun.github.com.colorratingbar:ColorRatingBar:1.0.1'
+}
+
+
+/**
+ * method to generate version code
+ * @return version code
+ */
+private Integer generateVersionCode() {
+    return rootProject.ext.minSdkVersion * 10000000 + rootProject.ext.versionMajor * 10000 + rootProject.ext.versionMinor * 100 + rootProject.ext.versionPatch
+}
+
+/**
+ * method to generate version name
+ * @return version name
+ */
+private String generateVersionName() {
+    String versionName = "${rootProject.ext.versionMajor}.${rootProject.ext.versionMinor}.${rootProject.ext.versionPatch}"
+    if (rootProject.ext.versionClassifier == null) {
+        if (rootProject.ext.isSnapshot) {
+            rootProject.ext.versionClassifier = "SNAPSHOT"
+        }
+    }
+
+    if (rootProject.ext.versionClassifier != null) {
+        versionName += "-" + rootProject.ext.versionClassifier
+    }
+    return versionName;
 }
