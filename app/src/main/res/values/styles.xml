@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
-        <item name="fontFamily">@fonts/sourcesanspro_regular</item>
-        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">fonts/sourcesanspro_regular.otf</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textStyle">normal</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -21,7 +21,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">false</item>
         <item name="textAllCaps">false</item>
-        <item name="android:fontFamily" tools:targetApi="jelly_bean">@fonts/sourcesanspro_bold</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@fonts/sourcesanspro_bold.otf</item>
     </style>
 
     <style name="RatingBar" parent="@android:style/Widget.RatingBar">
