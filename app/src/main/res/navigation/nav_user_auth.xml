@@ -38,4 +38,100 @@
         tools:layout="@layout/fragment_select_location">
     </fragment>
 
+    <fragment
+        android:id="@+id/viewItemFragment"
+        android:name="com.lutongbahay.user_auth.fragments.view_item.ViewItemFragment"
+        android:label="view_item"
+        tools:layout="@layout/fragment_view_item">
+
+<!--        <action-->
+<!--            android:id="@+id/toHomePage" />-->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/DeliveryAddressFragment"
+        android:name="com.lutongbahay.user_auth.fragments.delivery_address_confirmation.DeliveryAddressConfirmationFragment"
+        android:label="delivery_address_confirmation"
+        tools:layout="@layout/fragment_delivery_address_confirmation">
+        <action
+            android:id="@+id/toDelAddress"
+            app:popUpTo="@+id/DeliveryAddressFragment" />
+        <action
+            android:id="@+id/toConfirmOrder"
+            app:destination="@id/ConfirmOrderFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ConfirmOrderFragment"
+        android:name="com.lutongbahay.user_auth.fragments.confirm_order.ConfirmOrderFragment"
+        android:label="confirm_order"
+        tools:layout="@layout/fragment_confirm_order">
+
+        <action
+            android:id="@+id/toPaymentMethod"
+            app:destination="@id/PaymentMethodFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/PaymentMethodFragment"
+        android:name="com.lutongbahay.user_auth.fragments.payment_method.PaymentMethodFragment"
+        android:label="payment_method"
+        tools:layout="@layout/fragment_payment_method">
+
+        <action
+            android:id="@+id/toOrderPlaced"
+            app:destination="@+id/OrderPlacedFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderPlacedFragment"
+        android:name="com.lutongbahay.user_auth.fragments.order_placed.OrderPlacedFragment"
+        android:label="order_placed"
+        tools:layout="@layout/fragment_order_placed">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.lutongbahay.user_auth.fragments.home_frag.HomeFragment"
+        android:label="home_frag"
+        tools:layout="@layout/fragment_home">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/MyOrderFragment"
+        android:name="com.lutongbahay.user_auth.fragments.my_orders.MyOrdersFragment"
+        android:label="my_order"
+        tools:layout="@layout/fragment_my_orders">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ProcessingOrderFragment"
+        android:name="com.lutongbahay.user_auth.fragments.processing_order.ProcessingOrderFragment"
+        android:label="processing_order"
+        tools:layout="@layout/fragment_processing_order">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CompletedOrderFragment"
+        android:name="com.lutongbahay.user_auth.fragments.completed_order.CompletedOrderFragment"
+        android:label="completed_order"
+        tools:layout="@layout/fragment_completed_order">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CancelledOrderFragment"
+        android:name="com.lutongbahay.user_auth.fragments.cancelled_order.CancelledOrderFragment"
+        android:label="cancelled_order"
+        tools:layout="@layout/fragment_cancelled_order">
+
+    </fragment>
+
 </navigation>

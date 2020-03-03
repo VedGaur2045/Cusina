@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbarAct"
+        layout="@layout/custom_toolbar"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/toolbarAct"
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/_FFFFFF">
+
+        <SearchView
+            android:id="@+id/searchViewHome"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_searchview"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:iconifiedByDefault="false"
+            android:queryHint="@string/searchHint"
+            tools:targetApi="lollipop"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:queryBackground="@color/_00000000"
+            android:layout_marginLeft="@dimen/_15sdp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/mainContentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/_FFFFFF">
+
+                <TextView
+                    android:id="@+id/firstDishGroupTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/BagongLutoNearMe"
+                    android:textColor="@color/_000000"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/firstDishGroupTxtShort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/nearMeTxtShort"
+                    android:textColor="@color/_80000000"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_below="@+id/firstDishGroupTxt"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"/>
+
+                <TextView
+                    android:id="@+id/seeMoretxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/seeMore"
+                    android:textColor="@color/_FF8500"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/list_item_vertical"
+                    android:layout_below="@+id/firstDishGroupTxtShort"
+                    android:scrollbarThumbVertical="@android:color/transparent"
+                    android:nestedScrollingEnabled="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/secondContentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/_FFFFFF"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/secondTxtDish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/PatokNaPagkain"
+                    android:textColor="@color/_000000"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/seeMoreDishtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/seeMore"
+                    android:textColor="@color/_FF8500"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:id="@+id/list_item_horizontal_first"
+                    android:layout_below="@+id/secondTxtDish"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/_10sdp"
+                    android:background="?android:attr/selectableItemBackground"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:scrollbarThumbVertical="@android:color/transparent"
+                    android:nestedScrollingEnabled="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/thirdContentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/_FFFFFF"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/PalutoDishesTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/PalutoDishes"
+                    android:textColor="@color/_000000"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/PalutoDishesTxtShort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/shortTxtShort"
+                    android:textColor="@color/_80000000"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_below="@+id/PalutoDishesTxt"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"/>
+
+                <TextView
+                    android:id="@+id/seeMorePalutoDishtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/seeMore"
+                    android:textColor="@color/_FF8500"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:id="@+id/list_item_horizontal_second"
+                    android:layout_below="@+id/PalutoDishesTxtShort"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:scrollbarThumbVertical="@android:color/transparent"
+                    android:nestedScrollingEnabled="false"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/secondListContentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/_FFFFFF"
+                android:layout_marginBottom="@dimen/_15sdp">
+
+                <TextView
+                    android:id="@+id/nearMeDishesTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/IhahainSoonNearMe"
+                    android:textColor="@color/_000000"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:id="@+id/nearMeDishesTxtShort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/nearMeDishesTxtShort"
+                    android:textColor="@color/_80000000"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_below="@+id/nearMeDishesTxt"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"/>
+
+                <TextView
+                    android:id="@+id/seeMoreSecondDishtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:text="@string/seeMore"
+                    android:textColor="@color/_FF8500"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/second_list_item_vertical"
+                    android:layout_below="@+id/nearMeDishesTxtShort"
+                    android:scrollbarThumbVertical="@android:color/transparent"
+                    android:nestedScrollingEnabled="false"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/AddNewLuto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:text="@string/_ADD_NEW_LUTO"
+        android:background="@drawable/red_backgroud_btn"
+        android:textColor="@color/_FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_35sdp"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/_trayOnHome"
+        android:layout_width="@dimen/_74sdp"
+        android:layout_height="@dimen/_74sdp"
+        android:background="@drawable/tray_drawable"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_20ssp"
+        android:layout_marginEnd="@dimen/_20ssp"
+        android:layout_marginRight="@dimen/_20ssp">
+
+        <ImageView
+            android:id="@+id/tray_icon"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:src="@mipmap/tray_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_13sdp"/>
+
+        <TextView
+            android:id="@+id/tray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Tray"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/_FFFFFF"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:layout_below="@+id/tray_icon"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/trayCount"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:background="@drawable/red_round_design"
+            app:fontFamily="@font/sourcesanspro_bold"
+            android:gravity="center"
+            android:text="@string/TrayCount"
+            android:textColor="@color/_FFFFFF"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginStart="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_18sdp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

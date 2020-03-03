@@ -145,7 +145,9 @@
     <string name="_15_min">15 mins</string>
     <string name="_deleveryFee">Delivery Fee: Php 50.00</string>
     <string name="_09KM">0.9 KM</string>
-    <string name="_productMinimumOrder">Minimum Order:2 Serving</string>
+    <string name="MinimumOrder">Minimum Order: \u0020</string>
+    <string name="_productMinimumOrderCount">2</string>
+    <string name="_Serving">\u0020 Serving</string>
     <string name="_discription">Description</string>
     <string name="_discriptionTxt">Pork Adobo with RICE and soup of the day (Sinigang) Only 70 pesos!
         \nPerfect sa mga nagwowork around Ortigas, Pasig, and Kapitolyo.</string>
@@ -312,14 +314,82 @@
     <string name="to">To</string>
     <string name="list_my_luto">List My Luto</string>
 
-
-
-
-
-
-
-
-
+    <string name="favouriteTxt">Favorites</string>
+    <string name="msgCount">2</string>
+    <string name="inboxTxt">Inbox</string>
+    <string name="_inboxTxt">Earn Points with Lutong Bahay</string>
+    <string name="_inboxDate">November 15, 2019</string>
+    <string name="message">Message</string>
+    <string name="mapWayTxt">Your luto is on the way</string>
+    <string name="timeAway">12 mins away</string>
+    <string name="deliverFinishedTxt">"The server has finished processing your  order is now delivering your order. "</string>
+    <string name="_showOrderDetails">Show order details</string>
+    <string name="completedOrders">Completed Orders</string>
+    <string name="RateServer">RATE SERVER</string>
+    <string name="_ServerNameLocation">5 Oranbo St. Brgy Oranbo, Pasig City</string>
+    <string name="_deliveryLocation">1 Canley Road, Pasig City</string>
+    <string name="RateDish">RATE DISH</string>
+    <string name="Reviews">Reviews</string>
+    <string name="_4_rating">4</string>
+    <string name="_5_rating">\u0020 / 5</string>
+    <string name="_600">600</string>
+    <string name="_reviewTxt">\u0020 reviews</string>
+    <string name="All">ALL</string>
+    <string name="_3_">\u0020 (3)</string>
+    <string name="_2">2</string>
+    <string name="_3__">3</string>
+    <string name="_10_">\u0020 (10)</string>
+    <string name="_50_">\u0020 (50)</string>
+    <string name="_4_">4</string>
+    <string name="_41">41</string>
+    <string name="_400_">\u0020 (400)</string>
+    <string name="_5">5</string>
+    <string name="_137_">\u0020 (137)</string>
+    <string name="_reviewedUserName">Annie C.</string>
+    <string name="_reviewed_hyphen">\u0020 - \u0020</string>
+    <string name="_reviewedTime">7 minutes ago</string>
+    <string name="_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vulputate nunc. Curabitur accumsan mauris ut orci convallis porta. Praesent posuere fermentum cursus.</string>
+    <string name="OrderReceived">Order Received</string>
+    <string name="OrderConfirmed">Order Confirmed</string>
+    <string name="ProcessingOrder">Processing Order</string>
+    <string name="DeliveringOrder">Delivering Order</string>
+    <string name="OrderDelivered">Order Delivered</string>
+    <string name="galleryTxt_1">Make your Luto stand out!</string>
+    <string name="galleryTxt_2">Tips on how to take a photo of your dish</string>
+    <string name="ins_1">1.</string>
+    <string name="galleryTxt_3">Make your dish presentable</string>
+    <string name="ins_2">2.</string>
+    <string name="galleryTxt_4">Take a photo in a well lit place</string>
+    <string name="galleryTxt_5">Make the surroundings as clean
+        \n as possible</string>
+    <string name="galleryTxt_6">Take a photo of a newly cooked
+        \n dish to make it look fresh.</string>
+    <string name="galleryTxt_7">Choose a top angle shot if you
+        \n are unsure how to take a photo.</string>
+    <string name="ins_5">5.</string>
+    <string name="ins_4">4.</string>
+    <string name="ins_3">3.</string>
+    <string name="_getStarted">GET STARTED</string>
+    <string name="_viewOrderHistory">View Order History</string>
+    <string name="orderTxt">Order #</string>
+    <string name="estimateDeliveryTxt">Est. Delivery</string>
+    <string name="ProcessOrder">Process Order</string>
+    <string name="estimateDeliveryTime">45 mins</string>
+    <string name="ConfirmOrder">Confirm Order</string>
+    <string name="Preparing">Preparing</string>
+    <string name="Deliver">Deliver</string>
+    <string name="Complete">Complete</string>
+    <string name="orderTime">ORDER TIME</string>
+    <string name="_00">00</string>
+    <string name="_03">03</string>
+    <string name="_56">56</string>
+    <string name="_colonIcon">:</string>
+    <string name="_showMore">Show More</string>
+    <string name="_showLess">Show Less</string>
+    <string name="_ownerKitchenTxt">"Reggie's Kitchen "</string>
+    <string name="ownerNameTxt">Regine Santos</string>
+    <string name="OwnerTxt">Owner: \u0020</string>
+    <string name="BuyNow">Buy Now</string>
 
 
 </resources>

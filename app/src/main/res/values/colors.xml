@@ -34,4 +34,12 @@
 
     <color name="gunmetal">#4A4A4A</color>
     <color name="background_grey">#F9F9F9</color>
+
+    <color name="_26F6F6F6">#26F6F6F6</color>
+    <color name="_26000000">#26000000</color>
+    <color name="_4D000000">#4D000000</color>
+    <color name="_B2B2B2">#B2B2B2</color>
+    <color name="_7F000000">#7F000000</color>
+    <color name="_29000000">#29000000</color>
+
 </resources>
