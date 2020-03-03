@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".user_auth.activity.AuthActivity"/>
+        <activity android:name=".main.home.HomeActivity"/>
 
     </application>
 

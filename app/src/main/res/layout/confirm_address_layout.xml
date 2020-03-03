@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/_FFFFFF"
     android:layout_marginTop="@dimen/_7sdp"
+    android:background="@color/_FFFFFF"
+    android:orientation="vertical"
     android:padding="@dimen/_20sdp">
 
     <LinearLayout
         android:id="@+id/customerAddressLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,241 +21,255 @@
 
             <TextView
                 android:id="@+id/myDetailsTxt"
+                fontPath="@fonts/sourcesanspro_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_MyDetails"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_16ssp"
-                app:fontFamily="@font/sourcesanspro_semibold"
-                android:textColor="@color/_000000"/>
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:id="@+id/confirmAddressTxt"
+                fontPath="@fonts/sourcesanspro_it"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:paddingTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_7sdp"
                 android:gravity="bottom"
+                android:paddingTop="@dimen/_10sdp"
                 android:text="@string/_confirmedAddress"
                 android:textColor="@color/_15D528"
                 android:textSize="@dimen/_8ssp"
-                app:fontFamily="@font/sourcesanspro_it"
-                android:layout_marginEnd="@dimen/_7sdp"
-                android:layout_marginRight="@dimen/_7sdp" />
+                tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/_7sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp">
 
             <TextView
                 android:id="@+id/customerTxt"
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_CustomerName"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_12ssp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:textColor="@color/_000000"/>
+                tools:ignore="MissingPrefix" />
 
             <TextView
-                android:layout_toEndOf="@+id/customerTxt"
                 android:id="@+id/customerNameTxt"
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/customerTxt"
+                android:layout_toRightOf="@+id/customerTxt"
                 android:text="@string/_CustomerNameTxt"
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_12ssp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:layout_toRightOf="@+id/customerTxt" />
+                tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp">
 
             <TextView
                 android:id="@+id/emailTxt"
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_EmailAddress"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_12ssp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:textColor="@color/_000000"/>
+                tools:ignore="MissingPrefix" />
 
             <TextView
-                android:layout_toEndOf="@+id/emailTxt"
                 android:id="@+id/customerEmailTxt"
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_toEndOf="@+id/emailTxt"
+                android:layout_toRightOf="@+id/emailTxt"
                 android:text="@string/_CustomerEmailTxt"
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_12ssp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:layout_toRightOf="@+id/emailTxt"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginLeft="@dimen/_20sdp"/>
+                tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/PhoneTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_PhoneNumber"
-                android:textSize="@dimen/_12ssp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:textColor="@color/_000000"/>
-
-            <TextView
-                android:layout_toEndOf="@+id/PhoneTxt"
-                android:id="@+id/customerPhoneTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_CustomerPhoneTxt"
-                android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:layout_toRightOf="@+id/PhoneTxt"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginLeft="@dimen/_15sdp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp">
 
             <ImageButton
                 android:id="@+id/changeAddressPencilBtn"
                 android:layout_width="@dimen/_16sdp"
                 android:layout_height="@dimen/_16sdp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:src="@mipmap/pencil_icon"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:background="@color/_00000000"
-                android:layout_centerVertical="true"/>
+                android:src="@mipmap/pencil_icon" />
+
+            <TextView
+                android:id="@+id/customerPhoneTxt"
+                fontPath="@fonts/sourcesanspro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_toEndOf="@+id/PhoneTxt"
+                android:layout_toRightOf="@+id/PhoneTxt"
+                android:text="@string/_CustomerPhoneTxt"
+                android:textColor="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/PhoneTxt"
+                fontPath="@fonts/sourcesanspro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_PhoneNumber"
+                android:textColor="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
     <RelativeLayout
-        android:visibility="visible"
         android:id="@+id/mapLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:paddingBottom="@dimen/_5sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/yourLocation"
-            android:text="@string/myLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_16ssp"
-            android:visibility="visible"
-            android:textColor="@color/_000000"
-            app:fontFamily="@font/sourcesanspro_semibold"/>
-
-        <TextView
-            android:id="@+id/MyAddressTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:paddingTop="@dimen/_10sdp"
-            android:gravity="bottom"
-            android:text="@string/_confirmedAddress"
-            android:textColor="@color/_15D528"
-            android:textSize="@dimen/_8ssp"
-            app:fontFamily="@font/sourcesanspro_it"
-            android:layout_marginEnd="@dimen/_7sdp"
-            android:layout_marginRight="@dimen/_7sdp" />
-
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/changeAddress"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:text="@string/_changeAddress"
-            android:textColor="@color/_FF8500"
-            android:textStyle="normal"
-            android:textSize="@dimen/_12ssp"
-            android:layout_marginTop="@dimen/_1sdp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/pre_order_back"
-            android:gravity="center"
-            app:fontFamily="@font/sourcesanspro_regular"
-            android:layout_alignParentEnd="true"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:id="@+id/myLocation"
-            android:text="@string/myLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_16ssp"
-            android:visibility="gone"
-            android:textColor="@color/_000000"
-            app:fontFamily="@font/sourcesanspro_semibold"/>
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/mapImage"
             android:layout_width="@dimen/_83sdp"
             android:layout_height="@dimen/_83sdp"
-            android:src="@mipmap/map_sample"
             android:layout_below="@+id/yourLocation"
             android:layout_marginTop="@dimen/_10sdp"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:src="@mipmap/map_sample" />
 
         <LinearLayout
             android:id="@+id/addressLayout"
-            android:layout_toEndOf="@+id/mapImage"
-            android:layout_below="@id/yourLocation"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/yourLocation"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_toEndOf="@+id/mapImage"
             android:layout_toRightOf="@+id/mapImage"
-            android:layout_marginLeft="@dimen/_15sdp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/firstAddress"
+                fontPath="@fonts/sourcesanspro_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/firstAddress"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_14ssp"
-                app:fontFamily="@font/sourcesanspro_semibold"
-                android:textColor="@color/_000000"/>
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:id="@+id/secondAddress"
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="@dimen/_124sdp"
                 android:layout_height="wrap_content"
                 android:text="@string/secondAddress"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_12ssp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:textColor="@color/_000000"/>
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:id="@+id/addOtherAddress"
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/addOtherAddress"
-                android:textSize="@dimen/_9ssp"
                 android:layout_marginTop="@dimen/_3sdp"
-                app:fontFamily="@font/sourcesanspro_regular"
-                android:textColor="@color/_80000000"/>
+                android:text="@string/addOtherAddress"
+                android:textColor="@color/_80000000"
+                android:textSize="@dimen/_9ssp"
+                tools:ignore="MissingPrefix" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/changeAddress"
+            fontPath="@fonts/sourcesanspro_regular"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:background="@drawable/pre_order_back"
+            android:gravity="center"
+            android:text="@string/_changeAddress"
+            android:textColor="@color/_FF8500"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/myLocation"
+            fontPath="@fonts/sourcesanspro_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myLocation"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="gone"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/yourLocation"
+            fontPath="@fonts/sourcesanspro_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myLocation"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="visible"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/MyAddressTxt"
+            fontPath="@fonts/sourcesanspro_it"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_marginRight="@dimen/_7sdp"
+            android:gravity="bottom"
+            android:paddingTop="@dimen/_10sdp"
+            android:text="@string/_confirmedAddress"
+            android:textColor="@color/_15D528"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="MissingPrefix" />
 
     </RelativeLayout>
 

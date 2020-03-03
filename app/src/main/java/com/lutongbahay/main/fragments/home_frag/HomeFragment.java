@@ -1,19 +1,17 @@
-package com.lutongbahay.user_auth.fragments.home_frag;
+package com.lutongbahay.main.fragments.home_frag;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.lutongbahay.R;
-import com.lutongbahay.user_auth.fragments.home_frag.mvvm.HomeFragView;
-import com.lutongbahay.user_auth.fragments.home_frag.mvvm.HomeFragViewModel;
+import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragView;
+import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
 
 /**
  * Created by Ved Gaur on 2020-03-03.

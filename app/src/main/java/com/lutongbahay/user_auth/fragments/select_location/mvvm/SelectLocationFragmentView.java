@@ -1,13 +1,20 @@
 package com.lutongbahay.user_auth.fragments.select_location.mvvm;
 
+import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
+import com.lutongbahay.main.home.HomeActivity;
+import com.lutongbahay.user_auth.fragments.login.LoginFragmentDirections;
+import com.lutongbahay.utils.SnackbarUtils;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Abhishek Thanvi on 02/03/20.
@@ -23,5 +30,14 @@ public class SelectLocationFragmentView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_select_location, this);
         ButterKnife.bind(this, this);
+    }
+
+
+    @OnClick(R.id.next)
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.next) {
+            HomeActivity.openHomeActivity(getContext());
+        }
     }
 }

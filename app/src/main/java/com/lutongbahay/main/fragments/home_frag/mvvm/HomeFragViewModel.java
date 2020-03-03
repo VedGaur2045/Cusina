@@ -1,4 +1,4 @@
-package com.lutongbahay.user_auth.fragments.home_frag.mvvm;
+package com.lutongbahay.main.fragments.home_frag.mvvm;
 
 import androidx.lifecycle.ViewModel;
 

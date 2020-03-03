@@ -30,7 +30,7 @@ public class CusinaApplication extends MultiDexApplication {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("font/sourcesanspro_regular.otf")
+                                .setDefaultFontPath("fonts/sourcesanspro_regular.otf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());

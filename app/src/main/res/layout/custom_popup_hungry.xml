@@ -1,77 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainHungryLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/_99000000"
-    android:id="@+id/mainHungryLayout">
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/hungry_bg"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/hungry_bg"
+        android:orientation="vertical"
         android:padding="@dimen/_15sdp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_hungryTxt"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textColor="@color/_000000"
-            android:textSize="@dimen/_20ssp"
-            app:fontFamily="@font/cabin_semibold"/>
+        <Button
+            android:id="@+id/AddMoredetails"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            fontPath="@fonts/sourcesanspro_semibold"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/_addMoreDetails"
+            android:textAllCaps="false"
+            android:textColor="@color/_FFFFFF"
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="MissingPrefix" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_hungryShortTxt"
-            android:gravity="center"
-            android:layout_gravity="center"
+        <Button
+            android:id="@+id/cancelBtn"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            fontPath="@fonts/sourcesanspro_semibold"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/btn_solidless_bg"
+            android:text="@string/_cancel"
+            android:textAllCaps="false"
             android:textColor="@color/_000000"
-            android:textSize="@dimen/_12ssp"
-            app:fontFamily="@font/sourcesanspro_regular"/>
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="MissingPrefix" />
 
         <ImageView
             android:layout_width="@dimen/_158sdp"
             android:layout_height="@dimen/_177sdp"
-            android:gravity="center"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_10sdp"
-            android:src="@mipmap/hungry_img"/>
+            android:gravity="center"
+            android:src="@mipmap/hungry_img" />
 
-        <Button
-            android:id="@+id/AddMoredetails"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:background="@drawable/btn_bg"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:text="@string/_addMoreDetails"
-            android:textSize="@dimen/_14ssp"
-            app:fontFamily="@font/sourcesanspro_semibold"
-            android:textColor="@color/_FFFFFF"
-            android:textAllCaps="false"/>
-
-        <Button
-            android:id="@+id/cancelBtn"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:background="@drawable/btn_solidless_bg"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:text="@string/_cancel"
-            android:textSize="@dimen/_14ssp"
-            app:fontFamily="@font/sourcesanspro_semibold"
+        <TextView
+            fontPath="@fonts/sourcesanspro_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/_hungryShortTxt"
             android:textColor="@color/_000000"
-            android:textAllCaps="false"/>
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            fontPath="@fonts/cabin_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/_hungryTxt"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_20ssp"
+            tools:ignore="MissingPrefix" />
 
     </LinearLayout>
 

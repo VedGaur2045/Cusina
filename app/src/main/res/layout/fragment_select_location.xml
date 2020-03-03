@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightgray">
@@ -7,6 +8,7 @@
     <Button
         android:id="@+id/next"
         style="@style/Widget.AppCompat.Button.Borderless"
+        fontPath="@fonts/sourcesanspro_semibold"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp"
         android:layout_alignParentBottom="true"
@@ -14,10 +16,10 @@
         android:layout_marginRight="@dimen/_40sdp"
         android:layout_marginBottom="@dimen/_30sdp"
         android:background="@drawable/commonbuttonbg"
-        android:fontFamily="@font/sourcesanspro_semibold"
         android:text="@string/next"
         android:textColor="@color/white"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_14ssp"
+        tools:ignore="MissingPrefix" />
 
     <ImageView
         android:id="@+id/close"
@@ -36,21 +38,23 @@
         android:orientation="vertical">
 
         <TextView
+            fontPath="@fonts/sourcesanspro_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/sourcesanspro_regular"
             android:text="@string/msg1"
             android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp" />
+            android:textSize="@dimen/_9ssp"
+            tools:ignore="MissingPrefix" />
 
         <TextView
+            fontPath="@fonts/sourcesanspro_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/sourcesanspro_regular"
             android:text="@string/msg2"
             android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp" />
+            android:textSize="@dimen/_9ssp"
+            tools:ignore="MissingPrefix" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,15 +82,16 @@
                 android:src="@mipmap/search" />
 
             <TextView
+                fontPath="@fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_toRightOf="@id/search"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/search_address"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -113,22 +118,24 @@
                 android:orientation="vertical">
 
                 <TextView
+                    fontPath="@fonts/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sourcesanspro_regular"
                     android:text="@string/current_location"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/locationtext"
+                    fontPath="@fonts/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_5sdp"
-                    android:fontFamily="@font/sourcesanspro_regular"
                     android:text="1 Canley Road, Pasig City"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10ssp"
+                    tools:ignore="MissingPrefix" />
             </LinearLayout>
 
         </RelativeLayout>

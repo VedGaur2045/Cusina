@@ -49,7 +49,7 @@
                     android:textSize="@dimen/_12ssp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/white_color_back"
-                    app:fontFamily="@font/sourcesanspro_regular"
+                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                     android:paddingStart="7dp"
                     android:layout_alignParentRight="true"
                     android:paddingEnd="@dimen/_7sdp"
@@ -81,7 +81,7 @@
                         android:text="@string/PorkAdobo"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_24ssp"
-                        app:fontFamily="@font/cabin_semibold" />
+                        fontPath="@fonts/cabin_semibold" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productServingLeftCount"
@@ -93,7 +93,7 @@
                         android:textColor="@color/_FF8500"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="italic"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productServingLeft"
@@ -105,7 +105,7 @@
                         android:textColor="@color/_FF8500"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="italic"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <RelativeLayout
                         android:id="@+id/SecondLayout"
@@ -137,8 +137,8 @@
                             android:textColor="@color/_80000000"
                             android:textSize="@dimen/_12ssp"
                             android:textStyle="normal"
-                            app:fontFamily="@font/sourcesanspro_regular"
-                            tools:ignore="RelativeOverlap" />
+                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                             />
 
                     </RelativeLayout>
 
@@ -152,7 +152,7 @@
                     android:text="@string/_pHp"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    app:fontFamily="@font/sourcesanspro_regular" />
+                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/productPrice"
@@ -163,7 +163,7 @@
                     android:layout_toEndOf="@+id/productPriceTxt"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    app:fontFamily="@font/sourcesanspro_regular"
+                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                     android:layout_toRightOf="@+id/productPriceTxt" />
 
                 <TextView
@@ -174,7 +174,7 @@
                     android:text="@string/placeDesert"
                     android:textColor="@color/_80000000"
                     android:textSize="@dimen/_12ssp"
-                    app:fontFamily="@font/sourcesanspro_regular" />
+                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 <LinearLayout
                     android:id="@+id/ThirdLayout"
@@ -199,7 +199,7 @@
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="normal"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productDeliveryFee"
@@ -218,7 +218,7 @@
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="normal"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productDeliveryPickUp"
@@ -237,7 +237,7 @@
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="normal"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 </LinearLayout>
 
@@ -257,7 +257,7 @@
                         android:textColor="@color/_EC0000"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="normal"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productMinimumOrderCount"
@@ -268,7 +268,7 @@
                         android:textColor="@color/_EC0000"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="normal"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/_Serving"
@@ -279,7 +279,7 @@
                         android:textColor="@color/_EC0000"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="normal"
-                        app:fontFamily="@font/sourcesanspro_regular" />
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 </LinearLayout>
 
@@ -293,7 +293,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/sourcesanspro_semibold" />
+                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/descriptionTxt"
@@ -308,7 +308,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="normal"
-                    app:fontFamily="@font/sourcesanspro_regular" />
+                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
             </RelativeLayout>
 
@@ -334,7 +334,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_16ssp"
-                        app:fontFamily="@font/sourcesanspro_semibold"
+                        fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
                         android:text="@string/_ServerInformation"/>
 
                     <TextView
@@ -343,7 +343,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/_FF8500"
                         android:textSize="@dimen/_12ssp"
-                        app:fontFamily="@font/sourcesanspro_regular"
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                         android:text="@string/SeeProfile"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
@@ -388,7 +388,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/_14ssp"
-                            app:fontFamily="@font/sourcesanspro_regular"
+                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:text="@string/_ownerKitchenTxt"
@@ -399,7 +399,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/_14ssp"
-                            app:fontFamily="@font/sourcesanspro_regular"
+                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:text="@string/OwnerTxt"
@@ -411,7 +411,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/_14ssp"
-                            app:fontFamily="@font/sourcesanspro_regular"
+                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:text="@string/ownerNameTxt"
@@ -435,7 +435,7 @@
                         android:layout_marginTop="@dimen/_1sdp"
                         android:background="@drawable/follow_bg"
                         android:gravity="center"
-                        app:fontFamily="@font/sourcesanspro_regular"
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
@@ -458,7 +458,7 @@
                         android:text="@string/_serverRating"
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_12ssp"
-                        app:fontFamily="@font/sourcesanspro_regular"
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                         android:layout_marginStart="@dimen/_55sdp"
                         android:layout_marginLeft="@dimen/_55sdp" />
 
@@ -487,7 +487,7 @@
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_toEndOf="@+id/ratingImgSecond"
                             android:textColor="@color/_80000000"
-                            app:fontFamily="@font/sourcesanspro_regular"
+                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_toRightOf="@+id/ratingImgSecond"
                             android:layout_marginLeft="@dimen/_5sdp" />
 
@@ -519,7 +519,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/_ServingOrders"
                         android:textSize="@dimen/_12ssp"
-                        app:fontFamily="@font/sourcesanspro_regular"
+                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:gravity="center"/>
@@ -549,7 +549,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/_1"
                         android:textSize="@dimen/_16ssp"
-                        app:fontFamily="@font/sourcesanspro_bold"
+                        fontPath="@fonts/sourcesanspro_bold" tools:ignore="MissingPrefix"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:gravity="center"
@@ -586,7 +586,7 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:text="@string/_AddToTray"
                     android:textSize="@dimen/_16ssp"
-                    app:fontFamily="@font/sourcesanspro_semibold"
+                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
                     android:textColor="@color/_FFFFFF"
                     android:gravity="center"/>
 

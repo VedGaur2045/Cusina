@@ -6,120 +6,124 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbarLayout"
-        layout="@layout/custom_toolbar"/>
-
     <RelativeLayout
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@color/_FFFFFF"
-        android:paddingRight="@dimen/_25sdp"
-        android:paddingLeft="@dimen/_25sdp">
+        android:paddingLeft="@dimen/_25sdp"
+        android:paddingRight="@dimen/_25sdp">
 
-        <TextView
-            android:id="@+id/userNameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/username"
-            android:textColor="@color/black"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textSize="@dimen/_8ssp"
-            android:layout_marginTop="@dimen/_30sdp"/>
-
-        <EditText
-            android:layout_below="@+id/userNameTxt"
-            android:id="@+id/username"
+        <Button
+            android:id="@+id/saveDetails"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            fontPath="@fonts/sourcesanspro_semibold"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp"
-            android:hint="@string/username_placeholder"
-            android:textSize="@dimen/_12ssp"
-            android:textColor="@color/black"
-            android:singleLine="true"
-            android:inputType="text"
-            android:textColorHint="@color/_000000"
-            android:paddingLeft="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/sourcesanspro_it"
-            android:background="@drawable/userinputbg"
-            android:paddingStart="@dimen/_20sdp"
-            tools:ignore="RtlSymmetry" />
-
-        <TextView
-            android:layout_below="@+id/username"
-            android:id="@+id/emailTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/useremail"
-            android:textColor="@color/black"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textSize="@dimen/_8ssp"
-            android:layout_marginTop="@dimen/_30sdp"/>
+            android:layout_height="@dimen/_48sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:background="@drawable/commonbuttonbg"
+            android:gravity="center"
+            android:onClick="saveDetailsBtnOnClick"
+            android:text="@string/save_details"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="MissingPrefix" />
 
         <EditText
-            android:layout_below="@+id/emailTxt"
             android:id="@+id/userEmailId"
+            fontPath="@fonts/sourcesanspro_it"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_42sdp"
+            android:layout_below="@+id/emailTxt"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/userinputbg"
             android:hint="@string/useremail_placeholder"
-            android:textSize="@dimen/_12ssp"
+            android:inputType="textEmailAddress"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/_000000"
-            android:singleLine="true"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/addressTxt"
+            fontPath="@fonts/sourcesanspro_it"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_below="@+id/address_detail"
             android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/sourcesanspro_it"
             android:background="@drawable/userinputbg"
+            android:hint="@string/addressTxt"
+            android:inputType="textEmailAddress"
             android:paddingStart="@dimen/_20sdp"
-            tools:ignore="RtlSymmetry" />
+            android:paddingLeft="@dimen/_20sdp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/_000000"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/username"
+            fontPath="@fonts/sourcesanspro_it"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_below="@+id/userNameTxt"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/userinputbg"
+            android:hint="@string/username_placeholder"
+            android:inputType="text"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/_000000"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="MissingPrefix" />
 
         <TextView
             android:id="@+id/address_detail"
-            android:layout_below="@+id/userEmailId"
+            fontPath="@fonts/sourcesanspro_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/userEmailId"
+            android:layout_marginTop="@dimen/_30sdp"
             android:text="@string/address_detail"
             android:textColor="@color/black"
-            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8ssp"
-            android:layout_marginTop="@dimen/_30sdp"/>
+            tools:ignore="MissingPrefix" />
 
-        <EditText
-            android:layout_below="@+id/address_detail"
-            android:id="@+id/addressTxt"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp"
-            android:hint="@string/addressTxt"
-            android:textColorHint="@color/_000000"
-            android:textSize="@dimen/_12ssp"
+        <TextView
+            android:id="@+id/emailTxt"
+            fontPath="@fonts/sourcesanspro_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/useremail"
             android:textColor="@color/black"
-            android:singleLine="true"
-            android:inputType="textEmailAddress"
-            android:paddingStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/sourcesanspro_it"
-            android:background="@drawable/userinputbg"
-            android:paddingLeft="@dimen/_20sdp"
-            tools:ignore="RtlSymmetry" />
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="MissingPrefix" />
 
-        <Button
-            android:layout_alignParentBottom="true"
-            android:id="@+id/saveDetails"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_48sdp"
-            android:text="@string/save_details"
-            android:background="@drawable/commonbuttonbg"
-            android:textSize="@dimen/_14ssp"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:onClick="saveDetailsBtnOnClick"
-            android:layout_marginBottom="@dimen/_40sdp"
-            android:fontFamily="@font/sourcesanspro_semibold"
-            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/userNameTxt"
+            fontPath="@fonts/sourcesanspro_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/username"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="MissingPrefix" />
 
     </RelativeLayout>
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/custom_toolbar" />
 
 </LinearLayout>
