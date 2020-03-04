@@ -390,6 +390,21 @@
     <string name="ownerNameTxt">Regine Santos</string>
     <string name="OwnerTxt">Owner: \u0020</string>
     <string name="BuyNow">Buy Now</string>
+    <string name="_Location">Location</string>
+    <string name="Items">Items</string>
+    <string name="_DeliveryMethods">Delivery Methods</string>
+    <string name="_orderDate">Order Date</string>
+    <string name="weekAndDateOfOrder">Fri, Oct 12 2019</string>
+    <string name="expectedTimeTxt">Expected Time to Complete Order</string>
+    <string name="expectedTimeOrder">1:00 pm</string>
+    <string name="orderComplete">Order Complete</string>
+    <string name="orderTxt_msg1">You have successfully completed your order! Keep it up!</string>
+    <string name="back_to_orders">Back to Orders</string>
+    <string name="SeeOrderHistory">See Order History</string>
+    <string name="statusTxt">Status: \u0020</string>
+    <string name="PreparingTxt">Preparing</string>
+    <string name="DeliveringTxt">Delivering</string>
+    <string name="STATUS_COMPLETE">STATUS: COMPLETE</string>
 
 
 </resources>

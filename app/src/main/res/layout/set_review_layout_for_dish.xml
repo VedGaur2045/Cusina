@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/extraTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extraTxt_3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_100sdp"
+        android:gravity="center"
+        tools:ignore="MissingPrefix"
+        fonthPath="fonts/sourcesanspro_semibold"
+        android:textColor="@color/_000000"
+        android:textSize="@dimen/_16ssp"
+        android:layout_marginLeft="@dimen/_100sdp" />
+
+    <RatingBar
+        android:id="@+id/ratingBarDish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/extraTxt"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:isIndicator="false"
+        android:rating="0"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:progressTint="#EFCE4A"
+        android:secondaryProgressTint="#EFCE4A"
+        tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/aboutServerTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extraTxt_4"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        tools:ignore="MissingPrefix"
+        fonthPath="fonts/sourcesanspro_semibold"
+        android:textColor="@color/_000000"
+        android:textSize="@dimen/_16ssp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_below="@+id/ratingBarDish"/>
+
+    <LinearLayout
+        android:layout_below="@+id/aboutServerTxt"
+        android:id="@+id/option_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/WellPrepared"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/WellPrepared"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/NewlyCooked"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/NewlyCooked"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/option_4"
+        android:id="@+id/option_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/Clean"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/Clean"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/FoodQuality"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/FoodQuality"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/option_5"
+        android:id="@+id/option_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/FastDelivery"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/FastDelivery"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/WellPackaged"
+            android:gravity="center"
+            android:layout_width="@dimen/_116sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:background="@drawable/bg_layout"
+            android:text="@string/WellPackaged"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

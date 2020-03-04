@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/custom_toolbar" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/_FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/_FFFFFF">
+
+            <TextView
+                android:id="@+id/allPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/_allPhoto"
+                android:textSize="@dimen/_20ssp"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/cabin_semibold"
+                android:textColor="@color/_000000" />
+
+            <ImageView
+                android:id="@+id/downIcon"
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/allPhoto"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/down_arrow"
+                android:layout_toRightOf="@+id/allPhoto"
+                android:layout_marginLeft="@dimen/_5sdp" />
+
+            <TextView
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_alignParentRight="true"
+                android:text="@string/next"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/sourcesanspro_bold"
+                android:textColor="@color/_FF8500"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/choosePhotoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/_choosePhotoTxt"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="@dimen/_5sdp"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textColor="@color/_000000" />
+
+        <TextView
+            android:id="@+id/minimumPhotoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/_minimumPhotoTxt"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginTop="@dimen/_5sdp"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textColor="@color/_000000" />
+
+    </LinearLayout>
+
+    <GridView
+        android:visibility="visible"
+        android:id="@+id/gridViewGalleryPhotoList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="@dimen/_168sdp"
+        android:horizontalSpacing="@dimen/_3sdp"
+        android:numColumns="5"
+        android:scrollbarThumbVertical="@color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:verticalSpacing="@dimen/_3sdp"
+        android:layout_margin="@dimen/_5sdp"/>
+
+</LinearLayout>

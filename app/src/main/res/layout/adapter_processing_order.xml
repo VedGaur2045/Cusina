@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/orderingProcess"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ellipse_1"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:src="@mipmap/ellipse_ordering_gray" />
+
+        <ImageView
+            android:id="@+id/line_1"
+            android:layout_width="@dimen/_51sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/line_ordering_gray"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ellipse_1"
+            android:layout_toRightOf="@+id/ellipse_1" />
+
+        <ImageView
+            android:id="@+id/ellipse_2"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/ellipse_ordering_gray"
+            android:layout_toEndOf="@+id/line_1"
+            android:layout_toRightOf="@+id/line_1"/>
+
+        <ImageView
+            android:id="@+id/line_2"
+            android:layout_width="@dimen/_51sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/line_ordering_gray"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ellipse_2"
+            android:layout_toRightOf="@+id/ellipse_2"/>
+
+        <ImageView
+            android:id="@+id/ellipse_3"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/ellipse_ordering_gray"
+            android:layout_toEndOf="@+id/line_2"
+            android:layout_toRightOf="@+id/line_2"/>
+
+        <ImageView
+            android:id="@+id/line_3"
+            android:layout_width="@dimen/_51sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/line_ordering_gray"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ellipse_3"
+            android:layout_toRightOf="@+id/ellipse_3"/>
+
+        <ImageView
+            android:id="@+id/ellipse_4"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/ellipse_ordering_gray"
+            android:layout_toEndOf="@+id/line_3"
+            android:layout_toRightOf="@+id/line_3"/>
+
+        <ImageView
+            android:id="@+id/line_4"
+            android:layout_width="@dimen/_51sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/line_ordering_gray"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ellipse_4"
+            android:layout_toRightOf="@+id/ellipse_4"/>
+
+        <ImageView
+            android:id="@+id/ellipse_5"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:src="@mipmap/ellipse_ordering_gray"
+            android:layout_toEndOf="@+id/line_4"
+            android:layout_toRightOf="@+id/line_4"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/orderingProcessTxt"
+        android:orientation="horizontal"
+        android:layout_below="@+id/orderingProcess"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/orderRecieved"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/OrderReceived"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_B2B2B2"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+        <TextView
+            android:id="@+id/orderConfirmed"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/OrderConfirmed"
+            android:layout_marginStart="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_45sdp"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_B2B2B2"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+        <TextView
+            android:id="@+id/ProcessingOrder"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/ProcessingOrder"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_B2B2B2"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+        <TextView
+            android:id="@+id/DeliveringOrder"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/DeliveringOrder"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_B2B2B2"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+        <TextView
+            android:id="@+id/OrderDelivered"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/OrderDelivered"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_B2B2B2"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/orderingProcessTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp">
+
+        <com.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/prdctImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <ImageView
+                android:id="@+id/productImg"
+                android:layout_width="@dimen/_67sdp"
+                android:layout_height="@dimen/_67sdp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/fish_img_6" />
+
+        </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/prdctImg"
+            android:layout_toRightOf="@+id/prdctImg"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/sourcesanspro_semibold"
+                android:textColor="@color/_000000"
+                android:text="@string/_productName" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/productServingCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"
+                    android:textColor="@color/_000000"
+                    android:text="@string/_1" />
+
+                <TextView
+                    android:id="@+id/productServingTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"
+                    android:textColor="@color/_000000"
+                    android:text="@string/Serving" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ProcessingDeliveryAndPickup"
+                android:layout_width="@dimen/_62sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:textSize="@dimen/_8ssp"
+                android:background="@drawable/delivery_and_pickup_bg_drawable"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/sourcesanspro_regular"
+                android:gravity="center"
+                android:textColor="@color/_FFFFFF"
+                android:text="@string/_ForDeliveryCheck"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <Button
+                android:id="@+id/viewOrder"
+                android:layout_width="@dimen/_87sdp"
+                android:layout_height="@dimen/_25sdp"
+                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:gravity="center"
+                android:background="@drawable/color_solid_drawable"
+                android:text="@string/_viewOrder"
+                android:textSize="@dimen/_8ssp"
+                android:textColor="@color/_FFFFFF"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/sourcesanspro_bold"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:translationY="@dimen/_3sdp"
+                android:translationZ="@dimen/_6sdp"/>
+
+            <Button
+                android:id="@+id/cancelOrderBtn"
+                android:layout_width="@dimen/_87sdp"
+                android:layout_height="@dimen/_25sdp"
+                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:gravity="center"
+                android:background="@drawable/gray_bg_border_drawable"
+                android:text="@string/_cancelOrder"
+                android:textSize="@dimen/_8ssp"
+                android:textColor="@color/_26000000"
+                fonthPath="fonts/sourcesanspro_bold"
+                android:layout_marginTop="@dimen/_3sdp"
+                tools:ignore="MissingPrefix" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -150,4 +150,60 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/AddPhotoFragment"
+        android:name="com.lutongbahay.main.fragments.add_photo.AddPhotoFragment"
+        android:label="add_photo"
+        tools:layout="@layout/fragment_add_photo">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ChooseCategoryFragment"
+        android:name="com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragment"
+        android:label="@string/choose_category"
+        tools:layout="@layout/fragment_choose_category">
+
+        <action
+            android:id="@+id/toCompletedDetails"
+            app:destination="@+id/CompletedDetailsFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CompletedDetailsFragment"
+        android:name="com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragment"
+        android:label="completed_details"
+        tools:layout="@layout/fragment_completed_details">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SuccessConfirmation"
+        android:name="com.lutongbahay.main.fragments.success_comfirmation.SuccessConfirmationFragment"
+        android:label="success_confirmation"
+        tools:layout="@layout/fragment_success_confirmation">
+
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@id/HomeFragment"/>
+
+        <action
+            android:id="@+id/toHomeFragmentBack"
+            app:destination="@id/HomeFragment"/>
+
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SettingFragment"
+        android:name="com.lutongbahay.main.fragments.setting.SettingFragment"
+        android:label="settings"
+        tools:layout="@layout/fragment_setting">
+
+    </fragment>
+
 </navigation>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_70sdp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/_FFFFFF">
+
+    <ImageView
+        android:id="@+id/msgImg"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:src="@mipmap/envelope_green_img"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_16sdp"/>
+    
+    <ImageView
+        android:id="@+id/unreadMsgId"
+        android:layout_width="@dimen/_6sdp"
+        android:layout_height="@dimen/_6sdp"
+        android:src="@drawable/red_oval_drawable"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_33sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_33sdp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_toEndOf="@+id/msgImg"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/msgImg"
+        android:layout_marginLeft="@dimen/_25sdp">
+
+        <TextView
+            android:id="@+id/msgTxtId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/_inboxTxt"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+        <TextView
+            android:id="@+id/msgDateId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/_inboxDate"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/_80000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
