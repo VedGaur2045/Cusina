@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="@dimen/_68sdp"
+    android:layout_height="@dimen/_68sdp"
+    android:background="@color/_FFFFFF"
+    android:id="@+id/cameraLayout">
+
+    <ImageView
+        android:id="@+id/cameraImg"
+        android:src="@mipmap/camera_img"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/newPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/newPhoto"
+        android:textSize="@dimen/_10ssp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/cameraImg"
+        android:textColor="@color/_000000"
+        tools:ignore="MissingPrefix"
+        fonthPath="fonts/sourcesanspro_regular" />
+
+</RelativeLayout>

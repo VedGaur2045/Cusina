@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/_99000000">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/_FFFFFF"
+        android:layout_centerInParent="true"
+        android:layout_width="@dimen/_316sdp"
+        android:padding="@dimen/_15sdp"
+        android:layout_height="@dimen/_504sdp">
+
+        <ImageButton
+            android:visibility="visible"
+            android:id="@+id/closeImgBtn"
+            android:background="@color/transparent"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:src="@mipmap/close"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:contentDescription="@string/todo"
+            android:layout_marginRight="@dimen/_15sdp" />
+
+<!--        <include-->
+<!--            layout="@layout/set_review_layout_for_server"/>-->
+
+        <ViewStub
+            android:id="@+id/layout_stub"
+            android:inflatedId="@+id/message_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TellUsMore"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="top|start"
+            android:layout_gravity="center"
+            android:maxLines="10"
+            android:textColor="@color/_000000"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_regular"
+            android:textSize="@dimen/_10ssp"
+            android:layout_height="@dimen/_123sdp"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:hint="@string/TellUsMore"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/tell_us_more_bg_layout"/>
+
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/btn_bg"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="@string/submit"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/_FFFFFF"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_semibold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/TellUsMore"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

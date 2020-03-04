@@ -19,7 +19,7 @@
             android:layout_marginLeft="@dimen/_20sdp"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_140sdp"
+            android:layout_height="@dimen/_160sdp"
             android:orientation="vertical"
             android:paddingLeft="@dimen/_40sdp"
             android:paddingRight="@dimen/_40sdp"
@@ -32,7 +32,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_40sdp"
                 android:text="@string/splash_message"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"/>
             <RelativeLayout
@@ -44,14 +44,14 @@
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/countryCodeHolder"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="@dimen/_48sdp"
                     app:ccp_showFullName="false"
                     app:ccp_textSize="@dimen/_12ssp"
                     app:ccp_arrowSize="@dimen/_1sdp"
                     app:ccp_clickable="false"
+                    tools:ignore="MissingPrefix"
                     fonthPath="fonts/sourcesanspro_regular"
                     android:gravity="center"
-                    tools:ignore="MissingPrefix"
                     app:ccpDialog_textColor="@color/black"
                     app:ccp_showPhoneCode="true"
                     app:ccp_showNameCode="false"/>
@@ -59,7 +59,7 @@
                 <EditText
                     android:id="@+id/mobile"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="@dimen/_48sdp"
                     android:textSize="@dimen/_14ssp"
                     android:inputType="phone"
                     android:enabled="true"
@@ -70,9 +70,9 @@
                     android:paddingLeft="@dimen/_25sdp"
                     android:layout_toRightOf="@id/countryCodeHolder"
                     android:background="@drawable/mobilebutton"
+                    tools:ignore="MissingPrefix"
                     fonthPath="fonts/sourcesanspro_regular"
                     android:textColorHint="#D3D3D3"
-                    tools:ignore="MissingPrefix"
                     android:hint="@string/Enter_mobile_hint"/>
             </RelativeLayout>
         </LinearLayout>

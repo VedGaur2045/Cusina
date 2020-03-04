@@ -181,12 +181,12 @@
     <string name="Completed">Completed</string>
     <string name="Cancelled">Cancelled</string>
     <string name="MyOrders">My Orders</string>
-    <string name="OrderNumber">Order Number:</string>
+    <string name="OrderNumber">Order Number: \u0020</string>
     <string name="_4151">4151</string>
     <string name="OrderDate">Order Date:</string>
     <string name="_OrderDateTxt">November 15, 2019</string>
     <string name="_ServerTxt">Reggie\'s Kitchen</string>
-    <string name="Server">Server:</string>
+    <string name="Server">Server: \u0020</string>
     <string name="TransactionTxt">Transaction ID:</string>
     <string name="TransactionID">LT-151516141-11-19</string>
     <string name="TrayQntTxt">Tray Quantity:</string>

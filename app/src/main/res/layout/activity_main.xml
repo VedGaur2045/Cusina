@@ -15,7 +15,6 @@
         android:layout_above="@+id/nav_view"
         app:navGraph="@navigation/navigation_main" />
 
-
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_10sdp"
@@ -34,7 +33,5 @@
         app:itemTextColor="@drawable/nav_color"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
-
-
 
 </RelativeLayout>
