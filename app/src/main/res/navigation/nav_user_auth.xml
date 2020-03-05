@@ -254,9 +254,9 @@
         <action
             android:id="@+id/toSignUpFragment"
             app:destination="@+id/SignUpFragment"/>
-<!--        <action-->
-<!--            android:id="@+id/toProfileFragment"-->
-<!--            app:destination="@+id/"/>-->
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@+id/ProfileFragment"/>
 
     </fragment>
 
@@ -280,6 +280,30 @@
         android:name="com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragment"
         android:label="document_upload"
         tools:layout="@layout/fragment_document_upload">
+
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@id/SignUpFragment"/>
+
+        <action
+            android:id="@+id/toSignUpCompleteFragment"
+            app:destination="@+id/SignUpCompleteFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SignUpCompleteFragment"
+        android:name="com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragment"
+        tools:layout="@layout/fragment_sign_up_complete"
+        android:label="sign_up_complete">
+
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/ProfileFragment"/>
+
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@id/SignUpFragment"/>
 
     </fragment>
 

@@ -21,6 +21,12 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/ProfileFragment"
+        android:name="com.lutongbahay.main.fragments.profile_frag.ProfileFragment"
+        android:label="profile_frag"
+        tools:layout="@layout/fragment_profile">
 
+    </fragment>
 
 </navigation>
