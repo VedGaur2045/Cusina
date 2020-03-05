@@ -13,6 +13,14 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/MyOrderFragment"
+        android:name="com.lutongbahay.main.fragments.my_orders_frag.MyOrdersFragment"
+        android:label="my_order"
+        tools:layout="@layout/fragment_my_orders">
+
+    </fragment>
+
 
 
 </navigation>
