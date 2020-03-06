@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_below="@+id/Items"
+        android:id="@+id/SecondLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/orderCountFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_2"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_semibold"/>
+
+        <TextView
+            android:layout_toEndOf="@+id/orderCountFirst"
+            android:id="@+id/orderNameFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_productName"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginStart="@dimen/_3sdp"
+            tools:ignore="MissingPrefix"
+            fonthPath="fonts/sourcesanspro_semibold"
+            android:layout_toRightOf="@+id/orderCountFirst"
+            android:layout_marginLeft="@dimen/_3sdp" />
+
+        <RelativeLayout
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/phpTxtFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_pHp"
+                android:textColor="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/sourcesanspro_semibold"/>
+
+            <TextView
+                android:id="@+id/orderPriceFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_40"
+                android:textColor="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                android:layout_toEndOf="@+id/phpTxtFirst"
+                android:layout_marginStart="@dimen/_3sdp"
+                tools:ignore="MissingPrefix"
+                fonthPath="fonts/sourcesanspro_semibold"
+                android:layout_toRightOf="@+id/phpTxtFirst"
+                android:layout_marginLeft="@dimen/_3sdp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

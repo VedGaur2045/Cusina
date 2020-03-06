@@ -307,4 +307,85 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/MyTrayFragment"
+        android:name="com.lutongbahay.main.fragments.my_tray.MyTrayFragment"
+        android:label="my_tray"
+        tools:layout="@layout/fragment_my_tray">
+
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@+id/HomeFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/MenuFragment"
+        android:name="com.lutongbahay.main.fragments.menu.MenuFragment"
+        tools:layout="@layout/fragment_menu"
+        android:label="menu_view">
+
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrdersFragment"
+        android:name="com.lutongbahay.main.fragments.orders.OrdersFragment"
+        android:label="orders_view"
+        tools:layout="@layout/fragment_orders">
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ProcessOrderFragment"
+        android:name="com.lutongbahay.main.fragments.process_order_from_seller.ProcessOrderFragment"
+        tools:layout="@layout/fragment_process_order"
+        android:label="process_order">
+
+        <action
+            android:id="@+id/toOrdersFragment"
+            app:destination="@id/OrdersFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderCompleteFragment"
+        android:name="com.lutongbahay.main.fragments.order_complete.OrderCompleteFragment"
+        android:label="order_complete"
+        tools:layout="@layout/fragment_order_complete">
+
+        <action
+            android:id="@+id/toOrdersFragment"
+            app:destination="@+id/OrdersFragment"/>
+        <action
+            android:id="@+id/toOrderHistoryFragment"
+            app:destination="@+id/OrderHistoryFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderHistoryFragment"
+        android:name="com.lutongbahay.main.fragments.order_history.OrderHistoryFragment"
+        tools:layout="@layout/fragment_order_history"
+        android:label="@string/Order_History">
+
+        <action
+            android:id="@+id/toOrdersFragment"
+            app:destination="@+id/OrdersFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CameraFragment"
+        android:name="com.lutongbahay.main.fragments.camera.CameraFragment"
+        android:label="camera_fragment"
+        tools:layout="@layout/fragment_camera">
+
+    </fragment>
+
 </navigation>

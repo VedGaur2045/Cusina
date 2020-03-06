@@ -405,6 +405,11 @@
     <string name="PreparingTxt">Preparing</string>
     <string name="DeliveringTxt">Delivering</string>
     <string name="STATUS_COMPLETE">STATUS: COMPLETE</string>
+    <string name="CANCELLED_BY_CUSTOMER">CANCELLED BY CUSTOMER</string>
+    <string name="CANCELLED_BY_SELLER">CANCELLED BY SELLER</string>
+    <string name="Order_History">Order History</string>
+    <string name="fromDate">January 1, 2020</string>
+    <string name="toDate">February 21, 2020</string>
 
 
 </resources>

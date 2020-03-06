@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/cameraBottomPart"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp">
+
+        <ImageButton
+            android:id="@+id/sideBarBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@mipmap/side_bar_btn"
+            android:background="@color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/timeBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@mipmap/timer_off_icon"
+            android:background="@color/transparent"
+            android:layout_toLeftOf="@+id/hdrBtn"
+            android:layout_toStartOf="@+id/hdrBtn"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp" />
+
+        <ImageButton
+            android:id="@+id/hdrBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@mipmap/hdr_icon"
+            android:background="@color/transparent"
+            android:layout_toLeftOf="@+id/gridIconBtn"
+            android:layout_toStartOf="@+id/gridIconBtn"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+        <ImageButton
+            android:id="@+id/gridIconBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@mipmap/grid_icon"
+            android:background="@color/transparent"
+            android:layout_toLeftOf="@+id/tempBtn"
+            android:layout_toStartOf="@+id/tempBtn" />
+
+        <ImageButton
+            android:id="@+id/tempBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@mipmap/temp_icon"
+            android:background="@color/transparent"
+            android:layout_toLeftOf="@+id/flashAutoBtn"
+            android:layout_toStartOf="@+id/flashAutoBtn"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+        <ImageButton
+            android:id="@+id/flashAutoBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@mipmap/flash_auto_icon"
+            android:background="@color/transparent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cameraBottomPart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/_000000">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:clipToPadding="false"
+            android:gravity="bottom"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            app:tabBackground="@drawable/tabselection"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabMinWidth="0dp"
+            app:tabMode="fixed"/>
+
+
+        <RelativeLayout
+            android:layout_below="@+id/indicator"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_40sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/capturedImage"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@color/transparent"
+                android:src="@mipmap/captured_img"
+                android:layout_centerVertical="true" />
+
+            <ImageButton
+                android:id="@+id/capturedImageBtn"
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="@dimen/_64sdp"
+                android:background="@color/transparent"
+                android:src="@mipmap/capture_btn_img"
+                android:onClick="captureImageOnBtnClick"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+            <RelativeLayout
+                android:id="@+id/rightBtn"
+                android:layout_width="@dimen/_46sdp"
+                android:layout_height="@dimen/_46sdp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <ImageButton
+                    android:id="@+id/chooseImageCategory"
+                    android:layout_width="@dimen/_46sdp"
+                    android:layout_height="@dimen/_46sdp"
+                    android:background="@color/transparent"
+                    android:src="@drawable/btn_oval_bg" />
+
+                <ImageButton
+                    android:id="@+id/rightImage"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:background="@color/transparent"
+                    android:src="@mipmap/right_arrow"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

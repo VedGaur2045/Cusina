@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
->
+    android:orientation="vertical">
 
     <include
         android:id="@+id/headerLayout"
@@ -43,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:id="@+id/order_list_item_vertical"
+                android:id="@+id/myTrayListVertical"
                 android:layout_below="@+id/oderSummery"
                 android:scrollbarThumbVertical="@android:color/transparent"
                 android:nestedScrollingEnabled="false"/>
