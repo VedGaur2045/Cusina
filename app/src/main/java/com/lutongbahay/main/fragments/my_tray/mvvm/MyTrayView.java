@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.TrayOrderItemsAdapter;
 import com.lutongbahay.main.fragments.my_tray.MyTrayFragmentDirections;
 
 import butterknife.BindView;
@@ -37,8 +38,8 @@ public class MyTrayView extends FrameLayout {
     TextView secondAddress;
     @BindView(R.id.addOtherAddress)
     TextView addOtherAddress;
-    @BindView(R.id.changeAddressPencilBtn)
-    TextView changeAddressPencilBtn;
+//    @BindView(R.id.changeAddressPencilBtn)
+//    TextView changeAddressPencilBtn;
     @BindView(R.id.myTrayListVertical)
     RecyclerView myTrayListVertical;
     @BindView(R.id.totalAmount)
@@ -51,13 +52,16 @@ public class MyTrayView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_my_tray,this);
         ButterKnife.bind(this,this);
+
+        TrayOrderItemsAdapter trayOrderItemsAdapter = new TrayOrderItemsAdapter();
+        myTrayListVertical.setAdapter(trayOrderItemsAdapter);
     }
 
     @OnClick(R.id.closeImgBtn)
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigate(MyTrayFragmentDirections.toHomeFragment());
+           // Navigation.findNavController(view).navigate(MyTrayFragmentDirections.toHomeFragment());
         }
     }
 

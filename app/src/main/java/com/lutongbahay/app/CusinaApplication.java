@@ -10,6 +10,7 @@ import com.lutongbahay.helper.PreferenceManger;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
 /**
@@ -34,6 +35,11 @@ public class CusinaApplication extends MultiDexApplication {
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     public static CusinaApplication getInstance() {

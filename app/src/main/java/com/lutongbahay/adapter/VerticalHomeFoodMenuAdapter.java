@@ -1,0 +1,53 @@
+package com.lutongbahay.adapter;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+
+import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHomeFoodMenuAdapter.VerticalViewHolder> {
+
+
+    @NonNull
+    @Override
+    public VerticalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.adapter_product, parent, false);
+        return new VerticalViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull VerticalViewHolder holder, int position) {
+
+        holder.imageSection.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(HomeFragmentDirections.openItemDetailFragment());
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return 7;
+    }
+
+
+    class VerticalViewHolder extends RecyclerView.ViewHolder{
+
+        @BindView(R.id.imgSet)
+        RelativeLayout imageSection;
+
+        public VerticalViewHolder(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+    }
+}

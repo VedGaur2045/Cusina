@@ -1,4 +1,4 @@
-package com.lutongbahay.main.fragments.view_item;
+package com.lutongbahay.main.fragments.item_detail;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,18 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lutongbahay.main.fragments.view_item.mvvm.ViewItemView;
-import com.lutongbahay.main.fragments.view_item.mvvm.ViewItemViewModel;
+import com.lutongbahay.main.fragments.item_detail.mvvm.ItemDetailView;
+import com.lutongbahay.main.fragments.item_detail.mvvm.ItemDetailViewModel;
 
 /**
  * Created by Ved Gaur on 2020-03-03.
  * Copyright © 2020 Ved Gaur. All rights reserved.
  */
 
-public class ViewItemFragment extends Fragment {
+public class ItemDetailFragment extends Fragment {
 
-    private ViewItemView view;
-    private ViewItemViewModel viewModel;
+    private ItemDetailView view;
+    private ItemDetailViewModel viewModel;
     private Context context;
 
     @Override
@@ -40,8 +40,8 @@ public class ViewItemFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(ViewItemViewModel.class);
-        view = new ViewItemView((AppCompatActivity) context,viewModel);
+        viewModel = new ViewModelProvider(this).get(ItemDetailViewModel.class);
+        view = new ItemDetailView((AppCompatActivity) context,viewModel);
         return view;
     }
 }

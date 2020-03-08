@@ -8,11 +8,13 @@
 
     <LinearLayout
         android:id="@+id/mainLayout"
-        android:layout_margin="@dimen/_15sdp"
+        android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/postviewbg"
-        android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+
         android:translationZ="@dimen/_6sdp"
         android:translationY="@dimen/_3sdp">
 
@@ -55,9 +57,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/PancitMalabon"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_11sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:textColor="@color/_000000"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
@@ -69,7 +71,7 @@
                 android:id="@+id/productRatingCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:text="@string/_productRating"
                 android:textColor="@color/_80000000"
                 android:textSize="@dimen/_12ssp"
@@ -98,23 +100,22 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
+            fonthPath="fonts/sourcesanspro_regular.otf"
             android:text="@string/byJennyPancit"
             android:textColor="@color/_80000000"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_9sdp" />
 
         <TextView
             android:id="@+id/productPlaceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/placeDesert"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_9sdp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
+            fonthPath="fonts/sourcesanspro_regular.otf"
             android:textColor="@color/_80000000"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"/>
+            android:layout_marginLeft="@dimen/_10sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -138,7 +139,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gray_colo_back"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:paddingStart="7dp"
                 android:paddingEnd="@dimen/_7sdp" />
 
@@ -151,7 +152,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gray_colo_back"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:gravity="center"
                 android:paddingStart="7dp"
                 android:paddingLeft="7dp"
@@ -171,7 +172,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gray_colo_back"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:gravity="center"
                 android:paddingStart="7dp"
                 android:paddingLeft="7dp"
@@ -187,6 +188,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_15sdp">
@@ -196,9 +198,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/PHP_250_00"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_bold"
+                fonthPath="fonts/sourcesanspro_bold.otf"
                 android:textColor="@color/_000000"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
@@ -206,8 +209,12 @@
 
             <TextView
                 android:id="@+id/productPreOrder"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="wrap_content"
+                android:paddingTop="@dimen/_1sdp"
+                android:paddingBottom="@dimen/_1sdp"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_7sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:text="@string/_productPreOrder"
@@ -218,7 +225,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/pre_order_back"
                 android:gravity="center"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 tools:ignore="RelativeOverlap,MissingPrefix" />

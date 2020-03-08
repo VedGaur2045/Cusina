@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:fillViewport="true"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,12 +17,12 @@
             <RelativeLayout
                 android:id="@+id/imageLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp">
+                android:layout_height="@dimen/_180sdp">
 
                 <ImageView
                     android:id="@+id/productImgItem"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_height="match_parent"
                     android:src="@mipmap/product_img_item"
                     android:scaleType="fitXY"/>
 
@@ -49,7 +48,7 @@
                     android:textSize="@dimen/_12ssp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/white_color_back"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                    fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                     android:paddingStart="7dp"
                     android:layout_alignParentRight="true"
                     android:paddingEnd="@dimen/_7sdp"
@@ -80,8 +79,10 @@
                         android:layout_height="wrap_content"
                         android:text="@string/PorkAdobo"
                         android:textColor="@color/_000000"
-                        android:textSize="@dimen/_24ssp"
-                        fontPath="@fonts/cabin_semibold" tools:ignore="MissingPrefix" />
+                        android:textSize="@dimen/_24sdp"
+                        fontPath="fonts/cabin_semibold.otf"
+                        android:textStyle="bold"
+                        tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productServingLeftCount"
@@ -105,7 +106,7 @@
                         android:textColor="@color/_FF8500"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="italic"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <RelativeLayout
                         android:id="@+id/SecondLayout"
@@ -137,7 +138,7 @@
                             android:textColor="@color/_80000000"
                             android:textSize="@dimen/_12ssp"
                             android:textStyle="normal"
-                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                            fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                              />
 
                     </RelativeLayout>
@@ -151,8 +152,8 @@
                     android:layout_below="@id/FirstLayout"
                     android:text="@string/_pHp"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_16ssp"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                    android:textSize="@dimen/_12ssp"
+                    fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/productPrice"
@@ -162,8 +163,8 @@
                     android:text="@string/_70"
                     android:layout_toEndOf="@+id/productPriceTxt"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_16ssp"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                    android:textSize="@dimen/_12ssp"
+                    fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                     android:layout_toRightOf="@+id/productPriceTxt" />
 
                 <TextView
@@ -173,15 +174,15 @@
                     android:layout_below="@id/productPrice"
                     android:text="@string/placeDesert"
                     android:textColor="@color/_80000000"
-                    android:textSize="@dimen/_12ssp"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                    android:textSize="@dimen/_10ssp"
+                    fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 <LinearLayout
                     android:id="@+id/ThirdLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/productPlaceName"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -199,7 +200,7 @@
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="normal"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productDeliveryFee"
@@ -218,7 +219,7 @@
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="normal"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productDeliveryPickUp"
@@ -237,7 +238,7 @@
                         android:textColor="@color/_80000000"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="normal"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                 </LinearLayout>
 
@@ -255,9 +256,9 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/MinimumOrder"
                         android:textColor="@color/_EC0000"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_11ssp"
                         android:textStyle="normal"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/productMinimumOrderCount"
@@ -266,9 +267,9 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/_productMinimumOrderCount"
                         android:textColor="@color/_EC0000"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_11ssp"
                         android:textStyle="normal"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
                     <TextView
                         android:id="@+id/_Serving"
@@ -277,9 +278,10 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/_Serving"
                         android:textColor="@color/_EC0000"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_11ssp"
                         android:textStyle="normal"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                        fontPath="fonts/sourcesanspro_regular"
+                        tools:ignore="MissingPrefix" />
 
                 </LinearLayout>
 
@@ -291,9 +293,9 @@
                     android:layout_marginTop="@dimen/_13sdp"
                     android:text="@string/_discription"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_16ssp"
-                    android:textStyle="normal"
-                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix" />
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    fontPath="fonts/sourcesanspro_bold.otf" tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/descriptionTxt"
@@ -301,14 +303,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/productDescription"
                     android:layout_marginTop="@dimen/_13sdp"
-                    android:gravity="start"
-                    android:lines="4"
-                    android:maxLines="4"
                     android:text="@string/_discriptionTxt"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="normal"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                    android:textSize="@dimen/_11ssp" />
 
             </RelativeLayout>
 
@@ -333,8 +330,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/_000000"
-                        android:textSize="@dimen/_16ssp"
-                        fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        fontPath="fonts/sourcesanspro_bold.otf" tools:ignore="MissingPrefix"
                         android:text="@string/_ServerInformation"/>
 
                     <TextView
@@ -342,8 +340,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/_FF8500"
-                        android:textSize="@dimen/_12ssp"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                        android:textSize="@dimen/_10ssp"
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                         android:text="@string/SeeProfile"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
@@ -378,6 +376,7 @@
                     </com.github.florent37.shapeofview.shapes.RoundRectView>
 
                     <RelativeLayout
+                        android:id="@+id/server_profile_section"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img"
@@ -387,8 +386,8 @@
                             android:id="@+id/ownerKitchenTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/_14ssp"
-                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                            android:textSize="@dimen/_11ssp"
+                            fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:text="@string/_ownerKitchenTxt"
@@ -398,8 +397,8 @@
                             android:id="@+id/ownerTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/_14ssp"
-                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                            android:textSize="@dimen/_11ssp"
+                            fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginLeft="@dimen/_15sdp"
                             android:text="@string/OwnerTxt"
@@ -410,10 +409,10 @@
                             android:id="@+id/ownerNameTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/_14ssp"
-                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:textSize="@dimen/_11ssp"
+                            fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_marginLeft="@dimen/_2sdp"
                             android:text="@string/ownerNameTxt"
                             android:textColor="@color/_000000"
                             android:layout_toRightOf="@+id/ownerTxt"
@@ -424,23 +423,26 @@
 
                     <TextView
                         android:id="@+id/productPreOrder"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_24sdp"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/_follow"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="@dimen/_1sdp"
                         android:background="@drawable/follow_bg"
                         android:gravity="center"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                        android:paddingTop="@dimen/_1sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        fontPath="fonts/sourcesanspro_regular"
+                        tools:ignore="MissingPrefix"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:layout_marginRight="@dimen/_15sdp" />
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginRight="@dimen/_2sdp" />
 
                 </RelativeLayout>
 
@@ -457,8 +459,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/_serverRating"
                         android:textColor="@color/_80000000"
-                        android:textSize="@dimen/_12ssp"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                        android:textSize="@dimen/_11ssp"
+                        fontPath="fonts/sourcesanspro_regular"
+                        tools:ignore="MissingPrefix"
                         android:layout_marginStart="@dimen/_55sdp"
                         android:layout_marginLeft="@dimen/_55sdp" />
 
@@ -487,7 +490,7 @@
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_toEndOf="@+id/ratingImgSecond"
                             android:textColor="@color/_80000000"
-                            fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                            fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_toRightOf="@+id/ratingImgSecond"
                             android:layout_marginLeft="@dimen/_5sdp" />
 
@@ -518,8 +521,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/_ServingOrders"
-                        android:textSize="@dimen/_12ssp"
-                        fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                        android:textSize="@dimen/_11ssp"
+                        fontPath="fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:gravity="center"/>
@@ -549,7 +552,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/_1"
                         android:textSize="@dimen/_16ssp"
-                        fontPath="@fonts/sourcesanspro_bold" tools:ignore="MissingPrefix"
+                        fontPath="fonts/sourcesanspro_bold" tools:ignore="MissingPrefix"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:gravity="center"
@@ -581,12 +584,12 @@
                     style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                     android:id="@+id/addToTrayBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="@dimen/_35sdp"
                     android:background="@drawable/btn_bg"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:text="@string/_AddToTray"
-                    android:textSize="@dimen/_16ssp"
-                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
+                    android:textSize="@dimen/_12ssp"
+                    fontPath="fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
                     android:textColor="@color/_FFFFFF"
                     android:gravity="center"/>
 
@@ -594,6 +597,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

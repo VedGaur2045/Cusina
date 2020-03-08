@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="@dimen/_140sdp"
-    android:layout_height="@dimen/_140sdp"
+    android:layout_width="@dimen/_110sdp"
+    android:layout_height="@dimen/_110sdp"
     android:layout_margin="@dimen/_15sdp"
     android:background="@drawable/postviewbg"
     android:translationY="@dimen/_3sdp"
@@ -20,9 +20,9 @@
 
         <ImageView
             android:id="@+id/productImg"
-            android:layout_width="@dimen/_140sdp"
-            android:layout_height="@dimen/_140sdp"
-            android:src="@mipmap/fish_img_6"
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_110sdp"
+            android:src="@mipmap/item_name"
             android:scaleType="fitXY"/>
 
     </com.github.florent37.shapeofview.shapes.RoundRectView>
@@ -33,12 +33,13 @@
         android:layout_height="wrap_content"
         android:text="@string/_dishName"
         android:textColor="@color/_FFFFFF"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_7sdp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/_15sdp"
         tools:ignore="RelativeOverlap,MissingPrefix"
-        fonthPath="fonts/sourcesanspro_bold" />
+        android:textStyle="bold"
+        fonthPath="fonts/sourcesanspro_bold.otf" />
 
 </RelativeLayout>

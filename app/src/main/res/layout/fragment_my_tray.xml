@@ -44,6 +44,9 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:id="@+id/myTrayListVertical"
                 android:layout_below="@+id/oderSummery"
+                android:orientation="vertical"
+                tools:listitem="@layout/adapter_order_list_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:scrollbarThumbVertical="@android:color/transparent"
                 android:nestedScrollingEnabled="false"/>
 
@@ -54,7 +57,7 @@
             android:id="@+id/totalAmountLayout"
             android:layout_marginTop="@dimen/_7sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:padding="@dimen/_20sdp"
             android:background="@drawable/bg_white_drawable"
@@ -68,7 +71,8 @@
                 android:text="@string/total"
                 android:textSize="@dimen/_16ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                android:textStyle="bold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/_000000"/>
 
             <TextView
@@ -76,22 +80,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_70"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_16ssp"
                 android:layout_alignParentRight="true"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                android:textStyle="bold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/_000000"
                 android:layout_alignParentEnd="true" />
 
             <Button
                 android:id="@+id/placeOrder"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/btn_bg"
-                android:layout_margin="@dimen/_20sdp"
                 android:layout_below="@+id/total"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:text="@string/_placeOrder"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:onClick="placeOrderBtnOnClick"
                 android:textAllCaps="false"
                 android:textColor="@color/_FFFFFF"

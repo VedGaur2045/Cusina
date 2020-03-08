@@ -1,4 +1,4 @@
-package com.lutongbahay.main.fragments.view_item.mvvm;
+package com.lutongbahay.main.fragments.item_detail.mvvm;
 
 import androidx.lifecycle.ViewModel;
 
@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
  * Copyright © 2020 Ved Gaur. All rights reserved.
  */
 
-public class ViewItemViewModel extends ViewModel {
-    public ViewItemViewModel() {
+public class ItemDetailViewModel extends ViewModel {
+    public ItemDetailViewModel() {
     }
 }

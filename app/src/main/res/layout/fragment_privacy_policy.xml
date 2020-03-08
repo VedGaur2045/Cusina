@@ -10,7 +10,7 @@
         android:id="@+id/next"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_48sdp"
+        android:layout_height="@dimen/_35sdp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/_40sdp"
         android:layout_marginRight="@dimen/_40sdp"
@@ -23,17 +23,17 @@
 
     <ImageView
         android:id="@+id/close"
-        android:layout_width="@dimen/_24sdp"
-        android:layout_height="@dimen/_24sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:background="@color/white"
         android:src="@mipmap/close" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/mainlogo"
+        android:layout_above="@id/terms_logo"
         android:layout_marginLeft="@dimen/_40sdp"
         android:layout_marginRight="@dimen/_40sdp"
         android:layout_marginBottom="@dimen/_45sdp"
@@ -50,7 +50,7 @@
                 fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                 android:text="@string/term_msg1"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/terms"
@@ -60,7 +60,7 @@
                 fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                 android:text="@string/terms_of_use"
                 android:textColor="@color/terms_color"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_12sdp" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,7 +74,7 @@
                 fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                 android:text="@string/and"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/privacypolicy"
@@ -84,7 +84,7 @@
                 fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                 android:text="@string/privacy_policy"
                 android:textColor="@color/terms_color"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,20 +93,17 @@
                 fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
                 android:text="@string/term_msg2"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_11sdp" />
         </LinearLayout>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/mainlogo"
-        android:layout_width="@dimen/_140sdp"
-        android:layout_height="@dimen/_140sdp"
-        android:layout_centerInParent="true">
+    <ImageView
+        android:id="@+id/terms_logo"
+        android:layout_centerInParent="true"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:src="@mipmap/termslogo" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/termslogo" />
 
-    </RelativeLayout>
+
 </RelativeLayout>

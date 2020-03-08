@@ -1,4 +1,4 @@
-package com.lutongbahay.main.fragments.view_item.mvvm;
+package com.lutongbahay.main.fragments.item_detail.mvvm;
 
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +23,9 @@ import butterknife.OnClick;
  * Copyright © 2020 Ved Gaur. All rights reserved.
  */
 
-public class ViewItemView extends FrameLayout {
+public class ItemDetailView extends FrameLayout {
 
-    private final ViewItemViewModel viewModel;
+    private final ItemDetailViewModel viewModel;
     @BindView(R.id.backBtnImg)
     ImageButton backBtnImg;
     @BindView(R.id.productImgItem)
@@ -71,10 +71,10 @@ public class ViewItemView extends FrameLayout {
     @BindView(R.id.addToTrayBtn)
     Button addToTrayBtn;
 
-    public ViewItemView(@NonNull AppCompatActivity context, ViewItemViewModel viewModel) {
+    public ItemDetailView(@NonNull AppCompatActivity context, ItemDetailViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
-        inflate(context,R.layout.fragment_view_item,this);
+        inflate(context,R.layout.fragment_item_detail,this);
         ButterKnife.bind(this,this);
     }
 

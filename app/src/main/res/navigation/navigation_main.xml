@@ -11,6 +11,24 @@
         android:label="home_frag"
         tools:layout="@layout/fragment_home">
 
+        <action
+            android:id="@+id/openItemDetailFragment"
+            app:destination="@id/detailFragment" />
+
+        <action
+            android:id="@+id/openCartFragment"
+            app:destination="@id/MyTrayFragment" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.lutongbahay.main.fragments.item_detail.ItemDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_item_detail">
+
     </fragment>
 
     <fragment
@@ -26,6 +44,362 @@
         android:name="com.lutongbahay.main.fragments.profile_frag.ProfileFragment"
         android:label="profile_frag"
         tools:layout="@layout/fragment_profile">
+
+    </fragment>
+
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/viewItemFragment"
+        android:name="com.lutongbahay.main.fragments.item_detail.ItemDetailFragment"
+        android:label="view_item"
+        tools:layout="@layout/fragment_item_detail">
+
+        <!--        <action-->
+        <!--            android:id="@+id/toHomePage" />-->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/DeliveryAddressFragment"
+        android:name="com.lutongbahay.main.fragments.delivery_address_confirmation.DeliveryAddressConfirmationFragment"
+        android:label="delivery_address_confirmation"
+        tools:layout="@layout/fragment_delivery_address_confirmation">
+        <action
+            android:id="@+id/toDelAddress"
+            app:popUpTo="@+id/DeliveryAddressFragment" />
+        <action
+            android:id="@+id/toConfirmOrder"
+            app:destination="@id/ConfirmOrderFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ConfirmOrderFragment"
+        android:name="com.lutongbahay.main.fragments.confirm_order.ConfirmOrderFragment"
+        android:label="confirm_order"
+        tools:layout="@layout/fragment_confirm_order">
+
+        <action
+            android:id="@+id/toPaymentMethod"
+            app:destination="@id/PaymentMethodFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/PaymentMethodFragment"
+        android:name="com.lutongbahay.main.fragments.payment_method.PaymentMethodFragment"
+        android:label="payment_method"
+        tools:layout="@layout/fragment_payment_method">
+
+        <action
+            android:id="@+id/toOrderPlaced"
+            app:destination="@+id/OrderPlacedFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderPlacedFragment"
+        android:name="com.lutongbahay.main.fragments.order_placed.OrderPlacedFragment"
+        android:label="order_placed"
+        tools:layout="@layout/fragment_order_placed">
+
+    </fragment>
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/HomeFragment"-->
+    <!--        android:name="com.lutongbahay.user_auth.fragments.home_frag.HomeFragment"-->
+    <!--        android:label="home_frag"-->
+    <!--        tools:layout="@layout/fragment_home">-->
+
+    <!--    </fragment>-->
+
+
+    <fragment
+        android:id="@+id/ProcessingOrderFragment"
+        android:name="com.lutongbahay.main.fragments.processing_order.ProcessingOrderFragment"
+        android:label="processing_order"
+        tools:layout="@layout/fragment_processing_order">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CompletedOrderFragment"
+        android:name="com.lutongbahay.main.fragments.completed_order.CompletedOrderFragment"
+        android:label="completed_order"
+        tools:layout="@layout/fragment_completed_order">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CancelledOrderFragment"
+        android:name="com.lutongbahay.main.fragments.cancelled_order.CancelledOrderFragment"
+        android:label="cancelled_order"
+        tools:layout="@layout/fragment_cancelled_order">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderStatusFragment"
+        android:name="com.lutongbahay.main.fragments.order_stutus.OrderStatusFragment"
+        android:label="order_status"
+        tools:layout="@layout/fragment_order_status">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/DishReviewFragment"
+        android:name="com.lutongbahay.main.fragments.dish_reviews.DishReviewFragment"
+        android:label="dish_review"
+        tools:layout="@layout/fragment_dish_review">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddPhotoFragment"
+        android:name="com.lutongbahay.main.fragments.add_photo.AddPhotoFragment"
+        android:label="add_photo"
+        tools:layout="@layout/fragment_add_photo">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ChooseCategoryFragment"
+        android:name="com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragment"
+        android:label="@string/choose_category"
+        tools:layout="@layout/fragment_choose_category">
+
+        <action
+            android:id="@+id/toCompletedDetails"
+            app:destination="@+id/CompletedDetailsFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CompletedDetailsFragment"
+        android:name="com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragment"
+        android:label="completed_details"
+        tools:layout="@layout/fragment_completed_details">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SuccessConfirmation"
+        android:name="com.lutongbahay.main.fragments.success_comfirmation.SuccessConfirmationFragment"
+        android:label="success_confirmation"
+        tools:layout="@layout/fragment_success_confirmation">
+
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@id/HomeFragment"/>
+
+        <action
+            android:id="@+id/toHomeFragmentBack"
+            app:destination="@id/HomeFragment"/>
+
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SettingFragment"
+        android:name="com.lutongbahay.main.fragments.setting.SettingFragment"
+        android:label="settings"
+        tools:layout="@layout/fragment_setting">
+
+        <action
+            android:id="@+id/toFavouritesFragment"
+            app:destination="@+id/FavouritesFragment"/>
+        <action
+            android:id="@+id/toInboxFragment"
+            app:destination="@+id/InboxFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/FavouritesFragment"
+        android:name="com.lutongbahay.main.fragments.favourites.FavouritesFragment"
+        android:label="favourites"
+        tools:layout="@layout/fragment_favourites">
+
+        <action
+            android:id="@+id/toSettingsFragment"
+            app:destination="@+id/SettingFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/InboxFragment"
+        android:name="com.lutongbahay.main.fragments.inbox.InboxFragment"
+        android:label="inbox"
+        tools:layout="@layout/fragment_inbox">
+
+        <action
+            android:id="@+id/toSettingsFragment"
+            app:destination="@+id/SettingFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/MessageLocationFragment"
+        android:name="com.lutongbahay.main.fragments.message_location.MessageLocationFragment"
+        android:label="message_location"
+        tools:layout="@layout/fragment_message_location">
+
+        <action
+            android:id="@id/toInboxFragment"
+            app:destination="@id/InboxFragment"/>
+        <action
+            android:id="@+id/toMyOrdersFragment"
+            app:destination="@id/MyOrderFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SellWithLutongBehay"
+        android:name="com.lutongbahay.main.fragments.sell_with_lutong_behay.SellWithLutongBehayFragment"
+        android:label="sell_with_lutong_behay"
+        tools:layout="@layout/fragment_sell_with_lutong_behay">
+
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@+id/SignUpFragment"/>
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@+id/ProfileFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SignUpFragment"
+        android:name="com.lutongbahay.user_auth.fragments.sign_up.SignUpFragment"
+        android:label="sign_up"
+        tools:layout="@layout/fragment_sign_up">
+
+        <action
+            android:id="@+id/toDocumentUploadFragment"
+            app:destination="@id/DocumentUploadFragment"/>
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@id/SignUpFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/DocumentUploadFragment"
+        android:name="com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragment"
+        android:label="document_upload"
+        tools:layout="@layout/fragment_document_upload">
+
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@id/SignUpFragment"/>
+
+        <action
+            android:id="@+id/toSignUpCompleteFragment"
+            app:destination="@+id/SignUpCompleteFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/SignUpCompleteFragment"
+        android:name="com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragment"
+        tools:layout="@layout/fragment_sign_up_complete"
+        android:label="sign_up_complete">
+
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/ProfileFragment"/>
+
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@id/SignUpFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/MyTrayFragment"
+        android:name="com.lutongbahay.main.fragments.my_tray.MyTrayFragment"
+        android:label="my_tray"
+        tools:layout="@layout/fragment_my_tray">
+
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@+id/HomeFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/MenuFragment"
+        android:name="com.lutongbahay.main.fragments.menu.MenuFragment"
+        tools:layout="@layout/fragment_menu"
+        android:label="menu_view">
+
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrdersFragment"
+        android:name="com.lutongbahay.main.fragments.orders.OrdersFragment"
+        android:label="orders_view"
+        tools:layout="@layout/fragment_orders">
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ProcessOrderFragment"
+        android:name="com.lutongbahay.main.fragments.process_order_from_seller.ProcessOrderFragment"
+        tools:layout="@layout/fragment_process_order"
+        android:label="process_order">
+
+        <action
+            android:id="@+id/toOrdersFragment"
+            app:destination="@id/OrdersFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderCompleteFragment"
+        android:name="com.lutongbahay.main.fragments.order_complete.OrderCompleteFragment"
+        android:label="order_complete"
+        tools:layout="@layout/fragment_order_complete">
+
+        <action
+            android:id="@+id/toOrdersFragment"
+            app:destination="@+id/OrdersFragment"/>
+        <action
+            android:id="@+id/toOrderHistoryFragment"
+            app:destination="@+id/OrderHistoryFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/OrderHistoryFragment"
+        android:name="com.lutongbahay.main.fragments.order_history.OrderHistoryFragment"
+        tools:layout="@layout/fragment_order_history"
+        android:label="@string/Order_History">
+
+        <action
+            android:id="@+id/toOrdersFragment"
+            app:destination="@+id/OrdersFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CameraFragment"
+        android:name="com.lutongbahay.main.fragments.camera.CameraFragment"
+        android:label="camera_fragment"
+        tools:layout="@layout/fragment_camera">
 
     </fragment>
 

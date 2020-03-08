@@ -22,7 +22,7 @@ public class AuthActivity extends AppCompatActivity {
     public static void openAuthActivity(Context context){
         Intent intent = new Intent(context, AuthActivity.class);
         context.startActivity(intent);
-        ((AppCompatActivity)context).finish();
+       // ((AppCompatActivity)context).finish();
     }
 
 

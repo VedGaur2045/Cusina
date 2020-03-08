@@ -1,16 +1,23 @@
 package com.lutongbahay.main.fragments.home_frag.mvvm;
 
 import android.content.Context;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.MainHomeFoodMenuAdapter;
+import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,53 +29,25 @@ import butterknife.ButterKnife;
 
 public class HomeFragView extends FrameLayout {
     private final HomeFragViewModel viewModel;
-    @BindView(R.id.titleName)
-    TextView titleName;
-    @BindView(R.id.closeImgBtn)
-    ImageButton closeImgBtn;
-    @BindView(R.id.backBtnImg)
-    ImageButton backBtnImg;
-    @BindView(R.id.searchViewHome)
-    SearchView searchViewHome;
-    @BindView(R.id.list_item_vertical)
-    RecyclerView list_item_vertical;
-    @BindView(R.id.list_item_horizontal_first)
-    RecyclerView list_item_horizontal_first;
-    @BindView(R.id.list_item_horizontal_second)
-    RecyclerView list_item_horizontal_second;
-    @BindView(R.id.second_list_item_vertical)
-    RecyclerView second_list_item_vertical;
-    @BindView(R.id.seeMoretxt)
-    TextView seeMoretxt;
-    @BindView(R.id.seeMoreDishtxt)
-    TextView seeMoreDishtxt;
-    @BindView(R.id.seeMorePalutoDishtxt)
-    TextView seeMorePalutoDishtxt;
-    @BindView(R.id.seeMoreSecondDishtxt)
-    TextView seeMoreSecondDishtxt;
+
+    @BindView(R.id.food_menu_rv)
+    RecyclerView foodMenuRv;
+
     @BindView(R.id._trayOnHome)
-    RelativeLayout _trayOnHome;
-    @BindView(R.id.firstDishGroupTxt)
-    TextView firstDishGroupTxt;
-    @BindView(R.id.firstDishGroupTxtShort)
-    TextView firstDishGroupTxtShort;
-    @BindView(R.id.secondTxtDish)
-    TextView secondTxtDish;
-    @BindView(R.id.PalutoDishesTxt)
-    TextView PalutoDishesTxt;
-    @BindView(R.id.PalutoDishesTxtShort)
-    TextView PalutoDishesTxtShort;
-    @BindView(R.id.nearMeDishesTxt)
-    TextView nearMeDishesTxt;
-    @BindView(R.id.nearMeDishesTxtShort)
-    TextView nearMeDishesTxtShort;
-    @BindView(R.id.trayCount)
-    TextView trayCount;
+    RelativeLayout trayHome;
+
 
     public HomeFragView(@NonNull Context context, HomeFragViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
-        inflate(context, R.layout.fragment_home,this);
-        ButterKnife.bind(this,this);
+        inflate(context, R.layout.fragment_home, this);
+        ButterKnife.bind(this, this);
+
+        MainHomeFoodMenuAdapter mainHomeFoodMenuAdapter = new MainHomeFoodMenuAdapter(getContext());
+        foodMenuRv.setAdapter(mainHomeFoodMenuAdapter);
+
+        trayHome.setOnClickListener(v -> Navigation.findNavController(v).navigate(HomeFragmentDirections.openCartFragment()));
+
+
     }
 }

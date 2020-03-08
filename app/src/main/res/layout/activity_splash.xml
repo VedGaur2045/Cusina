@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,68 +13,72 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_326sdp"
-            android:src="@mipmap/splashlogo"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"/>
+            android:src="@mipmap/splashlogo" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/_40sdp"
-            android:paddingRight="@dimen/_40sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_alignParentBottom="true"
             android:background="@drawable/roundedcorner"
-            android:layout_alignParentBottom="true">
+            android:orientation="vertical">
 
             <TextView
+                fonthPath="fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:gravity="center"
                 android:text="@string/splash_message"
-                android:textSize="@dimen/_14ssp"
-                tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"/>
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="MissingPrefix" />
+
             <RelativeLayout
+                android:id="@+id/mobilenumberbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:background="@drawable/mobilebutton"
-                android:id="@+id/mobilenumberbox">
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/mobilebutton">
+
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/countryCodeHolder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_48sdp"
-                    app:ccp_showFullName="false"
-                    app:ccp_textSize="@dimen/_12ssp"
-                    app:ccp_arrowSize="@dimen/_1sdp"
-                    app:ccp_clickable="false"
-                    tools:ignore="MissingPrefix"
                     fonthPath="fonts/sourcesanspro_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
                     android:gravity="center"
                     app:ccpDialog_textColor="@color/black"
+                    app:ccp_arrowSize="@dimen/_1sdp"
+                    app:ccp_clickable="false"
+                    app:ccp_showFullName="false"
+                    app:ccp_showNameCode="false"
                     app:ccp_showPhoneCode="true"
-                    app:ccp_showNameCode="false"/>
+                    app:ccp_textSize="@dimen/_12sdp"
+                    tools:ignore="MissingPrefix" />
 
                 <EditText
                     android:id="@+id/mobile"
+                    fonthPath="fonts/sourcesanspro_regular"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:textSize="@dimen/_14ssp"
-                    android:inputType="phone"
-                    android:enabled="true"
-                    android:maxLength="10"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:textColor="@color/black"
-                    android:paddingLeft="@dimen/_25sdp"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_toRightOf="@id/countryCodeHolder"
                     android:background="@drawable/mobilebutton"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:enabled="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/Enter_mobile_hint"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:paddingLeft="@dimen/_25sdp"
+                    android:textColor="@color/black"
                     android:textColorHint="#D3D3D3"
-                    android:hint="@string/Enter_mobile_hint"/>
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="MissingPrefix" />
             </RelativeLayout>
         </LinearLayout>
 

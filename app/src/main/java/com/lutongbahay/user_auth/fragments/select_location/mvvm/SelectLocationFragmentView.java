@@ -33,11 +33,13 @@ public class SelectLocationFragmentView extends FrameLayout {
     }
 
 
-    @OnClick(R.id.next)
+    @OnClick({R.id.next,R.id.close})
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.next) {
             HomeActivity.openHomeActivity(getContext());
+        }else if (id == R.id.close){
+            Navigation.findNavController(v).navigateUp();
         }
     }
 }

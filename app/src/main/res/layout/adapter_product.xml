@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_15sdp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/mainLayout"
@@ -16,8 +15,8 @@
 
         <RelativeLayout
             android:id="@+id/imgSet"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_130sdp">
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp">
 
             <com.github.florent37.shapeofview.shapes.RoundRectView
                 android:layout_width="wrap_content"
@@ -29,20 +28,20 @@
 
                 <ImageView
                     android:id="@+id/productImg"
-                    android:layout_width="@dimen/_130sdp"
-                    android:layout_height="@dimen/_130sdp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/fish_img_6" />
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/product_img_item" />
 
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
             <ImageView
                 android:id="@+id/favouriteImg"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
                 android:src="@mipmap/like_img"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/todo"
                 android:layout_marginLeft="@dimen/_10sdp" />
@@ -52,26 +51,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_40"
+                android:layout_toRightOf="@+id/favouriteImg"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_10ssp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_1sdp"
                 tools:ignore="MissingPrefix,RelativeOverlap"
                 fonthPath="fonts/sourcesanspro_regular"/>
 
             <TextView
                 android:id="@+id/productTime"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_16sdp"
+                android:layout_height="wrap_content"
                 android:text="@string/_15_min"
                 android:textColor="@color/_333333"
-                android:textSize="@dimen/_8ssp"
+                android:textSize="@dimen/_8sdp"
                 android:gravity="center"
                 android:paddingLeft="@dimen/_7sdp"
                 android:paddingRight="@dimen/_7sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
                 android:background="@drawable/textback"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
@@ -82,6 +82,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/detail_section"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -95,9 +96,9 @@
                     android:id="@+id/productName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_productName"
+                    android:text="@string/PorkAdobo"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:textStyle="normal"
@@ -113,8 +114,8 @@
 
                     <ImageView
                         android:id="@+id/ratingImg"
-                        android:layout_width="@dimen/_16sdp"
-                        android:layout_height="@dimen/_16sdp"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:src="@mipmap/rating_img"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_20sdp"
@@ -125,13 +126,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/_productRating"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_11sdp"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:textStyle="normal"
                         android:textColor="@color/_80000000"
-                        tools:ignore="MissingPrefix,RelativeOverlap"
-                        fonthPath="fonts/sourcesanspro_regular" />
+                        />
 
                 </RelativeLayout>
 
@@ -142,9 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/byJennyPancit"
-                android:textSize="@dimen/_10ssp"
-                tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:textSize="@dimen/_8ssp"
                 android:textColor="@color/_80000000"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp" />
@@ -154,9 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/placeDesert"
-                android:textSize="@dimen/_10ssp"
-                tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:textSize="@dimen/_8ssp"
                 android:textColor="@color/_80000000"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp" />
@@ -168,10 +164,12 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:text="@string/_productPrice"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_13sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"/>
+                android:textStyle="bold"
+                fonthPath="fonts/sourcesanspro_bold.otf"/>
 
             <TextView
                 android:id="@+id/productServingLeft"
@@ -183,7 +181,6 @@
                 android:textColor="@color/_FF8500"
                 android:textStyle="italic"
                 android:textSize="@dimen/_10ssp"
-                android:layout_marginTop="@dimen/_1sdp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"/>
 
@@ -192,6 +189,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp">
 
@@ -199,10 +197,9 @@
                     android:id="@+id/productMinimumOrderTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/MinimumOrder"
                     android:textColor="@color/_EC0000"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="normal"
                     fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
@@ -210,10 +207,9 @@
                     android:id="@+id/productMinimumOrderCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/_productMinimumOrderCount"
                     android:textColor="@color/_EC0000"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="normal"
                     fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
@@ -221,10 +217,9 @@
                     android:id="@+id/_Serving"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/_Serving"
                     android:textColor="@color/_EC0000"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="normal"
                     fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
 
@@ -277,5 +272,11 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gunmetal"
+        android:layout_below="@+id/mainLayout"/>
 
 </RelativeLayout>
