@@ -2,6 +2,7 @@ package com.lutongbahay.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.location.Address;
 import android.text.TextUtils;
 
 import androidx.lifecycle.MutableLiveData;
@@ -18,6 +19,7 @@ public class PreferenceManger {
 
     public static final String PREF_KEY = "waiter_preference";
     public static final String AUTH_TOKEN = "auth_token";
+    public static final String CURRENT_LOCATION = "current_location";
 
     private SharedPreferences mSharedPreferences;
 
@@ -77,6 +79,18 @@ public class PreferenceManger {
         return mSharedPreferences.getInt(key, 0);
     }
 
+
+    public void putLastAddress(Address address) {
+        Gson gson = new Gson();
+        String json = gson.toJson(address);
+        putString(CURRENT_LOCATION, json);
+    }
+
+    public Address getLastSavedLocation() {
+        Gson gson = new Gson();
+        String json = getStringValue(CURRENT_LOCATION);
+        return gson.fromJson(json, Address.class);
+    }
 
 
 

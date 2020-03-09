@@ -64,4 +64,12 @@ public class HomeActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void handleBottomNavigationVisibility(boolean show){
+        if (show){
+            bottomNavigation.setVisibility(View.VISIBLE);
+        }else{
+            bottomNavigation.setVisibility(View.GONE);
+        }
+    }
 }

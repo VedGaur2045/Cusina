@@ -413,5 +413,6 @@
     <string name="fromDate">January 1, 2020</string>
     <string name="toDate">February 21, 2020</string>
 
+    <string name="location_permission_required_map">You have denied location permission. Location permission is required for better experience. Try again.</string>
 
 </resources>
