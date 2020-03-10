@@ -7,8 +7,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.message_location.MessageLocationFragment;
 import com.lutongbahay.main.fragments.message_location.MessageLocationFragmentDirections;
@@ -17,33 +24,39 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MessageLocationView extends FrameLayout {
+public class MessageLocationView extends FrameLayout implements OnMapReadyCallback {
+
     private final MessageLocationViewModel viewModel;
-    @BindView(R.id.titleName)
-    TextView titleName;
-    @BindView(R.id.closeImgBtn)
-    ImageButton closeImgBtn;
-    @BindView(R.id.backBtnImg)
-    ImageButton backBtnImg;
-    @BindView(R.id.deliverAwayId)
-    TextView deliverAwayId;
-    @BindView(R.id.showOrderDetails)
-    TextView showOrderDetails;
+    GoogleMap googleMap;
 
     public MessageLocationView(@NonNull Context context, MessageLocationViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_message_location,this);
         ButterKnife.bind(this,this);
+        ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+
     }
 
-    @OnClick(R.id.backBtnImg)
+    @OnClick(R.id.closeImgBtn)
     public void onClick(View v){
         int id = v.getId();
-        if(id == R.id.backBtnImg){
-            Navigation.findNavController(v).navigate(MessageLocationFragmentDirections.toInboxFragment());
-        } else if(id == R.id.showOrderDetails){
-            Navigation.findNavController(v).navigate(MessageLocationFragmentDirections.toMyOrdersFragment());
+        if(id == R.id.closeImgBtn){
+            Navigation.findNavController(v).navigateUp();
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+        googleMap.setMyLocationEnabled(true);
+        ZoomOnCurrentLocation();
+    }
+
+
+    private void ZoomOnCurrentLocation(){
+        LatLng coordinate = new LatLng(26.264377, 72.9919383);
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 15);
+        googleMap.animateCamera(yourLocation);;
     }
 }

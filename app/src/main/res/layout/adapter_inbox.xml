@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/_inboxTxt"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_13sdp"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"/>
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/_inboxDate"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_11sdp"
             android:textColor="@color/_80000000"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"/>

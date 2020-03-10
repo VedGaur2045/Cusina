@@ -5,9 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
+import com.lutongbahay.main.fragments.map_view.MapViewFragmentDirections;
 
 public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<HorizontalHomeFoodMenuAdapter.HorizontalHomeViewHolder>{
 
@@ -22,7 +25,9 @@ public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public void onBindViewHolder(@NonNull HorizontalHomeViewHolder holder, int position) {
-
+        holder.itemView.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(MapViewFragmentDirections.openItemDetailFragment());
+        });
     }
 
     @Override

@@ -4,12 +4,44 @@
     android:layout_height="match_parent"
     android:background="@color/_FFFFFF">
 
-    <include
-        android:id="@+id/headerLayout"
-        layout="@layout/custom_toolbar"/>
+    <RelativeLayout
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/closeImgBtn"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@color/transparent"
+            android:contentDescription="TODO"
+            android:src="@mipmap/back"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/titleName"
+            fontPath="fonts/cabin_semibold.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/message"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17ssp"
+            android:visibility="visible"
+            tools:ignore="MissingPrefix" />
+
+    </RelativeLayout>
 
     <ScrollView
-        android:layout_below="@+id/headerLayout"
+        android:layout_below="@+id/custom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -24,7 +56,7 @@
                 android:id="@+id/map"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_350sdp"
+                android:layout_height="@dimen/_300sdp"
                 tools:context=".Fragments.MapsActivity" />
 
             <TextView
@@ -34,8 +66,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mapWayTxt"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_20ssp"
-                android:textSize="@dimen/_18ssp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="@dimen/_16ssp"
                 android:textColor="@color/_000000"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold"/>
@@ -47,8 +79,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/timeAway"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_10ssp"
-                android:textSize="@dimen/_18ssp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/_7BCC86"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold"/>
@@ -62,17 +94,17 @@
                 android:text="@string/deliverFinishedTxt"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_20ssp"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:textColor="@color/_000000"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_regular"/>
 
             <LinearLayout
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_below="@+id/deliverFinishedTxt"
                 android:layout_width="match_parent"
                 android:background="#F6F6F6"
-                android:layout_height="@dimen/_55sdp">
+                android:layout_height="@dimen/_40sdp">
 
                 <TextView
                     android:background="@color/_FFFFFF"

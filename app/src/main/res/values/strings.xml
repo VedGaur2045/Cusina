@@ -415,4 +415,5 @@
 
     <string name="location_permission_required_map">You have denied location permission. Location permission is required for better experience. Try again.</string>
 
+    <string name="google_maps_key">AIzaSyCBTfuAIRbwdEYB390VSOkiuYtDzDzqvlg</string>
 </resources>

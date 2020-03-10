@@ -8,8 +8,15 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
+import com.lutongbahay.utils.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +38,9 @@ public class HomeActivity extends AppCompatActivity {
     @BindView(R.id.bottom_navigation)
     RelativeLayout bottomNavigation;
 
+    private NavController navController;
+    private AppBarConfiguration appBarConfiguration;
+
     public static void openHomeActivity(Context context) {
         Intent intent = new Intent(context, HomeActivity.class);
         context.startActivity(intent);
@@ -47,20 +57,48 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
+        navController = Navigation.findNavController(this, R.id.nav_host_main);
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        navigationHandler();
+    }
+
+
+    //help? https://developer.android.com/topic/libraries/architecture/navigation/navigation-ui
+    @Override
+    public boolean onSupportNavigateUp() {
+        return navController != null ? NavigationUI.navigateUp(navController, appBarConfiguration) : super.onSupportNavigateUp();
     }
 
     @OnClick({R.id.action_home_frame, R.id.action_search_frame, R.id.action_order_frame, R.id.action_reward_frame, R.id.action_account_frame})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+
             case R.id.action_home_frame:
+                if (navController != null && navController.getCurrentDestination() != null)
+                    if (navController.getCurrentDestination().getId() != R.id.HomeFragment){
+                        navController.navigate(R.id.HomeFragment);
+                        navController.popBackStack(R.id.HomeFragment, false);
+                    }
                 break;
             case R.id.action_search_frame:
+                if (navController != null && navController.getCurrentDestination() != null)
+                    if (navController.getCurrentDestination().getId() != R.id.mapFragment){
+                        navController.navigate(R.id.mapFragment);
+                        navController.popBackStack(R.id.mapFragment, false);
+                    }
                 break;
             case R.id.action_order_frame:
                 break;
             case R.id.action_reward_frame:
                 break;
             case R.id.action_account_frame:
+                if (navController != null && navController.getCurrentDestination() != null)
+                    if (navController.getCurrentDestination().getId() != R.id.profileFragment){
+                        navController.navigate(R.id.profileFragment);
+                        navController.popBackStack(R.id.profileFragment, false);
+                    }
                 break;
         }
     }
@@ -71,5 +109,17 @@ public class HomeActivity extends AppCompatActivity {
         }else{
             bottomNavigation.setVisibility(View.GONE);
         }
+    }
+
+
+    public void navigationHandler() {
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            Logger.DebugLog("Destination Controller", destination.getId() + "");
+            if (destination.getId() == R.id.HomeFragment || destination.getId() == R.id.profileFragment ){
+                handleBottomNavigationVisibility(true);
+            }else
+                handleBottomNavigationVisibility(false);
+
+        });
     }
 }

@@ -23,8 +23,8 @@
                 <ImageButton
                     android:id="@+id/close"
                     android:background="@color/transparent"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/close" />
                 <TextView
@@ -33,7 +33,7 @@
                     android:text="@string/personal_info"
                     tools:ignore="MissingPrefix"
                     fonthPath="fonts/cabin_semibold"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:layout_centerInParent="true"
                     android:textColor="@color/black"/>
             </RelativeLayout>
@@ -44,19 +44,19 @@
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"
-                android:textSize="@dimen/_8ssp"
+                android:textSize="@dimen/_9ssp"
                 android:layout_marginTop="@dimen/_30sdp"/>
             <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:hint="@string/username_placeholder"
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
@@ -68,18 +68,18 @@
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_30sdp"/>
+                android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
                 android:id="@+id/usermobile"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:hint="@string/Enter_mobile_hint"
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:singleLine="true"
                 android:inputType="phone"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
@@ -91,18 +91,18 @@
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_30sdp"/>
+                android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
                 android:id="@+id/useremail"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:hint="@string/useremail_placeholder"
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:singleLine="true"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
@@ -114,25 +114,25 @@
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_30sdp"/>
+                android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
                 android:id="@+id/useradddressline1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:hint="@string/useraddress_line1"
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <EditText
                 android:id="@+id/useradddressline2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:hint="@string/useraddress_line2"
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
@@ -163,15 +163,15 @@
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textSize="@dimen/_8ssp"
-                        android:layout_marginTop="@dimen/_30sdp"/>
+                        android:layout_marginTop="@dimen/_15sdp"/>
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
+                        android:layout_marginTop="@dimen/_5sdp">
                         <Spinner
                             android:id="@+id/citylist"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_42sdp"
+                            android:layout_height="@dimen/_35sdp"
                             android:visibility="visible"
                             android:singleLine="true"
                             android:scrollIndicators="none"
@@ -185,7 +185,7 @@
                             android:layout_height="@dimen/_24sdp"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginRight="@dimen/_30sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
                             android:src="@mipmap/arrowdown"/>
                     </RelativeLayout>
 
@@ -194,7 +194,7 @@
                     android:id="@+id/enterzipcode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_24sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
                     android:layout_weight="5"
                     android:layout_toRightOf="@id/selectcity"
                     android:orientation="vertical">
@@ -206,18 +206,18 @@
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textSize="@dimen/_8ssp"
-                        android:layout_marginTop="@dimen/_30sdp"/>
+                        android:layout_marginTop="@dimen/_15sdp"/>
                     <EditText
                         android:id="@+id/zipcode"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_42sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:hint="@string/userzipcode_placeholder"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"
                         android:singleLine="true"
                         android:inputType="number"
                         android:paddingLeft="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_it"
                         android:background="@drawable/userinputbg"/>
@@ -232,11 +232,11 @@
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_30sdp"/>
+                android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
                 android:id="@+id/usercountry"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:hint="@string/city_name"
                 android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
@@ -255,7 +255,7 @@
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_30sdp"/>
+                android:layout_marginTop="@dimen/_15sdp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -269,7 +269,7 @@
                     <Spinner
                         android:id="@+id/genderlist"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_42sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:visibility="visible"
                         android:scrollbarThumbVertical="@color/transparent"
                         android:singleLine="true"
@@ -297,10 +297,10 @@
                 android:id="@+id/NextBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:text="@string/next"
                 android:background="@drawable/commonbuttonbg"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:onClick="backToHomeBtnClick"
@@ -313,7 +313,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/mainlogo"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_45sdp"
                 android:orientation="vertical">
                 <LinearLayout
@@ -324,7 +324,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textColor="@color/black"
@@ -333,7 +333,7 @@
                         android:id="@+id/terms"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textColor="@color/terms_color"
@@ -348,7 +348,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textColor="@color/black"
@@ -357,7 +357,7 @@
                         android:id="@+id/privacypolicy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textColor="@color/terms_color"
@@ -366,7 +366,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_regular"
                         android:textColor="@color/black"

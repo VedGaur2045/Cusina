@@ -19,6 +19,15 @@
             android:id="@+id/openCartFragment"
             app:destination="@id/MyTrayFragment" />
 
+        <action
+            android:id="@+id/openMapSearchFragment"
+            app:destination="@id/mapFragment" />
+
+
+        <action
+            android:id="@+id/openProfileFragment"
+            app:destination="@id/profileFragment" />
+
 
     </fragment>
 
@@ -31,6 +40,20 @@
 
     </fragment>
 
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.lutongbahay.main.fragments.map_view.MapViewFragment"
+        android:label=""
+        tools:layout="@layout/fragment_mapview">
+
+        <action
+            android:id="@+id/openItemDetailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@+id/HomeFragment"/>
+
+    </fragment>
+
     <fragment
         android:id="@+id/MyOrderFragment"
         android:name="com.lutongbahay.main.fragments.my_orders_frag.MyOrdersFragment"
@@ -40,10 +63,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/ProfileFragment"
+        android:id="@+id/profileFragment"
         android:name="com.lutongbahay.main.fragments.profile_frag.ProfileFragment"
         android:label="profile_frag"
         tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/openSettings"
+            app:destination="@id/SettingFragment"/>
 
     </fragment>
 
@@ -240,8 +267,8 @@
         tools:layout="@layout/fragment_inbox">
 
         <action
-            android:id="@+id/toSettingsFragment"
-            app:destination="@+id/SettingFragment"/>
+            android:id="@+id/openMessageDetail"
+            app:destination="@+id/MessageLocationFragment"/>
 
     </fragment>
 
