@@ -90,6 +90,11 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 break;
             case R.id.action_order_frame:
+                if (navController != null && navController.getCurrentDestination() != null)
+                    if (navController.getCurrentDestination().getId() != R.id.MyOrderFragment){
+                        navController.navigate(R.id.MyOrderFragment);
+                        navController.popBackStack(R.id.MyOrderFragment, false);
+                    }
                 break;
             case R.id.action_reward_frame:
                 break;

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.CancelledOrderRecyclerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,5 +27,8 @@ public class CompletedOrderView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_completed_order,this);
         ButterKnife.bind(this,this);
+
+        CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter();
+        completedListItem.setAdapter(cancelledOrderRecyclerAdapter);
     }
 }

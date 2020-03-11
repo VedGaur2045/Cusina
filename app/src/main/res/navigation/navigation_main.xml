@@ -28,6 +28,10 @@
             android:id="@+id/openProfileFragment"
             app:destination="@id/profileFragment" />
 
+        <action
+            android:id="@+id/openOrderTabsFragment"
+            app:destination="@id/MyOrderFragment" />
+
 
     </fragment>
 

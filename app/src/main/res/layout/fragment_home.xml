@@ -121,7 +121,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/food_menu_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/_5sdp"
         android:orientation="vertical"
         tools:listitem="@layout/adapter_main_home"

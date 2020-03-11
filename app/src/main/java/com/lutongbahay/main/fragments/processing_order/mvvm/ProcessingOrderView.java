@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.ProcessingOrderRecyclerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,5 +34,7 @@ public class ProcessingOrderView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_processing_order,this);
         ButterKnife.bind(this,this);
+        ProcessingOrderRecyclerAdapter processingOrderRecyclerAdapter = new ProcessingOrderRecyclerAdapter();
+        processingListItem.setAdapter(processingOrderRecyclerAdapter);
     }
 }

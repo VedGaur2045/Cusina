@@ -351,11 +351,11 @@
     <string name="_reviewed_hyphen">\u0020 - \u0020</string>
     <string name="_reviewedTime">7 minutes ago</string>
     <string name="_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet vulputate nunc. Curabitur accumsan mauris ut orci convallis porta. Praesent posuere fermentum cursus.</string>
-    <string name="OrderReceived">Order Received</string>
-    <string name="OrderConfirmed">Order Confirmed</string>
-    <string name="ProcessingOrder">Processing Order</string>
-    <string name="DeliveringOrder">Delivering Order</string>
-    <string name="OrderDelivered">Order Delivered</string>
+    <string name="OrderReceived">Order \n Received</string>
+    <string name="OrderConfirmed">Order \n Confirmed</string>
+    <string name="ProcessingOrder">Processing \n Order</string>
+    <string name="DeliveringOrder">Delivering \n Order</string>
+    <string name="OrderDelivered">Order \n Delivered</string>
     <string name="galleryTxt_1">Make your Luto stand out!</string>
     <string name="galleryTxt_2">Tips on how to take a photo of your dish</string>
     <string name="ins_1">1.</string>
