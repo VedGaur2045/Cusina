@@ -11,8 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.delivery_address_confirmation.DeliveryAddressConfirmationFragmentDirections;
+import com.lutongbahay.utils.SnackbarUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,13 +47,23 @@ public class DeliveryAddressView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context,R.layout.fragment_delivery_address_confirmation,this);
         ButterKnife.bind(this,this);
+
+        titleName.setText(R.string.myDetails);
+        backBtnImg.setVisibility(GONE);
+
     }
 
     @OnClick(R.id.saveDetails)
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.saveDetails){
-            Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toConfirmOrder());
+            if(username.getText().equals("") && userEmailId.getText().equals("") && addressTxt.getText().equals("")){
+                SnackbarUtils.showSnackBar(view, "Please fill all field", Snackbar.LENGTH_LONG);
+            } else {
+                Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toConfirmOrder());
+            }
+        } else if(id == R.id.closeImgBtn){
+            Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toMyTrayFragment());
         }
     }
 }

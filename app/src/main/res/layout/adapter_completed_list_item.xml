@@ -242,11 +242,11 @@
         <TextView
             android:id="@+id/deliveredTxt"
             android:textAllCaps="false"
-            android:text="@string/DELIVERED_Txt"
+            android:text="@string/CANCELLED_Txt"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_bold.otf"
             android:textSize="@dimen/_10ssp"
-            android:textColor="@color/_7BCC86"
+            android:textColor="@color/_EC0000"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_10sdp"

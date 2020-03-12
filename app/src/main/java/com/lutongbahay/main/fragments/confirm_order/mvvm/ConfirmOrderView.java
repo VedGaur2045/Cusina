@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.ConfirmOrderRecyclerAdapter;
 import com.lutongbahay.main.fragments.confirm_order.ConfirmOrderFragment;
 import com.lutongbahay.main.fragments.confirm_order.ConfirmOrderFragmentDirections;
 
@@ -49,7 +50,7 @@ public class ConfirmOrderView extends FrameLayout {
     @BindView(R.id.order_list_item_vertical)
     RecyclerView order_list_item_vertical;
     @BindView(R.id.totalAmount)
-    RecyclerView totalAmount;
+    TextView totalAmount;
     @BindView(R.id.buyNow)
     Button buyNow;
 
@@ -58,13 +59,24 @@ public class ConfirmOrderView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_confirm_order, this);
         ButterKnife.bind(this,this);
+
+        titleName.setText(R.string.confirmOrder);
+        backBtnImg.setVisibility(GONE);
+
+        ConfirmOrderRecyclerAdapter confirmOrderRecyclerAdapter = new ConfirmOrderRecyclerAdapter();
+        order_list_item_vertical.setAdapter(confirmOrderRecyclerAdapter);
     }
 
     @OnClick(R.id.buyNow)
     public void onClick(View v){
         int id = v.getId();
-        if(id == R.id.buyNow){
-            Navigation.findNavController(v).navigate(ConfirmOrderFragmentDirections.toPaymentMethod());
+        switch (id) {
+            case R.id.buyNow:
+                Navigation.findNavController(v).navigate(ConfirmOrderFragmentDirections.toPaymentMethod());
+                break;
+            case R.id.closeImgBtn:
+                Navigation.findNavController(v).navigate(ConfirmOrderFragmentDirections.toDeliveryAddressFragment());
+                break;
         }
     }
 

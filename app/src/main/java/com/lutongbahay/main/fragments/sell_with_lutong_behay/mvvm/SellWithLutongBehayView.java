@@ -35,11 +35,13 @@ public class SellWithLutongBehayView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
-    @OnClick(R.id.signUpBtn)
+    @OnClick({R.id.signUpBtn,R.id.backBtnImg})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.signUpBtn){
             Navigation.findNavController(view).navigate(SellWithLutongBehayFragmentDirections.toSignUpFragment());
+        } else if(id == R.id.backBtnImg){
+            Navigation.findNavController(view).navigate(SellWithLutongBehayFragmentDirections.toProfileFragment());
         }
     }
 

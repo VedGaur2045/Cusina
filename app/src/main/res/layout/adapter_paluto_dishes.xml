@@ -4,17 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_5sdp">
 
     <LinearLayout
         android:id="@+id/mainLayout"
-        android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/postviewbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_margin="@dimen/_5sdp"
         android:layout_centerHorizontal="true"
-
         android:translationZ="@dimen/_6sdp"
         android:translationY="@dimen/_3sdp">
 

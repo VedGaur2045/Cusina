@@ -1,18 +1,23 @@
 package com.lutongbahay.main.fragments.camera.mvvm;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
+import com.lutongbahay.main.fragments.camera.CameraFragmentDirections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CameraView extends FrameLayout {
@@ -46,4 +51,18 @@ public class CameraView extends FrameLayout {
         inflate(context, R.layout.fragment_camera,this);
         ButterKnife.bind(this,this);
     }
+
+    @OnClick({R.id.capturedImageBtn,R.id.rightBtn})
+    public void onClick(View view){
+        int id = view.getId();
+        switch (id){
+            case R.id.capturedImageBtn:
+                Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
+                break;
+            case R.id.rightBtn:
+                Navigation.findNavController(view).navigate(CameraFragmentDirections.toChooseCategory());
+                break;
+        }
+    }
+
 }

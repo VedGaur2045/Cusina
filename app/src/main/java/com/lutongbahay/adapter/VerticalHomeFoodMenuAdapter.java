@@ -3,6 +3,7 @@ package com.lutongbahay.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,9 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
         holder.imageSection.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(HomeFragmentDirections.openItemDetailFragment());
         });
+        holder.ratingImg.setOnClickListener(view -> {
+            Navigation.findNavController(view).navigate(HomeFragmentDirections.toDishReviewFragment());
+        });
     }
 
     @Override
@@ -44,6 +48,8 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
 
         @BindView(R.id.imgSet)
         RelativeLayout imageSection;
+        @BindView(R.id.ratingImg)
+        ImageView ratingImg;
 
         public VerticalViewHolder(@NonNull View itemView) {
             super(itemView);

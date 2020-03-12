@@ -416,4 +416,9 @@
     <string name="location_permission_required_map">You have denied location permission. Location permission is required for better experience. Try again.</string>
 
     <string name="google_maps_key">AIzaSyCBTfuAIRbwdEYB390VSOkiuYtDzDzqvlg</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="earn_rewards">Earn Rewards</string>
+    <string name="account">Account</string>
+    <string name="CoinsTxt">Coins.ph e-Wallet</string>
 </resources>

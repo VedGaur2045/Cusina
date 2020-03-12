@@ -31,16 +31,22 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user_auth.activity.SplashActivity">
+        <activity android:name=".user_auth.activity.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+
+        </activity>
+
+        <activity android:name=".user_auth.activity.AuthActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".main.home.HomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".user_auth.activity.AuthActivity"/>
-        <activity android:name=".main.home.HomeActivity"/>
 
 
         <meta-data

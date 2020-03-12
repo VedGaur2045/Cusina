@@ -58,6 +58,7 @@ public class LoginView extends FrameLayout {
             }
         }else if (id == R.id.close){
             ((AppCompatActivity)getContext()).finish();
+            ((AppCompatActivity)getContext()).overridePendingTransition(R.animator.enter_from_left,R.animator.exit_to_right);
         }
     }
 }

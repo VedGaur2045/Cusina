@@ -1,5 +1,6 @@
 package com.lutongbahay.main.home;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,8 +43,9 @@ public class HomeActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
 
     public static void openHomeActivity(Context context) {
+        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         Intent intent = new Intent(context, HomeActivity.class);
-        context.startActivity(intent);
+        context.startActivity(intent,bndlAnimation);
         ((AppCompatActivity) context).finish();
     }
 
@@ -97,6 +99,11 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 break;
             case R.id.action_reward_frame:
+                if (navController != null && navController.getCurrentDestination() != null)
+                    if (navController.getCurrentDestination().getId() != R.id.earnRewardsFragment){
+                        navController.navigate(R.id.earnRewardsFragment);
+                        navController.popBackStack(R.id.earnRewardsFragment, false);
+                    }
                 break;
             case R.id.action_account_frame:
                 if (navController != null && navController.getCurrentDestination() != null)
@@ -120,7 +127,8 @@ public class HomeActivity extends AppCompatActivity {
     public void navigationHandler() {
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             Logger.DebugLog("Destination Controller", destination.getId() + "");
-            if (destination.getId() == R.id.HomeFragment || destination.getId() == R.id.profileFragment ){
+            if (destination.getId() == R.id.HomeFragment || destination.getId() == R.id.profileFragment || destination.getId() == R.id.MyOrderFragment
+                    || destination.getId() == R.id.mapFragment || destination.getId() == R.id.earnRewardsFragment){
                 handleBottomNavigationVisibility(true);
             }else
                 handleBottomNavigationVisibility(false);

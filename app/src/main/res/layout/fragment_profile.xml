@@ -42,6 +42,23 @@
                     android:contentDescription="@string/todo"
                     android:src="@mipmap/heart" />
 
+                <TextView
+                    android:visibility="visible"
+                    android:id="@+id/AddNewLuto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_ADD_NEW_LUTO"
+                    android:textColor="@color/_EC0000"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/_45sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_bold"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp" />
+
                 <ImageView
                     android:id="@+id/chatImg"
                     android:layout_width="@dimen/_16sdp"
@@ -302,7 +319,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:text="@string/sell_food"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/_EC0000"
                             android:textSize="@dimen/_12ssp"
                             tools:ignore="MissingPrefix,RelativeOverlap" />
 

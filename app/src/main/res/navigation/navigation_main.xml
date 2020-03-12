@@ -23,6 +23,9 @@
             android:id="@+id/openMapSearchFragment"
             app:destination="@id/mapFragment" />
 
+        <action
+            android:id="@+id/openEarnRewardsFragment"
+            app:destination="@id/earnRewardsFragment"/>
 
         <action
             android:id="@+id/openProfileFragment"
@@ -31,6 +34,10 @@
         <action
             android:id="@+id/openOrderTabsFragment"
             app:destination="@id/MyOrderFragment" />
+
+        <action
+            android:id="@+id/toDishReviewFragment"
+            app:destination="@id/DishReviewFragment" />
 
 
     </fragment>
@@ -41,6 +48,13 @@
         android:name="com.lutongbahay.main.fragments.item_detail.ItemDetailFragment"
         android:label="Detail"
         tools:layout="@layout/fragment_item_detail">
+
+        <action android:id="@+id/toHomeFragment"
+            app:destination="@+id/HomeFragment" />
+
+        <action
+            android:id="@+id/toDishReviewFragment"
+            app:destination="@+id/DishReviewFragment"/>
 
     </fragment>
 
@@ -64,6 +78,11 @@
         android:label="my_order"
         tools:layout="@layout/fragment_my_orders">
 
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@+id/HomeFragment"/>
+
+
     </fragment>
 
     <fragment
@@ -75,11 +94,28 @@
         <action
             android:id="@+id/openSettings"
             app:destination="@id/SettingFragment"/>
+        <action
+            android:id="@+id/savedPlaced"
+            app:destination="@id/ChooseCategoryFragment"/>
+        <action
+            android:id="@+id/FbConnect"
+            app:destination="@id/ChooseCategoryFragment"/>
+        <action
+            android:id="@+id/SellFood"
+            app:destination="@id/SellWithLutongBehay"/>
+        <action android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
 
     </fragment>
 
 
+    <fragment
+        android:id="@+id/earnRewardsFragment"
+        android:name="com.lutongbahay.main.fragments.earn_rewards.EarnRewardsFragment"
+        tools:layout="@layout/fragment_earn_rewards"
+        android:label="earn_rewards">
 
+    </fragment>
 
 
 
@@ -106,6 +142,8 @@
         <action
             android:id="@+id/toConfirmOrder"
             app:destination="@id/ConfirmOrderFragment"/>
+        <action android:id="@+id/toMyTrayFragment"
+            app:destination="@id/MyTrayFragment"/>
     </fragment>
 
     <fragment
@@ -117,6 +155,9 @@
         <action
             android:id="@+id/toPaymentMethod"
             app:destination="@id/PaymentMethodFragment"/>
+        <action
+            android:id="@+id/toDeliveryAddressFragment"
+            app:destination="@id/DeliveryAddressFragment"/>
 
     </fragment>
 
@@ -129,6 +170,9 @@
         <action
             android:id="@+id/toOrderPlaced"
             app:destination="@+id/OrderPlacedFragment"/>
+        <action
+            android:id="@+id/toConfirmOrder"
+            app:destination="@+id/ConfirmOrderFragment"/>
 
     </fragment>
 
@@ -137,6 +181,10 @@
         android:name="com.lutongbahay.main.fragments.order_placed.OrderPlacedFragment"
         android:label="order_placed"
         tools:layout="@layout/fragment_order_placed">
+
+        <action
+            android:id="@+id/toPaymentMethod"
+            app:destination="@id/PaymentMethodFragment"/>
 
     </fragment>
 
@@ -155,6 +203,9 @@
         android:label="processing_order"
         tools:layout="@layout/fragment_processing_order">
 
+        <action android:id="@+id/toViewOrdersDetailsFragment"
+            app:destination="@+id/ViewOrdersDetailsFragment"/>
+
     </fragment>
 
     <fragment
@@ -163,6 +214,9 @@
         android:label="completed_order"
         tools:layout="@layout/fragment_completed_order">
 
+        <action android:id="@+id/toViewOrdersDetailsFragment"
+            app:destination="@+id/ViewOrdersDetailsFragment"/>
+
     </fragment>
 
     <fragment
@@ -170,6 +224,9 @@
         android:name="com.lutongbahay.main.fragments.cancelled_order.CancelledOrderFragment"
         android:label="cancelled_order"
         tools:layout="@layout/fragment_cancelled_order">
+
+        <action android:id="@+id/toViewOrdersDetailsFragment"
+            app:destination="@+id/ViewOrdersDetailsFragment"/>
 
     </fragment>
 
@@ -187,6 +244,12 @@
         android:label="dish_review"
         tools:layout="@layout/fragment_dish_review">
 
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@+id/HomeFragment"/>
+        <action android:id="@+id/openItemDetailFragment"
+            app:destination="@+id/detailFragment"/>
+
     </fragment>
 
     <fragment
@@ -194,6 +257,12 @@
         android:name="com.lutongbahay.main.fragments.add_photo.AddPhotoFragment"
         android:label="add_photo"
         tools:layout="@layout/fragment_add_photo">
+
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/profileFragment"/>
+        <action android:id="@+id/toCameraFragment"
+            app:destination="@+id/CameraFragment"/>
 
     </fragment>
 
@@ -225,11 +294,11 @@
 
         <action
             android:id="@+id/toHomeFragment"
-            app:destination="@id/HomeFragment"/>
+            app:destination="@id/profileFragment"/>
 
         <action
             android:id="@+id/toHomeFragmentBack"
-            app:destination="@id/HomeFragment"/>
+            app:destination="@id/profileFragment"/>
 
         <action
             android:id="@+id/toAddPhoto"
@@ -316,8 +385,8 @@
             android:id="@+id/toDocumentUploadFragment"
             app:destination="@id/DocumentUploadFragment"/>
         <action
-            android:id="@+id/toSignUpFragment"
-            app:destination="@id/SignUpFragment" />
+            android:id="@+id/toSellWithLutongBehay"
+            app:destination="@id/SellWithLutongBehay" />
 
     </fragment>
 
@@ -361,7 +430,17 @@
 
         <action
             android:id="@+id/toHomeFragment"
-            app:destination="@+id/HomeFragment"/>
+            app:destination="@+id/HomeFragment"
+            app:enterAnim="@animator/enter_from_left"
+            app:exitAnim="@animator/exit_to_right"
+            app:popEnterAnim="@animator/enter_from_left"
+            app:popExitAnim="@animator/exit_to_right"/>
+
+        <action android:id="@+id/toMyTrayFragment"
+            app:popUpTo="@id/MyTrayFragment"/>
+
+        <action android:id="@id/toDelAddress"
+            app:destination="@+id/DeliveryAddressFragment"/>
 
     </fragment>
 
@@ -431,6 +510,25 @@
         android:name="com.lutongbahay.main.fragments.camera.CameraFragment"
         android:label="camera_fragment"
         tools:layout="@layout/fragment_camera">
+
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@+id/AddPhotoFragment"/>
+        <action
+            android:id="@+id/toChooseCategory"
+            app:destination="@+id/ChooseCategoryFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ViewOrdersDetailsFragment"
+        android:name="com.lutongbahay.main.fragments.view_order_details.ViewOrdersDetailsFragment"
+        tools:layout="@layout/fragment_view_orders_details"
+        android:label="view_orders_details">
+
+        <action
+            android:id="@+id/toMyOrdersFragment"
+            app:destination="@+id/MyOrderFragment"/>
 
     </fragment>
 

@@ -30,13 +30,14 @@
                 fonthPath="fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:gravity="center"
                 android:text="@string/splash_message"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
-                tools:ignore="MissingPrefix" />
+                tools:ignore="MissingPrefix"
+                android:layout_marginLeft="@dimen/_20sdp" />
 
             <RelativeLayout
                 android:id="@+id/mobilenumberbox"

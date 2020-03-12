@@ -27,7 +27,9 @@ public class CompletedOrderView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_completed_order,this);
         ButterKnife.bind(this,this);
-
+        /*
+        * CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter();
+        * Complete order list*/
         CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter();
         completedListItem.setAdapter(cancelledOrderRecyclerAdapter);
     }

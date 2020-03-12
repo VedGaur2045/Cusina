@@ -15,6 +15,8 @@ import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoViewModel;
 
+import static com.lutongbahay.user_auth.fragments.select_location.mvvm.SelectLocationFragmentView.PERMISSION_REQUEST_CODE;
+
 public class AddPhotoFragment extends Fragment {
 
     private AddPhotoView view;
@@ -37,5 +39,13 @@ public class AddPhotoFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(AddPhotoViewModel.class);
         view = new AddPhotoView(context,viewModel);
         return view;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            System.out.println(PERMISSION_REQUEST_CODE);
+        }
     }
 }

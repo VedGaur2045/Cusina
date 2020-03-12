@@ -7,8 +7,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.order_placed.OrderPlacedFragmentDirections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +39,7 @@ public class OrderPlacedView extends FrameLayout {
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.backToMenuBtn){
-
+            Navigation.findNavController(view).navigate(OrderPlacedFragmentDirections.toPaymentMethod());
         }
     }
 

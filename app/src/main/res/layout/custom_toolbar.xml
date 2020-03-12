@@ -74,15 +74,13 @@
                 android:background="@color/transparent"
                 android:contentDescription="TODO"
                 android:src="@mipmap/back"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/gps_indicatorImgBtn"
                 android:layout_width="@dimen/_16sdp"
                 android:layout_height="@dimen/_16sdp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_35sdp"
-                android:layout_marginLeft="@dimen/_35sdp"
                 android:contentDescription="TODO"
                 android:src="@mipmap/gps_indicator"
                 android:visibility="visible" />
@@ -132,8 +130,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_65sdp"
-                android:layout_marginLeft="@dimen/_70sdp"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginLeft="@dimen/_35sdp"
                 android:layout_marginEnd="@dimen/_110sdp"
                 android:layout_marginRight="@dimen/_110sdp"
                 android:singleLine="true"

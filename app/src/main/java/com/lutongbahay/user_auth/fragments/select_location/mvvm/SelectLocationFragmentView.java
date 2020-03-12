@@ -36,6 +36,8 @@ import butterknife.OnClick;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
@@ -62,7 +64,7 @@ public class SelectLocationFragmentView extends FrameLayout {
         locationTextView.setText("Fetching Current Location \nPlease wait" );
         geocoder = new Geocoder(context, Locale.getDefault());
         if (MarshMallowPermission.checkMashMallowPermissions(context,
-                new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE)) {
+                new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
             fetchLocation();
         }
 
@@ -127,12 +129,12 @@ public class SelectLocationFragmentView extends FrameLayout {
                     if (addressList != null && !addressList.isEmpty()) {
                         String addressLine = addressList.get(0).getAddressLine(0);
                         locationTextView.setText("Current Location \n" + addressLine);
+                        System.out.println(addressList.get(0));
                         CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                     }else {
                         locationTextView.setText("");
                     }
                 });
-
 
     }
 }

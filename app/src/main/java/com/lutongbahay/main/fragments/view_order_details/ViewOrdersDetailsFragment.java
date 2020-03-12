@@ -1,7 +1,6 @@
-package com.lutongbahay.user_auth.fragments.document_upload;
+package com.lutongbahay.main.fragments.view_order_details;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,18 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lutongbahay.R;
-import com.lutongbahay.user_auth.fragments.document_upload.mvvm.DocumentUploadView;
-import com.lutongbahay.user_auth.fragments.document_upload.mvvm.DocumentUploadViewModel;
+import com.lutongbahay.main.fragments.view_order_details.mvvm.ViewOrderDetailsView;
+import com.lutongbahay.main.fragments.view_order_details.mvvm.ViewOrderDetailsViewModel;
 
-public class DocumentUploadFragment extends Fragment {
+public class ViewOrdersDetailsFragment extends Fragment {
 
-    private DocumentUploadView view;
-    private DocumentUploadViewModel viewModel;
+    private ViewOrderDetailsView view;
+    private ViewOrderDetailsViewModel viewModel;
     private Context context;
-
-    private Uri fileUri;
-    private String filePath;
-
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -39,8 +34,8 @@ public class DocumentUploadFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(DocumentUploadViewModel.class);
-        view = new DocumentUploadView(context,viewModel);
+        viewModel = new ViewModelProvider(this).get(ViewOrderDetailsViewModel.class);
+        view = new ViewOrderDetailsView(context,viewModel);
         return view;
     }
 }

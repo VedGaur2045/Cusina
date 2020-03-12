@@ -19,7 +19,7 @@
     <RelativeLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_55sdp"
         android:layout_alignParentBottom="true">
 
         <View
@@ -48,9 +48,11 @@
                     android:drawableTop="@drawable/ic_action_home"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Home"
+                    android:text="@string/home"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"/>
 
             </FrameLayout>
 
@@ -66,9 +68,11 @@
                     android:drawableTop="@drawable/ic_action_search"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Search"
+                    android:text="@string/search"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"/>
 
             </FrameLayout>
 
@@ -84,8 +88,11 @@
                     android:drawableTop="@drawable/ic_action_orders"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Orders"
-                    android:textSize="@dimen/_10sdp" />
+                    android:text="@string/orders"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"/>
 
             </FrameLayout>
 
@@ -102,8 +109,11 @@
                     android:drawableTop="@drawable/ic_action_orders"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Orders"
-                    android:textSize="@dimen/_10sdp" />
+                    android:text="@string/earn_rewards"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"/>
 
             </FrameLayout>
 
@@ -120,9 +130,11 @@
                     android:drawableTop="@drawable/ic_action_profile"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Account"
+                    android:text="@string/account"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    tools:ignore="MissingPrefix"
+                    fonthPath="fonts/sourcesanspro_regular"/>
             </FrameLayout>
 
         </LinearLayout>

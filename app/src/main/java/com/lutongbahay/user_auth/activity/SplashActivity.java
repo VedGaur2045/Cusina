@@ -50,7 +50,7 @@ public class SplashActivity extends AppCompatActivity {
         if (id == R.id.mobile) {
             AuthActivity.openAuthActivity(SplashActivity.this);
         } else if (id == R.id.mobilenumberbox) {
-
+            AuthActivity.openAuthActivity(SplashActivity.this);
         }
     }
 

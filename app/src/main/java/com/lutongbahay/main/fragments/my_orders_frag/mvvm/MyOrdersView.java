@@ -1,6 +1,7 @@
 package com.lutongbahay.main.fragments.my_orders_frag.mvvm;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -16,6 +18,7 @@ import com.lutongbahay.adapter.OrderTabsViewPagerAdapter;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.main.fragments.cancelled_order.CancelledOrderFragment;
 import com.lutongbahay.main.fragments.completed_order.CompletedOrderFragment;
+import com.lutongbahay.main.fragments.my_orders_frag.MyOrdersFragmentDirections;
 import com.lutongbahay.main.fragments.processing_order.ProcessingOrderFragment;
 
 import butterknife.BindView;
@@ -54,7 +57,8 @@ public class MyOrdersView extends FrameLayout {
     }
 
     @OnClick(R.id.closeImgBtn)
-    public void onViewClicked() {
+    public void onClick(View view) {
+        Navigation.findNavController(view).navigate(MyOrdersFragmentDirections.toHomeFragment());
     }
 
     private void setupViewPager(ViewPager viewPager) {

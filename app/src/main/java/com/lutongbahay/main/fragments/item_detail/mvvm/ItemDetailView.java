@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.item_detail.ItemDetailFragmentDirections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,8 +82,14 @@ public class ItemDetailView extends FrameLayout {
     @OnClick(R.id.addToTrayBtn)
     public void onClick(View view){
         int id = view.getId();
-        if(id == R.id.addToTrayBtn){
-            Navigation.findNavController(view);
+        switch (id){
+            case R.id.addToTrayBtn:
+            case R.id.backBtnImg:
+                Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toHomeFragment());
+                break;
+            case R.id.ratingImg:
+                Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toDishReviewFragment());
+                break;
         }
     }
 
