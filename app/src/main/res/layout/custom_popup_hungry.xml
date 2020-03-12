@@ -25,7 +25,7 @@
             android:gravity="center"
             android:text="@string/_hungryTxt"
             android:textColor="@color/_000000"
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_17ssp"
             tools:ignore="MissingPrefix" />
 
         <TextView
@@ -36,14 +36,15 @@
             android:gravity="center"
             android:text="@string/_hungryShortTxt"
             android:textColor="@color/_000000"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix" />
 
         <ImageView
-            android:layout_width="@dimen/_158sdp"
-            android:layout_height="@dimen/_177sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_150sdp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center"
             android:src="@mipmap/hungry_img" />
 
@@ -52,7 +53,7 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             fontPath="@fonts/sourcesanspro_semibold"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
@@ -68,12 +69,13 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             fontPath="@fonts/sourcesanspro_semibold"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/btn_solidless_bg"
             android:text="@string/_cancel"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:textAllCaps="false"
             android:textColor="@color/_000000"
             android:textSize="@dimen/_14ssp"

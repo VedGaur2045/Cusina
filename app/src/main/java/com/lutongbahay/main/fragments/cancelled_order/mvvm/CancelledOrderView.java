@@ -23,7 +23,7 @@ public class CancelledOrderView extends FrameLayout {
         inflate(context, R.layout.fragment_cancelled_order,this);
         ButterKnife.bind(this,this);
 
-        CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter();
+        CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter(1);
         cancelledListItem.setAdapter(cancelledOrderRecyclerAdapter);
     }
 }

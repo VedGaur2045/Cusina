@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp">
+        android:padding="@dimen/_2sdp">
 
         <RelativeLayout
             android:visibility="visible"
@@ -22,7 +22,7 @@
 
             <RelativeLayout
                 android:id="@+id/minus"
-                android:layout_width="@dimen/_26sdp"
+                android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_14sdp"
                 android:background="@drawable/pre_order_back"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -58,7 +58,7 @@
 
             <RelativeLayout
                 android:id="@+id/plus"
-                android:layout_width="@dimen/_26sdp"
+                android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_14sdp"
                 android:background="@drawable/pre_order_back"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_semibold"
             android:textColor="@color/_000000"
@@ -118,9 +118,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mainLayout"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:paddingLeft="@dimen/_120sdp"
-        android:paddingStart="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_110sdp"
+        android:paddingStart="@dimen/_110sdp"
         tools:ignore="RtlSymmetry">
 
         <RadioGroup
@@ -135,7 +135,7 @@
                 android:button="@drawable/checkbox_selector"
                 android:text="@string/_ForDeliveryCheck"
                 android:checked="true"
-                android:paddingLeft="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_5sdp"
                 tools:targetApi="lollipop" />
 
             <RadioButton
@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:button="@drawable/checkbox_selector"
                 android:paddingLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:text="@string/_ForPickUpCheck"/>
 
         </RadioGroup>
@@ -173,7 +173,7 @@
         android:layout_height="@dimen/_1sdp"
         android:background="@color/_F6F6F6"
         android:layout_below="@+id/checkLayout"
-        android:layout_marginTop="@dimen/_15sdp"/>
+        android:layout_marginTop="@dimen/_5sdp"/>
 
     <RelativeLayout
         android:id="@+id/subtotalLayout"
@@ -181,7 +181,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/view"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp">
@@ -190,7 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_subTotal"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"/>
@@ -200,7 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_70"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"
@@ -216,7 +216,7 @@
         android:orientation="horizontal"
         android:layout_below="@+id/subtotalLayout"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp">
@@ -225,7 +225,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_DeliveryFees"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"/>
@@ -236,7 +236,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_4"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"

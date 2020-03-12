@@ -10,9 +10,9 @@
         android:id="@+id/mapLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_2sdp"
         android:background="@color/_FFFFFF"
-        android:padding="@dimen/_20sdp"
+        android:padding="@dimen/_15sdp"
         android:orientation="vertical"
         android:visibility="visible">
         
@@ -92,9 +92,9 @@
                     android:layout_height="wrap_content"
                     android:text="Canley Road"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold" />
+                    fonthPath="fonts/sourcesanspro_semibold.otf" />
 
                 <TextView
                     android:id="@+id/secondAddress"
@@ -102,9 +102,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/secondAddress"
                     android:textColor="@color/_000000"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_10ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular" />
+                    fonthPath="fonts/sourcesanspro_regular.otf" />
 
                 <TextView
                     android:id="@+id/addOtherAddress"
@@ -115,7 +115,7 @@
                     android:textColor="@color/_80000000"
                     android:textSize="@dimen/_9ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular" />
+                    fonthPath="fonts/sourcesanspro_regular.otf" />
 
             </LinearLayout>
 

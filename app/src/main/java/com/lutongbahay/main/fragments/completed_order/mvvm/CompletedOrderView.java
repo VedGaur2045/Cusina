@@ -30,7 +30,7 @@ public class CompletedOrderView extends FrameLayout {
         /*
         * CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter();
         * Complete order list*/
-        CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter();
+        CancelledOrderRecyclerAdapter cancelledOrderRecyclerAdapter = new CancelledOrderRecyclerAdapter(2);
         completedListItem.setAdapter(cancelledOrderRecyclerAdapter);
     }
 }

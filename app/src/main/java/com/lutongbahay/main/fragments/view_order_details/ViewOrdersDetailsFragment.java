@@ -20,6 +20,7 @@ public class ViewOrdersDetailsFragment extends Fragment {
     private ViewOrderDetailsView view;
     private ViewOrderDetailsViewModel viewModel;
     private Context context;
+    private String title = "";
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -30,12 +31,18 @@ public class ViewOrdersDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle bundle = getArguments();
+        if(bundle != null) {
+            title  = bundle.getString("title");
+        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(ViewOrderDetailsViewModel.class);
-        view = new ViewOrderDetailsView(context,viewModel);
+        view = new ViewOrderDetailsView(context,viewModel,title);
         return view;
     }
 }

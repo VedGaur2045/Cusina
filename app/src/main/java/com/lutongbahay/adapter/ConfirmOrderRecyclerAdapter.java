@@ -3,12 +3,15 @@ package com.lutongbahay.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ConfirmOrderRecyclerAdapter extends RecyclerView.Adapter<ConfirmOrderRecyclerAdapter.ConfirmOrderViewHolder> {
@@ -27,10 +30,14 @@ public class ConfirmOrderRecyclerAdapter extends RecyclerView.Adapter<ConfirmOrd
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 5;
     }
 
+
+
     class ConfirmOrderViewHolder extends RecyclerView.ViewHolder{
+
+
 
         public ConfirmOrderViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -36,8 +36,6 @@ public class MyTrayView extends FrameLayout {
     TextView titleName;
     @BindView(R.id.closeImgBtn)
     ImageButton closeImgBtn;
-    @BindView(R.id.backBtnImg)
-    ImageButton backBtnImg;
     @BindView(R.id.yourLocation)
     TextView yourLocation;
     @BindView(R.id.myLocation)
@@ -66,7 +64,6 @@ public class MyTrayView extends FrameLayout {
         ButterKnife.bind(this,this);
 
         titleName.setText(R.string.myTray);
-        backBtnImg.setVisibility(GONE);
 
         changeAddressPencilBtn.setVisibility(GONE);
         myLocation.setVisibility(GONE);
@@ -87,7 +84,6 @@ public class MyTrayView extends FrameLayout {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     public void placeOrderBtnOnClick(View view) {
 
         yourLocation.setVisibility(View.GONE);
@@ -98,7 +94,7 @@ public class MyTrayView extends FrameLayout {
         ConfirmOrderRecyclerAdapter confirmOrderRecyclerAdapter = new ConfirmOrderRecyclerAdapter();
         myTrayListVertical.setAdapter(confirmOrderRecyclerAdapter);
 
-        LayoutInflater inflater = (LayoutInflater) ((AppCompatActivity)getContext()).getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
         final View popUpView = inflater.inflate(R.layout.custom_popup_hungry,null);
 
         int width = LinearLayout.LayoutParams.MATCH_PARENT;
@@ -132,7 +128,6 @@ public class MyTrayView extends FrameLayout {
                 myLocation.setVisibility(GONE);
                 changeAddress.setVisibility(GONE);
                 yourLocation.setVisibility(View.VISIBLE);
-                //Navigation.findNavController(view).navigate(MyTrayFragmentDirections.toMyTrayFragment());
                 popupWindow.dismiss();
                 TrayOrderItemsAdapter trayOrderItemsAdapter = new TrayOrderItemsAdapter();
                 myTrayListVertical.setAdapter(trayOrderItemsAdapter);

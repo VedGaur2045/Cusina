@@ -26,6 +26,8 @@ import butterknife.OnClick;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class AddPhotoView extends FrameLayout {
     private static final int PERMISSION_REQUEST_CODE = 902;
@@ -54,7 +56,7 @@ public class AddPhotoView extends FrameLayout {
         titleName.setText(R.string.addDishPhoto);
         backBtnImg.setVisibility(GONE);
 
-        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE)) {
+        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
             Uri uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 
             final Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);

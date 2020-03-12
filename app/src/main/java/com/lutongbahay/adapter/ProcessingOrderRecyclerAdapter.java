@@ -10,9 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
-import com.lutongbahay.main.fragments.processing_order.ProcessingOrderFragment;
-import com.lutongbahay.main.fragments.processing_order.ProcessingOrderFragmentDirections;
-import com.lutongbahay.main.fragments.processing_order.mvvm.ProcessingOrderView;
+import com.lutongbahay.main.fragments.my_orders_frag.MyOrdersFragmentDirections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +29,7 @@ public class ProcessingOrderRecyclerAdapter extends RecyclerView.Adapter<Process
     @Override
     public void onBindViewHolder(@NonNull ProcessingOrderViewHolder holder, int position) {
         holder.viewOrder.setOnClickListener(view -> {
-            Navigation.findNavController(view).navigate(ProcessingOrderFragmentDirections.toViewOrdersDetailsFragment());
+            Navigation.findNavController(view).navigate(MyOrdersFragmentDirections.toViewOrdersDetailsFragment("Processing Order"));
         });
     }
 

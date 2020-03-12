@@ -20,6 +20,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.OrderSummaryItemRecyclerAdapter;
 import com.lutongbahay.main.fragments.view_order_details.ViewOrdersDetailsFragment;
 import com.lutongbahay.main.fragments.view_order_details.ViewOrdersDetailsFragmentDirections;
 
@@ -33,8 +34,6 @@ public class ViewOrderDetailsView extends FrameLayout {
     TextView titleName;
     @BindView(R.id.closeImgBtn)
     ImageButton closeImgBtn;
-    @BindView(R.id.backBtnImg)
-    ImageButton backBtnImg;
     @BindView(R.id.orderNumberCount)
     TextView orderNumberCount;
     @BindView(R.id.serverName)
@@ -56,14 +55,16 @@ public class ViewOrderDetailsView extends FrameLayout {
     @BindView(R.id.cancelBtn)
     Button cancelBtn;
 
-    public ViewOrderDetailsView(@NonNull Context context, ViewOrderDetailsViewModel viewOrderDetailsViewModel) {
+    public ViewOrderDetailsView(@NonNull Context context, ViewOrderDetailsViewModel viewOrderDetailsViewModel,String title) {
         super(context);
         this.viewOrderDetailsViewModel = viewOrderDetailsViewModel;
         inflate(context, R.layout.fragment_view_orders_details,this);
         ButterKnife.bind(this,this);
 
-        titleName.setText("Acc Condition");
-        backBtnImg.setVisibility(GONE);
+        OrderSummaryItemRecyclerAdapter orderSummaryItemRecyclerAdapter = new OrderSummaryItemRecyclerAdapter();
+        completedOrdersListItem.setAdapter(orderSummaryItemRecyclerAdapter);
+
+        titleName.setText(title);
     }
 
     @OnClick({R.id.closeImgBtn,R.id.RateServer})

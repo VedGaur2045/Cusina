@@ -82,6 +82,9 @@
             android:id="@+id/toHomeFragment"
             app:destination="@+id/HomeFragment"/>
 
+        <action android:id="@+id/toViewOrdersDetailsFragment"
+            app:destination="@id/ViewOrdersDetailsFragment"/>
+
 
     </fragment>
 
@@ -203,8 +206,7 @@
         android:label="processing_order"
         tools:layout="@layout/fragment_processing_order">
 
-        <action android:id="@+id/toViewOrdersDetailsFragment"
-            app:destination="@+id/ViewOrdersDetailsFragment"/>
+
 
     </fragment>
 
@@ -215,7 +217,7 @@
         tools:layout="@layout/fragment_completed_order">
 
         <action android:id="@+id/toViewOrdersDetailsFragment"
-            app:destination="@+id/ViewOrdersDetailsFragment"/>
+            app:destination="@id/ViewOrdersDetailsFragment"/>
 
     </fragment>
 
@@ -226,7 +228,7 @@
         tools:layout="@layout/fragment_cancelled_order">
 
         <action android:id="@+id/toViewOrdersDetailsFragment"
-            app:destination="@+id/ViewOrdersDetailsFragment"/>
+            app:destination="@id/ViewOrdersDetailsFragment"/>
 
     </fragment>
 
@@ -440,7 +442,7 @@
             app:popUpTo="@id/MyTrayFragment"/>
 
         <action android:id="@id/toDelAddress"
-            app:destination="@+id/DeliveryAddressFragment"/>
+            app:destination="@id/DeliveryAddressFragment"/>
 
     </fragment>
 
@@ -529,6 +531,10 @@
         <action
             android:id="@+id/toMyOrdersFragment"
             app:destination="@+id/MyOrderFragment"/>
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
 
     </fragment>
 
