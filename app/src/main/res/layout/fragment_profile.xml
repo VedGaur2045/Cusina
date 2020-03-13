@@ -92,6 +92,12 @@
 
             </RelativeLayout>
 
+<!--            <include-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginTop="-45dp"-->
+<!--                layout="@layout/default_fragemnt_owner_detail"/>-->
+
             <LinearLayout
                 android:id="@+id/normalLayout"
                 android:layout_width="match_parent"

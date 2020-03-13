@@ -241,8 +241,8 @@
     <string name="_ADD_NEW_LUTO">+ ADD NEW LUTO</string>
     <string name="soldOut">SOLD OUT</string>
     <string name="_itemName">Kare-Kare</string>
-    <string name="_21">21 \u0020</string>
-    <string name="_Likes">Likes</string>
+    <string name="_21">21</string>
+    <string name="_Likes">\u0020 Likes</string>
     <string name="_Listed">Listed \u0020</string>
     <string name="_listedTime">1 day ago</string>
     <string name="_servingsLeft">servings left</string>
@@ -421,4 +421,6 @@
     <string name="earn_rewards">Earn Rewards</string>
     <string name="account">Account</string>
     <string name="CoinsTxt">Coins.ph e-Wallet</string>
+    <string name="skipForNow">Skip for now</string>
+    <string name="Details">"Details "</string>
 </resources>

@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_70sdp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/_FFFFFF">
+    android:background="@color/_FFFFFF"
+    android:id="@+id/msgLayout">
 
     <ImageView
         android:id="@+id/msgImg"
         android:layout_width="@dimen/_16sdp"
         android:layout_height="@dimen/_16sdp"
+        android:layout_centerVertical="true"
         android:src="@mipmap/envelope_green_img"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
@@ -19,7 +21,7 @@
         android:layout_width="@dimen/_6sdp"
         android:layout_height="@dimen/_6sdp"
         android:src="@drawable/red_oval_drawable"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_33sdp"
         android:layout_marginRight="@dimen/_5sdp"

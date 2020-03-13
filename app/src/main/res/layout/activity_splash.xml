@@ -44,43 +44,73 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:background="@drawable/mobilebutton">
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/countryCodeHolder"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fontPath="@fonts/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
                     android:gravity="center"
                     app:ccpDialog_textColor="@color/black"
                     app:ccp_arrowSize="@dimen/_1sdp"
-                    app:ccp_clickable="false"
                     app:ccp_showFullName="false"
                     app:ccp_showNameCode="false"
                     app:ccp_showPhoneCode="true"
-                    app:ccp_textSize="@dimen/_12sdp"
+                    app:ccp_textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix" />
 
                 <EditText
                     android:id="@+id/mobile"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fontPath="@fonts/sourcesanspro_regular"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_toRightOf="@id/countryCodeHolder"
                     android:background="@drawable/mobilebutton"
                     android:enabled="true"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
                     android:hint="@string/Enter_mobile_hint"
                     android:inputType="phone"
                     android:maxLength="10"
-                    android:paddingLeft="@dimen/_25sdp"
+                    android:text="9999999999"
+                    android:paddingLeft="@dimen/_5sdp"
                     android:textColor="@color/black"
                     android:textColorHint="#D3D3D3"
-                    android:textSize="@dimen/_12sdp"
-                    tools:ignore="MissingPrefix" />
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="MissingPrefix"
+                    android:paddingEnd="@dimen/_25sdp"
+                    android:paddingRight="@dimen/_25sdp" />
+
+                <ImageButton
+                    android:id="@+id/nextImageBtn"
+                    android:background="@color/_00000000"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:src="@mipmap/forward_b"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp" />
+
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/skipFroNowId"
+                fonthPath="fonts/cabin_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="@string/skipForNow"
+                android:textColor="@color/_FF8500"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="MissingPrefix"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"/>
+
         </LinearLayout>
 
     </RelativeLayout>

@@ -38,6 +38,8 @@ public class SuccessConfirmationView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.backBtn :
+                Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toProfileFragment());
+                break;
             case R.id.backToHomeBtn :
                 Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toHomeFragment());
                 break;

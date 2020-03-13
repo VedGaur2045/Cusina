@@ -5,18 +5,19 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/categoryNameLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_38sdp"
+        android:layout_height="@dimen/_54sdp"
         android:layout_marginBottom="@dimen/_2sdp">
 
         <TextView
-            android:id="@+id/categoryname"
+            android:id="@+id/categoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/_25sdp"
             android:textSize="@dimen/_14ssp"
             fonthPath="fonts/sourcesanspro_regular"
+            android:layout_centerVertical="true"
             android:textColor="@color/black"
             android:paddingRight="@dimen/_10sdp"
             android:text="@string/_itemName"
@@ -29,7 +30,7 @@
             android:layout_height="@dimen/_8sdp"
             android:src="@mipmap/arrow"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_25sdp"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/_25sdp" />

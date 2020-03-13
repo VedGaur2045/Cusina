@@ -14,11 +14,13 @@ import android.view.ViewGroup;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.order_complete.mvvm.OrderCompleteView;
 import com.lutongbahay.main.fragments.order_complete.mvvm.OrderCompleteViewModel;
+import com.lutongbahay.main.fragments.order_history.mvvm.OrderHistoryView;
+import com.lutongbahay.main.fragments.order_history.mvvm.OrderHistoryViewModel;
 
 public class OrderHistoryFragment extends Fragment {
 
-    private OrderCompleteView view;
-    private OrderCompleteViewModel viewModel;
+    private OrderHistoryView view;
+    private OrderHistoryViewModel viewModel;
     private Context context;
 
     @Override
@@ -34,8 +36,8 @@ public class OrderHistoryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(OrderCompleteViewModel.class);
-        view = new OrderCompleteView(context,viewModel);
+        viewModel = new ViewModelProvider(this).get(OrderHistoryViewModel.class);
+        view = new OrderHistoryView(context,viewModel);
         return view;
     }
 }

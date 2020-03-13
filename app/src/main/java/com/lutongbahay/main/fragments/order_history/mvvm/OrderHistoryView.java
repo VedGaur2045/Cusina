@@ -11,12 +11,14 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.OrderHistoryRecyclerAdapter;
 import com.lutongbahay.main.fragments.order_history.OrderHistoryFragmentDirections;
 
 import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class OrderHistoryView extends FrameLayout {
     private final OrderHistoryViewModel viewModel;
@@ -48,12 +50,23 @@ public class OrderHistoryView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_order_history,this);
         ButterKnife.bind(this,this);
+
+        OrderHistoryRecyclerAdapter orderHistoryRecyclerAdapter = new OrderHistoryRecyclerAdapter();
+        completedOrdersList.setAdapter(orderHistoryRecyclerAdapter);
+        CancelledBySellerList.setAdapter(orderHistoryRecyclerAdapter);
+        CancelledByCustomerList.setAdapter(orderHistoryRecyclerAdapter);
+
     }
 
+    @OnClick({R.id.closeImgBtn,R.id.fromDate,R.id.toDate})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.closeImgBtn){
             Navigation.findNavController(view).navigate(OrderHistoryFragmentDirections.toOrdersFragment());
+        } else if(id == R.id.fromDate){
+
+        } else if(id == R.id.toDate){
+
         }
     }
 

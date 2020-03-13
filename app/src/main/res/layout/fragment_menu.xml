@@ -39,6 +39,7 @@
         android:verticalSpacing="@dimen/_20sdp" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/AddNewLuto"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"

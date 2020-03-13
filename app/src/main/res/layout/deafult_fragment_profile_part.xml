@@ -139,7 +139,7 @@
                     android:id="@+id/savedplace"
                     android:background="@color/_FFFFFF"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_59sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:paddingStart="@dimen/_23sdp"
                     android:paddingEnd="@dimen/_23sdp">
 
@@ -169,7 +169,7 @@
                     android:background="@color/_FFFFFF"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_59sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:paddingStart="@dimen/_23sdp"
                     android:paddingEnd="@dimen/_23sdp">
 
@@ -196,21 +196,21 @@
 
                 <RelativeLayout
                     android:id="@+id/setting"
-                    android:background="@color/_FFFFFF"
-                    android:layout_marginTop="@dimen/_3sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_59sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:background="@color/_FFFFFF"
                     android:paddingStart="@dimen/_23sdp"
                     android:paddingEnd="@dimen/_23sdp">
 
                     <TextView
+                        fonthPath="fonts/sourcesanspro_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="@string/settings"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
-                        fonthPath="fonts/sourcesanspro_regular"
                         tools:ignore="MissingPrefix,RelativeOverlap" />
 
                     <ImageView
@@ -229,7 +229,7 @@
                     android:background="@color/_FFFFFF"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_59sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:paddingStart="@dimen/_23sdp"
                     android:paddingEnd="@dimen/_23sdp">
 
@@ -238,7 +238,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="@string/sell_food"
-                        android:textColor="@color/black"
+                        android:textColor="@color/_EC0000"
                         android:textSize="@dimen/_14ssp"
                         fonthPath="fonts/sourcesanspro_regular"
                         tools:ignore="MissingPrefix,RelativeOverlap" />

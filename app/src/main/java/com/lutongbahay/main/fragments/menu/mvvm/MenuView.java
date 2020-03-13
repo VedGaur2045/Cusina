@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.list.MenuListItemAdapter;
 import com.lutongbahay.main.fragments.menu.MenuFragmentDirections;
 
 import butterknife.BindView;
@@ -22,21 +23,16 @@ public class MenuView extends FrameLayout {
     SearchView searchViewProfile;
     @BindView(R.id.gridViewMenuList)
     GridView gridViewMenuList;
-    @BindView(R.id.AddNewLuto)
-    Button AddNewLuto;
 
     public MenuView(@NonNull Context context, MenuViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_menu,this);
         ButterKnife.bind(this,this);
-    }
 
-    public void onClick(View view){
-        int id = view.getId();
-        if(id == R.id.AddNewLuto){
-            Navigation.findNavController(view).navigate(MenuFragmentDirections.toAddPhoto());
-        }
+        MenuListItemAdapter menuListItemAdapter = new MenuListItemAdapter();
+        gridViewMenuList.setAdapter(menuListItemAdapter);
+
     }
 
 }

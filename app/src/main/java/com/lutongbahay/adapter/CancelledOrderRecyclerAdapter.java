@@ -65,7 +65,6 @@ public class CancelledOrderRecyclerAdapter extends RecyclerView.Adapter<Cancelle
     class CancelledOrderViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.ORDER_DETAILS_Btn)
         Button ORDER_DETAILS_Btn;
-
         @BindView(R.id.deliveredTxt)
         TextView status;
 

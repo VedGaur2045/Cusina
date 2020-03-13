@@ -99,10 +99,10 @@
             app:destination="@id/SettingFragment"/>
         <action
             android:id="@+id/savedPlaced"
-            app:destination="@id/ChooseCategoryFragment"/>
+            app:destination="@id/selectLocationFragment"/>
         <action
             android:id="@+id/FbConnect"
-            app:destination="@id/ChooseCategoryFragment"/>
+            app:destination="@id/selectLocationFragment"/>
         <action
             android:id="@+id/SellFood"
             app:destination="@id/SellWithLutongBehay"/>
@@ -110,7 +110,6 @@
             app:destination="@id/AddPhotoFragment"/>
 
     </fragment>
-
 
     <fragment
         android:id="@+id/earnRewardsFragment"
@@ -264,7 +263,7 @@
             android:id="@+id/toProfileFragment"
             app:destination="@id/profileFragment"/>
         <action android:id="@+id/toCameraFragment"
-            app:destination="@+id/CameraFragment"/>
+            app:destination="@id/CameraFragment"/>
 
     </fragment>
 
@@ -274,6 +273,9 @@
         android:label="@string/choose_category"
         tools:layout="@layout/fragment_choose_category">
 
+        <action
+            android:id="@+id/toCameraFragment"
+            app:destination="@+id/CameraFragment"/>
         <action
             android:id="@+id/toCompletedDetails"
             app:destination="@+id/CompletedDetailsFragment"/>
@@ -286,6 +288,13 @@
         android:label="completed_details"
         tools:layout="@layout/fragment_completed_details">
 
+        <action
+            android:id="@+id/toChooseCategory"
+            app:destination="@+id/ChooseCategoryFragment"/>
+        <action
+            android:id="@+id/toSuccessConfirmation"
+            app:destination="@+id/SuccessConfirmation"/>
+
     </fragment>
 
     <fragment
@@ -295,12 +304,12 @@
         tools:layout="@layout/fragment_success_confirmation">
 
         <action
-            android:id="@+id/toHomeFragment"
+            android:id="@+id/toProfileFragment"
             app:destination="@id/profileFragment"/>
 
         <action
-            android:id="@+id/toHomeFragmentBack"
-            app:destination="@id/profileFragment"/>
+            android:id="@+id/toHomeFragment"
+            app:destination="@id/HomeFragment"/>
 
         <action
             android:id="@+id/toAddPhoto"
@@ -453,8 +462,8 @@
         android:label="menu_view">
 
         <action
-            android:id="@+id/toAddPhoto"
-            app:destination="@id/AddPhotoFragment"/>
+            android:id="@+id/toCompletedDetails"
+            app:destination="@+id/CompletedDetailsFragment"/>
 
     </fragment>
 

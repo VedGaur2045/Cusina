@@ -1,6 +1,7 @@
 package com.lutongbahay.main.fragments.complete_details.mvvm;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -12,11 +13,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragment;
+import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragmentDirections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CompletedDetailsView extends FrameLayout {
     private final CompletedDetailsViewModel viewModel;
@@ -76,5 +81,23 @@ public class CompletedDetailsView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_completed_details,this);
         ButterKnife.bind(this,this);
+
+        titleName.setText(R.string.complete_dish_details);
+        closeImgBtn.setVisibility(GONE);
+
     }
+
+    @OnClick({R.id.backBtnImg,R.id.listMyLutoSubmitBtn})
+    public void onClick(View view){
+        int id = view.getId();
+        switch (id){
+            case R.id.backBtnImg:
+                Navigation.findNavController(view).navigate(CompletedDetailsFragmentDirections.toChooseCategory());
+                break;
+            case R.id.listMyLutoSubmitBtn:
+                Navigation.findNavController(view).navigate(CompletedDetailsFragmentDirections.toSuccessConfirmation());
+                break;
+        }
+    }
+
 }

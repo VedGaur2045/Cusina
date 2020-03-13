@@ -29,7 +29,7 @@ public class StatusBarUtils {
     }
 
     public static void setLightStatusBar(Activity activity, String color){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = activity.getWindow();
             View view = window.getDecorView();
             int flags = view.getSystemUiVisibility();
