@@ -14,12 +14,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.GalleryImagesRecyclerAdapter;
+import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.list.AddPhotoAdapter;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragment;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
+import com.lutongbahay.utils.Logger;
 
 import java.util.ArrayList;
 
@@ -45,8 +50,8 @@ public class AddPhotoView extends FrameLayout {
     TextView allPhoto;
     @BindView(R.id.next)
     TextView next;
-    @BindView(R.id.gridViewGalleryPhotoList)
-    GridView gridViewGalleryPhotoList;
+    @BindView(R.id.gallery_rv)
+    RecyclerView gridViewGalleryPhotoList;
 
     ArrayList<String> allImages= new ArrayList<>();
 
@@ -60,12 +65,22 @@ public class AddPhotoView extends FrameLayout {
         inflate(context, R.layout.fragment_add_photo,this);
         ButterKnife.bind(this,this);
 
+        int spanCount = 5; // 3 columns
+        int spacing = 20; // 50px
+        boolean includeEdge = false;
+        gridViewGalleryPhotoList.setLayoutManager(new GridLayoutManager(context, 5));
+
+        gridViewGalleryPhotoList.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+
         titleName.setText(R.string.addDishPhoto);
         backBtnImg.setVisibility(GONE);
         if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
-            allImages.addAll(getAllShownImagesPath((AppCompatActivity) appContext));
-            AddPhotoAdapter addPhotoAdapter = new AddPhotoAdapter(appContext,allImages);
-            gridViewGalleryPhotoList.setAdapter(addPhotoAdapter);
+            allImages = getAllShownImagesPath((AppCompatActivity) appContext);
+
+            GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter = new GalleryImagesRecyclerAdapter(context,allImages);
+
+           // AddPhotoAdapter addPhotoAdapter = new AddPhotoAdapter(appContext,allImages);
+            gridViewGalleryPhotoList.setAdapter(galleryImagesRecyclerAdapter);
         } else {
 
         }
@@ -112,7 +127,7 @@ public class AddPhotoView extends FrameLayout {
         int column_index_data, column_index_folder_name;
         ArrayList<String> listOfAllImages = new ArrayList<String>();
         String absolutePathOfImage = null;
-        uri = android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI;
+        uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
 
         String[] projection = { MediaStore.MediaColumns.DATA,
                 MediaStore.Images.Media.BUCKET_DISPLAY_NAME };
@@ -123,11 +138,13 @@ public class AddPhotoView extends FrameLayout {
         column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
         column_index_folder_name = cursor
                 .getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
+        listOfAllImages.add("");
         while (cursor.moveToNext()) {
             absolutePathOfImage = cursor.getString(column_index_data);
 
             listOfAllImages.add(absolutePathOfImage);
         }
+        Logger.ErrorLog("COUNT IMAGES ",listOfAllImages.size() + "");
         return listOfAllImages;
     }
 
