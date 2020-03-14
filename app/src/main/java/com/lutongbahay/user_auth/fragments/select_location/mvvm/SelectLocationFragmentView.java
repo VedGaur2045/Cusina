@@ -24,6 +24,7 @@ import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.LocationTrackingHelper;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.main.home.HomeActivity;
+import com.lutongbahay.user_auth.activity.SplashActivity;
 import com.lutongbahay.utils.Logger;
 
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class SelectLocationFragmentView extends FrameLayout {
         locationTextView.setText("Fetching Current Location \nPlease wait" );
         geocoder = new Geocoder(context, Locale.getDefault());
         if (MarshMallowPermission.checkMashMallowPermissions(context,
-                new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+                new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
             fetchLocation();
         }
 
@@ -77,7 +78,7 @@ public class SelectLocationFragmentView extends FrameLayout {
         if (id == R.id.next) {
             HomeActivity.openHomeActivity(getContext());
         } else if (id == R.id.close) {
-            Navigation.findNavController(v).navigateUp();
+            SplashActivity.openSplashActivity(getContext());
         }
     }
 

@@ -10,120 +10,127 @@
         android:id="@+id/headerLayout"
         layout="@layout/custom_toolbar" />
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/_FFFFFF"
-        android:paddingLeft="@dimen/_25sdp"
-        android:paddingRight="@dimen/_25sdp">
+        android:fillViewport="true">
 
-        <Button
-            android:id="@+id/saveDetails"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            fontPath="@fonts/sourcesanspro_semibold"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/_40sdp"
-            android:background="@drawable/commonbuttonbg"
-            android:gravity="center"
-            android:onClick="saveDetailsBtnOnClick"
-            android:text="@string/save_details"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp"
-            tools:ignore="MissingPrefix" />
-
-        <EditText
-            android:id="@+id/userEmailId"
-            fontPath="@fonts/sourcesanspro_it"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@+id/emailTxt"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/userinputbg"
-            android:hint="@string/useremail_placeholder"
-            android:inputType="textEmailAddress"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingLeft="@dimen/_20sdp"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/_000000"
-            android:textSize="@dimen/_12ssp"
-            tools:ignore="MissingPrefix" />
-
-        <EditText
-            android:id="@+id/addressTxt"
-            fontPath="@fonts/sourcesanspro_it"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@+id/address_detail"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/userinputbg"
-            android:hint="@string/addressTxt"
-            android:inputType="textEmailAddress"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingLeft="@dimen/_20sdp"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/_000000"
-            android:textSize="@dimen/_12ssp"
-            tools:ignore="MissingPrefix" />
-
-        <EditText
-            android:id="@+id/username"
-            fontPath="@fonts/sourcesanspro_it"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@+id/userNameTxt"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/userinputbg"
-            android:hint="@string/username_placeholder"
-            android:inputType="text"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingLeft="@dimen/_20sdp"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/_000000"
-            android:textSize="@dimen/_12ssp"
-            tools:ignore="MissingPrefix" />
-
-        <TextView
-            android:id="@+id/address_detail"
-            fontPath="@fonts/sourcesanspro_regular"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/userEmailId"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="@string/address_detail"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_8ssp"
-            tools:ignore="MissingPrefix" />
+            android:background="@color/_FFFFFF"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingRight="@dimen/_25sdp">
 
-        <TextView
-            android:id="@+id/emailTxt"
-            fontPath="@fonts/sourcesanspro_regular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/username"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="@string/useremail"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_8ssp"
-            tools:ignore="MissingPrefix" />
+            <EditText
+                android:id="@+id/userEmailId"
+                fontPath="@fonts/sourcesanspro_it"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@+id/emailTxt"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/userinputbg"
+                android:hint="@string/useremail_placeholder"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
 
-        <TextView
-            android:id="@+id/userNameTxt"
-            fontPath="@fonts/sourcesanspro_regular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:text="@string/username"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_8ssp"
-            tools:ignore="MissingPrefix" />
+            <EditText
+                android:id="@+id/addressTxt"
+                fontPath="@fonts/sourcesanspro_it"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@+id/address_detail"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/userinputbg"
+                android:hint="@string/addressTxt"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/username"
+                fontPath="@fonts/sourcesanspro_it"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@+id/userNameTxt"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/userinputbg"
+                android:hint="@string/username_placeholder"
+                android:inputType="text"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/_000000"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/address_detail"
+                fontPath="@fonts/sourcesanspro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userEmailId"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/address_detail"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/emailTxt"
+                fontPath="@fonts/sourcesanspro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/username"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/useremail"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/userNameTxt"
+                fontPath="@fonts/sourcesanspro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/username"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                tools:ignore="MissingPrefix" />
+
+            <Button
+                android:id="@+id/saveDetails"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                fontPath="@fonts/sourcesanspro_semibold"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/addressTxt"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:background="@drawable/commonbuttonbg"
+                android:gravity="center"
+                android:onClick="saveDetailsBtnOnClick"
+                android:text="@string/save_details"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="MissingPrefix" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

@@ -132,7 +132,6 @@ public class AddPhotoAdapter extends BaseAdapter {
 
 // create the popup window
 
-
         final AlertDialog dialog = new AlertDialog.Builder(context).create();
         dialog.setView(popupView);
         dialog.setCancelable(false);
@@ -158,6 +157,5 @@ public class AddPhotoAdapter extends BaseAdapter {
             }
         });
     }
-
 
 }

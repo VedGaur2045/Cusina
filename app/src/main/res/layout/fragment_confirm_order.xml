@@ -77,7 +77,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:id="@+id/order_list_item_vertical"
                     android:layout_below="@+id/oderSummery"
@@ -86,63 +86,60 @@
                     tools:listitem="@layout/adapter_confirm_order_item"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-
-                <RelativeLayout
-                    android:layout_below="@+id/order_list_item_vertical"
-                    android:id="@+id/totalAmountLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_80sdp"
-                    android:padding="@dimen/_7sdp"
-                    android:background="@drawable/bg_white_drawable">
-
-                    <TextView
-                        android:id="@+id/total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/total"
-                        android:textSize="@dimen/_16ssp"
-                        fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
-                        android:textColor="@color/_000000"/>
-
-                    <TextView
-                        android:id="@+id/totalAmount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/_70"
-                        android:textSize="@dimen/_20ssp"
-                        android:layout_alignParentRight="true"
-                        fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
-                        android:textColor="@color/_000000"
-                        android:layout_alignParentEnd="true" />
-
-                    <Button
-                        android:id="@+id/buyNow"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:background="@drawable/btn_bg"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                        android:layout_below="@+id/total"
-                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                        android:text="@string/BuyNow"
-                        android:onClick="buyNowBtnOnClick"
-                        android:textAllCaps="false"
-                        android:textColor="@color/_FFFFFF"
-                        android:textSize="@dimen/_14ssp"
-                        fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"/>
-
-                </RelativeLayout>
-
             </RelativeLayout>
 
 
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_below="@+id/orderSummeryLayout"
+                android:id="@+id/totalAmountLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_7sdp"
+                android:background="@drawable/bg_white_drawable">
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total"
+                    android:textSize="@dimen/_16ssp"
+                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
+                    android:textColor="@color/_000000"/>
+
+                <TextView
+                    android:id="@+id/totalAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_70"
+                    android:textSize="@dimen/_20ssp"
+                    android:layout_alignParentRight="true"
+                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
+                    android:textColor="@color/_000000"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:id="@+id/buyNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/btn_bg"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_below="@+id/total"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:text="@string/BuyNow"
+                    android:onClick="buyNowBtnOnClick"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/_FFFFFF"
+                    android:textSize="@dimen/_14ssp"
+                    fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
-
     </androidx.core.widget.NestedScrollView>
-
-
 
 </RelativeLayout>

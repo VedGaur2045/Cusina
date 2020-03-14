@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context="com.applandeo.materialcalendarsampleapp.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/calenderLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.applandeo.materialcalendarview.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:type="one_day_picker"
+            app:eventsEnabled="false"
+            app:disabledDaysLabelsColor="#000000"
+            app:anotherMonthsDaysLabelsColor="#FFFFFF" />
+
+        <Button
+            android:visibility="visible"
+            android:id="@+id/setDateButton"
+            android:layout_width="62dp"
+            android:layout_height="25dp"
+            android:layout_gravity="right"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="@drawable/red_backgroud_btn"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:layout_margin="16dp"
+            android:text="@string/ok"
+            tools:ignore="RtlHardcoded" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/calenderLayout"
+        android:background="@drawable/up_to_down_shadow" />
+
+</LinearLayout>

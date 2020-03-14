@@ -35,10 +35,12 @@ public class OrderPlacedView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
-    @OnClick(R.id.backToMenuBtn)
+    @OnClick({R.id.backToMenuBtn,R.id.backBtn})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.backToMenuBtn){
+            Navigation.findNavController(view).navigateUp();
+        } else if (id == R.id.backBtn){
             Navigation.findNavController(view).navigateUp();
         }
     }
