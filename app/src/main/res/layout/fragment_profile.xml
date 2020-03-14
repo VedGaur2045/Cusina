@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/_ADD_NEW_LUTO"
                     android:textColor="@color/_EC0000"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/_45sdp"
                     android:layout_alignParentRight="true"
