@@ -70,7 +70,7 @@ public class DeliveryAddressView extends FrameLayout {
                 Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toConfirmOrder());
             }
         } else if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigateUp();
+            Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toMyTrayFragment());
         }
     }
 }

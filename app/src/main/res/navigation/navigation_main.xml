@@ -149,7 +149,6 @@
         android:label="delivery_address_confirmation"
         tools:layout="@layout/fragment_delivery_address_confirmation">
 
-
         <action
             android:id="@+id/toConfirmOrder"
             app:destination="@id/ConfirmOrderFragment"/>

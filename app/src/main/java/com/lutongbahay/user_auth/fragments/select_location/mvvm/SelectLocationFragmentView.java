@@ -1,14 +1,17 @@
 package com.lutongbahay.user_auth.fragments.select_location.mvvm;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
@@ -53,8 +56,11 @@ public class SelectLocationFragmentView extends FrameLayout {
     Context context;
     @BindView(R.id.locationtext)
     TextView locationTextView;
+    @BindView(R.id.next)
+    Button next;
     private Geocoder geocoder;
     private List<Address> addressList = new ArrayList<>();
+    private static boolean check = false;
 
     public SelectLocationFragmentView(@NonNull AppCompatActivity context, SelectLocationFragmentViewModel viewModel) {
         super(context);
@@ -64,6 +70,7 @@ public class SelectLocationFragmentView extends FrameLayout {
         ButterKnife.bind(this, this);
         locationTextView.setText("Fetching Current Location \nPlease wait" );
         geocoder = new Geocoder(context, Locale.getDefault());
+
         if (MarshMallowPermission.checkMashMallowPermissions(context,
                 new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
             fetchLocation();
@@ -76,7 +83,23 @@ public class SelectLocationFragmentView extends FrameLayout {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.next) {
+//            if(check){
+////            next.setEnabled(true);
+//                HomeActivity.openHomeActivity(getContext());
+//            } else {
+////            next.setEnabled(false);
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                builder.setMessage("Location Not Found...");
+//                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        dialogInterface.dismiss();
+//                    }
+//                });
+//                builder.show();
+//            }
             HomeActivity.openHomeActivity(getContext());
+
         } else if (id == R.id.close) {
             SplashActivity.openSplashActivity(getContext());
         }
@@ -130,9 +153,11 @@ public class SelectLocationFragmentView extends FrameLayout {
                     if (addressList != null && !addressList.isEmpty()) {
                         String addressLine = addressList.get(0).getAddressLine(0);
                         locationTextView.setText("Current Location \n" + addressLine);
-                        System.out.println(addressList.get(0));
+                        System.out.println("hajsg ? "+addressList.get(0));
+                        check = true;
                         CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                     }else {
+                        check = false;
                         locationTextView.setText("");
                     }
                 });

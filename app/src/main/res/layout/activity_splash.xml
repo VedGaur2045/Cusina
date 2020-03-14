@@ -27,7 +27,7 @@
             android:orientation="vertical">
 
             <TextView
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -51,7 +51,7 @@
 
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/countryCodeHolder"
-                    fontPath="@fonts/sourcesanspro_regular"
+                    fontPath="@fonts/sourcesanspro_regular.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
                     android:gravity="center"
@@ -65,7 +65,7 @@
 
                 <EditText
                     android:id="@+id/mobile"
-                    fontPath="@fonts/sourcesanspro_regular"
+                    fontPath="@fonts/sourcesanspro_regular.otf"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_toRightOf="@id/countryCodeHolder"
@@ -99,7 +99,7 @@
 
             <TextView
                 android:id="@+id/skipFroNowId"
-                fonthPath="fonts/cabin_bold"
+                fonthPath="fonts/cabin_bold.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"

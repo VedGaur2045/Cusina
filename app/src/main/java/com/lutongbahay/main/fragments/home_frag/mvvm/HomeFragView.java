@@ -64,9 +64,14 @@ public class HomeFragView extends FrameLayout {
 
         List<Address> addressList = new ArrayList<>();
         addressList = Collections.singletonList(CusinaApplication.getPreferenceManger().getLastSavedLocation());
-        System.out.println(addressList.get(0).getAddressLine(0));
 
-        locationTxt.setText(addressList.get(0).getAddressLine(0));
+        try {
+            System.out.println(addressList.get(0).getAddressLine(0));
+
+            locationTxt.setText(addressList.get(0).getAddressLine(0));
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
 
     }
