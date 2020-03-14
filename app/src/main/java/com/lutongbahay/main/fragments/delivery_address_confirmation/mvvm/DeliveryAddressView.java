@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.delivery_address_confirmation.DeliveryAddressConfirmationFragmentDirections;
 import com.lutongbahay.utils.SnackbarUtils;
+import com.lutongbahay.utils.TextUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,13 +58,19 @@ public class DeliveryAddressView extends FrameLayout {
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.saveDetails){
-            if(username.getText().equals("") && userEmailId.getText().equals("") && addressTxt.getText().equals("")){
-                SnackbarUtils.showSnackBar(view, "Please fill all field", Snackbar.LENGTH_LONG);
-            } else {
+            if (username.getText().toString().equalsIgnoreCase("")){
+                SnackbarUtils.showSnackBar(view,"Please enter name",Snackbar.LENGTH_LONG);
+            }else if (userEmailId.getText().toString().equalsIgnoreCase("")){
+                SnackbarUtils.showSnackBar(view,"Please enter email",Snackbar.LENGTH_LONG);
+            }else if (!TextUtils.isEmailIdValid(userEmailId.getText().toString())) {
+                SnackbarUtils.showSnackBar(view, "Please ente validr email", Snackbar.LENGTH_LONG);
+            }else if (addressTxt.getText().toString().equalsIgnoreCase("")){
+                SnackbarUtils.showSnackBar(view,"Please enter address",Snackbar.LENGTH_LONG);
+            }else{
                 Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toConfirmOrder());
             }
         } else if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toMyTrayFragment());
+            Navigation.findNavController(view).navigateUp();
         }
     }
 }

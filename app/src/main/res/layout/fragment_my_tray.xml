@@ -126,7 +126,7 @@
             <Button
                 android:id="@+id/placeOrder"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:background="@drawable/btn_bg"
                 android:layout_below="@+id/total"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"

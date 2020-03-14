@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -21,7 +22,7 @@ public class SignUpCompleteView extends FrameLayout {
     private final SignUpCompleteViewModel viewModel;
 
     @BindView(R.id.back)
-    ImageButton back;
+    ImageView back;
     @BindView(R.id.backToHome)
     Button backToHome;
     @BindView(R.id.addAnotherLuto)
@@ -40,7 +41,7 @@ public class SignUpCompleteView extends FrameLayout {
         switch (id) {
             case R.id.back :
             case R.id.backToHome :
-                Navigation.findNavController(view).navigate(SignUpCompleteFragmentDirections.toProfileFragment());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.addAnotherLuto :
                 Navigation.findNavController(view).navigate(SignUpCompleteFragmentDirections.toSignUpFragment());

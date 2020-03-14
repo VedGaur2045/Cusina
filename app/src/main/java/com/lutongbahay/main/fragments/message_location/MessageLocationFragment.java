@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -37,5 +38,14 @@ public class MessageLocationFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(MessageLocationViewModel.class);
         view = new MessageLocationView(context,viewModel);
         return view;
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (view != null && view.mapFragment != null){
+            ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(view.mapFragment).commit();
+        }
     }
 }

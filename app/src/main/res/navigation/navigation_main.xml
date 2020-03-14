@@ -120,6 +120,11 @@
     </fragment>
 
 
+    <fragment
+        android:id="@+id/selectLocationFragment"
+        android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"
+        android:label="privacy_fragment"
+        tools:layout="@layout/fragment_select_location"/>
 
 
     <fragment
@@ -138,12 +143,12 @@
         android:name="com.lutongbahay.main.fragments.delivery_address_confirmation.DeliveryAddressConfirmationFragment"
         android:label="delivery_address_confirmation"
         tools:layout="@layout/fragment_delivery_address_confirmation">
-        <action
-            android:id="@+id/toDelAddress"
-            app:popUpTo="@+id/DeliveryAddressFragment" />
+
+
         <action
             android:id="@+id/toConfirmOrder"
             app:destination="@id/ConfirmOrderFragment"/>
+
         <action android:id="@+id/toMyTrayFragment"
             app:destination="@id/MyTrayFragment"/>
     </fragment>
@@ -450,7 +455,7 @@
         <action android:id="@+id/toMyTrayFragment"
             app:popUpTo="@id/MyTrayFragment"/>
 
-        <action android:id="@id/toDelAddress"
+        <action android:id="@+id/toDelAddress"
             app:destination="@id/DeliveryAddressFragment"/>
 
     </fragment>

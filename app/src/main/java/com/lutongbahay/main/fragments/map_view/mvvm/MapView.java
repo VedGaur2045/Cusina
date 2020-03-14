@@ -34,13 +34,17 @@ public class MapView extends FrameLayout implements OnMapReadyCallback {
     @BindView(R.id.list_item_horizontal_first)
     RecyclerView recyclerView;
 
+    public SupportMapFragment mapFragment;
+
+
     public MapView(@NonNull Context context, MapViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_mapview, this);
         ButterKnife.bind(this, this);
 
-        ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+        mapFragment =  ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map));
+        mapFragment.getMapAsync(this);
 
         LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
@@ -61,4 +65,7 @@ public class MapView extends FrameLayout implements OnMapReadyCallback {
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 19);
         googleMap.animateCamera(yourLocation);;
     }
+
+
+
 }

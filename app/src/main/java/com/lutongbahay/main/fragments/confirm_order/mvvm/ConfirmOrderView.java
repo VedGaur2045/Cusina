@@ -31,8 +31,6 @@ public class ConfirmOrderView extends FrameLayout {
     TextView titleName;
     @BindView(R.id.closeImgBtn)
     ImageButton closeImgBtn;
-    @BindView(R.id.backBtnImg)
-    ImageButton backBtnImg;
     @BindView(R.id.customerNameTxt)
     TextView customerNameTxt;
     @BindView(R.id.customerEmailTxt)
@@ -61,7 +59,6 @@ public class ConfirmOrderView extends FrameLayout {
         ButterKnife.bind(this,this);
 
         titleName.setText(R.string.confirmOrder);
-        backBtnImg.setVisibility(GONE);
 
         ConfirmOrderRecyclerAdapter confirmOrderRecyclerAdapter = new ConfirmOrderRecyclerAdapter();
         order_list_item_vertical.setAdapter(confirmOrderRecyclerAdapter);

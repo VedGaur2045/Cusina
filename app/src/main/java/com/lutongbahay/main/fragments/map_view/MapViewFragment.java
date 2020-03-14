@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.lutongbahay.R;
@@ -36,8 +37,19 @@ public class MapViewFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(MapViewModel.class);
+        if (view == null)
         view = new MapView(context,viewModel);
         return view;
     }
 
+
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (view != null && view.mapFragment != null){
+            ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().remove(view.mapFragment).commit();
+        }
+    }
 }

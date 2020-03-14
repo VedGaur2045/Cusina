@@ -59,7 +59,7 @@ public class DocumentUploadView extends FrameLayout {
 
     }
 
-    @OnClick(R.id.close)
+    @OnClick({R.id.close,R.id.nextBtnUpload,R.id.uploadFileIdFirst,R.id.uploadFileIdSecond,R.id.uploadFileIdThird})
     public void onClick(View view){
         int id = view.getId();
         switch (id){

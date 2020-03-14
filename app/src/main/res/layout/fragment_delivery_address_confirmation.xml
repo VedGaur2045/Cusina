@@ -13,7 +13,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_10sdp"
         android:background="@color/_FFFFFF"
         android:paddingLeft="@dimen/_25sdp"
         android:paddingRight="@dimen/_25sdp">
@@ -23,7 +22,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             fontPath="@fonts/sourcesanspro_semibold"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_48sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/_40sdp"
             android:background="@drawable/commonbuttonbg"
@@ -39,7 +38,7 @@
             android:id="@+id/userEmailId"
             fontPath="@fonts/sourcesanspro_it"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_below="@+id/emailTxt"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/userinputbg"
@@ -57,7 +56,7 @@
             android:id="@+id/addressTxt"
             fontPath="@fonts/sourcesanspro_it"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_below="@+id/address_detail"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/userinputbg"
@@ -75,7 +74,7 @@
             android:id="@+id/username"
             fontPath="@fonts/sourcesanspro_it"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_below="@+id/userNameTxt"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/userinputbg"
@@ -95,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userEmailId"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/address_detail"
             android:textColor="@color/black"
             android:textSize="@dimen/_8ssp"
@@ -107,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/useremail"
             android:textColor="@color/black"
             android:textSize="@dimen/_8ssp"
@@ -126,8 +125,5 @@
 
     </RelativeLayout>
 
-    <include
-        android:id="@+id/toolbarLayout"
-        layout="@layout/custom_toolbar" />
 
 </LinearLayout>

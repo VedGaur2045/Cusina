@@ -28,13 +28,16 @@ public class MessageLocationView extends FrameLayout implements OnMapReadyCallba
 
     private final MessageLocationViewModel viewModel;
     GoogleMap googleMap;
+    public SupportMapFragment mapFragment;
 
     public MessageLocationView(@NonNull Context context, MessageLocationViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_message_location,this);
         ButterKnife.bind(this,this);
-        ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+
+        mapFragment =  ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map));
+        mapFragment.getMapAsync(this);
 
     }
 

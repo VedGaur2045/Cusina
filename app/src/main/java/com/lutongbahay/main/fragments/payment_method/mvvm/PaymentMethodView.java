@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.list.PaymentMethodListView;
 import com.lutongbahay.main.fragments.payment_method.PaymentMethodFragmentDirections;
 
@@ -53,7 +54,7 @@ public class PaymentMethodView extends FrameLayout {
         inflate(context, R.layout.fragment_payment_method,this);
         ButterKnife.bind(this,this);
 
-        String[] payTxt = new String[]{String.valueOf(R.string.CashOnDelivery), String.valueOf(R.string.GCashTxt), String.valueOf(R.string.CoinsTxt)};
+        String[] payTxt = new String[]{CusinaApplication.getInstance().getString(R.string.CashOnDelivery), CusinaApplication.getInstance().getString(R.string.GCashTxt), CusinaApplication.getInstance().getString(R.string.CoinsTxt)};
         Integer[] payImg = new Integer[]{R.mipmap.cash_on_delivery_img,R.mipmap.gcash,R.mipmap.coinsph};
         paymentTxt.addAll(Arrays.asList(payTxt));
         paymentImg.addAll(Arrays.asList(payImg));
@@ -72,7 +73,7 @@ public class PaymentMethodView extends FrameLayout {
         if(id == R.id.payNowBtn){
             Navigation.findNavController(view).navigate(PaymentMethodFragmentDirections.toOrderPlaced());
         } else if(id == R.id.backBtnImg) {
-            Navigation.findNavController(view).navigate(PaymentMethodFragmentDirections.toConfirmOrder());
+            Navigation.findNavController(view).navigateUp();
         }
     }
 

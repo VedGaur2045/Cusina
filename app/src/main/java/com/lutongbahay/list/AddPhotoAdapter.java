@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,26 +21,31 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 
+import com.bumptech.glide.Glide;
 import com.lutongbahay.R;
+import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class AddPhotoAdapter extends BaseAdapter {
     private Context context;
-    private Uri[] _filePaths;
+    private ArrayList<String> images = new ArrayList<>();
 
-    public AddPhotoAdapter(Context context, Uri[] _filePaths) {
+    public AddPhotoAdapter(Context context, ArrayList<String> images) {
         this.context = context;
-        this._filePaths = _filePaths;
+        this.images = images;
     }
 
     @Override
     public int getCount() {
-        return this._filePaths.length;
+        return this.images.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return this._filePaths[i];
+        return this.images.get(i);
     }
 
     @Override
@@ -47,9 +53,8 @@ public class AddPhotoAdapter extends BaseAdapter {
         return i;
     }
 
-    @Override
     public int getViewTypeCount() {
-        return getCount();
+        return 1;
     }
 
     @Override
@@ -82,9 +87,8 @@ public class AddPhotoAdapter extends BaseAdapter {
             } else {
                 relativeLayout.setVisibility(View.GONE);
                 imageView.setVisibility(View.VISIBLE);
-                Bitmap bmp = decodeURI(_filePaths[i].getPath());
-                //BitmapFactory.decodeFile(mUrls[position].getPath());
-                imageView.setImageBitmap(bmp);
+                GlideApp.with(context).load(images.get(i)).placeholder(R.drawable.no_image_placeholder).into(imageView);
+
             }
 
         } else {

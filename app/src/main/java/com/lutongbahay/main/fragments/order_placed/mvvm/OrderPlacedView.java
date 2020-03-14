@@ -39,7 +39,7 @@ public class OrderPlacedView extends FrameLayout {
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.backToMenuBtn){
-            Navigation.findNavController(view).navigate(OrderPlacedFragmentDirections.toPaymentMethod());
+            Navigation.findNavController(view).navigateUp();
         }
     }
 

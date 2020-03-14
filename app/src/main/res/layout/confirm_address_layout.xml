@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_7sdp"
     android:background="@color/_FFFFFF"
     android:orientation="vertical"
-    android:padding="@dimen/_20sdp">
+    android:padding="@dimen/_10sdp">
 
     <LinearLayout
         android:id="@+id/customerAddressLayout"
@@ -26,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_MyDetails"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix" />
 
             <TextView
@@ -59,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_CustomerName"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix" />
 
             <TextView
@@ -73,7 +72,7 @@
                 android:layout_toRightOf="@+id/customerTxt"
                 android:text="@string/_CustomerNameTxt"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
@@ -81,7 +80,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
+            android:layout_marginTop="@dimen/_1sdp">
 
             <TextView
                 android:id="@+id/emailTxt"
@@ -90,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_EmailAddress"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix" />
 
             <TextView
@@ -104,7 +103,7 @@
                 android:layout_toRightOf="@+id/emailTxt"
                 android:text="@string/_CustomerEmailTxt"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
@@ -112,7 +111,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
+            android:layout_marginTop="@dimen/_1sdp">
 
             <ImageButton
                 android:id="@+id/changeAddressPencilBtn"
@@ -135,7 +134,7 @@
                 android:layout_toRightOf="@+id/PhoneTxt"
                 android:text="@string/_CustomerPhoneTxt"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix" />
 
             <TextView
@@ -145,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_PhoneNumber"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
@@ -156,7 +155,7 @@
         android:id="@+id/mapLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
         android:visibility="visible">
 
@@ -188,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/firstAddress"
                 android:textColor="@color/_000000"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 tools:ignore="MissingPrefix" />
 
             <TextView
@@ -251,7 +250,7 @@
             android:layout_height="wrap_content"
             android:text="@string/myLocation"
             android:textColor="@color/_000000"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             android:visibility="visible"
             tools:ignore="MissingPrefix" />
 

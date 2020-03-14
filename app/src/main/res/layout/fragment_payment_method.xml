@@ -12,16 +12,10 @@
         android:layout_below="@+id/headerLayout"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@color/_FFFFFF"
+        android:layout_above="@id/bottom_layout"
         android:orientation="vertical"
-        android:padding="@dimen/_20sdp">
+        android:padding="@dimen/_10sdp">
 
-        <ListView
-            android:id="@+id/paymentMethodList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="@dimen/_25sdp" />
 
         <TextView
             fontPath="@fonts/sourcesanspro_semibold"
@@ -29,26 +23,33 @@
             android:layout_height="wrap_content"
             android:text="@string/SelectPaymentMode"
             android:textColor="@color/_000000"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             tools:ignore="MissingPrefix" />
+
+        <ListView
+            android:id="@+id/paymentMethodList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="@dimen/_25sdp" />
+
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_white_drawable"
-        android:orientation="vertical"
-        android:padding="@dimen/_20sdp"
-        android:translationY="@dimen/_3sdp"
-        android:translationZ="@dimen/_11sdp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/payNowBtn"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_margin="@dimen/_20sdp"
             android:background="@drawable/btn_bg"
             android:onClick="BuyNowBtnOnClick"
@@ -61,7 +62,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp">
 
             <TextView
                 fontPath="@fonts/sourcesanspro_semibold"
@@ -93,7 +95,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/Total_Txt"

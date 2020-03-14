@@ -61,7 +61,7 @@ public class ViewOrderDetailsView extends FrameLayout {
         inflate(context, R.layout.fragment_view_orders_details,this);
         ButterKnife.bind(this,this);
 
-        OrderSummaryItemRecyclerAdapter orderSummaryItemRecyclerAdapter = new OrderSummaryItemRecyclerAdapter();
+        OrderSummaryItemRecyclerAdapter orderSummaryItemRecyclerAdapter = new OrderSummaryItemRecyclerAdapter(title);
         completedOrdersListItem.setAdapter(orderSummaryItemRecyclerAdapter);
 
         titleName.setText(title);

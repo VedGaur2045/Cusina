@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_60sdp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:layout_centerVertical="true"
         android:id="@+id/payment_Img"
-        android:layout_width="@dimen/_51sdp"
-        android:layout_height="@dimen/_51sdp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
         android:src="@mipmap/cash_on_delivery_img"
         android:scaleType="fitXY"/>
 
@@ -22,15 +23,16 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:textSize="@dimen/_14ssp"
+        android:textSize="@dimen/_12sdp"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_semibold"
+        fonthPath="fonts/cabin_bold.otf"
         android:textColor="@color/_000000"/>
 
     <RadioButton
         android:id="@+id/payment_Checked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:button="@drawable/checkbox_selector"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"

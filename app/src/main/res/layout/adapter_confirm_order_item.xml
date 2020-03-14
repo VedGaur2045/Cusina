@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_200sdp"
+    android:layout_height="wrap_content"
     android:background="@color/_FFFFFF">
 
 <!--  On PopUp Layout Work  -->
@@ -20,13 +20,13 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp">
+            android:padding="@dimen/_5sdp">
 
             <TextView
                 android:visibility="visible"
                 android:id="@+id/_2x_Txt"
-                android:layout_width="@dimen/_22sdp"
-                android:layout_height="@dimen/_22sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:textSize="@dimen/_14ssp"
@@ -89,9 +89,8 @@
         <RelativeLayout
             android:id="@+id/checkLayoutPlace"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingTop="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
             android:layout_marginStart="@dimen/_60sdp"
             android:layout_marginLeft="@dimen/_60sdp">
 
@@ -104,7 +103,7 @@
                     android:id="@+id/forDeliveryCheckPlace"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_10ssp"
                     android:button="@drawable/checkbox_selector"
                     android:text="@string/_ForDeliveryCheck"
                     android:checked="true"
@@ -117,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:button="@drawable/checkbox_selector"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="@dimen/_10ssp"
                     android:paddingLeft="@dimen/_5sdp"
                     android:text="@string/_ForPickUpCheck"/>
 
@@ -151,7 +150,7 @@
         android:layout_height="@dimen/_1sdp"
         android:background="@color/_F6F6F6"
         android:layout_below="@+id/onPlacedID"
-        android:layout_marginTop="@dimen/_15sdp"/>
+        android:layout_marginTop="@dimen/_5sdp"/>
 
     <RelativeLayout
         android:id="@+id/subtotalLayout"
@@ -159,7 +158,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/view"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp">
@@ -168,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_subTotal"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"/>
@@ -181,7 +180,7 @@
             android:layout_alignParentRight="true"
             android:text="@string/_70"
             android:textColor="@color/_000000"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular" />
 
@@ -193,16 +192,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/subtotalLayout"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_1sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_25sdp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_DeliveryFees"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"/>
@@ -213,12 +213,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_4"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textColor="@color/_000000"
             android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/_F6F6F6"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_below="@+id/DeliveryFeesLayout"
+        android:layout_marginTop="@dimen/_1sdp"/>
+
 
 </RelativeLayout>

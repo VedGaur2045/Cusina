@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/_FFFFFF"
-    android:paddingBottom="@dimen/_6sdp">
+    android:paddingBottom="@dimen/_15sdp">
 
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_50sdp"
         android:paddingTop="@dimen/_5sdp">
 
         <com.github.florent37.shapeofview.shapes.RoundRectView
@@ -26,43 +26,31 @@
 
             <ImageView
                 android:id="@+id/productImg"
-                android:layout_width="@dimen/_55sdp"
-                android:layout_height="@dimen/_55sdp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/fish_img_6" />
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/product_img_item" />
 
         </com.github.florent37.shapeofview.shapes.RoundRectView>
 
-        <TextView
-            android:id="@+id/productCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:textSize="@dimen/_12ssp"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_semibold"
-            android:textColor="@color/_000000"
-            android:text="@string/_3"
-            android:layout_toRightOf="@+id/prdctImg"
-            android:layout_toEndOf="@+id/prdctImg"/>
+
 
         <TextView
             android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
+            android:layout_toRightOf="@+id/prdctImg"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_semibold"
+            fonthPath="fonts/sourcesanspro_bold.otf"
             android:textColor="@color/_000000"
-            android:text="@string/_productName"
-            android:layout_toRightOf="@+id/productCount"
-            android:layout_toEndOf="@+id/productCount"/>
+            android:textStyle="bold"
+            android:text=" 2   Butter Chicken"/>
 
         <TextView
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/productNameDelivered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,8 +58,8 @@
             android:layout_marginLeft="@dimen/_27sdp"
             android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_bold"
-            android:textColor="@color/_7BCC86"
+            fonthPath="fonts/sourcesanspro_bold.otf"
+            android:textColor="@color/_15D528"
             android:text="@string/DELIVERED_Txt"
             android:layout_below="@+id/productName"
             android:layout_toRightOf="@+id/prdctImg"
@@ -96,11 +84,16 @@
         <TextView
             android:visibility="gone"
             android:id="@+id/productNameProcessingDeliveryAndPickup"
-            android:layout_width="@dimen/_62sdp"
-            android:layout_height="@dimen/_17sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_27sdp"
             android:layout_marginLeft="@dimen/_27sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:paddingTop="@dimen/_1sdp"
+            android:paddingBottom="@dimen/_1sdp"
             android:textSize="@dimen/_8ssp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/delivery_and_pickup_bg_drawable"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
@@ -132,7 +125,7 @@
         <Button
             android:id="@+id/RateDish"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_height="@dimen/_20sdp"
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:gravity="center"
             android:background="@drawable/color_solid_drawable"
@@ -140,11 +133,10 @@
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FFFFFF"
             tools:ignore="MissingPrefix"
+            android:layout_marginBottom="@dimen/_3sdp"
             fonthPath="fonts/sourcesanspro_bold"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_35sdp"
-            android:translationY="@dimen/_3sdp"
-            android:translationZ="@dimen/_6sdp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
@@ -163,29 +155,29 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/view"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp">
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_subTotal"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
-            android:textColor="@color/_000000"/>
+            android:textColor="@color/gunmetal"/>
 
         <TextView
             android:id="@+id/subTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_70"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
-            android:textColor="@color/_000000"
+            android:textColor="@color/gunmetal"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" />
 
@@ -196,18 +188,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/subtotalLayout"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_DeliveryFees"
-            android:textColor="@color/_000000"
-            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/gunmetal"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular" />
 
@@ -218,8 +210,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:text="@string/_4"
-            android:textColor="@color/_000000"
-            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/gunmetal"
+            android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular" />
 

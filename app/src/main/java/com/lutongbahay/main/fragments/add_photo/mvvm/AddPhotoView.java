@@ -1,5 +1,6 @@
 package com.lutongbahay.main.fragments.add_photo.mvvm;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -19,6 +20,8 @@ import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.list.AddPhotoAdapter;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragment;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,46 +48,89 @@ public class AddPhotoView extends FrameLayout {
     @BindView(R.id.gridViewGalleryPhotoList)
     GridView gridViewGalleryPhotoList;
 
+    ArrayList<String> allImages= new ArrayList<>();
+
     private Uri[] mUrls = null;
+    Context appContext;
 
     public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
+        this.appContext = context;
         inflate(context, R.layout.fragment_add_photo,this);
         ButterKnife.bind(this,this);
 
         titleName.setText(R.string.addDishPhoto);
         backBtnImg.setVisibility(GONE);
-
         if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
-            Uri uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-
-            final Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-
-            if (cursor != null) {
-                try {
-                    cursor.moveToFirst();
-                    mUrls = new Uri[cursor.getCount()];
-                    for (int i = 0; i < cursor.getCount(); i++) {
-                        cursor.moveToPosition(i);
-                        mUrls[i] = Uri.parse(cursor.getString(1));
-                    }
-
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-
-                System.out.println(mUrls.length);
-
-                AddPhotoAdapter photoAdapter = new AddPhotoAdapter(context,mUrls);
-
-                gridViewGalleryPhotoList.setAdapter(photoAdapter);
-            }
+            allImages.addAll(getAllShownImagesPath((AppCompatActivity) appContext));
+            AddPhotoAdapter addPhotoAdapter = new AddPhotoAdapter(appContext,allImages);
+            gridViewGalleryPhotoList.setAdapter(addPhotoAdapter);
         } else {
 
         }
 
+//        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+//            Uri uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+//
+//            final Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+//
+//            if (cursor != null) {
+//                try {
+//                    cursor.moveToFirst();
+//                    mUrls = new Uri[cursor.getCount()];
+//                    for (int i = 0; i < cursor.getCount(); i++) {
+//                        cursor.moveToPosition(i);
+//                        mUrls[i] = Uri.parse(cursor.getString(1));
+//                    }
+//
+//                } catch (Exception e) {
+//                    System.out.println(e.getMessage());
+//                }
+//
+//                System.out.println(mUrls.length);
+//
+//
+//            }
+//        } else {
+//
+//        }
+
     }
+
+    /**
+     * Getting All Images Path.
+     *
+     * @param activity
+     *            the activity
+     * @return ArrayList with images Path
+     */
+    private ArrayList<String> getAllShownImagesPath(AppCompatActivity activity) {
+        allImages = new ArrayList<>();
+        Uri uri;
+        Cursor cursor;
+        int column_index_data, column_index_folder_name;
+        ArrayList<String> listOfAllImages = new ArrayList<String>();
+        String absolutePathOfImage = null;
+        uri = android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI;
+
+        String[] projection = { MediaStore.MediaColumns.DATA,
+                MediaStore.Images.Media.BUCKET_DISPLAY_NAME };
+
+        cursor = activity.getContentResolver().query(uri, projection, null,
+                null, null);
+
+        column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+        column_index_folder_name = cursor
+                .getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
+        while (cursor.moveToNext()) {
+            absolutePathOfImage = cursor.getString(column_index_data);
+
+            listOfAllImages.add(absolutePathOfImage);
+        }
+        return listOfAllImages;
+    }
+
 
     @OnClick(R.id.closeImgBtn)
     public void onClick(View view){

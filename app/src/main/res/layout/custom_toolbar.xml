@@ -22,8 +22,8 @@
 
             <ImageButton
                 android:id="@+id/closeImgBtn"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
@@ -52,7 +52,7 @@
                 android:layout_centerVertical="true"
                 android:text="@string/title"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_24ssp"
+                android:textSize="@dimen/_18ssp"
                 android:visibility="visible"
                 tools:ignore="MissingPrefix" />
 

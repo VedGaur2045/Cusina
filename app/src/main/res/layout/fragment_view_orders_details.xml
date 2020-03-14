@@ -44,10 +44,10 @@
     <androidx.core.widget.NestedScrollView
         android:layout_below="@+id/custom_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <RelativeLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -324,7 +324,7 @@
                     android:textSize="@dimen/_14ssp"
                     tools:ignore="MissingPrefix"
                     android:visibility="gone"
-                    fonthPath="fonts/sourcesanspro_semibold"
+                    fonthPath="fonts/sourcesanspro_semibold.otf"
                     android:textColor="@color/_33000000"
                     android:layout_marginStart="@dimen/_30sdp"
                     android:layout_marginEnd="@dimen/_30sdp"

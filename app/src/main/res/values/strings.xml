@@ -45,7 +45,7 @@
     <string name="add_more_details">Add more details</string>
     <string name="cancel">Cancel</string>
     <string name="order_placed">Order Placed!</string>
-    <string name="order_placed_msg1">Your order was successfully placed and is being</string>
+    <string name="order_placed_msg1">Your order was successfully placed and is being prepared by the food server.</string>
     <string name="order_placed_msg2">prepared by the food server.</string>
     <string name="back_to_food_menu">Back to Food Menu</string>
 
@@ -59,7 +59,7 @@
 
     <!-- SIGNUP FORM -->
     <string name="application_received">Application Received!</string>
-    <string name="application_received_msg1">Thank you for your application to be a server in</string>
+    <string name="application_received_msg1">Thank you for your application to be a server in Lutong Bahay! \n \n You will be notified in (7) seven business days about the status of your application</string>
     <string name="application_received_msg2">Lutong Bahay!</string>
     <string name="application_received_msg3">You will be notified in (7) seven business days about</string>
     <string name="application_received_msg4">the status of your application</string>

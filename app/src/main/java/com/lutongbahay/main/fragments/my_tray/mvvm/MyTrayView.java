@@ -74,14 +74,6 @@ public class MyTrayView extends FrameLayout {
         myLocation.setVisibility(GONE);
         changeAddress.setVisibility(GONE);
 
-        StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            Window window = context.getWindow();
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.setStatusBarColor(Color.WHITE);
-//        }
-
-
         TrayOrderItemsAdapter trayOrderItemsAdapter = new TrayOrderItemsAdapter();
         myTrayListVertical.setAdapter(trayOrderItemsAdapter);
     }
@@ -91,21 +83,19 @@ public class MyTrayView extends FrameLayout {
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigate(MyTrayFragmentDirections.toHomeFragment());
+            Navigation.findNavController(view).navigateUp();
         } else if(id == R.id.placeOrder){
             placeOrderBtnOnClick(view);
+
         }
     }
 
-    public void placeOrderBtnOnClick(View view) {
+    public void placeOrderBtnOnClick(View mainView) {
 
         yourLocation.setVisibility(View.GONE);
         myLocation.setVisibility(View.VISIBLE);
         changeAddress.setVisibility(View.VISIBLE);
         changeAddressPencilBtn.setVisibility(View.VISIBLE);
-
-        ConfirmOrderRecyclerAdapter confirmOrderRecyclerAdapter = new ConfirmOrderRecyclerAdapter();
-        myTrayListVertical.setAdapter(confirmOrderRecyclerAdapter);
 
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
         final View popUpView = inflater.inflate(R.layout.custom_popup_hungry,null);
@@ -119,7 +109,7 @@ public class MyTrayView extends FrameLayout {
 
         final PopupWindow popupWindow = new PopupWindow(popUpView,width,height,focusable);
 
-        popupWindow.showAtLocation(view, Gravity.BOTTOM,0,0);
+        popupWindow.showAtLocation(mainView, Gravity.BOTTOM,0,0);
 
         popupWindow.setOutsideTouchable(false);
 
@@ -130,7 +120,9 @@ public class MyTrayView extends FrameLayout {
                 myLocation.setVisibility(GONE);
                 changeAddress.setVisibility(GONE);
                 yourLocation.setVisibility(View.VISIBLE);
-                Navigation.findNavController(view).navigate(MyTrayFragmentDirections.toDelAddress());
+                popupWindow.dismiss();
+                Navigation.findNavController(mainView).navigate(MyTrayFragmentDirections.toDelAddress());
+
             }
         });
 
@@ -142,8 +134,6 @@ public class MyTrayView extends FrameLayout {
                 changeAddress.setVisibility(GONE);
                 yourLocation.setVisibility(View.VISIBLE);
                 popupWindow.dismiss();
-                TrayOrderItemsAdapter trayOrderItemsAdapter = new TrayOrderItemsAdapter();
-                myTrayListVertical.setAdapter(trayOrderItemsAdapter);
             }
         });
 

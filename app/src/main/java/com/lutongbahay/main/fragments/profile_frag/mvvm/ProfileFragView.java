@@ -54,7 +54,7 @@ public class ProfileFragView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
-    @OnClick({R.id.setting,R.id.sellfood,R.id.savedplace,R.id.fbbuuton,R.id.AddNewLuto})
+    @OnClick({R.id.setting,R.id.sellfood,R.id.savedplace,R.id.AddNewLuto})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
@@ -65,7 +65,6 @@ public class ProfileFragView extends FrameLayout {
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.SellFood());
                 break;
             case R.id.savedplace:
-            case R.id.fbbuuton:
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.FbConnect());
                 break;
             case R.id.AddNewLuto:

@@ -79,7 +79,7 @@ public class SignUpView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.close:
-                Navigation.findNavController(view).navigate(SignUpFragmentDirections.toSellWithLutongBehay());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.NextBtn:
                 if(username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0
@@ -88,6 +88,7 @@ public class SignUpView extends FrameLayout {
                     Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
                 } else {
                     SnackbarUtils.showSnackBar(view, "Please fill all field", Snackbar.LENGTH_LONG);
+                    Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
                 }
                 break;
         }
