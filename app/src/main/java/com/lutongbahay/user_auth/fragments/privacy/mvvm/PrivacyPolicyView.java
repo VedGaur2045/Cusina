@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.user_auth.activity.SplashActivity;
 import com.lutongbahay.user_auth.fragments.privacy.PrivacyPolicyFragmentDirections;
 
 import butterknife.BindView;
@@ -42,7 +43,7 @@ public class PrivacyPolicyView extends FrameLayout {
         if (id == R.id.next) {
             Navigation.findNavController(v).navigate(PrivacyPolicyFragmentDirections.toLocationFragment());
         }else if (id == R.id.close){
-            Navigation.findNavController(v).navigateUp();
+            SplashActivity.openSplashActivity(getContext());
         }
     }
 

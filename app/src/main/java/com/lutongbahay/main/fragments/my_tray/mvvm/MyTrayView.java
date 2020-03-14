@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -122,7 +123,6 @@ public class MyTrayView extends FrameLayout {
                 yourLocation.setVisibility(View.VISIBLE);
                 popupWindow.dismiss();
                 Navigation.findNavController(mainView).navigate(MyTrayFragmentDirections.toDelAddress());
-
             }
         });
 

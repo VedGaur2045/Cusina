@@ -124,7 +124,12 @@
         android:id="@+id/selectLocationFragment"
         android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"
         android:label="privacy_fragment"
-        tools:layout="@layout/fragment_select_location"/>
+        tools:layout="@layout/fragment_select_location">
+
+        <action
+            android:id="@+id/toS"/>
+
+    </fragment>
 
 
     <fragment
@@ -446,11 +451,7 @@
 
         <action
             android:id="@+id/toHomeFragment"
-            app:destination="@+id/HomeFragment"
-            app:enterAnim="@animator/enter_from_left"
-            app:exitAnim="@animator/exit_to_right"
-            app:popEnterAnim="@animator/enter_from_left"
-            app:popExitAnim="@animator/exit_to_right"/>
+            app:destination="@+id/HomeFragment" />
 
         <action android:id="@+id/toMyTrayFragment"
             app:popUpTo="@id/MyTrayFragment"/>

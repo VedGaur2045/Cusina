@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:text="@string/extraTxt"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/closeImgBtn"
         android:layout_marginStart="@dimen/_100sdp"
         android:gravity="center"
         tools:ignore="MissingPrefix"

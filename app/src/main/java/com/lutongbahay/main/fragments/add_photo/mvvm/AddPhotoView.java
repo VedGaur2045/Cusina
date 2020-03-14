@@ -105,6 +105,8 @@ public class AddPhotoView extends FrameLayout {
 //
 //                System.out.println(mUrls.length);
 //
+//                AddPhotoAdapter addPhotoAdapter = new AddPhotoAdapter(context,mUrls);
+//                gridViewGalleryPhotoList.setAdapter(addPhotoAdapter);
 //
 //            }
 //        } else {

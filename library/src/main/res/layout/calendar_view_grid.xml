@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.applandeo.materialcalendarview.extensions.CalendarGridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendarGridView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp"
+    android:drawSelectorOnTop="true"
+    android:numColumns="7"
+    android:background="#E8E9EC"
+    android:horizontalSpacing="2dp"
+    android:verticalSpacing="2dp" />
