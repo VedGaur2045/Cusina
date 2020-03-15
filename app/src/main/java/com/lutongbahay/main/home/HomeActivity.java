@@ -179,7 +179,6 @@ public class HomeActivity extends AppCompatActivity {
 
     public void setBackGround(TextView textView, int drawable) {
         textView.setCompoundDrawablesWithIntrinsicBounds(0, drawable, 0, 0);
-
     }
 
     public void navigationHandler() {

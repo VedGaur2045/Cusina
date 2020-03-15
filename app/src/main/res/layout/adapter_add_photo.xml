@@ -15,7 +15,7 @@
 
     <RelativeLayout
         android:id="@+id/cameraLayout"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="@dimen/_70sdp"
         android:layout_height="@dimen/_70sdp"
         android:background="@color/_FFFFFF">

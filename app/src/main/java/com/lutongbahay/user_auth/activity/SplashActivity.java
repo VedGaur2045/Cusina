@@ -71,7 +71,10 @@ public class SplashActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.skipFroNowId) {
-            HomeActivity.openHomeActivity(SplashActivity.this);
+//            HomeActivity.openHomeActivity(SplashActivity.this);
+            Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+            Intent intent = new Intent(this, HomeActivity.class);
+            this.startActivity(intent,bndlAnimation);
         } else if(id == R.id.nextImageBtn){
             if(android.text.TextUtils.isEmpty(mobileNumberEdt.getText().toString()) || mobileNumberEdt.getText().toString().length() < 10 && countryCodeHolder.getSelectedCountryCode().isEmpty()){
                 SnackbarUtils.showSnackBar(view, "Please enter a valid mobile number", Snackbar.LENGTH_LONG);
