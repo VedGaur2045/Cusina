@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/personal_info"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold"
+                    fonthPath="fonts/cabin_semibold.otf"
                     android:textSize="@dimen/_16ssp"
                     android:layout_centerInParent="true"
                     android:textColor="@color/black"/>
@@ -306,7 +306,7 @@
                 android:onClick="backToHomeBtnClick"
                 android:layout_marginTop="@dimen/_23sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/white"/>
             <LinearLayout
                 android:layout_width="wrap_content"

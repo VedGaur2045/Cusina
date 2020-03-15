@@ -8,4 +8,7 @@ package com.lutongbahay.utils;
 
 public class Constants {
 
+    public static boolean isRegistered = false;
+    public static boolean openProfile = false;
+
 }

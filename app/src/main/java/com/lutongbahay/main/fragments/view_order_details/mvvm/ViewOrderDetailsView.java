@@ -1,10 +1,6 @@
 package com.lutongbahay.main.fragments.view_order_details.mvvm;
 
-import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -14,14 +10,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.OrderSummaryItemRecyclerAdapter;
-import com.lutongbahay.main.fragments.view_order_details.ViewOrdersDetailsFragment;
 import com.lutongbahay.main.fragments.view_order_details.ViewOrdersDetailsFragmentDirections;
 
 import butterknife.BindView;
@@ -54,16 +48,22 @@ public class ViewOrderDetailsView extends FrameLayout {
     TextView totalAmount;
     @BindView(R.id.cancelBtn)
     Button cancelBtn;
+    Context context;
 
     public ViewOrderDetailsView(@NonNull Context context, ViewOrderDetailsViewModel viewOrderDetailsViewModel,String title) {
         super(context);
+        this.context = context;
         this.viewOrderDetailsViewModel = viewOrderDetailsViewModel;
         inflate(context, R.layout.fragment_view_orders_details,this);
         ButterKnife.bind(this,this);
 
-        OrderSummaryItemRecyclerAdapter orderSummaryItemRecyclerAdapter = new OrderSummaryItemRecyclerAdapter(title);
+        OrderSummaryItemRecyclerAdapter orderSummaryItemRecyclerAdapter = new OrderSummaryItemRecyclerAdapter(context,title);
         completedOrdersListItem.setAdapter(orderSummaryItemRecyclerAdapter);
 
+
+        if (!title.equalsIgnoreCase("Delivered Order")){
+            RateServer.setVisibility(GONE);
+        }
         titleName.setText(title);
     }
 
@@ -72,53 +72,35 @@ public class ViewOrderDetailsView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.closeImgBtn:
-                Navigation.findNavController(view).navigate(ViewOrdersDetailsFragmentDirections.toMyOrdersFragment());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.RateServer:
-
+                openRateServer();
                 break;
         }
     }
 
-//    @RequiresApi(api = Build.VERSION_CODES.M)
-//    public void rateServerBtnOnClick(View view) {
-//
-//        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View popupView = inflater.inflate(R.layout.custom_popup_add_review, null);
-//
-//        setObjectIdOfPopUp(popupView);
-//
-//        viewStub.setLayoutResource(R.layout.set_review_layout_for_server);
-//
-//        setViewStubObjectId(viewStub);
-//
-//        final AlertDialog dialog = new AlertDialog.Builder(getContext()).create();
-//        dialog.setView(popupView);
-//        dialog.setCancelable(false);
-//        dialog.setCanceledOnTouchOutside(false);
-//        Window window = dialog.getWindow();
-//        assert window != null;
-//        //window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-//        dialog.show();
-//
-//        closeImgBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        submitBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(CompletedOrdersActivity.this, Choose_address.class) ;
-//                intent.putExtra("id","6");
-//                Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(CompletedOrdersActivity.this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
-//                startActivity(intent,bndlAnimation);
-//            }
-//        });
-//
-//    }
+    private void openRateServer(){
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.custom_popup_add_review, null);
+
+
+
+        final AlertDialog dialog = new AlertDialog.Builder(context).create();
+        dialog.setView(popupView);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        Window window = dialog.getWindow();
+        assert window != null;
+
+        dialog.show();
+        ImageButton closeBtn = popupView.findViewById(R.id.closeImgBtn);
+        Button getStarted = popupView.findViewById(R.id.submitBtn);
+
+        closeBtn.setOnClickListener(v -> dialog.dismiss());
+        getStarted.setOnClickListener(v -> dialog.dismiss());
+    }
+
 
 
 }

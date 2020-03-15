@@ -1,13 +1,8 @@
 package com.lutongbahay.list;
 
-import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +16,10 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.Navigation;
 
-import com.bumptech.glide.Glide;
 import com.lutongbahay.R;
 import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AddPhotoAdapter extends BaseAdapter {
@@ -144,18 +137,8 @@ public class AddPhotoAdapter extends BaseAdapter {
         ImageButton closeBtn = popupView.findViewById(R.id.closeImgBtn);
         Button getStarted = popupView.findViewById(R.id.getStarted);
 
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        getStarted.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(AddPhotoFragmentDirections.toCameraFragment());
-            }
-        });
+        closeBtn.setOnClickListener(v -> dialog.dismiss());
+        getStarted.setOnClickListener(v -> Navigation.findNavController(v).navigate(AddPhotoFragmentDirections.toCameraFragment()));
     }
 
 }

@@ -26,6 +26,11 @@ public class MenuListItemAdapter extends BaseAdapter {
 //        this.arrayListOfItem = arrayListOfItem;
 //    }
 
+
+    public MenuListItemAdapter(Context context) {
+        this.context = context;
+    }
+
     @Override
     public int getCount() {
         return 15;
@@ -82,7 +87,7 @@ public class MenuListItemAdapter extends BaseAdapter {
             }
 
             refillBtn.setOnClickListener(view1 -> {
-                Navigation.findNavController(view).navigate(MenuFragmentDirections.toCompletedDetails());
+              //  Navigation.findNavController(view).navigate(MenuFragmentDirections.toCompletedDetails());
             });
 
             promoteBtn.setOnClickListener(view1 -> {

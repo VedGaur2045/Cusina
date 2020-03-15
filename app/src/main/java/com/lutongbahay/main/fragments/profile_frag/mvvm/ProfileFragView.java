@@ -2,18 +2,31 @@ package com.lutongbahay.main.fragments.profile_frag.mvvm;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.lutongbahay.R;
-import com.lutongbahay.main.fragments.payment_method.PaymentMethodFragmentDirections;
+import com.lutongbahay.adapter.OrderTabsViewPagerAdapter;
+import com.lutongbahay.app.CusinaApplication;
+import com.lutongbahay.main.fragments.cancelled_order.CancelledOrderFragment;
+import com.lutongbahay.main.fragments.completed_order.CompletedOrderFragment;
+import com.lutongbahay.main.fragments.menu.MenuFragment;
+import com.lutongbahay.main.fragments.orders.OrdersFragment;
+import com.lutongbahay.main.fragments.process_order_from_seller.ProcessOrderFragment;
+import com.lutongbahay.main.fragments.processing_order.ProcessingOrderFragment;
 import com.lutongbahay.main.fragments.profile_frag.ProfileFragmentDirections;
+import com.lutongbahay.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,18 +59,46 @@ public class ProfileFragView extends FrameLayout {
     TextView userEmail;
     @BindView(R.id.AddNewLuto)
     TextView AddNewLuto;
+    @BindView(R.id.un_registered_layout)
+    RelativeLayout unRegisteredLayout;
+    @BindView(R.id.more_less_tv)
+    TextView moreLessTv;
+    @BindView(R.id.server_info_basic_details_view)
+    LinearLayout serverInfoBasicDetailsView;
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+    @BindView(R.id.registered_layout)
+    RelativeLayout registeredLayout;
+    Context context;
+    @BindView(R.id.profile_review_section)
+    RelativeLayout reviewSection;
 
-    public ProfileFragView(@NonNull Context context, ProfileFragViewModel viewModel) {
+    FragmentManager childManager;
+
+
+    public ProfileFragView(@NonNull Context context, ProfileFragViewModel viewModel,FragmentManager childManager) {
         super(context);
         this.viewModel = viewModel;
-        inflate(context, R.layout.fragment_profile,this);
-        ButterKnife.bind(this,this);
+        this.context = context;
+        this.childManager = childManager;
+        inflate(context, R.layout.fragment_user_profile, this);
+        ButterKnife.bind(this, this);
+
+        if (Constants.isRegistered){
+            setUpRegisteredView();
+        }else{
+            setUpUnRegisteredView();
+        }
+
+
     }
 
-    @OnClick({R.id.setting,R.id.sellfood,R.id.savedplace,R.id.AddNewLuto})
-    public void onClick(View view){
+    @OnClick({R.id.setting, R.id.sellfood, R.id.savedplace, R.id.AddNewLuto,R.id.more_less_tv})
+    public void onClick(View view) {
         int id = view.getId();
-        switch (id){
+        switch (id) {
             case R.id.setting:
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.openSettings());
                 break;
@@ -70,6 +111,44 @@ public class ProfileFragView extends FrameLayout {
             case R.id.AddNewLuto:
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.toAddPhoto());
                 break;
+            case R.id.more_less_tv:
+                showHideBasicDetails();
+                break;
         }
+    }
+
+    public void setUpRegisteredView(){
+        AddNewLuto.setVisibility(VISIBLE);
+        reviewSection.setVisibility(VISIBLE);
+        unRegisteredLayout.setVisibility(GONE);
+        registeredLayout.setVisibility(VISIBLE);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    public void setUpUnRegisteredView(){
+        AddNewLuto.setVisibility(GONE);
+        reviewSection.setVisibility(GONE);
+        unRegisteredLayout.setVisibility(VISIBLE);
+        registeredLayout.setVisibility(GONE);
+    }
+
+    public void showHideBasicDetails(){
+        if (moreLessTv.getText().toString().equalsIgnoreCase("Show more")){
+            serverInfoBasicDetailsView.setVisibility(VISIBLE);
+            moreLessTv.setText("Less");
+        }else{
+            serverInfoBasicDetailsView.setVisibility(GONE);
+            moreLessTv.setText("Show more");
+        }
+    }
+
+
+    private void setupViewPager(ViewPager viewPager) {
+        OrderTabsViewPagerAdapter adapter = new OrderTabsViewPagerAdapter(childManager);
+        adapter.addFragment(new MenuFragment(),"Menu");
+        adapter.addFragment(new OrdersFragment(), "Orders");
+        adapter.addFragment(new Fragment(),"About");
+        viewPager.setAdapter(adapter);
     }
 }

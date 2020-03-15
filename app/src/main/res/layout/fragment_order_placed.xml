@@ -47,7 +47,8 @@
                 android:layout_above="@+id/img"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix"
+                fontPath="fonts/sourcesanspro_regular.otf"
+                tools:ignore="MissingPrefix"
                 android:text="@string/order_placed_msg1"/>
 
             <ImageView
@@ -70,7 +71,8 @@
                 android:layout_marginRight="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_below="@+id/img"
-                fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix"
+                fontPath="fonts/sourcesanspro_semibold.otf"
+                tools:ignore="MissingPrefix"
                 android:textColor="@color/white"/>
 
         </RelativeLayout>

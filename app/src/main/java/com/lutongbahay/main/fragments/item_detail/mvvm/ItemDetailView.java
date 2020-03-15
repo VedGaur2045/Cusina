@@ -28,7 +28,7 @@ public class ItemDetailView extends FrameLayout {
 
     private final ItemDetailViewModel viewModel;
     @BindView(R.id.backBtnImg)
-    ImageButton backBtnImg;
+    ImageView backBtnImg;
     @BindView(R.id.productImgItem)
     ImageView productImgItem;
     @BindView(R.id.productName)
@@ -85,7 +85,7 @@ public class ItemDetailView extends FrameLayout {
         switch (id){
             case R.id.addToTrayBtn:
             case R.id.backBtnImg:
-                Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toHomeFragment());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.ratingImg:
                 Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toDishReviewFragment());

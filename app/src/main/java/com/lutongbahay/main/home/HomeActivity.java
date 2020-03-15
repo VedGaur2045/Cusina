@@ -3,7 +3,9 @@ package com.lutongbahay.main.home;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,7 +22,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.lutongbahay.R;
+import com.lutongbahay.dialogs.DialogHelperClass;
+import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
+import com.lutongbahay.utils.ToastUtils;
 
 import java.util.List;
 
@@ -56,12 +62,16 @@ public class HomeActivity extends AppCompatActivity {
     private NavController navController;
     private AppBarConfiguration appBarConfiguration;
 
+    public static final int LOCATION_PERMISSION_REQUEST_CODE = 211;
+    public static final int SETTINGS_REQUEST_CODE_LOCATION = 212;
+
     public static void openHomeActivity(Context context) {
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         Intent intent = new Intent(context, HomeActivity.class);
         context.startActivity(intent, bndlAnimation);
         ((AppCompatActivity) context).finish();
     }
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -78,6 +88,12 @@ public class HomeActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.nav_host_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         navigationHandler();
+
+        if (Constants.openProfile){
+            Constants.openProfile = false;
+            Constants.isRegistered = true;
+            navController.navigate(R.id.profileFragment);
+        }
     }
 
 
@@ -208,7 +224,65 @@ public class HomeActivity extends AppCompatActivity {
 
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0) {
+                int counter = 0;
+                for (int result : grantResults) {
+                    if (result != 0) {
+                        boolean showRationale = true;
+                        for (String permission : permissions) {
+                            showRationale = ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
+                        }
+
+                        if (showRationale) {
+                            DialogHelperClass.showMessageOKCancel(this,
+                                    getResources().getString(R.string.location_permission_required),
+                                    getResources().getString(android.R.string.ok),
+                                    getResources().getString(android.R.string.cancel),
+                                    (dialogInterface, i) -> ToastUtils.shortToast(""),
+                                    (dialogInterface, i) -> {
+
+                                    });
+                        } else {
+                            DialogHelperClass.showMessageOKCancel(this,
+                                    getResources().getString(R.string.location_permission_settings),
+                                    getResources().getString(R.string.goto_settings),
+                                    getResources().getString(android.R.string.cancel),
+                                    (dialogInterface, i) -> openSettings(),
+                                    (dialog, which) -> {
+                                        ToastUtils.shortToast(getResources().getString(R.string.location_permission_deny));
+                                    });
+                        }
+                        return;
+                    }
+
+                    counter++;
+
+                }
+                return;
+            }
+        }
+
+
+        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_main);
+        if (navHostFragment != null) {
+            List<Fragment> fragmentList = navHostFragment.getChildFragmentManager().getFragments();
+            for (Fragment fragment : fragmentList) {
+                fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
+        }
     }
+
+    // navigating user to app settings
+    public void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, SETTINGS_REQUEST_CODE_LOCATION);
+    }
+
 }

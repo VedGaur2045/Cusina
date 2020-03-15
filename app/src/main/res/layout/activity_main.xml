@@ -52,8 +52,8 @@
                     android:text="@string/home"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular"
+                    tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
 
@@ -73,8 +73,8 @@
                     android:text="@string/search"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
 
@@ -94,8 +94,8 @@
                     android:text="@string/orders"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular"
+                    tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
 
@@ -116,8 +116,8 @@
                     android:text="@string/earn_rewards"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
 
@@ -138,8 +138,8 @@
                     android:text="@string/account"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    tools:ignore="MissingPrefix"/>
             </FrameLayout>
 
         </LinearLayout>

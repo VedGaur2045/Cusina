@@ -61,7 +61,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginLeft="@dimen/_1sdp"
                 tools:ignore="MissingPrefix,RelativeOverlap"
-                fonthPath="fonts/sourcesanspro_regular"/>
+                fonthPath="fonts/sourcesanspro_regular.otf"/>
 
             <TextView
                 android:id="@+id/productTime"
@@ -80,7 +80,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="@dimen/_10sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"/>
+                fonthPath="fonts/sourcesanspro_regular.otf"/>
 
         </RelativeLayout>
 
@@ -106,7 +106,7 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:textStyle="normal"
                     tools:ignore="MissingPrefix,RelativeOverlap"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular.otf"/>
 
                 <RelativeLayout
                     android:id="@+id/rating"
@@ -165,14 +165,13 @@
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:text="@string/_productPrice"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_13sdp"
+                fontPath="fonts/sourcesanspro_bold.otf"
                 tools:ignore="MissingPrefix"
-                android:textStyle="bold"
-                fonthPath="fonts/sourcesanspro_bold.otf"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/productServingLeft"
@@ -185,7 +184,7 @@
                 android:textStyle="italic"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"/>
+                fonthPath="fonts/sourcesanspro_regular.otf"/>
 
             <LinearLayout
                 android:id="@+id/productMinimumOrderLayout"
@@ -204,7 +203,7 @@
                     android:textColor="@color/_EC0000"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="normal"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                    fontPath="fonts/sourcesanspro_regular.otf" tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/productMinimumOrderCount"
@@ -214,7 +213,7 @@
                     android:textColor="@color/_EC0000"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="normal"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                    fontPath="fonts/sourcesanspro_regular.otf" tools:ignore="MissingPrefix" />
 
                 <TextView
                     android:id="@+id/_Serving"
@@ -224,7 +223,7 @@
                     android:textColor="@color/_EC0000"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="normal"
-                    fontPath="@fonts/sourcesanspro_regular" tools:ignore="MissingPrefix" />
+                    fontPath="fonts/sourcesanspro_regular.otf" tools:ignore="MissingPrefix" />
 
             </LinearLayout>
 
@@ -250,7 +249,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/gray_colo_back"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular.otf"/>
 
                 <TextView
                     android:id="@+id/productDeliveryFee"
@@ -268,7 +267,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/gray_colo_back"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    fonthPath="fonts/sourcesanspro_regular.otf"/>
 
             </LinearLayout>
 

@@ -21,6 +21,7 @@
             android:visibility="visible">
 
             <ImageButton
+                android:layout_marginStart="@dimen/_10sdp"
                 android:id="@+id/closeImgBtn"
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_18sdp"
@@ -34,9 +35,10 @@
 
             <ImageButton
                 android:id="@+id/backBtnImg"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:background="@color/transparent"
@@ -45,7 +47,7 @@
 
             <TextView
                 android:id="@+id/titleName"
-                fontPath="@fonts/cabin_semibold"
+                fontPath="fonts/cabin_semibold.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -126,7 +128,7 @@
 
             <TextView
                 android:id="@+id/locationName"
-                fontPath="@fonts/sourcesanspro_regular"
+                fontPath="fonts/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

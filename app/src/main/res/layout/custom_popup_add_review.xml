@@ -2,16 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/_99000000">
 
     <LinearLayout
         android:orientation="vertical"
         android:background="@color/_FFFFFF"
         android:layout_centerInParent="true"
-        android:layout_width="@dimen/_316sdp"
+        android:layout_width="match_parent"
         android:padding="@dimen/_15sdp"
-        android:layout_height="@dimen/_504sdp">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:visibility="visible"
@@ -24,8 +24,8 @@
             android:contentDescription="@string/todo"
             android:layout_marginRight="@dimen/_15sdp" />
 
-<!--        <include-->
-<!--            layout="@layout/set_review_layout_for_server"/>-->
+        <include
+            layout="@layout/set_review_layout_for_server"/>
 
         <ViewStub
             android:id="@+id/layout_stub"
@@ -45,7 +45,7 @@
             tools:ignore="MissingPrefix"
             fonthPath="fonts/sourcesanspro_regular"
             android:textSize="@dimen/_10ssp"
-            android:layout_height="@dimen/_123sdp"
+            android:layout_height="@dimen/_80sdp"
             android:layout_width="match_parent"
             android:scrollbars="vertical"
             android:hint="@string/TellUsMore"
@@ -59,19 +59,19 @@
             android:layout_gravity="center"
             android:id="@+id/submitBtn"
             android:layout_width="match_parent"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_height="@dimen/_35sdp"
             android:background="@drawable/btn_bg"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:text="@string/submit"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/_FFFFFF"
+            android:layout_marginTop="@dimen/_20sdp"
+
+            fonthPath="fonts/sourcesanspro_semibold.otf"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_semibold"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/TellUsMore"
-            android:layout_marginTop="@dimen/_20sdp"/>
+            />
 
     </LinearLayout>
 

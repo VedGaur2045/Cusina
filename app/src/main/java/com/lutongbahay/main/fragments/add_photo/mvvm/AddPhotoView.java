@@ -2,9 +2,11 @@ package com.lutongbahay.main.fragments.add_photo.mvvm;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridView;
@@ -19,6 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.GalleryImagesRecyclerAdapter;
+import com.lutongbahay.app.CusinaApplication;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.list.AddPhotoAdapter;
@@ -53,6 +58,14 @@ public class AddPhotoView extends FrameLayout {
     @BindView(R.id.gallery_rv)
     RecyclerView gridViewGalleryPhotoList;
 
+    public static final int LOCATION_PERMISSION_REQUEST_CODE = 304;
+    public static final int SETTINGS_REQUEST_CODE_STORAGE = 305;
+    public static final int SETTINGS_REQUEST_CODE_LOCATION = 306;
+
+    public static final int STORAGE_PERMISSION_CODE = 301;
+    public static final int GALLERY_REQUEST_CODE = 302;
+    public static final int CAMERA_REQUEST_CODE = 303;
+
     ArrayList<String> allImages= new ArrayList<>();
 
     private Uri[] mUrls = null;
@@ -74,47 +87,47 @@ public class AddPhotoView extends FrameLayout {
 
         titleName.setText(R.string.addDishPhoto);
         backBtnImg.setVisibility(GONE);
-        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
-            allImages = getAllShownImagesPath((AppCompatActivity) appContext);
+        takeStoragePermission();
 
-            GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter = new GalleryImagesRecyclerAdapter(context,allImages);
-
-           // AddPhotoAdapter addPhotoAdapter = new AddPhotoAdapter(appContext,allImages);
-            gridViewGalleryPhotoList.setAdapter(galleryImagesRecyclerAdapter);
-        } else {
-
-        }
-
-//        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
-//            Uri uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-//
-//            final Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-//
-//            if (cursor != null) {
-//                try {
-//                    cursor.moveToFirst();
-//                    mUrls = new Uri[cursor.getCount()];
-//                    for (int i = 0; i < cursor.getCount(); i++) {
-//                        cursor.moveToPosition(i);
-//                        mUrls[i] = Uri.parse(cursor.getString(1));
-//                    }
-//
-//                } catch (Exception e) {
-//                    System.out.println(e.getMessage());
-//                }
-//
-//                System.out.println(mUrls.length);
-//
-//                AddPhotoAdapter addPhotoAdapter = new AddPhotoAdapter(context,mUrls);
-//                gridViewGalleryPhotoList.setAdapter(addPhotoAdapter);
-//
-//            }
-//        } else {
-//
-//        }
 
     }
 
+    public void takeStoragePermission() {
+
+        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) getContext(),
+                new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE},
+                STORAGE_PERMISSION_CODE)) {
+            onPermissionGranted();
+        }
+    }
+
+    // navigating user to app settings
+    public void openSettings(int requestCode) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getContext().getPackageName(), null);
+        intent.setData(uri);
+        ((AppCompatActivity) getContext()).startActivityForResult(intent, requestCode);
+    }
+
+
+    public void onPermissionGranted() {
+        allImages = getAllShownImagesPath((AppCompatActivity) appContext);
+        GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter = new GalleryImagesRecyclerAdapter(appContext,allImages);
+        gridViewGalleryPhotoList.setAdapter(galleryImagesRecyclerAdapter);
+    }
+
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context,
+                0,
+                "Error",
+                errorMessage,
+                null,
+                "Ok",
+                null,
+                (view, dialog) -> {
+                },
+                null);
+    }
     /**
      * Getting All Images Path.
      *

@@ -7,10 +7,10 @@
     <RelativeLayout
         android:id="@+id/custom_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="?android:attr/actionBarSize"
         android:visibility="visible">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/closeImgBtn"
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
@@ -70,7 +70,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:textColor="@color/_000000"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold"/>
+                fonthPath="fonts/cabin_semibold.otf"/>
 
             <TextView
                 android:id="@+id/deliverAwayId"
@@ -83,7 +83,7 @@
                 android:textSize="@dimen/_15ssp"
                 android:textColor="@color/_7BCC86"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold"/>
+                fonthPath="fonts/cabin_semibold.otf"/>
 
             <TextView
                 android:id="@+id/deliverFinishedTxt"
@@ -116,7 +116,7 @@
                     android:textColor="@color/_FF8500"
                     android:textSize="@dimen/_16ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold"
+                    fonthPath="fonts/cabin_semibold.otf"
                     android:text="@string/_showOrderDetails" />
 
             </LinearLayout>

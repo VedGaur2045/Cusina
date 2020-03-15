@@ -124,8 +124,8 @@
             android:text="@string/OrderReceived"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FF8500"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/orderConfirmed"
@@ -136,8 +136,8 @@
             android:layout_marginLeft="@dimen/_45sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FF8500"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/ProcessingOrder"
@@ -148,8 +148,8 @@
             android:layout_marginLeft="@dimen/_40sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_B2B2B2"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/DeliveringOrder"
@@ -160,8 +160,8 @@
             android:layout_marginLeft="@dimen/_40sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_B2B2B2"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/OrderDelivered"
@@ -172,8 +172,8 @@
             android:layout_marginLeft="@dimen/_40sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_B2B2B2"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
     </LinearLayout>
 
@@ -215,10 +215,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_9ssp"
-                tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                android:textStyle="bold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/_000000"
-                android:text="Butter Chicken Combo" />
+                android:text="Butter Chicken Combo"
+                tools:ignore="MissingPrefix"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -230,8 +231,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_9ssp"
+
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
                     android:textColor="@color/_000000"
                     android:text="@string/_1" />
 
@@ -240,8 +242,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_9ssp"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
                     android:textColor="@color/_000000"
                     android:text="@string/Serving" />
 
@@ -258,8 +260,8 @@
                 android:paddingTop="@dimen/_1sdp"
                 android:paddingBottom="@dimen/_1sdp"
                 android:background="@drawable/delivery_and_pickup_bg_drawable"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
                 android:gravity="center"
                 android:textColor="@color/_FFFFFF"
                 android:text="@string/_ForDeliveryCheck"
@@ -284,8 +286,8 @@
                 android:text="@string/_viewOrder"
                 android:textSize="@dimen/_8ssp"
                 android:textColor="@color/_FFFFFF"
+                fonthPath="fonts/sourcesanspro_bold.otf"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_bold"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:translationY="@dimen/_3sdp"
                 android:translationZ="@dimen/_6sdp"/>
@@ -300,7 +302,7 @@
                 android:text="@string/_cancelOrder"
                 android:textSize="@dimen/_8ssp"
                 android:textColor="@color/_26000000"
-                fonthPath="fonts/sourcesanspro_bold"
+                fonthPath="fonts/sourcesanspro_bold.otf"
                 tools:ignore="MissingPrefix" />
 
         </LinearLayout>

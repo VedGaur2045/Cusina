@@ -71,7 +71,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.skipFroNowId) {
-            AuthActivity.openHomeActivity(SplashActivity.this);
+            HomeActivity.openHomeActivity(SplashActivity.this);
         } else if(id == R.id.nextImageBtn){
             if(android.text.TextUtils.isEmpty(mobileNumberEdt.getText().toString()) || mobileNumberEdt.getText().toString().length() < 10 && countryCodeHolder.getSelectedCountryCode().isEmpty()){
                 SnackbarUtils.showSnackBar(view, "Please enter a valid mobile number", Snackbar.LENGTH_LONG);

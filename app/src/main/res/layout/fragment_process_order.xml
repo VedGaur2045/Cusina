@@ -45,8 +45,8 @@
                         android:text="@string/orderTxt"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_24ssp"
+                        fonthPath="fonts/cabin_semibold.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/cabin_semibold"
                         android:layout_marginLeft="@dimen/_15sdp" />
 
                     <TextView
@@ -56,8 +56,8 @@
                         android:text="@string/_41"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_24ssp"
-                        tools:ignore="MissingPrefix"
-                        fonthPath="fonts/cabin_semibold" />
+                        fonthPath="fonts/cabin_semibold.otf"
+                        tools:ignore="MissingPrefix"/>
 
                 </LinearLayout>
 
@@ -139,7 +139,7 @@
                         android:textSize="@dimen/_8ssp"
                         android:textColor="@color/_000000"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"/>
+                        fonthPath="fonts/sourcesanspro_regular.otf"/>
 
                     <TextView
                         android:id="@+id/Preparing"
@@ -148,8 +148,8 @@
                         android:text="@string/Preparing"
                         android:textSize="@dimen/_8ssp"
                         android:textColor="@color/_000000"
+                        fonthPath="fonts/sourcesanspro_regular.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
                         android:layout_marginStart="@dimen/_50sdp"
                         android:layout_marginLeft="@dimen/_50sdp" />
 
@@ -159,8 +159,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_60sdp"
                         android:layout_marginLeft="@dimen/_60sdp"
+                        fonthPath="fonts/sourcesanspro_regular.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
                         android:text="@string/Deliver"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_8ssp" />
@@ -173,7 +173,7 @@
                         android:textSize="@dimen/_8ssp"
                         android:textColor="@color/_000000"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        fonthPath="fonts/sourcesanspro_regular.otf"
                         android:layout_marginStart="@dimen/_75sdp"
                         android:layout_marginLeft="@dimen/_75sdp"/>
 
@@ -198,8 +198,8 @@
                         android:textColor="@color/_FF8500"
                         android:layout_marginStart="@dimen/_17sdp"
                         android:layout_centerVertical="true"
+                        fonthPath="fonts/sourcesanspro_semibold.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_semibold"
                         android:layout_marginLeft="@dimen/_17sdp"
                         android:shadowColor="@color/_7F000000"
                         android:shadowDx="1"
@@ -223,8 +223,8 @@
                             android:text="@string/_00"
                             android:textSize="@dimen/_14ssp"
                             android:textColor="@color/_FF8500"
+                            fonthPath="fonts/sourcesanspro_semibold.otf"
                             tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_semibold"
                             android:shadowColor="@color/_7F000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
@@ -236,8 +236,8 @@
                             android:text="@string/_colonIcon"
                             android:textSize="@dimen/_14ssp"
                             android:textColor="@color/_FF8500"
+                            fonthPath="fonts/sourcesanspro_semibold.otf"
                             tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_semibold"
                             android:shadowColor="@color/_7F000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
@@ -250,8 +250,8 @@
                             android:text="@string/_03"
                             android:textSize="@dimen/_14ssp"
                             android:textColor="@color/_FF8500"
+                            fonthPath="fonts/sourcesanspro_semibold.otf"
                             tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_semibold"
                             android:shadowColor="@color/_7F000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
@@ -263,8 +263,8 @@
                             android:text="@string/_colonIcon"
                             android:textSize="@dimen/_14ssp"
                             android:textColor="@color/_FF8500"
+                            fonthPath="fonts/sourcesanspro_semibold.otf"
                             tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_semibold"
                             android:shadowColor="@color/_7F000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
@@ -277,8 +277,8 @@
                             android:text="@string/_56"
                             android:textSize="@dimen/_14ssp"
                             android:textColor="@color/_FF8500"
+                            fonthPath="fonts/sourcesanspro_semibold.otf"
                             tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_semibold"
                             android:shadowColor="@color/_7F000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
@@ -297,8 +297,8 @@
                     android:text="@string/_CustomerName"
                     android:textSize="@dimen/_16ssp"
                     android:textColor="@color/_000000"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <TextView
                     android:layout_marginTop="@dimen/_8sdp"
@@ -309,8 +309,8 @@
                     android:text="@string/_productName"
                     android:textSize="@dimen/_24ssp"
                     android:textColor="@color/_000000"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <RelativeLayout
                     android:layout_below="@+id/customerNameTxt"
@@ -356,7 +356,7 @@
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/_000000"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular" />
+                        fonthPath="fonts/sourcesanspro_regular.otf" />
 
                     <TextView
                         android:layout_marginTop="@dimen/_8sdp"
@@ -368,7 +368,7 @@
                         android:textColor="@color/_000000"
                         android:layout_marginStart="@dimen/_15sdp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        fonthPath="fonts/sourcesanspro_regular.otf"
                         android:layout_marginLeft="@dimen/_15sdp" />
 
                 </LinearLayout>
@@ -388,8 +388,8 @@
                         android:text="@string/_PhoneNumber"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/_000000"
-                        tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular" />
+                        fonthPath="fonts/sourcesanspro_regular.otf"
+                        tools:ignore="MissingPrefix"/>
 
                     <TextView
                         android:layout_marginTop="@dimen/_8sdp"
@@ -400,8 +400,8 @@
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/_000000"
                         android:layout_marginStart="@dimen/_10sdp"
+                        fonthPath="fonts/sourcesanspro_regular.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
                         android:layout_marginLeft="@dimen/_10sdp"/>
 
                 </LinearLayout>
@@ -415,8 +415,8 @@
                     android:text="@string/_Location"
                     android:textSize="@dimen/_16ssp"
                     android:textColor="@color/_000000"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <LinearLayout
                     android:id="@+id/location"
@@ -449,8 +449,8 @@
                             android:text="@string/firstAddress"
                             android:textColor="@color/_000000"
                             android:textSize="@dimen/_14ssp"
-                            tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_semibold" />
+                            fonthPath="fonts/sourcesanspro_semibold.otf"
+                            tools:ignore="MissingPrefix"/>
 
                         <TextView
                             android:id="@+id/secondAddress"
@@ -459,8 +459,8 @@
                             android:text="@string/secondAddress"
                             android:textColor="@color/_000000"
                             android:textSize="@dimen/_12ssp"
-                            tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_regular" />
+                            fonthPath="fonts/sourcesanspro_regular.otf"
+                            tools:ignore="MissingPrefix"/>
 
                         <TextView
                             android:id="@+id/addOtherAddress"
@@ -470,8 +470,8 @@
                             android:text="@string/addOtherAddress"
                             android:textColor="@color/_80000000"
                             android:textSize="@dimen/_8ssp"
-                            tools:ignore="MissingPrefix"
-                            fonthPath="fonts/sourcesanspro_regular" />
+                            fonthPath="fonts/sourcesanspro_regular.otf"
+                            tools:ignore="MissingPrefix"/>
 
                     </LinearLayout>
 
@@ -486,8 +486,8 @@
                     android:text="@string/Items"
                     android:textSize="@dimen/_16ssp"
                     android:textColor="@color/_000000"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_below="@+id/Items"
@@ -515,8 +515,8 @@
                         android:text="@string/total"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
-                        tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_semibold"/>
+                        fonthPath="fonts/sourcesanspro_semibold.otf"
+                        tools:ignore="MissingPrefix"/>
 
                     <TextView
                         android:id="@+id/phpTxt"
@@ -525,8 +525,8 @@
                         android:text="@string/_pHp"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_24ssp"
+                        fonthPath="fonts/sourcesanspro_semibold.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_semibold"
                         android:layout_toEndOf="@+id/totalTxt"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/totalTxt"
@@ -539,8 +539,8 @@
                         android:text="@string/_600"
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_24ssp"
+                        fonthPath="fonts/sourcesanspro_semibold.otf"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_semibold"
                         android:layout_toEndOf="@+id/phpTxt"
                         android:layout_toRightOf="@+id/phpTxt" />
 
@@ -568,8 +568,8 @@
                     android:text="@string/_DeliveryMethods"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <RadioGroup
                     android:layout_below="@+id/deliveryTxt"
@@ -612,8 +612,8 @@
                     android:textColor="@color/black"
                     android:layout_marginLeft="@dimen/_25sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
                     android:layout_toEndOf="@+id/radioGroup"
                     android:layout_toRightOf="@+id/radioGroup" />
 
@@ -631,8 +631,8 @@
                     android:singleLine="true"
                     android:paddingLeft="@dimen/_10sdp"
                     android:textSize="@dimen/_10ssp"
+                    fonthPath="fonts/sourcesanspro_lightit.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_lightit"
                     android:textColor="@color/black"
                     android:layout_toEndOf="@+id/feeTxt"
                     android:layout_toRightOf="@+id/feeTxt" />
@@ -659,8 +659,8 @@
                     android:text="@string/_orderDate"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <TextView
                     android:layout_below="@+id/orderdateTxt"
@@ -670,8 +670,8 @@
                     android:text="@string/weekAndDateOfOrder"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular" />
+                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    tools:ignore="MissingPrefix"/>
 
             </RelativeLayout>
 
@@ -693,8 +693,8 @@
                     android:text="@string/expectedTimeTxt"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold" />
+                    fonthPath="fonts/cabin_semibold.otf"
+                    tools:ignore="MissingPrefix"/>
 
                 <TextView
                     android:layout_marginTop="@dimen/_7sdp"
@@ -705,8 +705,8 @@
                     android:text="@string/expectedTimeOrder"
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular" />
+                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    tools:ignore="MissingPrefix"/>
 
             </RelativeLayout>
 
@@ -728,8 +728,8 @@
                     android:textSize="@dimen/_14ssp"
                     android:textAllCaps="true"
                     android:layout_marginTop="@dimen/_23sdp"
+                    fonthPath="fonts/sourcesanspro_semibold.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold"
                     android:textColor="@color/white" />
 
                 <Button
@@ -743,8 +743,8 @@
                     android:textSize="@dimen/_14ssp"
                     android:textAllCaps="true"
                     android:layout_marginTop="@dimen/_15sdp"
+                    fonthPath="fonts/sourcesanspro_semibold.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold"
                     android:textColor="@color/white" />
 
             </RelativeLayout>
@@ -759,8 +759,8 @@
                 android:textSize="@dimen/_14ssp"
                 android:textAllCaps="true"
                 android:layout_marginTop="@dimen/_23sdp"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
                 android:textColor="@color/_7BCC86" />
 
         </LinearLayout>

@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_25sdp"
             android:textSize="@dimen/_14ssp"
-            fonthPath="fonts/sourcesanspro_regular"
+            fonthPath="fonts/sourcesanspro_regular.otf"
             android:layout_centerVertical="true"
             android:textColor="@color/black"
             android:paddingRight="@dimen/_10sdp"

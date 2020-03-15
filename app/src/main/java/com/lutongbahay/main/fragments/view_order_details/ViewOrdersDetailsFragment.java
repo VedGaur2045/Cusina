@@ -42,6 +42,7 @@ public class ViewOrdersDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(ViewOrderDetailsViewModel.class);
+        if (view == null)
         view = new ViewOrderDetailsView(context,viewModel,title);
         return view;
     }

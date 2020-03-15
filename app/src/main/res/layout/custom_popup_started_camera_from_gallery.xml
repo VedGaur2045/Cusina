@@ -44,7 +44,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_bold"/>
+                    fonthPath="fonts/sourcesanspro_bold.otf"/>
 
                 <TextView
                     android:id="@+id/tipsTxt"
@@ -255,7 +255,7 @@
                     android:translationY="@dimen/_3sdp"
                     android:translationZ="@dimen/_6sdp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold"
+                    fonthPath="fonts/sourcesanspro_semibold.otf"
                     android:layout_marginBottom="@dimen/_20sdp"/>
 
             </RelativeLayout>

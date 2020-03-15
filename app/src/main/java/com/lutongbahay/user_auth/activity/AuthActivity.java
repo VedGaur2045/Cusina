@@ -26,18 +26,11 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class AuthActivity extends AppCompatActivity {
 
-    public static void openHomeActivity(Context context){
-        Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
-        Intent intent = new Intent(context, HomeActivity.class);
-        context.startActivity(intent,bndlAnimation);
-        // ((AppCompatActivity)context).finish();
-    }
-
     public static void openAuthActivity(Context context){
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         Intent intent = new Intent(context, AuthActivity.class);
         context.startActivity(intent,bndlAnimation);
-        // ((AppCompatActivity)context).finish();
+        ((AppCompatActivity)context).finish();
     }
 
 
