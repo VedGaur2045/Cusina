@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/back"
-        android:layout_width="@dimen/_24sdp"
-        android:layout_height="@dimen/_24sdp"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
         android:src="@mipmap/back"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:layout_marginLeft="@dimen/_25sdp"/>
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"/>
 
     <ScrollView
         android:layout_below="@+id/back"
@@ -41,7 +41,7 @@
                 android:textAlignment="center"
                 tools:ignore="MissingPrefix"
                 android:layout_marginTop="@dimen/_10sdp"
-                fonthPath="fonts/cabin_semibold"
+                fonthPath="fonts/cabin_semibold.otf"
                 android:text="@string/application_received"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -71,9 +71,11 @@
                 android:background="@drawable/commonbuttonbg"
                 android:textSize="@dimen/_14ssp"
                 android:textAllCaps="false"
-                android:layout_marginTop="@dimen/_23sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/white"/>
             <Button
                 android:id="@+id/addAnotherLuto"
@@ -84,9 +86,11 @@
                 android:background="@drawable/redbuttonbg"
                 android:textSize="@dimen/_14ssp"
                 android:textAllCaps="false"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

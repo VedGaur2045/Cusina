@@ -71,6 +71,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.skipFroNowId) {
+//            HomeActivity.openHomeActivity(SplashActivity.this);
             Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
             Intent intent = new Intent(this, HomeActivity.class);
             this.startActivity(intent,bndlAnimation);

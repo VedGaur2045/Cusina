@@ -12,13 +12,14 @@
         android:layout_height="wrap_content"
         android:text="@string/extraTxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_100sdp"
+        android:textAlignment="center"
+        android:layout_margin="@dimen/_10sdp"
         android:gravity="center"
+        android:textStyle="bold"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_semibold"
+        fonthPath="fonts/sourcesanspro_semibold.otf"
         android:textColor="@color/_000000"
-        android:textSize="@dimen/_16ssp"
-        android:layout_marginLeft="@dimen/_100sdp" />
+        android:textSize="@dimen/_13sdp" />
 
     <RatingBar
         android:id="@+id/ratingBarServer"
@@ -55,9 +56,9 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_semibold"
+        fonthPath="fonts/sourcesanspro_semibold.otf"
         android:textColor="@color/_000000"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_below="@+id/ratingBarServer"/>
 
@@ -73,14 +74,14 @@
         <TextView
             android:id="@+id/FastTransaction"
             android:gravity="center"
-            android:layout_width="@dimen/_116sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_layout"
             android:text="@string/FastTransaction"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
-            android:textSize="@dimen/_10ssp"
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"/>
@@ -89,14 +90,14 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/Punctual"
             android:gravity="center"
-            android:layout_width="@dimen/_116sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_layout"
             android:text="@string/Punctual"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
-            android:textSize="@dimen/_10ssp"
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
@@ -116,14 +117,14 @@
         <TextView
             android:id="@+id/CustomerService"
             android:gravity="center"
-            android:layout_width="@dimen/_116sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_layout"
             android:text="@string/CustomerService"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
-            android:textSize="@dimen/_10ssp"
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"/>
@@ -132,14 +133,14 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/FastDelivery"
             android:gravity="center"
-            android:layout_width="@dimen/_116sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_layout"
             android:text="@string/FastDelivery"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
-            android:textSize="@dimen/_10ssp"
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
@@ -159,14 +160,14 @@
         <TextView
             android:id="@+id/Polite"
             android:gravity="center"
-            android:layout_width="@dimen/_116sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_layout"
             android:text="@string/Polite"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
-            android:textSize="@dimen/_10ssp"
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"/>
@@ -175,14 +176,14 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/Products"
             android:gravity="center"
-            android:layout_width="@dimen/_116sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:background="@drawable/bg_layout"
             android:text="@string/Products"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
-            android:textSize="@dimen/_10ssp"
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
@@ -191,3 +192,211 @@
     </LinearLayout>
 
 </RelativeLayout>
+
+
+
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:orientation="vertical"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content">-->
+
+<!--<TextView-->
+<!--    android:id="@+id/extraTxt"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="@string/extraTxt"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:textAlignment="center"-->
+<!--    android:gravity="center"-->
+<!--    tools:ignore="MissingPrefix"-->
+<!--    android:layout_margin="@dimen/_20sdp"-->
+<!--    fonthPath="fonts/sourcesanspro_semibold.otf"-->
+<!--    android:textColor="@color/_000000"-->
+<!--    android:textSize="@dimen/_16ssp" />-->
+
+<!--<RatingBar-->
+<!--    android:id="@+id/ratingBarServer"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    style="?android:attr/ratingBarStyleIndicator"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:layout_below="@+id/extraTxt"-->
+<!--    android:layout_marginTop="@dimen/_5sdp"-->
+<!--    android:progressTint="#EFCE4A"-->
+<!--    android:secondaryProgressTint="#EFCE4A"-->
+<!--    android:rating="0"-->
+<!--    android:numStars="5"-->
+
+<!--    android:stepSize="0.5"-->
+<!--    android:isIndicator="false"-->
+<!--    tools:targetApi="lollipop" />-->
+
+<!--&lt;!&ndash;    <hyogeun.github.com.colorratingbarlib.ColorRatingBar&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/ratingBarServer"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:visibility="visible"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:rating="0"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_below="@+id/extraTxt"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:empty_color="@color/_33000000"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:progress_color="@color/_EFCE4A" />&ndash;&gt;-->
+
+<!--<TextView-->
+<!--    android:id="@+id/aboutServerTxt"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="@string/extraTxt_2"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:gravity="center"-->
+<!--    tools:ignore="MissingPrefix"-->
+<!--    fonthPath="fonts/sourcesanspro_semibold.otf"-->
+<!--    android:textColor="@color/_000000"-->
+<!--    android:textSize="@dimen/_16ssp"-->
+<!--    android:layout_marginTop="@dimen/_15sdp"-->
+<!--    android:layout_below="@+id/ratingBarServer"/>-->
+
+<!--<LinearLayout-->
+<!--    android:layout_below="@+id/aboutServerTxt"-->
+<!--    android:id="@+id/option_1"-->
+<!--    android:layout_marginEnd="@dimen/_20sdp"-->
+<!--    android:layout_marginStart="@dimen/_20sdp"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="horizontal"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:layout_marginTop="@dimen/_10sdp">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/FastTransaction"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_layout"-->
+<!--        android:text="@string/FastTransaction"-->
+<!--        android:textColor="@color/_000000"-->
+<!--        tools:ignore="MissingPrefix"-->
+<!--        android:layout_weight="1"-->
+<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:textSize="@dimen/_10sdp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp"/>-->
+
+<!--    <TextView-->
+<!--        android:layout_marginStart="@dimen/_10sdp"-->
+<!--        android:id="@+id/Punctual"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_layout"-->
+<!--        android:text="@string/Punctual"-->
+<!--        android:layout_weight="1"-->
+<!--        android:textColor="@color/_000000"-->
+<!--        tools:ignore="MissingPrefix"-->
+<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:textSize="@dimen/_10sdp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp" />-->
+
+<!--</LinearLayout>-->
+
+<!--<LinearLayout-->
+<!--    android:layout_below="@+id/option_1"-->
+<!--    android:id="@+id/option_2"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginEnd="@dimen/_20sdp"-->
+<!--    android:layout_marginStart="@dimen/_20sdp"-->
+<!--    android:orientation="horizontal"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:layout_marginTop="@dimen/_10sdp">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/CustomerService"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_layout"-->
+<!--        android:text="@string/CustomerService"-->
+<!--        android:textColor="@color/_000000"-->
+<!--        tools:ignore="MissingPrefix"-->
+<!--        android:layout_weight="1"-->
+<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:textSize="@dimen/_10ssp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp"/>-->
+
+<!--    <TextView-->
+<!--        android:layout_marginStart="@dimen/_10sdp"-->
+<!--        android:id="@+id/FastDelivery"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_layout"-->
+<!--        android:text="@string/FastDelivery"-->
+<!--        android:textColor="@color/_000000"-->
+<!--        tools:ignore="MissingPrefix"-->
+<!--        android:layout_weight="1"-->
+<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:textSize="@dimen/_10ssp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp"-->
+<!--        android:layout_marginLeft="@dimen/_10sdp" />-->
+
+<!--</LinearLayout>-->
+
+<!--<LinearLayout-->
+<!--    android:layout_below="@+id/option_2"-->
+<!--    android:id="@+id/option_3"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="horizontal"-->
+<!--    android:layout_marginStart="@dimen/_20sdp"-->
+<!--    android:layout_marginEnd="@dimen/_20sdp"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:layout_marginTop="@dimen/_10sdp">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/Polite"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_layout"-->
+<!--        android:text="@string/Polite"-->
+<!--        android:textColor="@color/_000000"-->
+<!--        tools:ignore="MissingPrefix"-->
+<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:textSize="@dimen/_9sdp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/Products"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/bg_layout"-->
+<!--        android:text="@string/Products"-->
+<!--        android:textColor="@color/_000000"-->
+<!--        tools:ignore="MissingPrefix"-->
+<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:textSize="@dimen/_9sdp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp"-->
+<!--        android:layout_marginLeft="@dimen/_10sdp" />-->
+
+<!--</LinearLayout>-->
+
+<!--</RelativeLayout>-->

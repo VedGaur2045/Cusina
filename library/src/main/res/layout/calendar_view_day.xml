@@ -10,7 +10,7 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:gravity="center"
-        android:fontFamily="@font/sourcesanspro_bold"
+        android:fontFamily="@fonts/sourcesanspro_bold.otf"
         android:layout_gravity="center_horizontal"
         android:textSize="14sp" />
 

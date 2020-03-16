@@ -29,7 +29,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:visibility="visible"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold" />
+                fonthPath="fonts/sourcesanspro_semibold.otf" />
 
             <TextView
                 android:id="@+id/myLocation"
@@ -40,7 +40,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:visibility="gone"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold" />
+                fonthPath="fonts/sourcesanspro_semibold.otf" />
 
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/pre_order_back"
                 android:gravity="center"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:layout_alignParentEnd="true"
                 tools:ignore="MissingPrefix,RelativeOverlap" />
             

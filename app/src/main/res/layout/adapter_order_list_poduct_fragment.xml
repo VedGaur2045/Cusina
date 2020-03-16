@@ -20,7 +20,7 @@
             android:textColor="@color/_000000"
             android:textSize="@dimen/_12ssp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_semibold"/>
+            fonthPath="fonts/sourcesanspro_semibold.otf"/>
 
         <TextView
             android:layout_toEndOf="@+id/orderCountFirst"
@@ -32,7 +32,7 @@
             android:textSize="@dimen/_12ssp"
             android:layout_marginStart="@dimen/_3sdp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_semibold"
+            fonthPath="fonts/sourcesanspro_semibold.otf"
             android:layout_toRightOf="@+id/orderCountFirst"
             android:layout_marginLeft="@dimen/_3sdp" />
 
@@ -50,7 +50,7 @@
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_12ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"/>
+                fonthPath="fonts/sourcesanspro_semibold.otf"/>
 
             <TextView
                 android:id="@+id/orderPriceFirst"
@@ -62,7 +62,7 @@
                 android:layout_toEndOf="@+id/phpTxtFirst"
                 android:layout_marginStart="@dimen/_3sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:layout_toRightOf="@+id/phpTxtFirst"
                 android:layout_marginLeft="@dimen/_3sdp" />
 

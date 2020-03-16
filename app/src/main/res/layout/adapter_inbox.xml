@@ -45,8 +45,8 @@
             android:text="@string/_inboxTxt"
             android:textSize="@dimen/_13sdp"
             android:textColor="@color/_000000"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/msgDateId"
@@ -56,8 +56,8 @@
             android:text="@string/_inboxDate"
             android:textSize="@dimen/_11sdp"
             android:textColor="@color/_80000000"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
     </LinearLayout>
 

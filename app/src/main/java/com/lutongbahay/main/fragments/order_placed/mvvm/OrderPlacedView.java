@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.order_placed.OrderPlacedFragmentDirections;
+import com.lutongbahay.main.home.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,9 +40,9 @@ public class OrderPlacedView extends FrameLayout {
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.backToMenuBtn){
-            Navigation.findNavController(view).navigateUp();
+            HomeActivity.openHomeActivity(getContext());
         } else if (id == R.id.backBtn){
-            Navigation.findNavController(view).navigateUp();
+            HomeActivity.openHomeActivity(getContext());
         }
     }
 

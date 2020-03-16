@@ -18,7 +18,7 @@
 
 
         <TextView
-            fontPath="@fonts/cabin_semibold"
+            fontPath="fonts/cabin_semibold.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -29,7 +29,7 @@
             tools:ignore="MissingPrefix" />
 
         <TextView
-            fontPath="@fonts/sourcesanspro_regular"
+            fontPath="fonts/sourcesanspro_regular.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -51,7 +51,7 @@
         <Button
             android:id="@+id/AddMoredetails"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            fontPath="@fonts/sourcesanspro_semibold"
+            fontPath="fonts/sourcesanspro_semibold.otf"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_10sdp"
@@ -67,7 +67,7 @@
         <Button
             android:id="@+id/cancelBtn"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            fontPath="@fonts/sourcesanspro_semibold"
+            fontPath="fonts/sourcesanspro_semibold.otf"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_10sdp"

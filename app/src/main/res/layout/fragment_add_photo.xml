@@ -29,7 +29,7 @@
                 android:text="@string/_allPhoto"
                 android:textSize="@dimen/_20ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold"
+                fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/_000000" />
 
             <ImageView
@@ -54,7 +54,7 @@
                 android:text="@string/next"
                 android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_bold"
+                fonthPath="fonts/sourcesanspro_bold.otf"
                 android:textColor="@color/_FF8500"
                 android:layout_alignParentEnd="true" />
 

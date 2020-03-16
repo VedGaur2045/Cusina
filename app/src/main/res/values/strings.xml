@@ -6,6 +6,17 @@
 
     <string name="internal_storage">Internal storage</string>
 
+    <string name="storage_permission_required">You have denied storage permission. Storage permission is required to upload image. Try again.</string>
+    <string name="storage_permission_deny">You cannot access or upload image without storage permission.</string>
+
+    <string name="storage_permission_settings">You have permanently denied storage permission. You can grant them in app settings.</string>
+    <string name="location_permission_settings">You have permanently denied location permission. You can grant them in app settings.</string>
+    <string name="goto_settings">GOTO SETTINGS</string>
+    <string name="location_permission_required">You have denied location permission. Location permission is required for better experience. Try again.</string>
+    <string name="location_permission_required_map">You have denied location permission. Location permission is required for Map. Try again.</string>
+    <string name="location_permission_deny">You have denied location permission. Location permission is required for Map. Try again.</string>
+    <string name="location_deny">You cannot access nearby dishes.</string>
+
 
     <string name="net_not_connected">No network available!</string>
     <string name="ok">Ok</string>
@@ -227,7 +238,7 @@
     <string name="_owner">Owner</string>
     <string name="ownerKathleenDomingo">Kathleen Domingo</string>
     <string name="_KitchenName">Kitchen Name</string>
-    <string name="ownerKitchenName">ownerKitchenName</string>
+    <string name="ownerKitchenName">Lutong Kath</string>
     <string name="_verified">Verified</string>
     <string name="mobileNumber">Mobile Number</string>
     <string name="ownerMobileNumber">+63 9141567681</string>
@@ -355,7 +366,7 @@
     <string name="OrderConfirmed">Order \n Confirmed</string>
     <string name="ProcessingOrder">Processing \n Order</string>
     <string name="DeliveringOrder">Delivering \n Order</string>
-    <string name="OrderDelivered">Order \n Delivered</string>
+    <string name="OrderDelivered">Order Delivered</string>
     <string name="galleryTxt_1">Make your Luto stand out!</string>
     <string name="galleryTxt_2">Tips on how to take a photo of your dish</string>
     <string name="ins_1">1.</string>
@@ -413,7 +424,6 @@
     <string name="fromDate">January 1, 2020</string>
     <string name="toDate">February 21, 2020</string>
 
-    <string name="location_permission_required_map">You have denied location permission. Location permission is required for better experience. Try again.</string>
 
     <string name="google_maps_key">AIzaSyCBTfuAIRbwdEYB390VSOkiuYtDzDzqvlg</string>
     <string name="home">Home</string>

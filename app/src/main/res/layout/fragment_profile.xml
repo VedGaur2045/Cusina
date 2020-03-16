@@ -54,7 +54,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_bold"
+                    fonthPath="fonts/sourcesanspro_bold.otf"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp" />
 
@@ -106,7 +106,7 @@
 
                 <TextView
                     android:id="@+id/username"
-                    fonthPath="fonts/cabin_semibold"
+                    fonthPath="fonts/cabin_semibold.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20sdp"
@@ -118,7 +118,7 @@
 
                 <TextView
                     android:id="@+id/editprofile"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_23sdp"
@@ -189,7 +189,7 @@
                     android:background="@drawable/fbbuttonbg">
 
                     <TextView
-                        fonthPath="fonts/sourcesanspro_semibold"
+                        fonthPath="fonts/sourcesanspro_semibold.otf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"

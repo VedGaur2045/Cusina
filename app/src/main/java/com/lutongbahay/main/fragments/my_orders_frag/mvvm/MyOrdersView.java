@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
@@ -43,12 +44,14 @@ public class MyOrdersView extends FrameLayout {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
     Context context;
+    FragmentManager childManager;
 
 
-    public MyOrdersView(@NonNull Context context, MyOrdersViewModel viewModel) {
+    public MyOrdersView(@NonNull Context context, MyOrdersViewModel viewModel,FragmentManager childManager) {
         super(context);
         this.viewModel = viewModel;
         this.context = context;
+        this.childManager = childManager;
         inflate(context, R.layout.fragment_my_orders, this);
         ButterKnife.bind(this, this);
 
@@ -62,7 +65,7 @@ public class MyOrdersView extends FrameLayout {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        OrderTabsViewPagerAdapter adapter = new OrderTabsViewPagerAdapter(((AppCompatActivity) context).getSupportFragmentManager());
+        OrderTabsViewPagerAdapter adapter = new OrderTabsViewPagerAdapter(childManager);
         adapter.addFragment(new ProcessingOrderFragment(), CusinaApplication.getInstance().getResources().getString(R.string.Processing));
         adapter.addFragment(new CompletedOrderFragment(), CusinaApplication.getInstance().getResources().getString(R.string.Completed));
         adapter.addFragment(new CancelledOrderFragment(), CusinaApplication.getInstance().getResources().getString(R.string.Cancelled));

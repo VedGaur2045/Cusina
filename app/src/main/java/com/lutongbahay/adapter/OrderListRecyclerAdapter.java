@@ -35,7 +35,7 @@ public class OrderListRecyclerAdapter extends RecyclerView.Adapter<OrderListRecy
     }
 
     class OrderlistViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.gridViewMenuList)
+        @BindView(R.id.menu_rv)
         TextView gridViewMenuList;
         @BindView(R.id.orderTxt)
         TextView orderTxt;

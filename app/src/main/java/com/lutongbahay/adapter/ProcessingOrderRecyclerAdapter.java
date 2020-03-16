@@ -21,8 +21,7 @@ public class ProcessingOrderRecyclerAdapter extends RecyclerView.Adapter<Process
     @NonNull
     @Override
     public ProcessingOrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.adapter_processing_order, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_processing_order, parent, false);
         return new ProcessingOrderViewHolder(itemView);
     }
 

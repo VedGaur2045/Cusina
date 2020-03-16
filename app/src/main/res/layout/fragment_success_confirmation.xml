@@ -31,7 +31,7 @@
                 android:textColor="@color/black"
                 android:layout_gravity="center"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold"
+                fonthPath="fonts/cabin_semibold.otf"
                 android:text="@string/dish_listed"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
                 android:textColor="@color/black"
                 android:layout_gravity="center"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:text="@string/dish_listed_msg1"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_1sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 android:textColor="@color/black"
                 android:text="@string/dish_listed_msg2"/>
             <ImageView
@@ -70,7 +70,7 @@
                 android:onClick="backToHomeBtnClick"
                 android:layout_marginTop="@dimen/_23sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/white"/>
             <Button
                 android:id="@+id/addanotherluto"
@@ -84,7 +84,7 @@
                 android:onClick="submitAnotherApplicationBtnClick"
                 android:layout_marginTop="@dimen/_23sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

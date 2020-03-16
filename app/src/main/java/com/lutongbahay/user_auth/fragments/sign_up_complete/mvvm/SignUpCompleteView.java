@@ -11,8 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.home.HomeActivity;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragment;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragmentDirections;
+import com.lutongbahay.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,16 +37,17 @@ public class SignUpCompleteView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
-    @OnClick(R.id.backToHome)
+    @OnClick({R.id.backToHome,R.id.addAnotherLuto,R.id.back})
     public void onClick(View view){
         int id = view.getId();
         switch (id) {
             case R.id.back :
             case R.id.backToHome :
-                Navigation.findNavController(view).navigateUp();
+                HomeActivity.openHomeActivity(getContext());
                 break;
             case R.id.addAnotherLuto :
-                Navigation.findNavController(view).navigate(SignUpCompleteFragmentDirections.toSignUpFragment());
+                Constants.openProfile = true;
+                HomeActivity.openHomeActivity(getContext());
                 break;
         }
     }

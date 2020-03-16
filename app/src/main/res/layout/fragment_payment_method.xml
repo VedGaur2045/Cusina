@@ -18,7 +18,7 @@
 
 
         <TextView
-            fontPath="@fonts/sourcesanspro_semibold"
+            fontPath="fonts/sourcesanspro_semibold.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/SelectPaymentMode"
@@ -45,49 +45,18 @@
         android:background="@drawable/bg_white_drawable"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp">
 
-            <TextView
-                fontPath="@fonts/sourcesanspro_semibold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="@string/_TotalAmount"
-                android:textColor="@color/_000000"
-                android:textSize="@dimen/_16ssp"
-                tools:ignore="MissingPrefix" />
-
-            <TextView
-                android:id="@+id/Total_Amt_price"
-                fontPath="@fonts/sourcesanspro_semibold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:text="@string/_70"
-                android:textColor="@color/_000000"
-                android:textSize="@dimen/_16ssp"
-                tools:ignore="MissingPrefix" />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_15sdp">
+            android:layout_marginBottom="@dimen/_1sdp">
 
             <TextView
                 android:id="@+id/Total_Txt"
-                fontPath="@fonts/sourcesanspro_regular"
+                fontPath="fonts/sourcesanspro_regular.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -98,7 +67,7 @@
 
             <TextView
                 android:id="@+id/subTotal_price"
-                fontPath="@fonts/sourcesanspro_regular"
+                fontPath="fonts/sourcesanspro_regular.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -109,6 +78,41 @@
                 android:text="@string/_70"
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_14ssp"
+                tools:ignore="MissingPrefix" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp">
+
+            <TextView
+                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/_TotalAmount"
+                android:textColor="@color/_000000"
+                android:textSize="@dimen/_16ssp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/Total_Amt_price"
+                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:text="@string/_70"
+                android:textColor="@color/_000000"
+                android:textSize="@dimen/_16ssp"
                 tools:ignore="MissingPrefix" />
 
         </RelativeLayout>
@@ -127,7 +131,7 @@
             android:textAllCaps="false"
             android:textColor="@color/_FFFFFF"
             android:textSize="@dimen/_14ssp"
-            fontPath="@fonts/sourcesanspro_semibold" tools:ignore="MissingPrefix" />
+            fontPath="fonts/sourcesanspro_semibold.otf" tools:ignore="MissingPrefix" />
 
     </LinearLayout>
 

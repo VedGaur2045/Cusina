@@ -6,10 +6,10 @@
     android:background="@color/transparent">
     
     <RelativeLayout
-        android:layout_marginBottom="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_40sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -44,7 +44,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_bold"/>
+                    fonthPath="fonts/sourcesanspro_bold.otf"/>
 
                 <TextView
                     android:id="@+id/tipsTxt"
@@ -255,8 +255,8 @@
                     android:translationY="@dimen/_3sdp"
                     android:translationZ="@dimen/_6sdp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold"
-                    android:layout_marginBottom="@dimen/_10sdp"/>
+                    fonthPath="fonts/sourcesanspro_semibold.otf"
+                    android:layout_marginBottom="@dimen/_20sdp"/>
 
             </RelativeLayout>
 

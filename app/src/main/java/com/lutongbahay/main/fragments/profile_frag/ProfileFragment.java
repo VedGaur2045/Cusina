@@ -35,7 +35,8 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(ProfileFragViewModel.class);
-        view = new ProfileFragView(context,viewModel);
+        if (view == null)
+        view = new ProfileFragView(context,viewModel,getChildFragmentManager());
         return view;
     }
 }

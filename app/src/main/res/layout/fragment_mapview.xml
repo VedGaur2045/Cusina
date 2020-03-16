@@ -35,6 +35,7 @@
             android:id="@+id/gps_indicatorImgBtn"
             android:layout_width="@dimen/_16sdp"
             android:layout_height="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/backImgBtn"
             android:contentDescription="TODO"
@@ -78,7 +79,7 @@
 
         <TextView
             android:id="@+id/locationName"
-            fontPath="@fonts/sourcesanspro_regular"
+            fontPath="fonts/sourcesanspro_regular.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

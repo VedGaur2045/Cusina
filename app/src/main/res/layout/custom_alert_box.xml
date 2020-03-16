@@ -28,7 +28,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/cabin_semibold"
+            fonthPath="fonts/cabin_semibold.otf"
             android:textColor="@color/black"/>
         <TextView
             android:id="@+id/msg"
@@ -40,7 +40,7 @@
             android:textSize="@dimen/_16ssp"
             android:text="@string/requiredmobile"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
+            fonthPath="fonts/sourcesanspro_regular.otf"
             android:textColor="@color/black"/>
         <Button
             android:id="@+id/ok"
@@ -51,7 +51,7 @@
             android:textColor="@color/white"
             android:background="@drawable/commonbuttonbg"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_semibold"
+            fonthPath="fonts/sourcesanspro_semibold.otf"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/_10sdp"

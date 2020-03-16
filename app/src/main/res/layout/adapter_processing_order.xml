@@ -6,7 +6,7 @@
     android:padding="@dimen/_10sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <LinearLayout
         android:visibility="visible"
         android:id="@+id/orderingProcess"
         android:orientation="horizontal"
@@ -23,9 +23,10 @@
             android:id="@+id/line_1"
             android:layout_width="@dimen/_51sdp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/line_ordering"
+            android:layout_gravity="center"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/ellipse_1"
             android:layout_toRightOf="@+id/ellipse_1" />
@@ -34,8 +35,8 @@
             android:id="@+id/ellipse_2"
             android:layout_width="@dimen/_8sdp"
             android:layout_height="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/ellipse_ordering"
             android:layout_toEndOf="@+id/line_1"
             android:layout_toRightOf="@+id/line_1"/>
@@ -45,8 +46,8 @@
             android:layout_width="@dimen/_51sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/line_ordering_gray"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/ellipse_2"
@@ -56,8 +57,8 @@
             android:id="@+id/ellipse_3"
             android:layout_width="@dimen/_8sdp"
             android:layout_height="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/ellipse_ordering_gray"
             android:layout_toEndOf="@+id/line_2"
             android:layout_toRightOf="@+id/line_2"/>
@@ -67,8 +68,8 @@
             android:layout_width="@dimen/_51sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/line_ordering_gray"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/ellipse_3"
@@ -78,8 +79,8 @@
             android:id="@+id/ellipse_4"
             android:layout_width="@dimen/_8sdp"
             android:layout_height="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/ellipse_ordering_gray"
             android:layout_toEndOf="@+id/line_3"
             android:layout_toRightOf="@+id/line_3"/>
@@ -89,8 +90,8 @@
             android:layout_width="@dimen/_51sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/line_ordering_gray"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/ellipse_4"
@@ -100,13 +101,13 @@
             android:id="@+id/ellipse_5"
             android:layout_width="@dimen/_8sdp"
             android:layout_height="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:src="@mipmap/ellipse_ordering_gray"
             android:layout_toEndOf="@+id/line_4"
             android:layout_toRightOf="@+id/line_4"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:visibility="visible"
@@ -124,60 +125,61 @@
             android:text="@string/OrderReceived"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FF8500"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/orderConfirmed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/OrderConfirmed"
-            android:layout_marginStart="@dimen/_45sdp"
-            android:layout_marginLeft="@dimen/_45sdp"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_35sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FF8500"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/ProcessingOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ProcessingOrder"
-            android:layout_marginStart="@dimen/_40sdp"
-            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_B2B2B2"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/DeliveringOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/DeliveringOrder"
-            android:layout_marginStart="@dimen/_40sdp"
-            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_28sdp"
+            android:layout_marginLeft="@dimen/_28sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_B2B2B2"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
         <TextView
             android:id="@+id/OrderDelivered"
             android:layout_width="@dimen/_32sdp"
             android:layout_height="wrap_content"
             android:text="@string/OrderDelivered"
-            android:layout_marginStart="@dimen/_40sdp"
-            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_B2B2B2"
-            tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"/>
+            fonthPath="fonts/sourcesanspro_regular.otf"
+            tools:ignore="MissingPrefix"/>
 
     </LinearLayout>
 
     <RelativeLayout
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_below="@+id/orderingProcessTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -206,7 +208,6 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/prdctImg"
             android:layout_toRightOf="@+id/prdctImg"
-            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp">
 
@@ -215,10 +216,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_9ssp"
-                tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold"
+                android:textStyle="bold"
+                fonthPath="fonts/sourcesanspro_semibold.otf"
                 android:textColor="@color/_000000"
-                android:text="Butter Chicken Combo" />
+                android:text="Butter Chicken Combo"
+                tools:ignore="MissingPrefix"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -230,8 +232,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_9ssp"
+
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
                     android:textColor="@color/_000000"
                     android:text="@string/_1" />
 
@@ -240,8 +243,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_9ssp"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
                     android:textColor="@color/_000000"
                     android:text="@string/Serving" />
 
@@ -258,8 +261,8 @@
                 android:paddingTop="@dimen/_1sdp"
                 android:paddingBottom="@dimen/_1sdp"
                 android:background="@drawable/delivery_and_pickup_bg_drawable"
+                fonthPath="fonts/sourcesanspro_regular.otf"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
                 android:gravity="center"
                 android:textColor="@color/_FFFFFF"
                 android:text="@string/_ForDeliveryCheck"
@@ -284,8 +287,8 @@
                 android:text="@string/_viewOrder"
                 android:textSize="@dimen/_8ssp"
                 android:textColor="@color/_FFFFFF"
+                fonthPath="fonts/sourcesanspro_bold.otf"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_bold"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:translationY="@dimen/_3sdp"
                 android:translationZ="@dimen/_6sdp"/>
@@ -293,14 +296,14 @@
             <Button
                 android:id="@+id/cancelOrderBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="@dimen/_14sdp"
                 style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                 android:gravity="center"
                 android:background="@drawable/gray_bg_border_drawable"
                 android:text="@string/_cancelOrder"
                 android:textSize="@dimen/_8ssp"
                 android:textColor="@color/_26000000"
-                fonthPath="fonts/sourcesanspro_bold"
+                fonthPath="fonts/sourcesanspro_bold.otf"
                 tools:ignore="MissingPrefix" />
 
         </LinearLayout>

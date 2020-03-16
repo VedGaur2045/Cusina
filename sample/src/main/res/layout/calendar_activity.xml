@@ -33,7 +33,7 @@
             android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:background="@drawable/red_backgroud_btn"
-            android:fontFamily="@font/sourcesanspro_bold"
+            android:fontFamily="@fonts/sourcesanspro_bold.otf"
             android:layout_margin="16dp"
             android:text="@string/ok"
             tools:ignore="RtlHardcoded" />

@@ -40,8 +40,10 @@ public class MyOrdersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(MyOrdersViewModel.class);
         if (view == null){
-            view = new MyOrdersView(context,viewModel);
+            view = new MyOrdersView(context,viewModel,getChildFragmentManager());
         }
+
+
         return view;
     }
 }

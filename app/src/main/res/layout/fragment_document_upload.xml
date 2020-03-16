@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Upload_Documents"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold"
+                fonthPath="fonts/cabin_semibold.otf"
                 android:textSize="@dimen/_16ssp"
                 android:layout_centerInParent="true"
                 android:textColor="@color/black"/>
@@ -55,7 +55,7 @@
                     android:layout_marginTop="@dimen/_30sdp"
                     android:textSize="@dimen/_11ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:textColor="@color/_000000"/>
 
                 <Button
@@ -69,7 +69,7 @@
                     android:textSize="@dimen/_12ssp"
                     android:onClick="uploadFileOnClick"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:layout_marginTop="@dimen/_15sdp"/>
 
                 <TextView
@@ -90,7 +90,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:textSize="@dimen/_11ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:textColor="@color/_000000"/>
 
                 <Button
@@ -104,7 +104,7 @@
                     android:textSize="@dimen/_12ssp"
                     android:onClick="uploadFileOnClick"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:layout_marginTop="@dimen/_15sdp"/>
 
                 <TextView
@@ -125,7 +125,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:textColor="@color/_000000"/>
 
                 <Button
@@ -139,7 +139,7 @@
                     android:textSize="@dimen/_12ssp"
                     android:onClick="uploadFileOnClick"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    fonthPath="fonts/sourcesanspro_regular.otf"
                     android:layout_marginTop="@dimen/_15sdp"/>
 
                 <TextView
@@ -171,7 +171,7 @@
                         android:textSize="@dimen/_12ssp"
                         android:onClick="nextBtnOnClick"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular" />
+                        fonthPath="fonts/sourcesanspro_regular.otf" />
 
                 </RelativeLayout>
 
