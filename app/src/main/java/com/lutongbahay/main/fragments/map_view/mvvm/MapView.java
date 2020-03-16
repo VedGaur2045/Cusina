@@ -1,12 +1,15 @@
 package com.lutongbahay.main.fragments.map_view.mvvm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
+import android.net.Uri;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,10 +35,15 @@ import com.lutongbahay.adapter.HorizontalHomeFoodMenuAdapter;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.LocationTrackingHelper;
+import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.utils.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MapView extends FrameLayout implements OnMapReadyCallback {
 
@@ -46,6 +54,8 @@ public class MapView extends FrameLayout implements OnMapReadyCallback {
     RecyclerView recyclerView;
 
     public SupportMapFragment mapFragment;
+    public static final int LOCATION_PERMISSION_CODE = 808;
+    public static final int SETTINGS_REQUEST_CODE_LOCATION = 805;
 
 
     public MapView(@NonNull Context context, MapViewModel viewModel) {
@@ -55,13 +65,32 @@ public class MapView extends FrameLayout implements OnMapReadyCallback {
         inflate(context, R.layout.fragment_mapview, this);
         ButterKnife.bind(this, this);
 
-        mapFragment =  ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map));
-        mapFragment.getMapAsync(this);
+
+        takeLocationPermission();
+
 
         LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
         HorizontalHomeFoodMenuAdapter horizontalHomeFoodMenuAdapter = new HorizontalHomeFoodMenuAdapter();
         recyclerView.setAdapter(horizontalHomeFoodMenuAdapter);
+    }
+
+
+    public void takeLocationPermission() {
+        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) getContext(),
+                new String[]{ACCESS_COARSE_LOCATION},
+                LOCATION_PERMISSION_CODE)) {
+            onPermissionGranted();
+        }
+
+    }
+
+    // navigating user to app settings
+    public void openSettings(int requestCode) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getContext().getPackageName(), null);
+        intent.setData(uri);
+        ((AppCompatActivity) getContext()).startActivityForResult(intent, requestCode);
     }
 
     @Override
@@ -71,6 +100,10 @@ public class MapView extends FrameLayout implements OnMapReadyCallback {
         ZoomOnCurrentLocation();
     }
 
+    public void onPermissionGranted() {
+        mapFragment =  ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.map));
+        mapFragment.getMapAsync(this);
+    }
 
     private void ZoomOnCurrentLocation(){
         LatLng coordinate = new LatLng(26.264377, 72.9919383);
