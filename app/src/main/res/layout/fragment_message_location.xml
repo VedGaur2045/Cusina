@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/titleName"
-            fontPath="fonts/cabin_semibold.otf"
+            android:fontFamily="@font/cabin_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -70,7 +70,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:textColor="@color/_000000"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold.otf"/>
+                android:fontFamily="@font/cabin_semibold"/>
 
             <TextView
                 android:id="@+id/deliverAwayId"
@@ -83,7 +83,7 @@
                 android:textSize="@dimen/_15ssp"
                 android:textColor="@color/_7BCC86"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold.otf"/>
+                android:fontFamily="@font/cabin_semibold"/>
 
             <TextView
                 android:id="@+id/deliverFinishedTxt"
@@ -97,7 +97,7 @@
                 android:textSize="@dimen/_11ssp"
                 android:textColor="@color/_000000"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_regular"/>
+                android:fontFamily="@font/cabin_regular"/>
 
             <LinearLayout
                 android:layout_marginTop="@dimen/_15sdp"
@@ -116,7 +116,7 @@
                     android:textColor="@color/_FF8500"
                     android:textSize="@dimen/_16ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold.otf"
+                    android:fontFamily="@font/cabin_semibold"
                     android:text="@string/_showOrderDetails" />
 
             </LinearLayout>

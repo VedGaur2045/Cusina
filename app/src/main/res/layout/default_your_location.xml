@@ -29,7 +29,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:visibility="visible"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold.otf" />
+                android:fontFamily="@font/sourcesanspro_semibold" />
 
             <TextView
                 android:id="@+id/myLocation"
@@ -40,7 +40,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:visibility="gone"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold.otf" />
+                android:fontFamily="@font/sourcesanspro_semibold" />
 
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/pre_order_back"
                 android:gravity="center"
-                fonthPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_alignParentEnd="true"
                 tools:ignore="MissingPrefix,RelativeOverlap" />
             
@@ -94,7 +94,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold.otf" />
+                    android:fontFamily="@font/sourcesanspro_semibold" />
 
                 <TextView
                     android:id="@+id/secondAddress"
@@ -104,7 +104,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_10ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular.otf" />
+                    android:fontFamily="@font/sourcesanspro_regular" />
 
                 <TextView
                     android:id="@+id/addOtherAddress"
@@ -115,7 +115,7 @@
                     android:textColor="@color/_80000000"
                     android:textSize="@dimen/_9ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular.otf" />
+                    android:fontFamily="@font/sourcesanspro_regular" />
 
             </LinearLayout>
 

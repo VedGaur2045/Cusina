@@ -20,7 +20,7 @@
 
             <TextView
                 android:id="@+id/myDetailsTxt"
-                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_MyDetails"
@@ -30,7 +30,7 @@
 
             <TextView
                 android:id="@+id/confirmAddressTxt"
-                fontPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -53,7 +53,7 @@
 
             <TextView
                 android:id="@+id/customerTxt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_CustomerName"
@@ -63,7 +63,7 @@
 
             <TextView
                 android:id="@+id/customerNameTxt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -84,7 +84,7 @@
 
             <TextView
                 android:id="@+id/emailTxt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_EmailAddress"
@@ -94,7 +94,7 @@
 
             <TextView
                 android:id="@+id/customerEmailTxt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -125,7 +125,7 @@
 
             <TextView
                 android:id="@+id/customerPhoneTxt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -139,7 +139,7 @@
 
             <TextView
                 android:id="@+id/PhoneTxt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_PhoneNumber"
@@ -182,7 +182,7 @@
 
             <TextView
                 android:id="@+id/firstAddress"
-                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/firstAddress"
@@ -192,7 +192,7 @@
 
             <TextView
                 android:id="@+id/secondAddress"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="@dimen/_124sdp"
                 android:layout_height="wrap_content"
                 android:text="@string/secondAddress"
@@ -202,7 +202,7 @@
 
             <TextView
                 android:id="@+id/addOtherAddress"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_3sdp"
@@ -215,7 +215,7 @@
 
         <TextView
             android:id="@+id/changeAddress"
-            fontPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_alignParentEnd="true"
@@ -234,7 +234,7 @@
 
         <TextView
             android:id="@+id/myLocation"
-            fontPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/myLocation"
@@ -245,7 +245,7 @@
 
         <TextView
             android:id="@+id/yourLocation"
-            fontPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/myLocation"
@@ -256,7 +256,7 @@
 
         <TextView
             android:id="@+id/MyAddressTxt"
-            fontPath="fonts/sourcesanspro_it"
+            android:fontFamily="@font/sourcesanspro_it"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

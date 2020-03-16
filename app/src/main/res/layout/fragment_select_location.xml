@@ -15,7 +15,7 @@
     <Button
         android:id="@+id/next"
         style="@style/Widget.AppCompat.Button.Borderless"
-        fontPath="fonts/sourcesanspro_semibold.otf"
+        android:fontFamily="@font/sourcesanspro_semibold"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35sdp"
         android:layout_above="@+id/view"
@@ -45,7 +45,7 @@
         android:orientation="vertical">
 
         <TextView
-            fontPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/msg1"
@@ -54,7 +54,7 @@
             tools:ignore="MissingPrefix" />
 
         <TextView
-            fontPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -89,7 +89,7 @@
                 android:src="@mipmap/search" />
 
             <TextView
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -125,7 +125,7 @@
 
                 <TextView
                     android:id="@+id/locationtext"
-                    fontPath="fonts/sourcesanspro_regular.otf"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_12sdp"

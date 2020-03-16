@@ -17,7 +17,7 @@
         android:gravity="center"
         android:textStyle="bold"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_semibold.otf"
+        android:fontFamily="@font/sourcesanspro_semibold"
         android:textColor="@color/_000000"
         android:textSize="@dimen/_13sdp" />
 
@@ -56,7 +56,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_semibold.otf"
+        android:fontFamily="@font/sourcesanspro_semibold"
         android:textColor="@color/_000000"
         android:textSize="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
@@ -80,7 +80,7 @@
             android:text="@string/FastTransaction"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
@@ -96,7 +96,7 @@
             android:text="@string/Punctual"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
@@ -123,7 +123,7 @@
             android:text="@string/CustomerService"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
@@ -139,7 +139,7 @@
             android:text="@string/FastDelivery"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
@@ -166,7 +166,7 @@
             android:text="@string/Polite"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
@@ -182,7 +182,7 @@
             android:text="@string/Products"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_8sdp"
             android:padding="@dimen/_5sdp"
             android:paddingStart="@dimen/_10sdp"
@@ -214,7 +214,7 @@
 <!--    android:gravity="center"-->
 <!--    tools:ignore="MissingPrefix"-->
 <!--    android:layout_margin="@dimen/_20sdp"-->
-<!--    fonthPath="fonts/sourcesanspro_semibold.otf"-->
+<!--    android:fontFamily="@font/sourcesanspro_semibold"-->
 <!--    android:textColor="@color/_000000"-->
 <!--    android:textSize="@dimen/_16ssp" />-->
 
@@ -254,7 +254,7 @@
 <!--    android:layout_centerHorizontal="true"-->
 <!--    android:gravity="center"-->
 <!--    tools:ignore="MissingPrefix"-->
-<!--    fonthPath="fonts/sourcesanspro_semibold.otf"-->
+<!--    android:fontFamily="@font/sourcesanspro_semibold"-->
 <!--    android:textColor="@color/_000000"-->
 <!--    android:textSize="@dimen/_16ssp"-->
 <!--    android:layout_marginTop="@dimen/_15sdp"-->
@@ -281,7 +281,7 @@
 <!--        android:textColor="@color/_000000"-->
 <!--        tools:ignore="MissingPrefix"-->
 <!--        android:layout_weight="1"-->
-<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
 <!--        android:textSize="@dimen/_10sdp"-->
 <!--        android:padding="@dimen/_5sdp"-->
 <!--        android:paddingStart="@dimen/_10sdp"-->
@@ -298,7 +298,7 @@
 <!--        android:layout_weight="1"-->
 <!--        android:textColor="@color/_000000"-->
 <!--        tools:ignore="MissingPrefix"-->
-<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
 <!--        android:textSize="@dimen/_10sdp"-->
 <!--        android:padding="@dimen/_5sdp"-->
 <!--        android:paddingStart="@dimen/_10sdp"-->
@@ -327,7 +327,7 @@
 <!--        android:textColor="@color/_000000"-->
 <!--        tools:ignore="MissingPrefix"-->
 <!--        android:layout_weight="1"-->
-<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
 <!--        android:textSize="@dimen/_10ssp"-->
 <!--        android:padding="@dimen/_5sdp"-->
 <!--        android:paddingStart="@dimen/_10sdp"-->
@@ -344,7 +344,7 @@
 <!--        android:textColor="@color/_000000"-->
 <!--        tools:ignore="MissingPrefix"-->
 <!--        android:layout_weight="1"-->
-<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
 <!--        android:textSize="@dimen/_10ssp"-->
 <!--        android:padding="@dimen/_5sdp"-->
 <!--        android:paddingStart="@dimen/_10sdp"-->
@@ -373,7 +373,7 @@
 <!--        android:text="@string/Polite"-->
 <!--        android:textColor="@color/_000000"-->
 <!--        tools:ignore="MissingPrefix"-->
-<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
 <!--        android:textSize="@dimen/_9sdp"-->
 <!--        android:padding="@dimen/_5sdp"-->
 <!--        android:layout_weight="1"-->
@@ -389,7 +389,7 @@
 <!--        android:text="@string/Products"-->
 <!--        android:textColor="@color/_000000"-->
 <!--        tools:ignore="MissingPrefix"-->
-<!--        fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
 <!--        android:textSize="@dimen/_9sdp"-->
 <!--        android:layout_weight="1"-->
 <!--        android:padding="@dimen/_5sdp"-->

@@ -29,7 +29,7 @@ public class ProcessOrderRecyclerAdapter extends RecyclerView.Adapter<ProcessOrd
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 5 ;
     }
 
     class ProcessOrderViewHolder extends RecyclerView.ViewHolder {

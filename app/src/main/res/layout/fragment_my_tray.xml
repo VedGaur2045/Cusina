@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/titleName"
-            fontPath="fonts/cabin_semibold.otf"
+            android:fontFamily="@font/cabin_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -70,7 +70,7 @@
                 android:text="@string/orderSummery"
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_16ssp"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 tools:ignore="MissingPrefix"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -106,7 +106,7 @@
                 android:text="@string/total"
                 android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/_000000"/>
 
@@ -118,7 +118,7 @@
                 android:textSize="@dimen/_16ssp"
                 android:layout_alignParentRight="true"
                 android:textStyle="bold"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/_000000"
                 android:layout_alignParentEnd="true" />
@@ -139,7 +139,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/_FFFFFF"
                 android:textSize="@dimen/_14ssp"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 tools:ignore="MissingPrefix"/>
 
         </RelativeLayout>

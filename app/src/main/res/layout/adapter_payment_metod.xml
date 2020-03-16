@@ -25,7 +25,7 @@
         android:layout_marginLeft="@dimen/_20sdp"
         android:textSize="@dimen/_12sdp"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/cabin_bold.otf"
+        android:fontFamily="@font/cabin_bold"
         android:textColor="@color/_000000"/>
 
     <RadioButton

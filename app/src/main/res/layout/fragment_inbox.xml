@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/titleName"
-            fontPath="fonts/cabin_semibold.otf"
+            android:fontFamily="@font/cabin_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"

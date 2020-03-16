@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_10ssp"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:layout_below="@+id/cameraImg"
             android:layout_centerHorizontal="true"
             android:textColor="@color/_000000"/>

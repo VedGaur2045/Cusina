@@ -53,8 +53,8 @@ public class CompletedDetailsView extends FrameLayout {
     LinearLayout selectdateto;
     @BindView(R.id.dateTo)
     TextView dateTo;
-    @BindView(R.id.selecttimefrom)
-    LinearLayout selecttimefrom;
+//    @BindView(R.id.selecttimefrom2)
+//    LinearLayout selecttimefrom;
     @BindView(R.id.timefrom)
     TextView timefrom;
     @BindView(R.id.selecttimeto)
@@ -96,7 +96,8 @@ public class CompletedDetailsView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.backBtnImg:
-                Navigation.findNavController(view).navigate(CompletedDetailsFragmentDirections.toChooseCategory());
+                //Navigation.findNavController(view).navigate(CompletedDetailsFragmentDirections.toChooseCategory());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.listMyLutoSubmitBtn:
                 Navigation.findNavController(view).navigate(CompletedDetailsFragmentDirections.toSuccessConfirmation());

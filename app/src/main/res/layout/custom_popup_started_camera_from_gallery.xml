@@ -44,7 +44,7 @@
                     android:textColor="@color/_000000"
                     android:textSize="@dimen/_16ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_bold.otf"/>
+                    android:fontFamily="@font/sourcesanspro_bold"/>
 
                 <TextView
                     android:id="@+id/tipsTxt"
@@ -57,7 +57,7 @@
                     android:textSize="@dimen/_12ssp"
                     android:layout_marginTop="@dimen/_2sdp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_regular"/>
+                    android:fontFamily="@font/sourcesanspro_regular"/>
 
                 <ImageView
                     android:id="@+id/galleryImgDefault"
@@ -86,7 +86,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_10ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"/>
+                        android:fontFamily="@font/sourcesanspro_regular"/>
 
                     <TextView
                         android:id="@+id/insTxt_1"
@@ -96,7 +96,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_10sdp" />
 
@@ -120,7 +120,7 @@
                         android:textSize="@dimen/_12ssp"
                         android:visibility="gone"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"/>
+                        android:fontFamily="@font/sourcesanspro_regular"/>
 
                     <TextView
                         android:id="@+id/insTxt_2"
@@ -131,7 +131,7 @@
                         android:textSize="@dimen/_12ssp"
 
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_10sdp"/>
 
@@ -155,7 +155,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"/>
+                        android:fontFamily="@font/sourcesanspro_regular"/>
 
                     <TextView
                         android:id="@+id/insTxt_3"
@@ -165,7 +165,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_10sdp"/>
 
@@ -189,7 +189,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"/>
+                        android:fontFamily="@font/sourcesanspro_regular"/>
 
                     <TextView
                         android:id="@+id/insTxt_4"
@@ -199,7 +199,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_10sdp"/>
 
@@ -223,7 +223,7 @@
                         android:textSize="@dimen/_12ssp"
                         android:visibility="gone"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"/>
+                        android:fontFamily="@font/sourcesanspro_regular"/>
 
                     <TextView
                         android:id="@+id/insTxt_5"
@@ -233,7 +233,7 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_10sdp"/>
 
@@ -255,7 +255,7 @@
                     android:translationY="@dimen/_3sdp"
                     android:translationZ="@dimen/_6sdp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold.otf"
+                    android:fontFamily="@font/sourcesanspro_semibold"
                     android:layout_marginBottom="@dimen/_20sdp"/>
 
             </RelativeLayout>

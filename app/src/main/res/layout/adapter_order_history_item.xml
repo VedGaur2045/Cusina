@@ -36,7 +36,7 @@
                 android:textColor="@color/_80000000"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:layout_toEndOf="@+id/orderTxt"
@@ -47,7 +47,7 @@
                 android:textColor="@color/_80000000"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_toRightOf="@+id/orderTxt" />
 
         </RelativeLayout>
@@ -64,7 +64,7 @@
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_16ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:id="@+id/phpAmount"
@@ -74,7 +74,7 @@
                 android:textColor="@color/_000000"
                 android:textSize="@dimen/_16ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_toEndOf="@+id/phpTxt"
                 android:layout_toRightOf="@+id/phpTxt" />
 
@@ -92,7 +92,7 @@
                 android:textColor="@color/_80000000"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:layout_toEndOf="@+id/serverTxt"
@@ -104,7 +104,7 @@
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
                 android:layout_marginStart="@dimen/_10sdp"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_toRightOf="@+id/serverTxt"
                 android:layout_marginLeft="@dimen/_10sdp" />
 
@@ -120,7 +120,7 @@
         android:textColor="@color/_80000000"
         android:textSize="@dimen/_10ssp"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_regular"
+        android:fontFamily="@font/sourcesanspro_regular"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

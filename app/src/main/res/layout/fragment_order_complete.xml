@@ -32,7 +32,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_24ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold.otf" />
+                android:fontFamily="@font/cabin_semibold" />
 
             <TextView
                 android:id="@+id/sub_title"
@@ -47,7 +47,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/orderTxt_msg1"/>
 
             <ImageView
@@ -72,7 +72,7 @@
                 android:layout_below="@+id/img"
                 android:layout_marginTop="@dimen/_25sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:textColor="@color/white"/>
             <Button
                 android:id="@+id/SeeOrderHistoryBtn"
@@ -88,7 +88,7 @@
                 android:textAllCaps="false"
                 android:layout_marginTop="@dimen/_20sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:textColor="@color/white"/>
 
     </RelativeLayout>

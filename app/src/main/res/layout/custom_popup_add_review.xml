@@ -43,7 +43,7 @@
             android:maxLines="10"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_10ssp"
             android:layout_height="@dimen/_80sdp"
             android:layout_width="match_parent"
@@ -69,7 +69,7 @@
             android:textColor="@color/_FFFFFF"
             android:layout_marginTop="@dimen/_20sdp"
 
-            fonthPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             tools:ignore="MissingPrefix"
             />
 

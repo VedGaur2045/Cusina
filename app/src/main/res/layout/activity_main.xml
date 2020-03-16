@@ -52,7 +52,7 @@
                     android:text="@string/home"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
@@ -73,7 +73,7 @@
                     android:text="@string/search"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
@@ -94,7 +94,7 @@
                     android:text="@string/orders"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
@@ -116,7 +116,7 @@
                     android:text="@string/earn_rewards"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     tools:ignore="MissingPrefix"/>
 
             </FrameLayout>
@@ -138,7 +138,7 @@
                     android:text="@string/account"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     tools:ignore="MissingPrefix"/>
             </FrameLayout>
 

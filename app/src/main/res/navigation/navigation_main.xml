@@ -109,6 +109,15 @@
         <action android:id="@+id/toAddPhoto"
             app:destination="@id/AddPhotoFragment"/>
 
+        <action
+            android:id="@+id/toCompletedDetails"
+            app:destination="@+id/CompletedDetailsFragment"/>
+
+        <action
+            android:id="@+id/openOrderProcess"
+            app:destination="@+id/ProcessOrderFragment"/>
+
+
     </fragment>
 
     <fragment

@@ -5,9 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.profile_frag.ProfileFragmentDirections;
 
 import butterknife.ButterKnife;
 
@@ -23,6 +25,13 @@ public class ServerMenuRecyclerAdapter extends RecyclerView.Adapter<ServerMenuRe
 
     @Override
     public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(holder.itemView).navigate(ProfileFragmentDirections.toCompletedDetails());
+            }
+        });
 
     }
 
