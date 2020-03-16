@@ -1,6 +1,7 @@
 package com.lutongbahay.main.fragments.map_view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.lutongbahay.R;
 import com.lutongbahay.app.BaseFragment;
+import com.lutongbahay.dialogs.DialogHelperClass;
+import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
 import com.lutongbahay.main.fragments.map_view.mvvm.MapView;
 import com.lutongbahay.main.fragments.map_view.mvvm.MapViewModel;
+import com.lutongbahay.utils.ToastUtils;
 
 import butterknife.ButterKnife;
 
@@ -43,6 +47,53 @@ public class MapViewFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case MapView.LOCATION_PERMISSION_CODE:
+                if (grantResults.length > 0) {
+                    int counter = 0;
+                    for (int result : grantResults) {
+                        if (result != 0) {
+                            boolean showRationale = true;
+                            for (String permission : permissions) {
+                                showRationale = shouldShowRequestPermissionRationale(permission);
+                            }
+                            DialogInterface.OnClickListener onClickListener = (dialogInterface, i) -> ToastUtils.shortToast(getResources().getString(R.string.location_deny));
+
+                            if (showRationale) {
+                                DialogHelperClass.showMessageOKCancel(getContext(),
+                                        getResources().getString(R.string.location_permission_required_map),
+                                        getResources().getString(android.R.string.ok),
+                                        getResources().getString(android.R.string.cancel),
+                                        (dialogInterface, i) -> view.takeLocationPermission(),
+                                        onClickListener);
+
+                            } else {
+                                DialogHelperClass.showMessageOKCancel(getContext(),
+                                        getResources().getString(R.string.location_permission_required_map),
+                                        getResources().getString(R.string.goto_settings),
+                                        getResources().getString(android.R.string.cancel),
+                                        (dialogInterface, i) -> view.openSettings(MapView.SETTINGS_REQUEST_CODE_LOCATION),
+                                        onClickListener);
+                            }
+                            return;
+                        }
+
+                        counter++;
+                        if (counter == permissions.length) {
+                            view.onPermissionGranted();
+                        }
+                    }
+                    return;
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
 
 
     @Override
