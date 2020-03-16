@@ -133,10 +133,9 @@
                 android:textSize="@dimen/_9sdp"
                 android:text="Joined 6 months ago" />
 
-
         </RelativeLayout>
-    </RelativeLayout>
 
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/un_registered_layout"

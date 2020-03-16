@@ -242,7 +242,7 @@
                 <Button
                     android:id="@+id/getStarted"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_35sdp"
                     android:background="@drawable/btn_bg_transition"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_below="@+id/_5"

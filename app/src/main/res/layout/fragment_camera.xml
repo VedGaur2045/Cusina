@@ -24,6 +24,7 @@
             android:background="@color/transparent"/>
 
         <ImageButton
+            android:visibility="gone"
             android:id="@+id/timeBtn"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
@@ -35,6 +36,7 @@
             android:layout_marginRight="@dimen/_10sdp" />
 
         <ImageButton
+            android:visibility="gone"
             android:id="@+id/hdrBtn"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
@@ -46,6 +48,7 @@
             android:layout_marginStart="@dimen/_10sdp"/>
 
         <ImageButton
+            android:visibility="gone"
             android:id="@+id/gridIconBtn"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
@@ -55,6 +58,7 @@
             android:layout_toStartOf="@+id/tempBtn" />
 
         <ImageButton
+            android:visibility="gone"
             android:id="@+id/tempBtn"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
@@ -120,6 +124,7 @@
                 android:layout_width="@dimen/_64sdp"
                 android:layout_height="@dimen/_64sdp"
                 android:background="@color/transparent"
+                android:scaleType="fitXY"
                 android:src="@mipmap/capture_btn_img"
                 android:onClick="captureImageOnBtnClick"
                 android:layout_centerHorizontal="true"

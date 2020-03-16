@@ -50,6 +50,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_1sdp">
@@ -86,6 +87,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp">
@@ -121,9 +123,10 @@
             android:id="@+id/payNowBtn"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="@dimen/_48sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:background="@drawable/btn_bg"
             android:onClick="BuyNowBtnOnClick"
@@ -131,7 +134,8 @@
             android:textAllCaps="false"
             android:textColor="@color/_FFFFFF"
             android:textSize="@dimen/_14ssp"
-            fontPath="fonts/sourcesanspro_semibold.otf" tools:ignore="MissingPrefix" />
+            fontPath="fonts/sourcesanspro_semibold.otf"
+            tools:ignore="MissingPrefix" />
 
     </LinearLayout>
 

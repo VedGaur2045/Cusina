@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/categoryNameLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_54sdp"
+        android:layout_height="@dimen/_45sdp"
         android:layout_marginBottom="@dimen/_2sdp">
 
         <TextView
@@ -36,5 +36,11 @@
             android:layout_marginEnd="@dimen/_25sdp" />
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gunmetal"
+        android:layout_below="@+id/mainLayout"/>
 
 </LinearLayout>

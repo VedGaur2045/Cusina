@@ -79,7 +79,7 @@ public class SignUpView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.close:
-                Navigation.findNavController(view).navigateUp();
+                Navigation.findNavController(view).navigate(SignUpFragmentDirections.toSellWithLutongBehay());
                 break;
             case R.id.NextBtn:
                 if(username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0

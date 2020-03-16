@@ -56,7 +56,6 @@
         android:layout_below="@+id/view"
         android:orientation="vertical"
         tools:listitem="@layout/adapter_product"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>

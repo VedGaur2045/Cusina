@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class CancelledOrderRecyclerAdapter extends RecyclerView.Adapter<CancelledOrderRecyclerAdapter.CancelledOrderViewHolder> {
 
-    private int TYPE_CANCEL = 1;
+    private int TYPE_CANCEL;
 
     public CancelledOrderRecyclerAdapter(int cancel) {
         this.TYPE_CANCEL = cancel;
@@ -41,7 +41,7 @@ public class CancelledOrderRecyclerAdapter extends RecyclerView.Adapter<Cancelle
         if (TYPE_CANCEL == 1){
             holder.status.setText(CusinaApplication.getInstance().getResources().getString(R.string.CANCELLED_Txt));
             holder.status.setTextColor(CusinaApplication.getInstance().getResources().getColor(R.color._EC0000));
-        }else{
+        }else if (TYPE_CANCEL == 2){
             holder.status.setText(CusinaApplication.getInstance().getResources().getString(R.string.DELIVERED_Txt));
             holder.status.setTextColor(CusinaApplication.getInstance().getResources().getColor(R.color._7BCC86));
         }

@@ -92,7 +92,6 @@ public class ProfileFragView extends FrameLayout {
             setUpUnRegisteredView();
         }
 
-
     }
 
     @OnClick({R.id.setting, R.id.sellfood, R.id.savedplace, R.id.AddNewLuto,R.id.more_less_tv})
@@ -136,10 +135,10 @@ public class ProfileFragView extends FrameLayout {
     public void showHideBasicDetails(){
         if (moreLessTv.getText().toString().equalsIgnoreCase("Show more")){
             serverInfoBasicDetailsView.setVisibility(VISIBLE);
-            moreLessTv.setText("Less");
+            moreLessTv.setText(R.string._showLess);
         }else{
             serverInfoBasicDetailsView.setVisibility(GONE);
-            moreLessTv.setText("Show more");
+            moreLessTv.setText(R.string._showMore);
         }
     }
 

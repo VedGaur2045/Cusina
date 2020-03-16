@@ -71,8 +71,7 @@ public class SelectLocationFragmentView extends FrameLayout {
         locationTextView.setText("Fetching Current Location \nPlease wait" );
         geocoder = new Geocoder(context, Locale.getDefault());
 
-        if (MarshMallowPermission.checkMashMallowPermissions(context,
-                new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+        if (MarshMallowPermission.checkMashMallowPermissions(context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
             fetchLocation();
         }
 
@@ -101,7 +100,7 @@ public class SelectLocationFragmentView extends FrameLayout {
             HomeActivity.openHomeActivity(getContext());
 
         } else if (id == R.id.close) {
-            SplashActivity.openSplashActivity(getContext());
+            Navigation.findNavController(v).navigateUp();
         }
     }
 

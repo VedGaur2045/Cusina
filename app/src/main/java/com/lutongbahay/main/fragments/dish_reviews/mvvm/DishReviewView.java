@@ -13,8 +13,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.DishReviewRecyclerAdapter;
 import com.lutongbahay.main.fragments.dish_reviews.DishReviewFragment;
 import com.lutongbahay.main.fragments.dish_reviews.DishReviewFragmentDirections;
+import com.lutongbahay.utils.RatingBarUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +31,7 @@ public class DishReviewView extends FrameLayout {
     @BindView(R.id.backBtnImg)
     ImageButton backBtnImg;
     @BindView(R.id.givenAllReviewCount)
-    ImageButton givenAllReviewCount;
+    TextView givenAllReviewCount;
     @BindView(R.id.ratingBar)
     RatingBar ratingBar;
     @BindView(R.id.allReviewByUserCount)
@@ -58,9 +60,16 @@ public class DishReviewView extends FrameLayout {
         titleName.setText(R.string.Reviews);
         backBtnImg.setVisibility(GONE);
 
+        float rate = Float.parseFloat(givenAllReviewCount.getText().toString());
+        System.out.println(rate);
+        ratingBar.setRating(rate);
+
+        DishReviewRecyclerAdapter dishReviewRecyclerAdapter = new DishReviewRecyclerAdapter();
+        reviewMsgListView.setAdapter(dishReviewRecyclerAdapter);
+
     }
 
-    @OnClick(R.id.closeImgBtn)
+    @OnClick({R.id.closeImgBtn,R.id.ratingBar})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.closeImgBtn){
@@ -68,5 +77,7 @@ public class DishReviewView extends FrameLayout {
             //Navigation.findNavController(view).navigate(DishReviewFragmentDirections.openItemDetailFragment());
         }
     }
+
+
 
 }

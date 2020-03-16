@@ -26,11 +26,12 @@
                     android:src="@mipmap/product_img_item"
                     android:scaleType="fitXY"/>
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/backBtnImg"
                     android:layout_width="@dimen/_17sdp"
                     android:layout_height="@dimen/_17sdp"
                     android:src="@mipmap/back"
+                    android:background="@color/transparent"
                     android:layout_margin="@dimen/_20sdp"/>
 
                 <TextView

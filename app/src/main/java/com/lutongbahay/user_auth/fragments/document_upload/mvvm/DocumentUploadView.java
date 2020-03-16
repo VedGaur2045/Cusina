@@ -36,17 +36,19 @@ public class DocumentUploadView extends FrameLayout {
     @BindView(R.id.uploadFileIdFirst)
     Button uploadFileIdFirst;
     @BindView(R.id.fileNameFirstUploaded)
-    TextView fileNameFirstUploaded;
+    public TextView fileNameFirstUploaded;
     @BindView(R.id.uploadFileIdSecond)
     Button uploadFileIdSecond;
     @BindView(R.id.fileNameSecondUploaded)
-    TextView fileNameSecondUploaded;
+    public TextView fileNameSecondUploaded;
     @BindView(R.id.uploadFileIdThird)
     Button uploadFileIdThird;
     @BindView(R.id.fileNameThirdUploaded)
-    TextView fileNameThirdUploaded;
+    public TextView fileNameThirdUploaded;
     @BindView(R.id.nextBtnUpload)
     Button nextBtnUpload;
+
+    DocumentUploadFragment fragment = new DocumentUploadFragment();
 
     public DocumentUploadView(@NonNull Context context, DocumentUploadViewModel viewModel) {
         super(context);
@@ -55,6 +57,7 @@ public class DocumentUploadView extends FrameLayout {
         ButterKnife.bind(this,this);
 
         if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+            return;
         }
 
     }
@@ -70,13 +73,17 @@ public class DocumentUploadView extends FrameLayout {
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpCompleteFragment());
                 break;
             case R.id.uploadFileIdFirst:
+                //fragment.getFileFromGallery(101);
                 break;
             case R.id.uploadFileIdSecond:
+                //fragment.getFileFromGallery(102);
                 break;
             case R.id.uploadFileIdThird:
+                //fragment.getFileFromGallery(103);
                 break;
         }
     }
+
 
 
 }

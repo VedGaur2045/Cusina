@@ -3,6 +3,7 @@ package com.lutongbahay.main.home;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -161,17 +162,27 @@ public class HomeActivity extends AppCompatActivity {
         setBackGround(ordersTv,R.drawable.ic_action_orders);
         setBackGround(rewardsTv,R.drawable.ic_action_rewards);
         setBackGround(accountTv,R.drawable.ic_action_profile);
+        homeTv.setTextColor(Color.parseColor("#000000"));
+        searchTv.setTextColor(Color.parseColor("#000000"));
+        ordersTv.setTextColor(Color.parseColor("#000000"));
+        rewardsTv.setTextColor(Color.parseColor("#000000"));
+        accountTv.setTextColor(Color.parseColor("#000000"));
 
         if (type.equalsIgnoreCase("HOME")) {
             setBackGround(homeTv,R.drawable.ic_action_home_selected);
+            homeTv.setTextColor(Color.parseColor("#FF8500"));
         } else if (type.equalsIgnoreCase("SEARCH")) {
             setBackGround(searchTv,R.drawable.ic_action_search_selected);
+            searchTv.setTextColor(Color.parseColor("#FF8500"));
         } else if (type.equalsIgnoreCase("ORDERS")) {
             setBackGround(ordersTv,R.drawable.ic_action_orders_selected);
+            ordersTv.setTextColor(Color.parseColor("#FF8500"));
         } else if (type.equalsIgnoreCase("EARN REWARDS")) {
             setBackGround(rewardsTv,R.drawable.ic_action_rewards_selected);
+            rewardsTv.setTextColor(Color.parseColor("#FF8500"));
         } else if (type.equalsIgnoreCase("ACCOUNT")) {
             setBackGround(accountTv,R.drawable.ic_action_profile_selected);
+            accountTv.setTextColor(Color.parseColor("#FF8500"));
         }
 
 

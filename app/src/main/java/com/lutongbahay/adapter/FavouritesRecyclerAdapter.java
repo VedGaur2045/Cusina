@@ -15,8 +15,7 @@ public class FavouritesRecyclerAdapter extends RecyclerView.Adapter<FavouritesRe
     @NonNull
     @Override
     public FavouritesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.adapter_product, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_product, parent, false);
         return new FavouritesViewHolder(itemView);
     }
 

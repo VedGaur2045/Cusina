@@ -3,7 +3,6 @@ package com.lutongbahay.main.fragments.item_detail.mvvm;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.dialogs.AppAction;
 import com.lutongbahay.main.fragments.item_detail.ItemDetailFragmentDirections;
 
 import butterknife.BindView;
@@ -72,6 +72,8 @@ public class ItemDetailView extends FrameLayout {
     @BindView(R.id.addToTrayBtn)
     Button addToTrayBtn;
 
+    private static int COUNT = 1;
+
     public ItemDetailView(@NonNull AppCompatActivity context, ItemDetailViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
@@ -79,16 +81,22 @@ public class ItemDetailView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
-    @OnClick(R.id.addToTrayBtn)
+    @OnClick({R.id.addToTrayBtn,R.id.backBtnImg,R.id.ratingImg,R.id.minusBtn,R.id.plusBtn})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
             case R.id.addToTrayBtn:
             case R.id.backBtnImg:
-                Navigation.findNavController(view).navigateUp();
+                Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toHomeFragment());
                 break;
             case R.id.ratingImg:
                 Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toDishReviewFragment());
+                break;
+            case R.id.plusBtn:
+                AppAction.addCount(COUNT,quantityProduct);
+                break;
+            case R.id.minusBtn:
+                AppAction.minusCount(COUNT,quantityProduct);
                 break;
         }
     }

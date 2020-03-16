@@ -28,7 +28,7 @@ public class FavouritesView extends FrameLayout {
         inflate(context, R.layout.fragment_favourites, this);
         ButterKnife.bind(this, this);
 
-        VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter();
+        VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(0);
         favrouiteRecyclerView.setAdapter(verticalHomeFoodMenuAdapter);
 
     }

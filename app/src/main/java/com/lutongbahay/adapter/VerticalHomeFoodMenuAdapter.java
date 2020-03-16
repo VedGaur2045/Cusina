@@ -18,6 +18,11 @@ import butterknife.ButterKnife;
 
 public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHomeFoodMenuAdapter.VerticalViewHolder> {
 
+    private int TYPE_CLICK;
+
+    public VerticalHomeFoodMenuAdapter(int check) {
+        this.TYPE_CLICK = check ;
+    }
 
     @NonNull
     @Override
@@ -30,12 +35,15 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
     @Override
     public void onBindViewHolder(@NonNull VerticalViewHolder holder, int position) {
 
-        holder.imageSection.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(HomeFragmentDirections.openItemDetailFragment());
-        });
-        holder.ratingImg.setOnClickListener(view -> {
-            Navigation.findNavController(view).navigate(HomeFragmentDirections.toDishReviewFragment());
-        });
+        if(TYPE_CLICK == 1){
+            holder.imageSection.setOnClickListener(v -> {
+                Navigation.findNavController(v).navigate(HomeFragmentDirections.openItemDetailFragment());
+            });
+            holder.ratingImg.setOnClickListener(view -> {
+                Navigation.findNavController(view).navigate(HomeFragmentDirections.toDishReviewFragment());
+            });
+        }
+
     }
 
     @Override

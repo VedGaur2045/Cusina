@@ -33,11 +33,11 @@
                 android:background="@color/_FFFFFF"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
+                android:layout_height="wrap_content"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"
-                android:paddingRight="@dimen/_40sdp"
-                android:paddingLeft="@dimen/_40sdp">
+                android:paddingRight="@dimen/_30sdp"
+                android:paddingLeft="@dimen/_30sdp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -49,12 +49,11 @@
                     android:textColor="@color/_000000"/>
 
                 <TextView
-                    android:layout_marginTop="@dimen/_25ssp"
+                    android:layout_marginTop="@dimen/_15ssp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/_cookShortTxt"
                     tools:ignore="MissingPrefix"
-
                     fonthPath="fonts/sourcesanspro_regular.otf"
                     android:textSize="@dimen/_12ssp"
                     android:textColor="@color/_000000"/>
@@ -68,9 +67,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_20sdp"
-                android:paddingRight="@dimen/_40sdp"
-                android:paddingLeft="@dimen/_40sdp">
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingRight="@dimen/_30sdp"
+                android:paddingLeft="@dimen/_30sdp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -118,10 +117,10 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_20sdp"
-                android:paddingRight="@dimen/_40sdp"
-                android:paddingLeft="@dimen/_40sdp">
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingRight="@dimen/_30sdp"
+                android:paddingLeft="@dimen/_30sdp">
 
                 <TextView
                     android:layout_marginTop="@dimen/_3sdp"
@@ -138,7 +137,7 @@
                     android:id="@+id/signUpBtn"
                     android:text="@string/_signUp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_35sdp"
                     android:background="@drawable/btn_bg"
                     android:textColor="@color/_FFFFFF"
                     android:textSize="@dimen/_14ssp"

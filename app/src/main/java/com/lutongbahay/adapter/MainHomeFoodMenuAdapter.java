@@ -40,7 +40,7 @@ public class MainHomeFoodMenuAdapter extends RecyclerView.Adapter<MainHomeFoodMe
         LinearLayoutManager verticalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         if (position == 0){
             holder.verticalRecycler.setLayoutManager(verticalLayoutManager);
-            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter();
+            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1);
             holder.verticalRecycler.setAdapter(verticalHomeFoodMenuAdapter);
             holder.title.setText(CusinaApplication.getInstance().getResources().getString(R.string.BagongLutoNearMe));
             holder.subTitle.setText(CusinaApplication.getInstance().getResources().getString(R.string.BagongLutoNearMe));
@@ -58,7 +58,7 @@ public class MainHomeFoodMenuAdapter extends RecyclerView.Adapter<MainHomeFoodMe
             holder.subTitle.setText(CusinaApplication.getInstance().getResources().getString(R.string.shortTxtShort));
         }else if (position == 3){
             holder.verticalRecycler.setLayoutManager(verticalLayoutManager);
-            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter();
+            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1);
             holder.verticalRecycler.setAdapter(verticalHomeFoodMenuAdapter);
             holder.title.setText(CusinaApplication.getInstance().getResources().getString(R.string.IhahainSoonNearMe));
             holder.subTitle.setText(CusinaApplication.getInstance().getResources().getString(R.string.nearMeDishesTxtShort));

@@ -87,9 +87,10 @@ public class MyTrayView extends FrameLayout {
             Navigation.findNavController(view).navigateUp();
         } else if(id == R.id.placeOrder){
             placeOrderBtnOnClick(view);
-
         }
     }
+
+
 
     public void placeOrderBtnOnClick(View mainView) {
 

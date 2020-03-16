@@ -90,8 +90,9 @@
         android:id="@+id/gallery_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:spanCount = "5"
+        tools:spanCount="5"
         tools:itemCount="20"
+        android:layout_margin="@dimen/_5sdp"
         tools:listitem="@layout/adapter_add_photo"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 

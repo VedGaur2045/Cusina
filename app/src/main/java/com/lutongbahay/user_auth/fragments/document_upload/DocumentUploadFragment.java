@@ -1,10 +1,13 @@
 package com.lutongbahay.user_auth.fragments.document_upload;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -43,4 +46,43 @@ public class DocumentUploadFragment extends Fragment {
         view = new DocumentUploadView(context,viewModel);
         return view;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void getFileFromGallery(int requestCode) {
+//        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setType("file/*");
+        startActivityForResult(intent, requestCode);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 101:
+                if (resultCode == -1) {
+                    fileUri = data.getData();
+                    filePath = fileUri.getPath();
+                    view.fileNameFirstUploaded.setText(filePath);
+                }
+                break;
+            case 102:
+                if (resultCode == -1) {
+                    fileUri = data.getData();
+                    filePath = fileUri.getPath();
+                    view.fileNameSecondUploaded.setText(filePath);
+                }
+                break;
+            case 103:
+                if (resultCode == -1) {
+                    fileUri = data.getData();
+                    filePath = fileUri.getPath();
+                    view.fileNameThirdUploaded.setText(filePath);
+                }
+                break;
+        }
+    }
+
 }

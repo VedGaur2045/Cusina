@@ -31,11 +31,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/dish_title"
                 android:layout_marginStart="@dimen/_25sdp" />
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dish_title_placeholder"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
@@ -56,7 +56,7 @@
                 android:paddingRight="@dimen/_50sdp"
                 android:background="@color/transparent"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_lightit" />
+                fonthPath="fonts/sourcesanspro_lightit.otf" />
 
             <View
                 android:layout_width="match_parent"
@@ -67,11 +67,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/_discription"
                 android:layout_marginStart="@dimen/_25sdp" />
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/description_sample"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:gravity="top"
                 android:text=""
@@ -104,11 +104,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/price"
                 android:layout_marginStart="@dimen/_25sdp" />
@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_20sdp"
                 android:hint="@string/PHP_250_00"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
@@ -139,11 +139,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/delivery_method"
                 android:layout_marginStart="@dimen/_25sdp" />
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/fee"
                     android:layout_gravity="center"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/black"
                     android:layout_marginLeft="@dimen/_25sdp"
                     tools:ignore="MissingPrefix"
@@ -216,11 +216,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/dates_available"
                 android:layout_marginStart="@dimen/_25sdp" />
@@ -270,13 +270,14 @@
                             android:gravity="center"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="@dimen/_5sdp"
-                            android:src="@mipmap/icondown" >
+                            android:src="@drawable/down_icon" >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@mipmap/icondown" />
+                                android:src="@drawable/down_icon" />
+
                         </LinearLayout>
                         <View
                             android:layout_width="match_parent"
@@ -326,13 +327,13 @@
                             android:gravity="center"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="@dimen/_5sdp"
-                            android:src="@mipmap/icondown" >
+                            android:src="@drawable/down_icon" >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@mipmap/icondown" />
+                                android:src="@drawable/down_icon" />
                         </LinearLayout>
                         <View
                             android:layout_width="match_parent"
@@ -348,11 +349,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
                 fonthPath="fonts/cabin_semibold.otf"
                 android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/time_available"
                 android:layout_marginStart="@dimen/_25sdp" />
@@ -399,13 +400,13 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:src="@mipmap/icondown">
+                            android:src="@drawable/down_icon">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@mipmap/icondown" />
+                                android:src="@drawable/down_icon" />
                         </LinearLayout>
                         <View
                             android:layout_width="match_parent"
@@ -454,13 +455,13 @@
                             android:gravity="center"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="@dimen/_5sdp"
-                            android:src="@mipmap/icondown" >
+                            android:src="@drawable/down_icon" >
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@mipmap/icondown" />
+                                android:src="@drawable/down_icon" />
                         </LinearLayout>
 
                         <View
@@ -476,15 +477,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_25sdp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix"
+                    android:layout_centerVertical="true"
                     fonthPath="fonts/cabin_semibold.otf"
                     android:textColor="@color/black"
                     android:text="@string/no_of_serving_to_cell"
@@ -521,12 +523,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/_1"
-                        android:textSize="@dimen/_16ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_bold.otf"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:gravity="center"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/minus_No_of_Sell"
                         android:layout_toEndOf="@+id/minus_No_of_Sell"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -558,19 +561,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_25sdp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix"
                     fonthPath="fonts/cabin_semibold.otf"
+                    android:layout_centerVertical="true"
                     android:textColor="@color/black"
-                    android:text="@string/min_serving_per_order"
-                    />
+                    android:text="@string/min_serving_per_order" />
                 <RelativeLayout
                     android:id="@+id/mainLayout2"
                     android:layout_width="wrap_content"
@@ -603,12 +606,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/_1"
-                        android:textSize="@dimen/_16ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
                         fonthPath="fonts/sourcesanspro_bold.otf"
                         android:textColor="@color/_000000"
                         android:textStyle="normal"
                         android:gravity="center"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/minus_MinServing"
                         android:layout_toEndOf="@+id/minus_MinServing"
                         android:layout_marginStart="@dimen/_10sdp"
