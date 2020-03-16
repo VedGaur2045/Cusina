@@ -250,37 +250,31 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-<<<<<<< HEAD
-                android:layout_height="match_parent"
                 android:fillViewport="true"
                 android:layout_below="@id/mainLayout"
-                android:layout_above="@+id/cancelBtnLayout">
-=======
+                android:layout_above="@+id/cancelBtnLayout"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_15sdp"
-                android:layout_above="@+id/totalAmountLayout">
+                android:padding="@dimen/_15sdp">
 
-                <TextView
-                    android:id="@+id/oderSummery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/orderSummery"
-                    android:textColor="@color/_000000"
-                    android:textSize="@dimen/_16ssp"
-                    tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold.otf"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/oderSummery"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/orderSummery"-->
+<!--                    android:textColor="@color/_000000"-->
+<!--                    android:textSize="@dimen/_16ssp"-->
+<!--                    tools:ignore="MissingPrefix"-->
+<!--                    fonthPath="fonts/sourcesanspro_semibold.otf"/>-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/completedOrdersListItem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/oderSummery"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="vertical"
-                    tools:listitem="@layout/adapter_completed_list_item"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
->>>>>>> 7487cb7800004668421ad2edc14038a41fbef1e2
-
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/completedOrdersListItem"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/oderSummery"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    tools:listitem="@layout/adapter_completed_list_item"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
                 <RelativeLayout
                     android:layout_below="@id/mainLayout"
                     android:background="@color/_FFFFFF"
@@ -299,18 +293,12 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_16ssp"
                         tools:ignore="MissingPrefix"
-<<<<<<< HEAD
-                        fonthPath="fonts/sourcesanspro_semibold"/>
-=======
-                        fonthPath="fonts/sourcesanspro_semibold.otf"
-                        android:textColor="@color/_000000"/>
->>>>>>> 7487cb7800004668421ad2edc14038a41fbef1e2
+                        fonthPath="fonts/sourcesanspro_semibold.otf" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/completedOrdersListItem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
                         android:layout_below="@+id/oderSummery"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:orientation="vertical"
