@@ -63,7 +63,7 @@
     <!-- ADD DISH -->
 
     <string name="dish_listed">Dish Listed!</string>
-    <string name="dish_listed_msg1">You dish was successfully listed and is being</string>
+    <string name="dish_listed_msg1">You dish was successfully listed and is being \n reviewed for approval by Lutong Bahay.</string>
     <string name="dish_listed_msg2">reviewed for approval by Lutong Bahay.</string>
     <string name="back_to_home">Back to Home</string>
     <string name="add_another_luto">Add Another Luto</string>
@@ -384,7 +384,7 @@
     <string name="ins_3">3.</string>
     <string name="_getStarted">GET STARTED</string>
     <string name="_viewOrderHistory">View Order History</string>
-    <string name="orderTxt">Order #</string>
+    <string name="orderTxt">Order #41</string>
     <string name="estimateDeliveryTxt">Est. Delivery</string>
     <string name="ProcessOrder">Process Order</string>
     <string name="estimateDeliveryTime">45 mins</string>

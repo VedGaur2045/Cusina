@@ -5,9 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.profile_frag.ProfileFragmentDirections;
 
 import butterknife.ButterKnife;
 
@@ -23,7 +25,7 @@ public class ServerOrdersRecyclerAdapter extends RecyclerView.Adapter<ServerOrde
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-
+        holder.itemView.setOnClickListener(v -> Navigation.findNavController(holder.itemView).navigate(ProfileFragmentDirections.openOrderProcess()));
     }
 
     @Override

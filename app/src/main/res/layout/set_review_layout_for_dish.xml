@@ -38,7 +38,7 @@
                android:textColor="@color/_000000"
                android:textStyle="bold"
                android:textSize="@dimen/_13sdp"
-               fonthPath="fonts/sourcesanspro_bold.otf"
+               android:fontFamily="@font/sourcesanspro_bold"
                tools:ignore="MissingPrefix"/>
 
            <RatingBar
@@ -65,7 +65,7 @@
                android:layout_centerHorizontal="true"
                android:gravity="center"
                tools:ignore="MissingPrefix"
-               fonthPath="fonts/sourcesanspro_semibold.otf"
+               android:fontFamily="@font/sourcesanspro_semibold"
                android:textColor="@color/_000000"
                android:textSize="@dimen/_10sdp"
                android:layout_marginTop="@dimen/_15sdp"
@@ -89,7 +89,7 @@
                    android:text="@string/WellPrepared"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
-                   fonthPath="fonts/sourcesanspro_regular.otf"
+                   android:fontFamily="@font/sourcesanspro_regular"
                    android:textSize="@dimen/_8sdp"
                    android:padding="@dimen/_5sdp"
                    android:paddingStart="@dimen/_10sdp"
@@ -105,7 +105,7 @@
                    android:text="@string/NewlyCooked"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
-                   fonthPath="fonts/sourcesanspro_regular.otf"
+                   android:fontFamily="@font/sourcesanspro_regular"
                    android:textSize="@dimen/_8sdp"
                    android:padding="@dimen/_5sdp"
                    android:paddingStart="@dimen/_10sdp"
@@ -132,7 +132,7 @@
                    android:text="@string/Clean"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
-                   fonthPath="fonts/sourcesanspro_regular"
+                   android:fontFamily="@font/sourcesanspro_regular"
                    android:textSize="@dimen/_8sdp"
                    android:padding="@dimen/_5sdp"
                    android:paddingStart="@dimen/_10sdp"
@@ -148,7 +148,7 @@
                    android:text="@string/FoodQuality"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
-                   fonthPath="fonts/sourcesanspro_regular"
+                   android:fontFamily="@font/sourcesanspro_regular"
                    android:textSize="@dimen/_8sdp"
                    android:padding="@dimen/_5sdp"
                    android:paddingStart="@dimen/_10sdp"
@@ -175,7 +175,7 @@
                    android:text="@string/FastDelivery"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
-                   fonthPath="fonts/sourcesanspro_regular"
+                   android:fontFamily="@font/sourcesanspro_regular"
                    android:textSize="@dimen/_8sdp"
                    android:padding="@dimen/_5sdp"
                    android:paddingStart="@dimen/_10sdp"
@@ -191,7 +191,7 @@
                    android:text="@string/WellPackaged"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
-                   fonthPath="fonts/sourcesanspro_regular"
+                   android:fontFamily="@font/sourcesanspro_regular"
                    android:textSize="@dimen/_8sdp"
                    android:padding="@dimen/_5sdp"
                    android:paddingStart="@dimen/_10sdp"
@@ -218,7 +218,7 @@
             android:maxLines="10"
             android:textColor="@color/_000000"
             tools:ignore="MissingPrefix"
-            fonthPath="fonts/sourcesanspro_regular"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:textSize="@dimen/_10ssp"
             android:layout_height="@dimen/_80sdp"
             android:layout_width="match_parent"
@@ -243,7 +243,7 @@
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/_FFFFFF"
             android:layout_marginTop="@dimen/_20sdp"
-            fonthPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             tools:ignore="MissingPrefix"
             />
 
@@ -269,7 +269,7 @@
 <!--        android:text="@string/extraTxt_3"-->
 <!--        android:layout_centerHorizontal="true"-->
 <!--        android:layout_marginStart="@dimen/_100sdp"-->
-<!--        fonthPath="fonts/sourcesanspro_semibold.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_semibold"-->
 <!--        android:textColor="@color/_000000"-->
 <!--        android:textStyle="bold"-->
 <!--        android:textSize="@dimen/_13sdp"-->
@@ -299,7 +299,7 @@
 <!--        android:layout_centerHorizontal="true"-->
 <!--        android:gravity="center"-->
 <!--        tools:ignore="MissingPrefix"-->
-<!--        fonthPath="fonts/sourcesanspro_semibold.otf"-->
+<!--        android:fontFamily="@font/sourcesanspro_semibold"-->
 <!--        android:textColor="@color/_000000"-->
 <!--        android:textSize="@dimen/_10sdp"-->
 <!--        android:layout_marginTop="@dimen/_15sdp"-->
@@ -323,7 +323,7 @@
 <!--            android:text="@string/WellPrepared"-->
 <!--            android:textColor="@color/_000000"-->
 <!--            tools:ignore="MissingPrefix"-->
-<!--            fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--            android:fontFamily="@font/sourcesanspro_regular"-->
 <!--            android:textSize="@dimen/_8sdp"-->
 <!--            android:padding="@dimen/_5sdp"-->
 <!--            android:paddingStart="@dimen/_10sdp"-->
@@ -339,7 +339,7 @@
 <!--            android:text="@string/NewlyCooked"-->
 <!--            android:textColor="@color/_000000"-->
 <!--            tools:ignore="MissingPrefix"-->
-<!--            fonthPath="fonts/sourcesanspro_regular.otf"-->
+<!--            android:fontFamily="@font/sourcesanspro_regular"-->
 <!--            android:textSize="@dimen/_8sdp"-->
 <!--            android:padding="@dimen/_5sdp"-->
 <!--            android:paddingStart="@dimen/_10sdp"-->
@@ -366,7 +366,7 @@
 <!--            android:text="@string/Clean"-->
 <!--            android:textColor="@color/_000000"-->
 <!--            tools:ignore="MissingPrefix"-->
-<!--            fonthPath="fonts/sourcesanspro_regular"-->
+<!--            android:fontFamily="@font/sourcesanspro_regular"-->
 <!--            android:textSize="@dimen/_8sdp"-->
 <!--            android:padding="@dimen/_5sdp"-->
 <!--            android:paddingStart="@dimen/_10sdp"-->
@@ -382,7 +382,7 @@
 <!--            android:text="@string/FoodQuality"-->
 <!--            android:textColor="@color/_000000"-->
 <!--            tools:ignore="MissingPrefix"-->
-<!--            fonthPath="fonts/sourcesanspro_regular"-->
+<!--            android:fontFamily="@font/sourcesanspro_regular"-->
 <!--            android:textSize="@dimen/_8sdp"-->
 <!--            android:padding="@dimen/_5sdp"-->
 <!--            android:paddingStart="@dimen/_10sdp"-->
@@ -409,7 +409,7 @@
 <!--            android:text="@string/FastDelivery"-->
 <!--            android:textColor="@color/_000000"-->
 <!--            tools:ignore="MissingPrefix"-->
-<!--            fonthPath="fonts/sourcesanspro_regular"-->
+<!--            android:fontFamily="@font/sourcesanspro_regular"-->
 <!--            android:textSize="@dimen/_8sdp"-->
 <!--            android:padding="@dimen/_5sdp"-->
 <!--            android:paddingStart="@dimen/_10sdp"-->
@@ -425,7 +425,7 @@
 <!--            android:text="@string/WellPackaged"-->
 <!--            android:textColor="@color/_000000"-->
 <!--            tools:ignore="MissingPrefix"-->
-<!--            fonthPath="fonts/sourcesanspro_regular"-->
+<!--            android:fontFamily="@font/sourcesanspro_regular"-->
 <!--            android:textSize="@dimen/_8sdp"-->
 <!--            android:padding="@dimen/_5sdp"-->
 <!--            android:paddingStart="@dimen/_10sdp"-->

@@ -33,7 +33,7 @@
                 android:textSize="@dimen/_24ssp"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
-                fontPath="fonts/cabin_semibold.otf"
+                android:fontFamily="@font/cabin_semibold"
                 tools:ignore="MissingPrefix"
                 android:text="@string/order_placed"/>
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_above="@+id/img"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 tools:ignore="MissingPrefix"
                 android:text="@string/order_placed_msg1"/>
 
@@ -71,7 +71,7 @@
                 android:layout_marginRight="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_below="@+id/img"
-                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/white"/>
 

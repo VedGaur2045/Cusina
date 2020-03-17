@@ -71,7 +71,7 @@
 
         <TextView
             android:id="@+id/locationName"
-            fontPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -157,7 +157,7 @@
             android:text="@string/Tray"
             android:textSize="@dimen/_10ssp"
             android:textColor="@color/_FFFFFF"
-            fontPath="fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@font/sourcesanspro_bold"
             android:layout_below="@+id/tray_icon"
             android:layout_centerHorizontal="true"
             tools:ignore="MissingPrefix" />
@@ -170,7 +170,7 @@
             android:layout_marginTop="@dimen/_7sdp"
             android:layout_alignParentEnd="true"
             android:background="@drawable/red_round_design"
-            fontPath="fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@font/sourcesanspro_bold"
             tools:ignore="MissingPrefix"
             android:gravity="center"
             android:text="@string/TrayCount"

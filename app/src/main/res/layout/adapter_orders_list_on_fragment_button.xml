@@ -43,7 +43,7 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             android:layout_toRightOf="@+id/prdctImg"
-            fonthPath="fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@font/sourcesanspro_bold"
             tools:ignore="MissingPrefix"
             android:textColor="@color/_000000"
             android:textStyle="bold"
@@ -57,7 +57,7 @@
             android:layout_marginStart="@dimen/_27sdp"
             android:layout_marginLeft="@dimen/_27sdp"
             android:textSize="@dimen/_10ssp"
-            fonthPath="fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@font/sourcesanspro_bold"
             tools:ignore="MissingPrefix"
             android:textColor="@color/_15D528"
             android:text="@string/DELIVERED_Txt"
@@ -73,7 +73,7 @@
             android:layout_marginStart="@dimen/_27sdp"
             android:layout_marginLeft="@dimen/_27sdp"
             android:textSize="@dimen/_10ssp"
-            fonthPath="fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@font/sourcesanspro_bold"
             tools:ignore="MissingPrefix"
             android:textColor="@color/_EC0000"
             android:text="@string/CANCELLED_Txt"
@@ -95,7 +95,7 @@
             android:textSize="@dimen/_8ssp"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/delivery_and_pickup_bg_drawable"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             tools:ignore="MissingPrefix"
             android:gravity="center"
             android:textColor="@color/_FFFFFF"
@@ -111,7 +111,7 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginLeft="@dimen/_15sdp"
             android:textSize="@dimen/_12ssp"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             tools:ignore="MissingPrefix"
             android:textColor="@color/_000000"
             android:text="@string/_70"
@@ -132,7 +132,7 @@
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/_FFFFFF"
             android:layout_marginBottom="@dimen/_3sdp"
-            fonthPath="fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@font/sourcesanspro_bold"
             tools:ignore="MissingPrefix"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -164,7 +164,7 @@
             android:layout_height="wrap_content"
             android:text="@string/_subTotal"
             android:textSize="@dimen/_10ssp"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             tools:ignore="MissingPrefix"
             android:textColor="@color/gunmetal"/>
 
@@ -174,7 +174,7 @@
             android:layout_height="wrap_content"
             android:text="@string/_70"
             android:textSize="@dimen/_10ssp"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             tools:ignore="MissingPrefix"
             android:textColor="@color/gunmetal"
             android:layout_alignParentEnd="true"
@@ -199,7 +199,7 @@
             android:text="@string/_DeliveryFees"
             android:textColor="@color/gunmetal"
             android:textSize="@dimen/_10ssp"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             tools:ignore="MissingPrefix"/>
 
         <TextView
@@ -211,7 +211,7 @@
             android:text="@string/_4"
             android:textColor="@color/gunmetal"
             android:textSize="@dimen/_10ssp"
-            fonthPath="fonts/sourcesanspro_regular.otf"
+            android:fontFamily="@font/sourcesanspro_regular"
             tools:ignore="MissingPrefix"/>
 
     </RelativeLayout>

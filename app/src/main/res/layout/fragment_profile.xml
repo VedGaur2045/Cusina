@@ -54,7 +54,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_bold.otf"
+                    android:fontFamily="@font/sourcesanspro_bold"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp" />
 
@@ -102,11 +102,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/username"
-                    fonthPath="fonts/cabin_semibold.otf"
+                    android:fontFamily="@font/cabin_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20sdp"
@@ -118,7 +118,7 @@
 
                 <TextView
                     android:id="@+id/editprofile"
-                    fonthPath="fonts/sourcesanspro_regular.otf"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_23sdp"
@@ -130,7 +130,7 @@
                     tools:ignore="MissingPrefix" />
 
                 <TextView
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_23sdp"
@@ -143,7 +143,7 @@
 
                 <TextView
                     android:id="@+id/usermobile"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_23sdp"
@@ -155,7 +155,7 @@
                     tools:ignore="MissingPrefix" />
 
                 <TextView
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_23sdp"
@@ -168,7 +168,7 @@
 
                 <TextView
                     android:id="@+id/useremail"
-                    fonthPath="fonts/sourcesanspro_regular"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_23sdp"
@@ -189,7 +189,7 @@
                     android:background="@drawable/fbbuttonbg">
 
                     <TextView
-                        fonthPath="fonts/sourcesanspro_semibold.otf"
+                        android:fontFamily="@font/sourcesanspro_semibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -229,7 +229,7 @@
                         android:paddingEnd="@dimen/_23sdp">
 
                         <TextView
-                            fonthPath="fonts/sourcesanspro_regular"
+                            android:fontFamily="@font/sourcesanspro_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -259,7 +259,7 @@
                         android:paddingEnd="@dimen/_23sdp">
 
                         <TextView
-                            fonthPath="fonts/sourcesanspro_regular"
+                            android:fontFamily="@font/sourcesanspro_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -289,7 +289,7 @@
                         android:paddingEnd="@dimen/_23sdp">
 
                         <TextView
-                            fonthPath="fonts/sourcesanspro_regular"
+                            android:fontFamily="@font/sourcesanspro_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -319,7 +319,7 @@
                         android:paddingEnd="@dimen/_23sdp">
 
                         <TextView
-                            fonthPath="fonts/sourcesanspro_regular"
+                            android:fontFamily="@font/sourcesanspro_regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"

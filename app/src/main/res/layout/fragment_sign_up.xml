@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/personal_info"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/cabin_semibold.otf"
+                    android:fontFamily="@font/cabin_semibold"
                     android:textSize="@dimen/_16ssp"
                     android:layout_centerInParent="true"
                     android:textColor="@color/black"/>
@@ -43,7 +43,7 @@
                 android:text="@string/username"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_9ssp"
                 android:layout_marginTop="@dimen/_30sdp"/>
             <EditText
@@ -58,7 +58,7 @@
                 android:paddingLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                 android:text="@string/usermobile"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
                 android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
@@ -81,7 +81,7 @@
                 android:paddingLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                 android:text="@string/useremail"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
                 android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
@@ -104,7 +104,7 @@
                 android:paddingLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
                 android:text="@string/useraddress"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
                 android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
@@ -127,7 +127,7 @@
                 android:paddingLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <EditText
                 android:id="@+id/useradddressline2"
@@ -141,7 +141,7 @@
                 android:paddingLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -161,7 +161,7 @@
                         android:text="@string/usercity"
                         android:textColor="@color/black"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textSize="@dimen/_8ssp"
                         android:layout_marginTop="@dimen/_15sdp"/>
                     <RelativeLayout
@@ -204,7 +204,7 @@
                         android:text="@string/userzipcode"
                         android:textColor="@color/black"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textSize="@dimen/_8ssp"
                         android:layout_marginTop="@dimen/_15sdp"/>
                     <EditText
@@ -219,7 +219,7 @@
                         android:paddingLeft="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_it"
+                        android:fontFamily="@font/sourcesanspro_it"
                         android:background="@drawable/userinputbg"/>
                 </LinearLayout>
             </LinearLayout>
@@ -230,7 +230,7 @@
                 android:text="@string/usercountry"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
                 android:layout_marginTop="@dimen/_15sdp"/>
             <EditText
@@ -245,7 +245,7 @@
                 android:paddingLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_it"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:background="@drawable/userinputbg"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -253,7 +253,7 @@
                 android:text="@string/usergender"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
                 android:layout_marginTop="@dimen/_15sdp"/>
             <LinearLayout
@@ -306,7 +306,7 @@
                 android:onClick="backToHomeBtnClick"
                 android:layout_marginTop="@dimen/_23sdp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:textColor="@color/white"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -326,7 +326,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textColor="@color/black"
                         android:text="@string/term_msg1"/>
                     <TextView
@@ -335,7 +335,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textColor="@color/terms_color"
                         android:layout_marginLeft="@dimen/_3sdp"
                         android:text="@string/terms_of_use"/>
@@ -350,7 +350,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textColor="@color/black"
                         android:text="@string/and"/>
                     <TextView
@@ -359,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textColor="@color/terms_color"
                         android:layout_marginLeft="@dimen/_3sdp"
                         android:text="@string/privacy_policy"/>
@@ -368,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_12ssp"
                         tools:ignore="MissingPrefix"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textColor="@color/black"
                         android:layout_marginLeft="@dimen/_3sdp"
                         android:text="@string/term_msg2"/>

@@ -29,7 +29,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/cabin_semibold.otf" />
+                android:fontFamily="@font/cabin_semibold" />
 
             <TextView
                 android:id="@+id/editprofile"
@@ -42,7 +42,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:id="@+id/usermobile"
@@ -67,7 +67,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <TextView
                 android:id="@+id/useremail"
@@ -92,7 +92,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 tools:ignore="MissingPrefix"
-                fonthPath="fonts/sourcesanspro_regular" />
+                android:fontFamily="@font/sourcesanspro_regular" />
 
             <RelativeLayout
                 android:id="@+id/fbbuuton"
@@ -111,7 +111,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp"
                     tools:ignore="MissingPrefix"
-                    fonthPath="fonts/sourcesanspro_semibold.otf" />
+                    android:fontFamily="@font/sourcesanspro_semibold" />
 
                 <ImageView
                     android:id="@+id/fblogo"
@@ -150,7 +150,7 @@
                         android:text="@string/saved_places"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         tools:ignore="MissingPrefix,RelativeOverlap" />
 
                     <ImageView
@@ -180,7 +180,7 @@
                         android:text="@string/rewards_and_points"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         tools:ignore="MissingPrefix,RelativeOverlap" />
 
                     <ImageView
@@ -204,7 +204,7 @@
                     android:paddingEnd="@dimen/_23sdp">
 
                     <TextView
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -240,7 +240,7 @@
                         android:text="@string/sell_food"
                         android:textColor="@color/_EC0000"
                         android:textSize="@dimen/_14ssp"
-                        fonthPath="fonts/sourcesanspro_regular"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         tools:ignore="MissingPrefix,RelativeOverlap" />
 
                     <ImageView

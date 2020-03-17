@@ -18,7 +18,7 @@
 
 
         <TextView
-            fontPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/SelectPaymentMode"
@@ -57,7 +57,7 @@
 
             <TextView
                 android:id="@+id/Total_Txt"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -68,7 +68,7 @@
 
             <TextView
                 android:id="@+id/subTotal_price"
-                fontPath="fonts/sourcesanspro_regular.otf"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -93,7 +93,7 @@
             android:layout_marginBottom="@dimen/_10sdp">
 
             <TextView
-                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -104,7 +104,7 @@
 
             <TextView
                 android:id="@+id/Total_Amt_price"
-                fontPath="fonts/sourcesanspro_semibold.otf"
+                android:fontFamily="@font/sourcesanspro_semibold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -134,7 +134,7 @@
             android:textAllCaps="false"
             android:textColor="@color/_FFFFFF"
             android:textSize="@dimen/_14ssp"
-            fontPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             tools:ignore="MissingPrefix" />
 
     </LinearLayout>

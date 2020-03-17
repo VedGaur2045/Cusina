@@ -44,7 +44,7 @@
             android:textColor="#FF8500"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"
+            android:fontFamily="@fonts/sourcesanspro_bold"
             app:layout_constraintLeft_toRightOf="@id/previousButton"
             app:layout_constraintRight_toLeftOf="@id/forwardButton"
             app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +71,7 @@
             android:textColor="#A3A6B4"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_monday"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
 
         <TextView
             android:id="@+id/tuesdayLabel"
@@ -82,7 +82,7 @@
             android:text="@string/material_calendar_tuesday"
             android:textStyle="bold"
             android:textColor="#A3A6B4"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
 
         <TextView
             android:id="@+id/wednesdayLabel"
@@ -93,7 +93,7 @@
             android:text="@string/material_calendar_wednesday"
             android:textStyle="bold"
             android:textColor="#A3A6B4"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
 
         <TextView
             android:id="@+id/thursdayLabel"
@@ -104,7 +104,7 @@
             android:text="@string/material_calendar_thursday"
             android:textStyle="bold"
             android:textColor="#A3A6B4"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
 
         <TextView
             android:id="@+id/fridayLabel"
@@ -115,7 +115,7 @@
             android:text="@string/material_calendar_friday"
             android:textStyle="bold"
             android:textColor="#A3A6B4"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
 
         <TextView
             android:id="@+id/saturdayLabel"
@@ -126,7 +126,7 @@
             android:text="@string/material_calendar_saturday"
             android:textStyle="bold"
             android:textColor="#A3A6B4"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
 
         <TextView
             android:id="@+id/sundayLabel"
@@ -137,7 +137,7 @@
             android:text="@string/material_calendar_sunday"
             android:textStyle="bold"
             android:textColor="#A3A6B4"
-            android:fontFamily="@fonts/sourcesanspro_bold.otf"/>
+            android:fontFamily="@fonts/sourcesanspro_bold"/>
     </LinearLayout>
 
     <ScrollView

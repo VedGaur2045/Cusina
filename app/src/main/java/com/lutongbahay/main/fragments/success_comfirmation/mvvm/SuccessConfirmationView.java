@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.success_comfirmation.SuccessConfirmationFragment;
 import com.lutongbahay.main.fragments.success_comfirmation.SuccessConfirmationFragmentDirections;
+import com.lutongbahay.main.home.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,10 +39,10 @@ public class SuccessConfirmationView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.backBtn :
-                Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toProfileFragment());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.backToHomeBtn :
-                Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toHomeFragment());
+                HomeActivity.openHomeActivity(getContext());
                 break;
             case R.id.addanotherluto:
                 Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toAddPhoto());

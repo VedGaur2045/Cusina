@@ -14,6 +14,6 @@
         android:layout_marginLeft="@dimen/_25sdp"
         android:textSize="@dimen/_12ssp"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_it"/>
+        android:fontFamily="@font/sourcesanspro_it"/>
 
 </RelativeLayout>

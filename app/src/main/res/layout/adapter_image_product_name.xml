@@ -40,6 +40,6 @@
         android:layout_marginBottom="@dimen/_15sdp"
         tools:ignore="RelativeOverlap,MissingPrefix"
         android:textStyle="bold"
-        fonthPath="fonts/sourcesanspro_bold.otf" />
+        android:fontFamily="@font/sourcesanspro_bold" />
 
 </RelativeLayout>

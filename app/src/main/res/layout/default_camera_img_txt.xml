@@ -25,6 +25,6 @@
         android:layout_below="@id/cameraImg"
         android:textColor="@color/_000000"
         tools:ignore="MissingPrefix"
-        fonthPath="fonts/sourcesanspro_regular.otf" />
+        android:fontFamily="@font/sourcesanspro_regular" />
 
 </RelativeLayout>
