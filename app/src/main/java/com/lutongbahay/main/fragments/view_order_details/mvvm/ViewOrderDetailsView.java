@@ -84,8 +84,6 @@ public class ViewOrderDetailsView extends FrameLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.custom_popup_add_review, null);
 
-
-
         final AlertDialog dialog = new AlertDialog.Builder(context).create();
         dialog.setView(popupView);
         dialog.setCancelable(false);
@@ -98,7 +96,9 @@ public class ViewOrderDetailsView extends FrameLayout {
         Button getStarted = popupView.findViewById(R.id.submitBtn);
 
         closeBtn.setOnClickListener(v -> dialog.dismiss());
-        getStarted.setOnClickListener(v -> dialog.dismiss());
+        getStarted.setOnClickListener(v ->
+//                Navigation.findNavController(v).navigate(ViewOrdersDetailsFragmentDirections.toSelectLocation())
+                  dialog.dismiss()  );
     }
 
 
