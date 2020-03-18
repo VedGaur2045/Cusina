@@ -1,10 +1,14 @@
 package com.lutongbahay.main.fragments.camera.mvvm;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.Settings;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -21,10 +25,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.GalleryImagesRecyclerAdapter;
 import com.lutongbahay.helper.CameraPreview;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
 import com.lutongbahay.main.fragments.camera.CameraFragmentDirections;
+import com.lutongbahay.utils.Logger;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -42,9 +48,17 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static com.lutongbahay.helper.MarshMallowPermission.checkPermission;
 
 public class CameraView extends FrameLayout {
-    private static final int PERMISSION_REQUEST_CODE = 109;
+    public static final int CAMERA_PERMISSION_REQUEST_CODE = 109;
+    public static final int SETTINGS_REQUEST_CODE_CAMERA = 405;
+
+
+    public static final int SETTINGS_REQUEST_CODE_STORAGE = 305;
+    public static final int STORAGE_PERMISSION_CODE = 301;
+
+
     private final CameraViewModel viewModel;
     @BindView(R.id.camera_preview)
     FrameLayout camera_preview;
@@ -78,30 +92,43 @@ public class CameraView extends FrameLayout {
     private LinearLayout cameraPreview;
     private boolean cameraFront = false;
     public static Bitmap bitmap;
+    Context context;
 
     AppCompatActivity compatActivity;
 
     public CameraView(@NonNull AppCompatActivity context, CameraViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
-        compatActivity = context;
+        this.context = context;
+        this.compatActivity  = context;
         inflate(context, R.layout.fragment_camera,this);
         ButterKnife.bind(this,this);
 
-        if (MarshMallowPermission.checkMashMallowPermissions(context, new String[]{CAMERA}, PERMISSION_REQUEST_CODE)) {
+        context.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-            myContext = context;
+        takeCameraPermission();
 
-            mCamera =  Camera.open();
-            mCamera.setDisplayOrientation(90);
 
-            mPreview = new CameraPreview(myContext, mCamera);
-            camera_preview.addView(mPreview);
+    }
 
-            mCamera.startPreview();
+    public void takeCameraPermission() {
+        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) getContext(),
+                new String[]{CAMERA},
+                CAMERA_PERMISSION_REQUEST_CODE) && MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) getContext(),
+                new String[]{WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE},
+                CAMERA_PERMISSION_REQUEST_CODE)) {
+            onPermissionGranted();
         }
+    }
 
-
+    public void onPermissionGranted() {
+        myContext = context;
+        mCamera =  Camera.open();
+        mCamera.setDisplayOrientation(90);
+        mPreview = new CameraPreview(myContext, mCamera);
+        camera_preview.addView(mPreview);
+        mCamera.startPreview();
     }
 
     @OnClick({R.id.capturedImageBtn,R.id.chooseImageCategory})
@@ -109,9 +136,11 @@ public class CameraView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.capturedImageBtn:
+                checkStoragePermission(view);
+//                Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
                 //captureImageOnBtnClick(view);
                 compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
+            //    Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
                 break;
             case R.id.chooseImageCategory:
                 Navigation.findNavController(view).navigate(CameraFragmentDirections.toChooseCategory());
@@ -159,6 +188,14 @@ public class CameraView extends FrameLayout {
         }
     }
 
+    // navigating user to app settings
+    public void openSettings(int requestCode) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getContext().getPackageName(), null);
+        intent.setData(uri);
+        ((AppCompatActivity) getContext()).startActivityForResult(intent, requestCode);
+    }
+
     private Camera.PictureCallback getPictureCallback() {
         Camera.PictureCallback picture = new Camera.PictureCallback() {
             @Override
@@ -203,6 +240,13 @@ public class CameraView extends FrameLayout {
             out.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void checkStoragePermission(View view){
+        if (checkPermission(context, WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED) {
+            captureImageOnBtnClick(view);
         }
     }
 

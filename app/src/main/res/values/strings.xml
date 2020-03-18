@@ -17,7 +17,9 @@
     <string name="location_permission_deny">You have denied location permission. Location permission is required for Map. Try again.</string>
     <string name="location_deny">You cannot access nearby dishes.</string>
 
-
+    <string name="camera_permission_required">You have denied camera permission. Camera permission is required to upload image. Try again.</string>
+    <string name="camera_permission_deny">You cannot access or upload image without camera permission.</string>
+    <string name="camera_permission_settings">You have permanently denied camera permission. You can grant them in app settings.</string>
     <string name="net_not_connected">No network available!</string>
     <string name="ok">Ok</string>
     <string name="alert">Alert</string>
