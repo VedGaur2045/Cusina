@@ -33,8 +33,9 @@ public class ProcessOrderFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        System.out.println("kjsafhkj   "+getArguments().getInt("check"));
         viewModel = new ViewModelProvider(this).get(ProcessOrderViewModel.class);
-        view = new ProcessOrderView(context,viewModel);
+        view = new ProcessOrderView(context,viewModel,getArguments().getInt("check"));
         return view;
     }
 }

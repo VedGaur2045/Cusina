@@ -69,12 +69,11 @@ public class DishReviewView extends FrameLayout {
 
     }
 
-    @OnClick({R.id.closeImgBtn,R.id.ratingBar})
+    @OnClick({R.id.closeImgBtn})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigate(DishReviewFragmentDirections.toHomeFragment());
-            //Navigation.findNavController(view).navigate(DishReviewFragmentDirections.openItemDetailFragment());
+            Navigation.findNavController(view).navigateUp();
         }
     }
 

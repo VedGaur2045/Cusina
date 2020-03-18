@@ -386,7 +386,7 @@
     <string name="ins_3">3.</string>
     <string name="_getStarted">GET STARTED</string>
     <string name="_viewOrderHistory">View Order History</string>
-    <string name="orderTxt">Order #41</string>
+    <string name="orderTxt">Order #</string>
     <string name="estimateDeliveryTxt">Est. Delivery</string>
     <string name="ProcessOrder">Process Order</string>
     <string name="estimateDeliveryTime">45 mins</string>
@@ -435,4 +435,8 @@
     <string name="CoinsTxt">Coins.ph e-Wallet</string>
     <string name="skipForNow">Skip for now</string>
     <string name="Details">"Details "</string>
+    <string name="DELIVER">DELIVER</string>
+    <string name="COMPLETE_ORDER">COMPLETE ORDER</string>
+    <string name="Delivery">DELIVERY</string>
+    <string name="TIME_TO_COMPLETE">TIME TO COMPLETE</string>
 </resources>

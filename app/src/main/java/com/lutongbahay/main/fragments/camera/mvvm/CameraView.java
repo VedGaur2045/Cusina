@@ -94,10 +94,13 @@ public class CameraView extends FrameLayout {
     public static Bitmap bitmap;
     Context context;
 
+    AppCompatActivity compatActivity;
+
     public CameraView(@NonNull AppCompatActivity context, CameraViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
         this.context = context;
+        this.compatActivity  = context;
         inflate(context, R.layout.fragment_camera,this);
         ButterKnife.bind(this,this);
 
@@ -105,6 +108,7 @@ public class CameraView extends FrameLayout {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         takeCameraPermission();
+
 
     }
 
@@ -134,9 +138,13 @@ public class CameraView extends FrameLayout {
             case R.id.capturedImageBtn:
                 checkStoragePermission(view);
 //                Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
+                //captureImageOnBtnClick(view);
+                compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            //    Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
                 break;
             case R.id.chooseImageCategory:
                 Navigation.findNavController(view).navigate(CameraFragmentDirections.toChooseCategory());
+                compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 break;
         }
     }

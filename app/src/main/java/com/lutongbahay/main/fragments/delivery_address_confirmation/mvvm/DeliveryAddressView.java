@@ -54,7 +54,7 @@ public class DeliveryAddressView extends FrameLayout {
 
     }
 
-    @OnClick(R.id.saveDetails)
+    @OnClick({R.id.saveDetails,R.id.closeImgBtn})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.saveDetails){

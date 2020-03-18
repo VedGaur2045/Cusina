@@ -10,12 +10,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
@@ -63,7 +65,6 @@ public class CameraFragment extends Fragment {
 
     public void onResume() {
         super.onResume();
-
         if (checkPermission(getActivity(), CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
             view.cameraOpen();
@@ -71,9 +72,6 @@ public class CameraFragment extends Fragment {
         }else{
             Logger.ErrorLog("PERMISSION ", " NOT GRANTED");
         }
-
-
-
     }
 
     @Override
@@ -162,5 +160,7 @@ public class CameraFragment extends Fragment {
                 break;
         }
     }
+
+
 
 }

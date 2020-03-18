@@ -86,6 +86,8 @@ public class ProfileFragView extends FrameLayout {
         inflate(context, R.layout.fragment_user_profile, this);
         ButterKnife.bind(this, this);
 
+        //AddNewLuto.setVisibility(VISIBLE);
+
         if (Constants.isRegistered){
             setUpRegisteredView();
         }else{

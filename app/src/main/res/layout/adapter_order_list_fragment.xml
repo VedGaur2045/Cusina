@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/dialog_corner_radius"
-        app:cardElevation="@dimen/dialog_card_elevation"
+        app:cardElevation="5dp"
         app:cardUseCompatPadding="true"
         app:contentPadding="6dp">
 
@@ -64,15 +64,15 @@
                         android:src="@mipmap/call_img"/>
 
                     <ImageButton
-                        android:background="@color/transparent"
                         android:id="@+id/messageImgBtn"
                         android:layout_width="@dimen/_14sdp"
                         android:layout_height="@dimen/_14sdp"
-                        android:src="@mipmap/message_img"
                         android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_marginLeft="@dimen/_7sdp"
                         android:layout_toEndOf="@+id/callImgBtn"
                         android:layout_toRightOf="@+id/callImgBtn"
-                        android:layout_marginLeft="@dimen/_7sdp" />
+                        android:background="@color/transparent"
+                        android:src="@mipmap/message_img" />
 
                 </RelativeLayout>
 
@@ -123,7 +123,6 @@
                             tools:ignore="MissingPrefix"/>
 
                         <TextView
-
                             android:id="@+id/estimateTimeTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -356,7 +355,5 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
-
 
 </RelativeLayout>

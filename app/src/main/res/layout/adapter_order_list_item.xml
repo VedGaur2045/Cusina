@@ -51,6 +51,7 @@
                 android:textColor="@color/_000000"
                 android:textStyle="normal"
                 android:gravity="center"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/minus"
                 android:layout_toEndOf="@+id/minus"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -200,13 +201,13 @@
             android:id="@+id/subTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_70"
-            android:textSize="@dimen/_10ssp"
-            tools:ignore="MissingPrefix"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:textColor="@color/_000000"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="@string/_70"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_10ssp"
+            tools:ignore="MissingPrefix" />
 
     </RelativeLayout>
 

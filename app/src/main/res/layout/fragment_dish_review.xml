@@ -392,7 +392,7 @@
             android:layout_below="@+id/view_2"
             tools:listitem="@layout/adapter_review_msg_list"
             android:scrollbarThumbVertical="@android:color/transparent"
-            android:nestedScrollingEnabled="false" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </RelativeLayout>
 
