@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_5sdp">
+    android:background="@color/_FFFFFF">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:layout_margin="@dimen/_5sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -49,6 +50,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/_3sdp"
                 android:id="@+id/menu_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

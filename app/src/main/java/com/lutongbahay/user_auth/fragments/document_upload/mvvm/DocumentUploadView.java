@@ -73,7 +73,7 @@ public class DocumentUploadView extends FrameLayout {
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpCompleteFragment());
                 break;
             case R.id.uploadFileIdFirst:
-                //fragment.getFileFromGallery(101);
+                fragment.getFileFromGallery(101);
                 break;
             case R.id.uploadFileIdSecond:
                 //fragment.getFileFromGallery(102);

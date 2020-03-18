@@ -79,14 +79,14 @@ public class CameraView extends FrameLayout {
     private boolean cameraFront = false;
     public static Bitmap bitmap;
 
+    AppCompatActivity compatActivity;
+
     public CameraView(@NonNull AppCompatActivity context, CameraViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
+        compatActivity = context;
         inflate(context, R.layout.fragment_camera,this);
         ButterKnife.bind(this,this);
-
-        context.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         if (MarshMallowPermission.checkMashMallowPermissions(context, new String[]{CAMERA}, PERMISSION_REQUEST_CODE)) {
 
@@ -109,11 +109,13 @@ public class CameraView extends FrameLayout {
         int id = view.getId();
         switch (id){
             case R.id.capturedImageBtn:
-                captureImageOnBtnClick(view);
-//                Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
+                //captureImageOnBtnClick(view);
+                compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
                 break;
             case R.id.chooseImageCategory:
                 Navigation.findNavController(view).navigate(CameraFragmentDirections.toChooseCategory());
+                compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 break;
         }
     }

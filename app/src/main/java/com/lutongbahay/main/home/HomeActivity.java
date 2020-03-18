@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -72,6 +73,15 @@ public class HomeActivity extends AppCompatActivity {
         context.startActivity(intent, bndlAnimation);
         ((AppCompatActivity) context).finish();
     }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+
 
 
     @Override

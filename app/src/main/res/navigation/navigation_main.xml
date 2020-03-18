@@ -50,11 +50,11 @@
         tools:layout="@layout/fragment_item_detail">
 
         <action android:id="@+id/toHomeFragment"
-            app:destination="@+id/HomeFragment" />
+            app:destination="@id/HomeFragment" />
 
         <action
             android:id="@+id/toDishReviewFragment"
-            app:destination="@+id/DishReviewFragment"/>
+            app:destination="@id/DishReviewFragment"/>
 
     </fragment>
 
@@ -80,7 +80,7 @@
 
         <action
             android:id="@+id/toHomeFragment"
-            app:destination="@+id/HomeFragment"/>
+            app:destination="@id/HomeFragment"/>
 
         <action android:id="@+id/toViewOrdersDetailsFragment"
             app:destination="@id/ViewOrdersDetailsFragment"/>
@@ -111,12 +111,14 @@
 
         <action
             android:id="@+id/toCompletedDetails"
-            app:destination="@+id/CompletedDetailsFragment"/>
+            app:destination="@id/CompletedDetailsFragment"/>
 
         <action
             android:id="@+id/openOrderProcess"
-            app:destination="@+id/ProcessOrderFragment"/>
-
+            app:destination="@id/ProcessOrderFragment"/>
+        <action
+            android:id="@+id/toProcessOrderFragment"
+            app:destination="@id/ProcessOrderFragment"/>
 
     </fragment>
 
@@ -127,19 +129,6 @@
         android:label="earn_rewards">
 
     </fragment>
-
-
-<!--    <fragment-->
-<!--        android:id="@+id/selectLocationFragment"-->
-<!--        android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"-->
-<!--        android:label="privacy_fragment"-->
-<!--        tools:layout="@layout/fragment_select_location">-->
-
-<!--        <action-->
-<!--            android:id="@+id/toS"/>-->
-
-<!--    </fragment>-->
-
 
     <fragment
         android:id="@+id/viewItemFragment"
@@ -178,6 +167,9 @@
         <action
             android:id="@+id/toDeliveryAddressFragment"
             app:destination="@id/DeliveryAddressFragment"/>
+        <action
+            android:id="@+id/toSelectLocation"
+            app:destination="@id/selectLocationFragment"/>
 
     </fragment>
 
@@ -189,10 +181,10 @@
 
         <action
             android:id="@+id/toOrderPlaced"
-            app:destination="@+id/OrderPlacedFragment"/>
+            app:destination="@id/OrderPlacedFragment"/>
         <action
             android:id="@+id/toConfirmOrder"
-            app:destination="@+id/ConfirmOrderFragment"/>
+            app:destination="@id/ConfirmOrderFragment"/>
 
     </fragment>
 
@@ -265,9 +257,9 @@
 
         <action
             android:id="@+id/toHomeFragment"
-            app:destination="@+id/HomeFragment"/>
+            app:destination="@id/HomeFragment"/>
         <action android:id="@+id/openItemDetailFragment"
-            app:destination="@+id/detailFragment"/>
+            app:destination="@id/detailFragment"/>
 
     </fragment>
 
@@ -293,10 +285,10 @@
 
         <action
             android:id="@+id/toCameraFragment"
-            app:destination="@+id/CameraFragment"/>
+            app:destination="@id/CameraFragment"/>
         <action
             android:id="@+id/toCompletedDetails"
-            app:destination="@+id/CompletedDetailsFragment"/>
+            app:destination="@id/CompletedDetailsFragment"/>
 
     </fragment>
 
@@ -308,10 +300,10 @@
 
         <action
             android:id="@+id/toChooseCategory"
-            app:destination="@+id/ChooseCategoryFragment"/>
+            app:destination="@id/ChooseCategoryFragment"/>
         <action
             android:id="@+id/toSuccessConfirmation"
-            app:destination="@+id/SuccessConfirmation"/>
+            app:destination="@id/SuccessConfirmation"/>
 
     </fragment>
 
@@ -347,10 +339,10 @@
 
         <action
             android:id="@+id/toFavouritesFragment"
-            app:destination="@+id/FavouritesFragment"/>
+            app:destination="@id/FavouritesFragment"/>
         <action
             android:id="@+id/toInboxFragment"
-            app:destination="@+id/InboxFragment"/>
+            app:destination="@id/InboxFragment"/>
 
     </fragment>
 
@@ -362,7 +354,7 @@
 
         <action
             android:id="@+id/toSettingsFragment"
-            app:destination="@+id/SettingFragment"/>
+            app:destination="@id/SettingFragment"/>
 
     </fragment>
 
@@ -374,7 +366,7 @@
 
         <action
             android:id="@+id/openMessageDetail"
-            app:destination="@+id/MessageLocationFragment"/>
+            app:destination="@id/MessageLocationFragment"/>
 
     </fragment>
 
@@ -401,7 +393,7 @@
 
         <action
             android:id="@+id/toSignUpFragment"
-            app:destination="@+id/SignUpFragment"/>
+            app:destination="@id/SignUpFragment"/>
         <action
             android:id="@+id/toProfileFragment"
             app:destination="@+id/ProfileFragment"/>
@@ -435,7 +427,7 @@
 
         <action
             android:id="@+id/toSignUpCompleteFragment"
-            app:destination="@+id/SignUpCompleteFragment"/>
+            app:destination="@id/SignUpCompleteFragment"/>
 
     </fragment>
 
@@ -463,7 +455,7 @@
 
         <action
             android:id="@+id/toHomeFragment"
-            app:destination="@+id/HomeFragment" />
+            app:destination="@id/HomeFragment" />
 
         <action android:id="@+id/toMyTrayFragment"
             app:popUpTo="@id/MyTrayFragment"/>
@@ -481,7 +473,7 @@
 
         <action
             android:id="@+id/toCompletedDetails"
-            app:destination="@+id/CompletedDetailsFragment"/>
+            app:destination="@id/CompletedDetailsFragment"/>
 
     </fragment>
 
@@ -491,7 +483,9 @@
         android:label="orders_view"
         tools:layout="@layout/fragment_orders">
 
-
+        <action
+            android:id="@+id/toProcessOrderFragment"
+            app:destination="@id/ProcessOrderFragment"/>
 
     </fragment>
 
@@ -504,6 +498,12 @@
         <action
             android:id="@+id/toOrdersFragment"
             app:destination="@id/OrdersFragment"/>
+        <action
+            android:id="@+id/OrderCompleteFragment"
+            app:destination="@id/OrderCompleteFragment"/>
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/profileFragment"/>
 
     </fragment>
 
@@ -515,10 +515,14 @@
 
         <action
             android:id="@+id/toOrdersFragment"
-            app:destination="@+id/OrdersFragment"/>
+            app:destination="@id/OrdersFragment"/>
         <action
             android:id="@+id/toOrderHistoryFragment"
-            app:destination="@+id/OrderHistoryFragment"/>
+            app:destination="@id/OrderHistoryFragment"/>
+
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/profileFragment"/>
 
     </fragment>
 
@@ -529,8 +533,11 @@
         android:label="@string/Order_History">
 
         <action
-            android:id="@+id/toOrdersFragment"
-            app:destination="@+id/OrdersFragment"/>
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/profileFragment"/>
+        <action
+            android:id="@+id/toProcessOrderFragment"
+            app:destination="@id/ProcessOrderFragment"/>
 
     </fragment>
 
@@ -542,10 +549,10 @@
 
         <action
             android:id="@+id/toAddPhoto"
-            app:destination="@+id/AddPhotoFragment"/>
+            app:destination="@id/AddPhotoFragment"/>
         <action
             android:id="@+id/toChooseCategory"
-            app:destination="@+id/ChooseCategoryFragment"/>
+            app:destination="@id/ChooseCategoryFragment"/>
 
     </fragment>
 
@@ -557,10 +564,10 @@
 
         <action
             android:id="@+id/toMyOrdersFragment"
-            app:destination="@+id/MyOrderFragment"/>
+            app:destination="@id/MyOrderFragment"/>
         <action
             android:id="@+id/toSelectLocation"
-            app:destination="@+id/selectLocationFragment"/>
+            app:destination="@id/selectLocationFragment"/>
 
         <argument
             android:name="title"

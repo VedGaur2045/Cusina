@@ -16,6 +16,7 @@ import com.lutongbahay.main.fragments.orders.mvvm.OrdersViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class OrderCompleteView extends FrameLayout {
     private final OrderCompleteViewModel viewModel;
@@ -33,18 +34,17 @@ public class OrderCompleteView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
+    @OnClick({R.id.back,R.id.backToOrdersBtn,R.id.SeeOrderHistoryBtn})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
+            case R.id.back:
             case R.id.backToOrdersBtn:
-                Navigation.findNavController(view).navigate(OrderCompleteFragmentDirections.toOrdersFragment());
+                Navigation.findNavController(view).navigate(OrderCompleteFragmentDirections.toProfileFragment());
                 break;
             case R.id.SeeOrderHistoryBtn:
                 Navigation.findNavController(view).navigate(OrderCompleteFragmentDirections.toOrderHistoryFragment());
                 break;
-            case R.id.back:
-                break;
         }
     }
-
 }

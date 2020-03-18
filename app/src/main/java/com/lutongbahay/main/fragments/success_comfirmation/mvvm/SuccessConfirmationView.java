@@ -42,7 +42,7 @@ public class SuccessConfirmationView extends FrameLayout {
                 Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.backToHomeBtn :
-                HomeActivity.openHomeActivity(getContext());
+                Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toHomeFragment());
                 break;
             case R.id.addanotherluto:
                 Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toAddPhoto());

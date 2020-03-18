@@ -34,7 +34,7 @@ public class DishReviewRecyclerAdapter extends RecyclerView.Adapter<DishReviewRe
         return 10;
     }
 
-    static class DishReviewViewHolder extends RecyclerView.ViewHolder{
+    class DishReviewViewHolder extends RecyclerView.ViewHolder{
 
         @BindView(R.id.reviewedUserName)
         TextView reviewedUserName;
@@ -45,7 +45,7 @@ public class DishReviewRecyclerAdapter extends RecyclerView.Adapter<DishReviewRe
         @BindView(R.id.reviewMessage)
         TextView reviewMessage;
 
-        DishReviewViewHolder(@NonNull View itemView) {
+        public DishReviewViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
         }

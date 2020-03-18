@@ -44,6 +44,7 @@
         android:weightSum="1">
 
         <RelativeLayout
+            android:id="@+id/fromLayout"
             android:layout_weight="0.5"
             android:layout_width="0dp"
             android:layout_height="@dimen/_65sdp"
@@ -88,6 +89,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/toLayout"
             android:layout_weight="0.5"
             android:layout_width="0dp"
             android:layout_height="@dimen/_65sdp"
@@ -170,7 +172,8 @@
                 android:id="@+id/completedOrdersList"
                 android:layout_below="@+id/completedOrdersTxt"
                 android:scrollbarThumbVertical="@android:color/transparent"
-                android:nestedScrollingEnabled="false"/>
+                tools:listitem="@layout/adapter_order_history_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <TextView
                 android:id="@+id/CancelledBySellerTxt"
@@ -192,7 +195,8 @@
                 android:id="@+id/CancelledBySellerList"
                 android:layout_below="@+id/CancelledBySellerTxt"
                 android:scrollbarThumbVertical="@android:color/transparent"
-                android:nestedScrollingEnabled="false"/>
+                tools:listitem="@layout/adapter_order_history_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <TextView
                 android:id="@+id/CancelledByCustomerTxt"
@@ -214,7 +218,8 @@
                 android:id="@+id/CancelledByCustomerList"
                 android:layout_below="@+id/CancelledByCustomerTxt"
                 android:scrollbarThumbVertical="@android:color/transparent"
-                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/adapter_order_history_item"
                 android:layout_marginBottom="@dimen/_20sdp"/>
 
         </RelativeLayout>

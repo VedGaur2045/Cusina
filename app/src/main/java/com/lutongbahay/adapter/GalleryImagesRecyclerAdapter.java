@@ -41,8 +41,7 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.adapter_add_photo, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_add_photo, parent, false);
         return new GalleryViewHolder(itemView);
     }
 

@@ -183,7 +183,7 @@
                 android:layout_marginLeft="@dimen/_23sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:text="@string/usermobile"
-                android:textColor="@color/gunmetal"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_9sdp"
                 tools:ignore="MissingPrefix" />
 
@@ -196,7 +196,7 @@
                 android:layout_marginLeft="@dimen/_23sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:text="@string/samplemobile"
-                android:textColor="@color/gunmetal"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_10sdp"
                 tools:ignore="MissingPrefix" />
 
@@ -208,7 +208,7 @@
                 android:layout_marginLeft="@dimen/_23sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:text="@string/useremail_placeholder"
-                android:textColor="@color/gunmetal"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_9sdp"
                 tools:ignore="MissingPrefix" />
 
@@ -221,7 +221,7 @@
                 android:layout_marginLeft="@dimen/_23sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:text="@string/sampleemail"
-                android:textColor="@color/gunmetal"
+                android:textColor="@color/_000000"
                 android:textSize="@dimen/_10sdp"
                 tools:ignore="MissingPrefix" />
 
@@ -408,7 +408,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:id="@+id/server_info_view"
@@ -494,7 +495,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/usermobile"
-                        android:textColor="@color/gunmetal"
+                        android:textColor="@color/_000000"
                         android:textSize="@dimen/_9sdp"
                         tools:ignore="MissingPrefix" />
 
@@ -506,7 +507,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
                         android:text="@string/samplemobile"
-                        android:textColor="@color/gunmetal"
+                        android:textColor="@color/_000000"
                         android:textSize="@dimen/_10sdp"
                         tools:ignore="MissingPrefix" />
 
@@ -517,7 +518,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/useremail_placeholder"
-                        android:textColor="@color/gunmetal"
+                        android:textColor="@color/_000000"
                         android:textSize="@dimen/_9sdp"
                         tools:ignore="MissingPrefix" />
 
@@ -529,7 +530,7 @@
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:text="@string/sampleemail"
-                        android:textColor="@color/gunmetal"
+                        android:textColor="@color/_000000"
                         android:textSize="@dimen/_10sdp"
                         tools:ignore="MissingPrefix" />
 
@@ -541,7 +542,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/KitchenLocation"
-                        android:textColor="@color/gunmetal"
+                        android:textColor="@color/_000000"
                         android:textSize="@dimen/_9sdp"
                         tools:ignore="MissingPrefix" />
 
@@ -553,7 +554,7 @@
                         android:layout_marginTop="@dimen/_2sdp"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:text="2 2nd Street, LA"
-                        android:textColor="@color/gunmetal"
+                        android:textColor="@color/_000000"
                         android:textSize="@dimen/_10sdp"
                         tools:ignore="MissingPrefix" />
 

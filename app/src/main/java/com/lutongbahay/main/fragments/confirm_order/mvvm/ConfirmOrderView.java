@@ -74,6 +74,9 @@ public class ConfirmOrderView extends FrameLayout {
             case R.id.closeImgBtn:
                 Navigation.findNavController(v).navigate(ConfirmOrderFragmentDirections.toDeliveryAddressFragment());
                 break;
+            case R.id.changeAddressPencilBtn:
+                Navigation.findNavController(v).navigate(ConfirmOrderFragmentDirections.toSelectLocation());
+                break;
         }
     }
 

@@ -7,12 +7,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.lutongbahay.main.fragments.camera.mvvm.CameraView;
 import com.lutongbahay.main.fragments.camera.mvvm.CameraViewModel;
@@ -51,8 +53,9 @@ public class CameraFragment extends Fragment {
     public void onResume() {
         super.onResume();
         view.cameraOpen();
-
     }
+
+
 
 
 }

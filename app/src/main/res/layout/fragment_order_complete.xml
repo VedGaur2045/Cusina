@@ -15,16 +15,18 @@
             android:background="@color/transparent"
             android:layout_height="@dimen/_18sdp"
             android:src="@mipmap/back"
-            android:onClick="backToHomeBtnClick"
             android:layout_marginTop="@dimen/_14sdp"
             android:layout_marginLeft="@dimen/_14sdp"/>
 
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/_45sdp">
 
             <TextView
-                android:layout_centerHorizontal="true"
                 android:textAlignment="center"
-                android:layout_above="@+id/sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -36,12 +38,10 @@
 
             <TextView
                 android:id="@+id/sub_title"
-                android:layout_above="@+id/img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_12ssp"
                 android:textAlignment="center"
-                android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/_10sdp"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
@@ -56,7 +56,6 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/vegitables"
                 android:layout_gravity="center"
-                android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/_25sdp"/>
             <Button
                 android:id="@+id/backToOrdersBtn"
@@ -67,9 +66,8 @@
                 android:background="@drawable/commonbuttonbg"
                 android:textSize="@dimen/_14ssp"
                 android:textAllCaps="false"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_below="@+id/img"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 tools:ignore="MissingPrefix"
                 android:fontFamily="@font/sourcesanspro_semibold"
@@ -82,14 +80,15 @@
                 android:text="@string/SeeOrderHistory"
                 android:background="@drawable/redbuttonbg"
                 android:textSize="@dimen/_14ssp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_below="@+id/backToOrdersBtn"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:textAllCaps="false"
                 android:layout_marginTop="@dimen/_20sdp"
                 tools:ignore="MissingPrefix"
                 android:fontFamily="@font/sourcesanspro_semibold"
                 android:textColor="@color/white"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
