@@ -129,7 +129,12 @@ public class CameraView extends FrameLayout {
             mCamera = Camera.open();
             mCamera.setDisplayOrientation(90);
             mPicture = getPictureCallback();
-            mPreview.refreshCamera(mCamera);
+            try {
+                mPreview.refreshCamera(mCamera);
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
             Log.d("nu", "null");
         }else {
             Log.d("nu","no null");

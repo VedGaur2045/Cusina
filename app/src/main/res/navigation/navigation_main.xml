@@ -89,6 +89,14 @@
     </fragment>
 
     <fragment
+        android:id="@+id/selectLocationFragment"
+        android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"
+        android:label="privacy_fragment"
+        tools:layout="@layout/fragment_select_location">
+
+    </fragment>
+
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.lutongbahay.main.fragments.profile_frag.ProfileFragment"
         android:label="profile_frag"
@@ -106,6 +114,7 @@
         <action
             android:id="@+id/SellFood"
             app:destination="@id/SellWithLutongBehay"/>
+
         <action android:id="@+id/toAddPhoto"
             app:destination="@id/AddPhotoFragment"/>
 
@@ -396,7 +405,7 @@
             app:destination="@id/SignUpFragment"/>
         <action
             android:id="@+id/toProfileFragment"
-            app:destination="@+id/ProfileFragment"/>
+            app:destination="@id/profileFragment"/>
 
     </fragment>
 
@@ -439,7 +448,7 @@
 
         <action
             android:id="@+id/toProfileFragment"
-            app:destination="@id/ProfileFragment"/>
+            app:destination="@id/profileFragment"/>
 
         <action
             android:id="@+id/toSignUpFragment"

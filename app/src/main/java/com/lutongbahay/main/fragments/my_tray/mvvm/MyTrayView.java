@@ -84,7 +84,7 @@ public class MyTrayView extends FrameLayout {
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigateUp();
+            Navigation.findNavController(view).navigate(MyTrayFragmentDirections.toHomeFragment());
         } else if(id == R.id.placeOrder){
             placeOrderBtnOnClick(view);
         }

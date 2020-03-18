@@ -107,7 +107,7 @@ public class ProfileFragView extends FrameLayout {
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.SellFood());
                 break;
             case R.id.savedplace:
-                Navigation.findNavController(view).navigate(ProfileFragmentDirections.FbConnect());
+                Navigation.findNavController(view).navigate(ProfileFragmentDirections.savedPlaced());
                 break;
             case R.id.AddNewLuto:
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.toAddPhoto());
