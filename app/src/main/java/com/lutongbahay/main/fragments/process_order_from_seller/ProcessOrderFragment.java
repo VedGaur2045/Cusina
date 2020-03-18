@@ -1,6 +1,8 @@
 package com.lutongbahay.main.fragments.process_order_from_seller;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.process_order_from_seller.mvvm.ProcessOrderView;
 import com.lutongbahay.main.fragments.process_order_from_seller.mvvm.ProcessOrderViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 
 public class ProcessOrderFragment extends Fragment {
     private ProcessOrderView view;
@@ -29,6 +32,9 @@ public class ProcessOrderFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

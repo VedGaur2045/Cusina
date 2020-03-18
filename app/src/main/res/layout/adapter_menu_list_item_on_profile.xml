@@ -29,8 +29,8 @@
                 <ImageView
                     android:id="@+id/productImg"
                     android:layout_width="@dimen/_130sdp"
-                    android:layout_height="@dimen/_100sdp"
-                    android:scaleType="center"
+                    android:layout_height="@dimen/_110sdp"
+                    android:scaleType="fitXY"
                     android:src="@mipmap/item_name" />
 
             </com.github.florent37.shapeofview.shapes.RoundRectView>

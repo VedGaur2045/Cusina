@@ -333,7 +333,8 @@
                         android:textColor="@color/_000000"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold"
-                        android:fontFamily="@font/sourcesanspro_bold" tools:ignore="MissingPrefix"
+                        android:fontFamily="@font/sourcesanspro_bold"
+                        tools:ignore="MissingPrefix"
                         android:text="@string/_ServerInformation"/>
 
                     <TextView
@@ -498,6 +499,95 @@
                     </RelativeLayout>
 
                 </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/_FFFFFF"
+                android:padding="@dimen/_15sdp">
+
+                <TextView
+                    android:id="@+id/orderDateTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/_000000"
+                    android:fontFamily="@font/sourcesanspro_bold"
+                    tools:ignore="MissingPrefix"
+                    android:text="@string/chooseYourAdvancedOrderDate"/>
+
+                <TextView
+                    android:id="@+id/availableOrderDatesTxt"
+                    android:layout_below="@+id/orderDateTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:textColor="@color/_80000000"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    tools:ignore="MissingPrefix"
+                    android:text="@string/availableOrderDates"/>
+
+                <RelativeLayout
+                    android:id="@+id/recyclerLayout"
+                    android:layout_below="@+id/availableOrderDatesTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    
+                    <ImageButton
+                        android:id="@+id/previousBtn"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:src="@mipmap/back"
+                        android:background="@color/transparent"
+                        android:layout_centerVertical="true"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dateListItem"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
+                        android:nestedScrollingEnabled="false"
+                        android:scrollbarThumbVertical="@android:color/transparent"/>
+
+                    <ImageButton
+                        android:id="@+id/nextBtn"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:src="@mipmap/next"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/transparent"
+                        android:layout_centerVertical="true"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/availablePickupTimesTxt"
+                    android:layout_below="@+id/recyclerLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:textColor="@color/_80000000"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    tools:ignore="MissingPrefix"
+                    android:text="@string/availableOrderDates"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@+id/availablePickupTimesTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timeListItem"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginEnd="@dimen/_18sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbarThumbVertical="@android:color/transparent"/>
 
             </RelativeLayout>
 

@@ -1,6 +1,8 @@
 package com.lutongbahay.main.fragments.delivery_address_confirmation;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.lutongbahay.main.fragments.delivery_address_confirmation.mvvm.DeliveryAddressView;
 import com.lutongbahay.main.fragments.delivery_address_confirmation.mvvm.DeliveryAddressViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 
 
 /**
@@ -36,6 +39,9 @@ public class DeliveryAddressConfirmationFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

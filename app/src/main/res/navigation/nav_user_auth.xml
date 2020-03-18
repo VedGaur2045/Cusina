@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_user_auth"
-    app:startDestination="@id/policyFragment">
+    app:startDestination="@id/otpBasedFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -27,6 +27,21 @@
         <action
             android:id="@+id/toLocationFragment"
             app:destination="@id/selectLocationFragment" />
+        <action
+            android:id="@+id/toOtpFragment"
+            app:destination="@id/otpBasedFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpBasedFragment"
+        android:name="com.lutongbahay.main.fragments.Otp_Frag.OtpBasedFragment"
+        android:label="otp_based"
+        tools:layout="@layout/fragment_otp_based">
+
+        <action
+            android:id="@+id/toPrivacyFragment"
+            app:destination="@id/policyFragment" />
 
     </fragment>
 

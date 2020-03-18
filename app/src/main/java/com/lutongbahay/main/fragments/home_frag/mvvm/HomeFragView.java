@@ -2,6 +2,8 @@ package com.lutongbahay.main.fragments.home_frag.mvvm;
 
 import android.content.Context;
 import android.location.Address;
+import android.location.Geocoder;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -12,21 +14,39 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.tasks.Task;
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.MainHomeFoodMenuAdapter;
 import com.lutongbahay.app.CusinaApplication;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
+import com.lutongbahay.helper.LocationTrackingHelper;
+import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
+import com.lutongbahay.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * Created by Ved Gaur on 2020-03-03.
@@ -51,16 +71,32 @@ public class HomeFragView extends FrameLayout {
     @BindView(R.id.filterImgBtn)
     ImageView filterImgBtn;
 
+    private Geocoder geocoder;
+    private List<Address> addressList = new ArrayList<>();
+    public static final int PERMISSION_REQUEST_CODE = 902;
+    Context context;
+    private static boolean check = false;
+
+
     public HomeFragView(@NonNull Context context, HomeFragViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
+        this.context = context;
         inflate(context, R.layout.fragment_home, this);
         ButterKnife.bind(this, this);
+
 
         MainHomeFoodMenuAdapter mainHomeFoodMenuAdapter = new MainHomeFoodMenuAdapter(getContext());
         foodMenuRv.setAdapter(mainHomeFoodMenuAdapter);
 
         trayHome.setOnClickListener(v -> Navigation.findNavController(v).navigate(HomeFragmentDirections.openCartFragment()));
+
+        locationTxt.setText("Current Location" );
+        geocoder = new Geocoder(context, Locale.getDefault());
+
+        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+           // fetchLocation();
+        }
 
         List<Address> addressList = new ArrayList<>();
         addressList = Collections.singletonList(CusinaApplication.getPreferenceManger().getLastSavedLocation());
@@ -75,4 +111,65 @@ public class HomeFragView extends FrameLayout {
 
 
     }
+
+    public void checkAccess() {
+        LocationSettingsRequest locationSettingsRequest =
+                new LocationSettingsRequest.Builder()
+                        .addLocationRequest(new LocationRequest())
+                        .setAlwaysShow(true).build();
+
+        Task<LocationSettingsResponse> responseTask =
+                LocationServices.getSettingsClient(context)
+                        .checkLocationSettings(locationSettingsRequest);
+
+        responseTask.addOnSuccessListener(locationSettingsResponse -> {
+            Logger.DebugLog(TAG, "Location is ON");
+
+            if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context,
+                    new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE)) {
+                //get current location
+
+                fetchLocation();
+
+            }
+        });
+
+        responseTask.addOnFailureListener(exception -> {
+            ProgressDialogFragment.dismissProgressDialog(context);
+            if (exception instanceof ResolvableApiException) {
+                try {
+                    ((ResolvableApiException) exception).startResolutionForResult((AppCompatActivity) context, PERMISSION_REQUEST_CODE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void fetchLocation() {
+
+        LocationTrackingHelper.requestSingleUpdate(context,
+                location -> {
+                    Log.d("Location", "my location is " + location.latitude);
+                    try {
+                        addressList = geocoder.getFromLocation(location.latitude, location.longitude, 1);
+                    } catch (Exception ignored) {
+                        Logger.DebugLog("REVERSE GEO CODING EXCEPTION ",ignored.getLocalizedMessage());
+                    }
+
+                    if (addressList != null && !addressList.isEmpty()) {
+                        String addressLine = addressList.get(0).getAddressLine(0);
+                        locationTxt.setText("Current Location \n" + addressLine);
+                        System.out.println("hajsg ? "+addressList.get(0));
+                        check = true;
+                        CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+                    }else {
+                        check = false;
+                        locationTxt.setText("");
+                    }
+                });
+
+    }
+
+
 }

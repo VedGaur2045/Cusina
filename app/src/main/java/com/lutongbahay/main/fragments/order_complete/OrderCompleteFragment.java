@@ -1,6 +1,8 @@
 package com.lutongbahay.main.fragments.order_complete;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.order_complete.mvvm.OrderCompleteView;
 import com.lutongbahay.main.fragments.order_complete.mvvm.OrderCompleteViewModel;
 import com.lutongbahay.main.fragments.orders.mvvm.OrdersView;
+import com.lutongbahay.utils.StatusBarUtils;
 
 public class OrderCompleteFragment extends Fragment {
 
@@ -31,6 +34,9 @@ public class OrderCompleteFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

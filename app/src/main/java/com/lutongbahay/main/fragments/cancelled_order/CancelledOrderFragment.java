@@ -1,6 +1,8 @@
 package com.lutongbahay.main.fragments.cancelled_order;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.lutongbahay.main.fragments.cancelled_order.mvvm.CancelledOrderView;
 import com.lutongbahay.main.fragments.cancelled_order.mvvm.CancelledOrderViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 
 public class CancelledOrderFragment extends Fragment {
 
@@ -29,6 +32,9 @@ public class CancelledOrderFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

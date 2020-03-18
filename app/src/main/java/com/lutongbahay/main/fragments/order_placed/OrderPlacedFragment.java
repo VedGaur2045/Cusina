@@ -1,6 +1,8 @@
 package com.lutongbahay.main.fragments.order_placed;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.lutongbahay.main.fragments.order_placed.mvvm.OrderPlacedView;
 import com.lutongbahay.main.fragments.order_placed.mvvm.OrderPlacedViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 
 /**
  * Created by Ved Gaur on 2020-03-03.
@@ -34,6 +37,9 @@ public class OrderPlacedFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

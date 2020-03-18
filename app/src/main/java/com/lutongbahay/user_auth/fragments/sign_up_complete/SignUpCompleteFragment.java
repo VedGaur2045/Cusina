@@ -1,6 +1,8 @@
 package com.lutongbahay.user_auth.fragments.sign_up_complete;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import com.lutongbahay.R;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.mvvm.SignUpCompleteView;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.mvvm.SignUpCompleteViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 
 public class SignUpCompleteFragment extends Fragment {
 
@@ -30,6 +33,9 @@ public class SignUpCompleteFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

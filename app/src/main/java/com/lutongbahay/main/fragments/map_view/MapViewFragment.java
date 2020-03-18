@@ -1,7 +1,9 @@
 package com.lutongbahay.main.fragments.map_view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
 import com.lutongbahay.main.fragments.map_view.mvvm.MapView;
 import com.lutongbahay.main.fragments.map_view.mvvm.MapViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
 import butterknife.ButterKnife;
@@ -36,6 +39,9 @@ public class MapViewFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.redStatusBar((Activity) context);
+        }
     }
 
     @Override

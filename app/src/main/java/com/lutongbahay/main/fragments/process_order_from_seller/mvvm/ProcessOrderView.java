@@ -70,12 +70,14 @@ public class ProcessOrderView extends FrameLayout {
     @BindView(R.id.colonTXTSecond)
     TextView colonTXTSecond;
 
+    static int checkThis;
+
     public ProcessOrderView(@NonNull Context context, ProcessOrderViewModel viewModel,int check) {
         super(context);
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_process_order,this);
         ButterKnife.bind(this,this);
-
+        checkThis = check;
         try {
             System.out.println(check);
             if(check == 0){
@@ -98,7 +100,8 @@ public class ProcessOrderView extends FrameLayout {
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigate(ProcessOrderFragmentDirections.toProfileFragment());
+            //Navigation.findNavController(view).navigate(ProcessOrderFragmentDirections.toProfileFragment());
+            Navigation.findNavController(view).navigateUp();
         } else if(id == R.id.ConfirmOrderBtn){
             colorChange(line_1,ellipse_2);
             ORDER_TIME_TXT.setText(R.string.Preparing);

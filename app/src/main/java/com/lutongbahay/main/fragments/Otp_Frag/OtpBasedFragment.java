@@ -1,8 +1,6 @@
-package com.lutongbahay.main.fragments.dish_reviews;
+package com.lutongbahay.main.fragments.Otp_Frag;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,15 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lutongbahay.R;
-import com.lutongbahay.main.fragments.dish_reviews.mvvm.DishReviewView;
-import com.lutongbahay.main.fragments.dish_reviews.mvvm.DishReviewViewModel;
-import com.lutongbahay.utils.StatusBarUtils;
+import com.lutongbahay.main.fragments.Otp_Frag.mvvm.OtpBasedView;
+import com.lutongbahay.main.fragments.Otp_Frag.mvvm.OtpBasedViewModel;
 
+public class OtpBasedFragment extends Fragment {
 
-public class DishReviewFragment extends Fragment {
-
-    private DishReviewView view;
-    private DishReviewViewModel viewModel;
+    private OtpBasedView view;
+    private OtpBasedViewModel viewModel;
     private Context context;
 
     @Override
@@ -34,15 +30,12 @@ public class DishReviewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(DishReviewViewModel.class);
-        view = new DishReviewView(context,viewModel);
+        viewModel = new ViewModelProvider(this).get(OtpBasedViewModel.class);
+        view = new OtpBasedView(context,viewModel);
         return view;
     }
 }

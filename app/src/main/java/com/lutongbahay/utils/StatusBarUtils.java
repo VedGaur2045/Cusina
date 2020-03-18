@@ -27,7 +27,6 @@ public class StatusBarUtils {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(Color.parseColor(color));
         }
-
     }
 
     public static void setLightStatusBar(Activity activity, String color){
@@ -49,7 +48,7 @@ public class StatusBarUtils {
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //window.setStatusBarTextColor(context.getResources().getColor(R.color.white));
+//            window.setStatusBarTextColor(context.getResources().getColor(R.color.white));
             window.setStatusBarColor(Color.parseColor("#A00000"));
         }
     }

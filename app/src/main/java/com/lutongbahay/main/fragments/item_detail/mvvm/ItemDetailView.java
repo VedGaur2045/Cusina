@@ -1,8 +1,10 @@
 package com.lutongbahay.main.fragments.item_detail.mvvm;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -10,8 +12,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.DateOfOrderRecyclerAdapter;
+import com.lutongbahay.adapter.TimeOfPickupOrderRecyclerAdapter;
 import com.lutongbahay.dialogs.AppAction;
 import com.lutongbahay.main.fragments.item_detail.ItemDetailFragmentDirections;
 
@@ -71,6 +77,14 @@ public class ItemDetailView extends FrameLayout {
     TextView quantityProduct;
     @BindView(R.id.addToTrayBtn)
     Button addToTrayBtn;
+    @BindView(R.id.previousBtn)
+    ImageButton previousBtn;
+    @BindView(R.id.nextBtn)
+    ImageButton nextBtn;
+    @BindView(R.id.dateListItem)
+    RecyclerView dateListItem;
+    @BindView(R.id.timeListItem)
+    RecyclerView timeListItem;
 
     private static int COUNT = 1;
 
@@ -79,6 +93,19 @@ public class ItemDetailView extends FrameLayout {
         this.viewModel = viewModel;
         inflate(context,R.layout.fragment_item_detail,this);
         ButterKnife.bind(this,this);
+
+        LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager((Context) context, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager horizontalLayoutManagerDef= new LinearLayoutManager((Context) context, LinearLayoutManager.HORIZONTAL, false);
+
+        dateListItem.setLayoutManager(horizontalLayoutManager);
+        timeListItem.setLayoutManager(horizontalLayoutManagerDef);
+
+        DateOfOrderRecyclerAdapter dateOfOrderRecyclerAdapter = new DateOfOrderRecyclerAdapter();
+        TimeOfPickupOrderRecyclerAdapter timeOfPickupOrderRecyclerAdapter = new TimeOfPickupOrderRecyclerAdapter();
+
+        dateListItem.setAdapter(dateOfOrderRecyclerAdapter);
+        timeListItem.setAdapter(timeOfPickupOrderRecyclerAdapter);
+
     }
 
     @OnClick({R.id.addToTrayBtn,R.id.backBtnImg,R.id.ratingImg,R.id.minusBtn,R.id.plusBtn})

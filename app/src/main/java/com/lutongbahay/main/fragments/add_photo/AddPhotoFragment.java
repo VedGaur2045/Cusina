@@ -1,7 +1,9 @@
 package com.lutongbahay.main.fragments.add_photo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
 import static com.lutongbahay.user_auth.fragments.select_location.mvvm.SelectLocationFragmentView.PERMISSION_REQUEST_CODE;
@@ -35,6 +38,9 @@ public class AddPhotoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.redStatusBar((Activity) context);
+        }
     }
 
     @Override

@@ -62,10 +62,12 @@ public class MyTrayView extends FrameLayout {
     TextView totalAmount;
     @BindView(R.id.placeOrder)
     TextView placeOrder;
+    private Context context;
 
     public MyTrayView(@NonNull Context context, MyTrayViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
+        this.context = context;
         inflate(context, R.layout.fragment_my_tray,this);
         ButterKnife.bind(this,this);
 
@@ -99,6 +101,10 @@ public class MyTrayView extends FrameLayout {
         changeAddress.setVisibility(View.VISIBLE);
         changeAddressPencilBtn.setVisibility(View.VISIBLE);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#99000000");
+        }
+
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
         final View popUpView = inflater.inflate(R.layout.custom_popup_hungry,null);
 
@@ -118,6 +124,7 @@ public class MyTrayView extends FrameLayout {
         addMoreDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 changeAddressPencilBtn.setVisibility(GONE);
                 myLocation.setVisibility(GONE);
                 changeAddress.setVisibility(GONE);
@@ -130,6 +137,9 @@ public class MyTrayView extends FrameLayout {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+                }
                 changeAddressPencilBtn.setVisibility(GONE);
                 myLocation.setVisibility(GONE);
                 changeAddress.setVisibility(GONE);

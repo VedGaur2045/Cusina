@@ -32,7 +32,6 @@
         <item name="colorControlActivated">@color/black</item>
     </style>
 
-
     <style name="custom_tab_text_font" parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="android:fontFamily">@font/sourcesanspro_bold</item>
     </style>

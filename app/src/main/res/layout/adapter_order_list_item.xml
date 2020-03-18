@@ -52,7 +52,6 @@
                 android:textStyle="normal"
                 android:gravity="center"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/minus"
                 android:layout_toEndOf="@+id/minus"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp" />
@@ -184,9 +183,8 @@
         android:orientation="horizontal"
         android:layout_below="@+id/view"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp">
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -218,9 +216,8 @@
         android:orientation="horizontal"
         android:layout_below="@+id/subtotalLayout"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp">
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp">
 
         <TextView
             android:layout_width="wrap_content"

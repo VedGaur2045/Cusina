@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -27,6 +28,7 @@ import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
+import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
 import java.util.List;
@@ -81,9 +83,6 @@ public class HomeActivity extends AppCompatActivity {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-
-
-
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
@@ -93,6 +92,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.redStatusBar(this);
+        }
         ButterKnife.bind(this);
 
 

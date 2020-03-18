@@ -43,7 +43,7 @@ public class PrivacyPolicyView extends FrameLayout {
         if (id == R.id.next) {
             Navigation.findNavController(v).navigate(PrivacyPolicyFragmentDirections.toLocationFragment());
         }else if (id == R.id.close){
-            SplashActivity.openSplashActivity(getContext());
+            Navigation.findNavController(v).navigate(PrivacyPolicyFragmentDirections.toOtpFragment());
         }
     }
 

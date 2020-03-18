@@ -439,4 +439,15 @@
     <string name="COMPLETE_ORDER">COMPLETE ORDER</string>
     <string name="Delivery">DELIVERY</string>
     <string name="TIME_TO_COMPLETE">TIME TO COMPLETE</string>
+    <string name="chooseYourAdvancedOrderDate">Choose your advanced order date</string>
+    <string name="availableOrderDates">Available order dates</string>
+    <string name="dayName">DayName</string>
+    <string name="monthName">April</string>
+    <string name="dateTxt">21</string>
+    <string name="startingTime">9:00 am</string>
+    <string name="endTime">10:00 am</string>
+    <string name="dashIcon">\u0020 - \u0020</string>
+    <string name="enterOTP">Enter OTP</string>
+    <string name="otpInformTxt">We\'ve sent a code to the mobile number 1234567890. Please enter the code in that message</string>
+    <string name="resendCode">Resend OTP</string>
 </resources>

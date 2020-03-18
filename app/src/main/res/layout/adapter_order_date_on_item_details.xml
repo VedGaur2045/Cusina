@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/bg_black_border_border_nine"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_7sdp"
+    android:layout_marginStart="@dimen/_7sdp"
+    android:layout_marginEnd="@dimen/_7sdp">
+
+    <TextView
+        android:id="@+id/dayNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dayName"
+        android:textColor="@color/_000000"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_below="@+id/dayNameTxt"
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dateTxt"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/_000000"
+        android:fontFamily="@font/sourcesanspro_bold"
+        android:textSize="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_below="@+id/dateTxt"
+        android:id="@+id/monthNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/monthName"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/_000000"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.lutongbahay.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.AppAction;
+
+import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,12 +35,10 @@ public class TrayOrderItemsAdapter extends RecyclerView.Adapter<TrayOrderItemsAd
 
     @Override
     public void onBindViewHolder(@NonNull TrayViewHolder holder, int position) {
-        holder.minus.setOnClickListener(view -> {
-            AppAction.minusCount(COUNT,holder.quantityProduct);
-        });
-        holder.plus.setOnClickListener(view -> {
-            AppAction.addCount(COUNT,holder.quantityProduct);
-        });
+
+        double productPriceOrdered = Double.parseDouble(holder.productPriceOrdered.getText().toString());
+        holder.minus.setOnClickListener(view -> AppAction.minusCountWithSetValue(COUNT,productPriceOrdered,holder.quantityProduct,holder.productPriceOrdered,holder.subTotal));
+        holder.plus.setOnClickListener(view -> AppAction.addCountWithSetValue(COUNT,productPriceOrdered,holder.quantityProduct,holder.productPriceOrdered,holder.subTotal));
     }
 
     @Override
@@ -71,4 +73,5 @@ public class TrayOrderItemsAdapter extends RecyclerView.Adapter<TrayOrderItemsAd
             ButterKnife.bind(this,itemView);
         }
     }
+
 }

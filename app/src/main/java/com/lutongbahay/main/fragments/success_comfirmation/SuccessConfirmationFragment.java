@@ -1,6 +1,8 @@
 package com.lutongbahay.main.fragments.success_comfirmation;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.success_comfirmation.mvvm.SuccessConfirmationView;
 import com.lutongbahay.main.fragments.success_comfirmation.mvvm.SuccessConfirmationViewModel;
+import com.lutongbahay.utils.StatusBarUtils;
 
 public class SuccessConfirmationFragment extends Fragment {
 
@@ -30,6 +33,9 @@ public class SuccessConfirmationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+        }
     }
 
     @Override

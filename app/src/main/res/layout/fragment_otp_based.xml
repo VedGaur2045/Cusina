@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageButton
+        android:id="@+id/closeImgBtn"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@mipmap/close"
+        android:background="@color/transparent"
+        android:layout_margin="@dimen/_15sdp"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/closeImgBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp">
+
+        <TextView
+            android:id="@+id/enterOtpTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enterOTP"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/_000000"/>
+
+        <TextView
+            android:id="@+id/otpInformTxt"
+            android:layout_below="@+id/enterOtpTxt"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/otpInformTxt"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/_000000"/>
+
+        <com.chaos.view.PinView
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_below="@+id/otpInformTxt"
+            android:id="@+id/otp_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/_FF8500"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorColor="@color/_FF8500"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="false"
+            app:itemCount="4"
+            app:itemHeight="48dp"
+            app:itemRadius="9dp"
+            app:itemSpacing="10dp"
+            app:itemWidth="48dp"
+            app:lineColor="@color/_000000"
+            app:lineWidth="1dp"
+            app:viewType="rectangle" />
+
+        <TextView
+            android:id="@+id/resendOTP"
+            android:layout_below="@+id/otp_view"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resendCode"
+            android:fontFamily="@font/sourcesanspro_semibold"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:textColor="@color/_FF8500"/>
+
+        <Button
+            android:id="@+id/nextBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/commonbuttonbg"
+            android:fontFamily="@font/sourcesanspro_semibold"
+            tools:ignore="MissingPrefix"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
