@@ -6,9 +6,11 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoViewModel;
+import com.lutongbahay.main.fragments.my_tray.MyTrayFragmentDirections;
 import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
@@ -41,6 +44,16 @@ public class AddPhotoFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             StatusBarUtils.redStatusBar((Activity) context);
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).navigate(AddPhotoFragmentDirections.toProfileFragment());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    StatusBarUtils.redStatusBar((Activity) context);
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

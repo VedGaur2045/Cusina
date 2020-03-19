@@ -8,9 +8,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.ConfirmOrderRecyclerAdapter;
 import com.lutongbahay.main.fragments.confirm_order.ConfirmOrderFragment;
@@ -25,7 +32,7 @@ import butterknife.OnClick;
  * Copyright © 2020 Ved Gaur. All rights reserved.
  */
 
-public class ConfirmOrderView extends FrameLayout {
+public class ConfirmOrderView extends FrameLayout implements OnMapReadyCallback {
     private final ConfirmOrderViewModel viewModel;
     @BindView(R.id.titleName)
     TextView titleName;
@@ -52,6 +59,9 @@ public class ConfirmOrderView extends FrameLayout {
     @BindView(R.id.buyNow)
     Button buyNow;
 
+    GoogleMap googleMap;
+    public SupportMapFragment mapFragment;
+
     public ConfirmOrderView(@NonNull Context context, ConfirmOrderViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
@@ -59,6 +69,9 @@ public class ConfirmOrderView extends FrameLayout {
         ButterKnife.bind(this,this);
 
         titleName.setText(R.string.confirmOrder);
+
+        mapFragment =  ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.mapImage));
+        mapFragment.getMapAsync(this);
 
         ConfirmOrderRecyclerAdapter confirmOrderRecyclerAdapter = new ConfirmOrderRecyclerAdapter();
         order_list_item_vertical.setAdapter(confirmOrderRecyclerAdapter);
@@ -78,6 +91,19 @@ public class ConfirmOrderView extends FrameLayout {
                 Navigation.findNavController(v).navigate(ConfirmOrderFragmentDirections.toSelectLocation());
                 break;
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+        googleMap.setMyLocationEnabled(false);
+        ZoomOnCurrentLocation();
+    }
+
+    private void ZoomOnCurrentLocation(){
+        LatLng coordinate = new LatLng(26.264377, 72.9919383);
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 15);
+        googleMap.animateCamera(yourLocation);
     }
 
 }

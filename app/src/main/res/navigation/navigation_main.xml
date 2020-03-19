@@ -38,6 +38,9 @@
         <action
             android:id="@+id/toDishReviewFragment"
             app:destination="@id/DishReviewFragment" />
+        <action
+            android:id="@+id/toFavouritesFragment"
+            app:destination="@id/FavouritesFragment"/>
 
 
     </fragment>
@@ -69,6 +72,9 @@
             android:id="@+id/openItemDetailFragment"
             app:destination="@id/detailFragment"
             app:popUpTo="@+id/HomeFragment"/>
+        <action
+            android:id="@+id/HomeFragment"
+            app:destination="@id/HomeFragment"/>
 
     </fragment>
 
@@ -128,6 +134,9 @@
         <action
             android:id="@+id/toProcessOrderFragment"
             app:destination="@id/ProcessOrderFragment"/>
+        <action
+            android:id="@+id/toHomeFragment"
+            app:destination="@id/HomeFragment"/>
 
     </fragment>
 
@@ -136,6 +145,10 @@
         android:name="com.lutongbahay.main.fragments.earn_rewards.EarnRewardsFragment"
         tools:layout="@layout/fragment_earn_rewards"
         android:label="earn_rewards">
+
+        <action
+            android:id="@+id/HomeFragment"
+            app:destination="@id/HomeFragment"/>
 
     </fragment>
 
@@ -352,6 +365,9 @@
         <action
             android:id="@+id/toInboxFragment"
             app:destination="@id/InboxFragment"/>
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/profileFragment"/>
 
     </fragment>
 
@@ -376,6 +392,9 @@
         <action
             android:id="@+id/openMessageDetail"
             app:destination="@id/MessageLocationFragment"/>
+        <action
+            android:id="@+id/openSettings"
+            app:destination="@id/SettingFragment"/>
 
     </fragment>
 
@@ -391,6 +410,9 @@
         <action
             android:id="@+id/toMyOrdersFragment"
             app:destination="@id/MyOrderFragment"/>
+        <action
+            android:id="@+id/toProfileFragment"
+            app:destination="@id/profileFragment"/>
 
     </fragment>
 

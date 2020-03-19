@@ -29,7 +29,7 @@ public class ServerMenuRecyclerAdapter extends RecyclerView.Adapter<ServerMenuRe
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(holder.itemView).navigate(ProfileFragmentDirections.toCompletedDetails());
+                //Navigation.findNavController(holder.itemView).navigate(ProfileFragmentDirections.toCompletedDetails());
             }
         });
 

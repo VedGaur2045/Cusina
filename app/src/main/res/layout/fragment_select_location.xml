@@ -74,31 +74,23 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/searchaddress"
+            android:id="@+id/searchLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/borderless">
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/_FFFFFF">
 
-            <ImageView
-                android:id="@+id/search"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:src="@mipmap/search" />
+            <SearchView
+                android:id="@+id/searchViewHome"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/borderless"
+                android:iconifiedByDefault="false"
+                android:queryHint="@string/searchAddress"
+                tools:targetApi="lollipop"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:queryBackground="@color/_00000000" />
 
-            <TextView
-                android:fontFamily="@font/sourcesanspro_regular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="@dimen/_12sdp"
-                android:layout_toRightOf="@id/search"
-                android:text="@string/search_address"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
-                tools:ignore="MissingPrefix" />
         </RelativeLayout>
 
         <RelativeLayout

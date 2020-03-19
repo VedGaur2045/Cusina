@@ -41,7 +41,7 @@ public class OrderStatusView extends FrameLayout {
     @BindView(R.id.OrderListItem)
     RecyclerView OrderListItem;
     @BindView(R.id.totalAmount)
-    RecyclerView totalAmount;
+    TextView totalAmount;
     @BindView(R.id.cancelBtn)
     Button cancelBtn;
 

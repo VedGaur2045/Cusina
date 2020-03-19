@@ -69,13 +69,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/mapImage"
-                android:layout_width="@dimen/_83sdp"
-                android:layout_height="@dimen/_83sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/map_sample" />
+            <com.github.florent37.shapeofview.shapes.RoundRectView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
+                app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
+                app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
+                app:shape_roundRect_topRightRadius="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <fragment
+                    android:id="@+id/mapImage"
+                    android:layout_width="@dimen/_83sdp"
+                    android:layout_height="@dimen/_83sdp"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+            </com.github.florent37.shapeofview.shapes.RoundRectView>
 
             <LinearLayout
                 android:id="@+id/addressLayout"

@@ -1,5 +1,6 @@
 package com.lutongbahay.utils;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
@@ -34,7 +35,9 @@ public class StatusBarUtils {
             Window window = activity.getWindow();
             View view = window.getDecorView();
             int flags = view.getSystemUiVisibility();
-            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            }
             view.setSystemUiVisibility(flags);
             activity.getWindow().setStatusBarColor(Color.parseColor(color));
         }
@@ -49,6 +52,8 @@ public class StatusBarUtils {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //            window.setStatusBarTextColor(context.getResources().getColor(R.color.white));
+            ActionBar actionBar = context.getActionBar();
+//            actionBar.hide();
             window.setStatusBarColor(Color.parseColor("#A00000"));
         }
     }

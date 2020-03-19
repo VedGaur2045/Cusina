@@ -108,7 +108,7 @@
                     android:layout_below="@+id/orderSecond"
                     android:id="@+id/RateServer"
                     android:layout_width="@dimen/_87sdp"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:gravity="center"
                     style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                     android:background="@drawable/color_solid_drawable"

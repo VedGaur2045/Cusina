@@ -5,113 +5,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/newsplashbg">
+        android:fillViewport="true">
 
-
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:src="@mipmap/splashlogo" />
+            android:layout_height="match_parent"
+            android:background="@mipmap/newsplashbg">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/roundedcorner"
-            android:orientation="vertical">
 
-            <TextView
-                android:fontFamily="@font/sourcesanspro_regular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:gravity="center"
-                android:text="@string/splash_message"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp"
-                tools:ignore="MissingPrefix"
-                android:layout_marginLeft="@dimen/_20sdp" />
-
-            <RelativeLayout
-                android:id="@+id/mobilenumberbox"
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:background="@drawable/mobilebutton">
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:src="@mipmap/splashlogo" />
 
-                <com.hbb20.CountryCodePicker
-                    android:id="@+id/countryCodeHolder"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/roundedcorner"
+                android:orientation="vertical">
+
+                <TextView
                     android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
                     android:gravity="center"
-                    app:ccpDialog_textColor="@color/black"
-                    app:ccp_arrowSize="@dimen/_1sdp"
-                    app:ccp_showFullName="false"
-                    app:ccp_showNameCode="false"
-                    app:ccp_showPhoneCode="true"
-                    app:ccp_textSize="@dimen/_12ssp"
-                    tools:ignore="MissingPrefix" />
-
-                <EditText
-                    android:id="@+id/mobile"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_toRightOf="@id/countryCodeHolder"
-                    android:background="@drawable/mobilebutton"
-                    android:enabled="true"
-                    android:hint="@string/Enter_mobile_hint"
-                    android:inputType="phone"
-                    android:maxLength="10"
-                    android:text=""
-                    android:paddingLeft="@dimen/_5sdp"
+                    android:text="@string/splash_message"
                     android:textColor="@color/black"
-                    android:textColorHint="#D3D3D3"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12sdp"
                     tools:ignore="MissingPrefix"
-                    android:paddingEnd="@dimen/_25sdp"
-                    android:paddingRight="@dimen/_25sdp" />
+                    android:layout_marginLeft="@dimen/_20sdp" />
 
-                <ImageButton
-                    android:id="@+id/nextImageBtn"
-                    android:background="@color/_00000000"
-                    android:layout_width="@dimen/_16sdp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:src="@mipmap/forward_b"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp" />
+                <RelativeLayout
+                    android:id="@+id/mobilenumberbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/mobilebutton">
 
-            </RelativeLayout>
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/countryCodeHolder"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_35sdp"
+                        android:gravity="center"
+                        app:ccpDialog_textColor="@color/black"
+                        app:ccp_arrowSize="@dimen/_1sdp"
+                        app:ccp_showFullName="false"
+                        app:ccp_showNameCode="false"
+                        app:ccp_showPhoneCode="true"
+                        app:ccp_textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
 
-            <TextView
-                android:id="@+id/skipFroNowId"
-                android:fontFamily="@font/cabin_bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:gravity="center"
-                android:text="@string/skipForNow"
-                android:textColor="@color/_FF8500"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="MissingPrefix"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"/>
+                    <EditText
+                        android:id="@+id/mobile"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_toRightOf="@id/countryCodeHolder"
+                        android:background="@drawable/mobilebutton"
+                        android:enabled="true"
+                        android:hint="@string/Enter_mobile_hint"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:text=""
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="#D3D3D3"
+                        android:textSize="@dimen/_14ssp"
+                        tools:ignore="MissingPrefix"
+                        android:paddingEnd="@dimen/_25sdp"
+                        android:paddingRight="@dimen/_25sdp" />
 
-        </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/nextImageBtn"
+                        android:background="@color/_00000000"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:src="@mipmap/forward_b"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp" />
 
-    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/skipFroNowId"
+                    android:fontFamily="@font/cabin_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="@string/skipForNow"
+                    android:textColor="@color/_FF8500"
+                    android:textSize="@dimen/_10sdp"
+                    tools:ignore="MissingPrefix"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

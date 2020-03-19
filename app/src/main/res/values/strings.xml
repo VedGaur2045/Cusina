@@ -117,6 +117,7 @@
     <string name="locationName">Location Name</string>
     <string name="searchHint">Search dishes or cuisines</string>
     <string name="title_home">Home</string>
+    <string name="searchAddress">Search Address</string>
     <string name="title_search">Search</string>
     <string name="BagongLutoNearMe">Bagong Luto near me</string>
     <string name="nearMeTxtShort">Don\'t know what to eat? Here are freshly cooked dishes near you</string>

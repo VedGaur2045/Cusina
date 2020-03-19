@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,7 @@ import butterknife.OnClick;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -56,6 +58,8 @@ public class SelectLocationFragmentView extends FrameLayout {
     Context context;
     @BindView(R.id.locationtext)
     TextView locationTextView;
+    @BindView(R.id.searchViewHome)
+    SearchView searchViewHome;
     @BindView(R.id.next)
     Button next;
     private Geocoder geocoder;
@@ -71,7 +75,7 @@ public class SelectLocationFragmentView extends FrameLayout {
         locationTextView.setText("Fetching Current Location \nPlease wait" );
         geocoder = new Geocoder(context, Locale.getDefault());
 
-        if (MarshMallowPermission.checkMashMallowPermissions(context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+        if (MarshMallowPermission.checkMashMallowPermissions(context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
             fetchLocation();
         }
 

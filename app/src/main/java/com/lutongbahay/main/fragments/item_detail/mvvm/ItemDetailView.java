@@ -65,8 +65,6 @@ public class ItemDetailView extends FrameLayout {
     TextView ownerKitchenTxt;
     @BindView(R.id.ownerNameTxt)
     TextView ownerNameTxt;
-    @BindView(R.id.productPreOrder)
-    TextView productPreOrder;
     @BindView(R.id.productRatingCountSecond)
     TextView productRatingCountSecond;
     @BindView(R.id.minusBtn)

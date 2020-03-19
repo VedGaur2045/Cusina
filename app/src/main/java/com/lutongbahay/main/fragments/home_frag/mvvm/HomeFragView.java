@@ -3,6 +3,7 @@ package com.lutongbahay.main.fragments.home_frag.mvvm;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -41,9 +42,11 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -70,13 +73,14 @@ public class HomeFragView extends FrameLayout {
     ImageView notificationImgBtn;
     @BindView(R.id.filterImgBtn)
     ImageView filterImgBtn;
+    @BindView(R.id.see_more)
+    TextView see_more;
 
     private Geocoder geocoder;
     private List<Address> addressList = new ArrayList<>();
     public static final int PERMISSION_REQUEST_CODE = 902;
     Context context;
     private static boolean check = false;
-
 
     public HomeFragView(@NonNull Context context, HomeFragViewModel viewModel) {
         super(context);
@@ -94,7 +98,7 @@ public class HomeFragView extends FrameLayout {
         locationTxt.setText("Current Location" );
         geocoder = new Geocoder(context, Locale.getDefault());
 
-        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
+        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
            // fetchLocation();
         }
 
@@ -110,6 +114,16 @@ public class HomeFragView extends FrameLayout {
         }
 
 
+    }
+
+    @OnClick(R.id.see_more)
+    public void onClick(View view){
+        int id = view.getId();
+        if(id == R.id.see_more){
+            Bundle bundle = new Bundle();
+            bundle.putInt("check",11);
+            Navigation.findNavController(view).navigate(R.id.FavouritesFragment,bundle);
+        }
     }
 
     public void checkAccess() {

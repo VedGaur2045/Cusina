@@ -8,12 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragmentDirections;
 import com.lutongbahay.main.fragments.delivery_address_confirmation.mvvm.DeliveryAddressView;
 import com.lutongbahay.main.fragments.delivery_address_confirmation.mvvm.DeliveryAddressViewModel;
 import com.lutongbahay.utils.StatusBarUtils;
@@ -42,6 +45,16 @@ public class DeliveryAddressConfirmationFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).navigate(DeliveryAddressConfirmationFragmentDirections.toMyTrayFragment());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    StatusBarUtils.setLightStatusBar((Activity) context,"#FFFFFF");
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

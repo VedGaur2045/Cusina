@@ -29,6 +29,8 @@ public class MessageLocationView extends FrameLayout implements OnMapReadyCallba
     private final MessageLocationViewModel viewModel;
     GoogleMap googleMap;
     public SupportMapFragment mapFragment;
+    @BindView(R.id.showOrderDetails)
+    TextView showOrderDetails;
 
     public MessageLocationView(@NonNull Context context, MessageLocationViewModel viewModel) {
         super(context);
@@ -46,6 +48,10 @@ public class MessageLocationView extends FrameLayout implements OnMapReadyCallba
         int id = v.getId();
         if(id == R.id.closeImgBtn){
             Navigation.findNavController(v).navigateUp();
+        } else if(id == R.id.showOrderDetails){
+            // Order Details Fragment open when condition
+            //Navigation.findNavController(view).navigate(R.id.ProcessOrderFragment,bundle);
+            Navigation.findNavController(v).navigate(MessageLocationFragmentDirections.toProfileFragment());
         }
     }
 

@@ -73,25 +73,17 @@ public class MenuListItemAdapter extends BaseAdapter {
             TextView productListedTime = mView.findViewById(R.id.productListTime);
             TextView productServingTime = mView.findViewById(R.id.servingCount);
             Button refillBtn = mView.findViewById(R.id.refillBtn);
-            Button promoteBtn = mView.findViewById(R.id.promoteBtn);
 
             DecimalFormat dFormat = new DecimalFormat("#0.00");
 
             if(check){
                 soldOut.setVisibility(View.GONE);
-                refillBtn.setVisibility(View.GONE);
             } else {
                 soldOut.setVisibility(View.VISIBLE);
-                refillBtn.setVisibility(View.VISIBLE);
-                promoteBtn.setVisibility(View.GONE);
             }
 
             refillBtn.setOnClickListener(view1 -> {
               //  Navigation.findNavController(view).navigate(MenuFragmentDirections.toCompletedDetails());
-            });
-
-            promoteBtn.setOnClickListener(view1 -> {
-
             });
 
         } else {

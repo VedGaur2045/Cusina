@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -55,6 +56,8 @@ public class OrderHistoryView extends FrameLayout {
     RelativeLayout toLayout;
     @BindView(R.id.setDateButton)
     Button setDateButton;
+//    @BindView(R.id.calendarView)
+//    CalendarView calendarView;
 
     static boolean checkFromCal = true;
     static boolean checkToCal = true;

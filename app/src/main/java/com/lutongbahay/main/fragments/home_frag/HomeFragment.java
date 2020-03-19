@@ -8,16 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragView;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
+import com.lutongbahay.main.fragments.my_tray.MyTrayFragmentDirections;
+import com.lutongbahay.user_auth.activity.SplashActivity;
 import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
@@ -46,6 +50,16 @@ public class HomeFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             StatusBarUtils.redStatusBar((Activity) context);
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                SplashActivity.openSplashActivity(context);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    StatusBarUtils.redStatusBar((Activity) context);
+                }
+            }
+        };
+        this.requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

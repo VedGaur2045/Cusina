@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -26,9 +27,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.ConfirmOrderRecyclerAdapter;
 import com.lutongbahay.adapter.TrayOrderItemsAdapter;
+import com.lutongbahay.main.fragments.my_tray.MyTrayFragment;
 import com.lutongbahay.main.fragments.my_tray.MyTrayFragmentDirections;
 import com.lutongbahay.utils.StatusBarUtils;
 
@@ -36,7 +44,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MyTrayView extends FrameLayout {
+public class MyTrayView extends FrameLayout implements OnMapReadyCallback {
     private final MyTrayViewModel viewModel;
     @BindView(R.id.titleName)
     TextView titleName;
@@ -63,15 +71,23 @@ public class MyTrayView extends FrameLayout {
     @BindView(R.id.placeOrder)
     TextView placeOrder;
     private Context context;
+    private AppCompatActivity compatActivity;
+
+    GoogleMap googleMap;
+    public SupportMapFragment mapFragment;
 
     public MyTrayView(@NonNull Context context, MyTrayViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
         this.context = context;
+        this.compatActivity = (AppCompatActivity) context;
         inflate(context, R.layout.fragment_my_tray,this);
         ButterKnife.bind(this,this);
 
         titleName.setText(R.string.myTray);
+
+        mapFragment =  ((SupportMapFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.mapImage));
+        mapFragment.getMapAsync(this);
 
         changeAddressPencilBtn.setVisibility(GONE);
         myLocation.setVisibility(GONE);
@@ -79,6 +95,7 @@ public class MyTrayView extends FrameLayout {
 
         TrayOrderItemsAdapter trayOrderItemsAdapter = new TrayOrderItemsAdapter();
         myTrayListVertical.setAdapter(trayOrderItemsAdapter);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -90,9 +107,23 @@ public class MyTrayView extends FrameLayout {
         } else if(id == R.id.placeOrder){
             placeOrderBtnOnClick(view);
         }
+
     }
 
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+        googleMap.setMyLocationEnabled(false);
+        ZoomOnCurrentLocation();
+    }
+
+
+    private void ZoomOnCurrentLocation(){
+        LatLng coordinate = new LatLng(26.264377, 72.9919383);
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 15);
+        googleMap.animateCamera(yourLocation);
+    }
 
     public void placeOrderBtnOnClick(View mainView) {
 

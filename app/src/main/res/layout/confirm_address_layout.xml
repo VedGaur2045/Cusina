@@ -159,14 +159,81 @@
         android:paddingBottom="@dimen/_5sdp"
         android:visibility="visible">
 
-        <ImageView
-            android:id="@+id/mapImage"
-            android:layout_width="@dimen/_83sdp"
-            android:layout_height="@dimen/_83sdp"
-            android:layout_below="@+id/yourLocation"
+        <TextView
+            android:id="@+id/changeAddress"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:background="@drawable/pre_order_back"
+            android:gravity="center"
+            android:text="@string/_changeAddress"
+            android:textColor="@color/_FF8500"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            tools:ignore="MissingPrefix" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/myLocation"-->
+<!--            android:fontFamily="@font/sourcesanspro_semibold"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/myLocation"-->
+<!--            android:textColor="@color/_000000"-->
+<!--            android:textSize="@dimen/_14ssp"-->
+<!--            android:visibility="gone"-->
+<!--            tools:ignore="MissingPrefix" />-->
+
+        <TextView
+            android:id="@+id/yourLocation"
+            android:fontFamily="@font/sourcesanspro_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myLocation"
+            android:textColor="@color/_000000"
+            android:textSize="@dimen/_14ssp"
+            android:visibility="visible"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/MyAddressTxt"
+            android:fontFamily="@font/sourcesanspro_it"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_marginRight="@dimen/_7sdp"
+            android:gravity="bottom"
+            android:paddingTop="@dimen/_10sdp"
+            android:text="@string/_confirmedAddress"
+            android:textColor="@color/_15D528"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="MissingPrefix" />
+
+        <com.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/mapImageRound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
+            app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
+            app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
+            app:shape_roundRect_topRightRadius="@dimen/_11sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:scaleType="fitXY"
-            android:src="@mipmap/map_sample" />
+            android:layout_below="@+id/yourLocation">
+
+            <fragment
+                android:id="@+id/mapImage"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="@dimen/_83sdp"
+                android:layout_height="@dimen/_83sdp" />
+
+        </com.github.florent37.shapeofview.shapes.RoundRectView>
 
         <LinearLayout
             android:id="@+id/addressLayout"
@@ -176,8 +243,8 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:layout_toEndOf="@+id/mapImage"
-            android:layout_toRightOf="@+id/mapImage"
+            android:layout_toEndOf="@+id/mapImageRound"
+            android:layout_toRightOf="@+id/mapImageRound"
             android:orientation="vertical">
 
             <TextView
@@ -212,63 +279,6 @@
                 tools:ignore="MissingPrefix" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/changeAddress"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_1sdp"
-            android:background="@drawable/pre_order_back"
-            android:gravity="center"
-            android:text="@string/_changeAddress"
-            android:textColor="@color/_FF8500"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="normal"
-            android:visibility="gone"
-            tools:ignore="MissingPrefix" />
-
-        <TextView
-            android:id="@+id/myLocation"
-            android:fontFamily="@font/sourcesanspro_semibold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/myLocation"
-            android:textColor="@color/_000000"
-            android:textSize="@dimen/_16ssp"
-            android:visibility="gone"
-            tools:ignore="MissingPrefix" />
-
-        <TextView
-            android:id="@+id/yourLocation"
-            android:fontFamily="@font/sourcesanspro_semibold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/myLocation"
-            android:textColor="@color/_000000"
-            android:textSize="@dimen/_14ssp"
-            android:visibility="visible"
-            tools:ignore="MissingPrefix" />
-
-        <TextView
-            android:id="@+id/MyAddressTxt"
-            android:fontFamily="@font/sourcesanspro_it"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="@dimen/_7sdp"
-            android:layout_marginRight="@dimen/_7sdp"
-            android:gravity="bottom"
-            android:paddingTop="@dimen/_10sdp"
-            android:text="@string/_confirmedAddress"
-            android:textColor="@color/_15D528"
-            android:textSize="@dimen/_8ssp"
-            tools:ignore="MissingPrefix" />
 
     </RelativeLayout>
 

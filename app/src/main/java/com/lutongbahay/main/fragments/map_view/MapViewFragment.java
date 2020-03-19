@@ -9,14 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
 import com.lutongbahay.app.BaseFragment;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
+import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragmentDirections;
 import com.lutongbahay.main.fragments.map_view.mvvm.MapView;
 import com.lutongbahay.main.fragments.map_view.mvvm.MapViewModel;
 import com.lutongbahay.utils.StatusBarUtils;
@@ -42,6 +45,16 @@ public class MapViewFragment extends BaseFragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             StatusBarUtils.redStatusBar((Activity) context);
         }
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).navigate(MapViewFragmentDirections.HomeFragment());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    StatusBarUtils.redStatusBar((Activity) context);
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

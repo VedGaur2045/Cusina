@@ -1,7 +1,5 @@
 package com.lutongbahay.main.fragments.camera;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,16 +9,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
@@ -41,7 +36,6 @@ import static com.lutongbahay.main.fragments.camera.mvvm.CameraView.CAMERA_PERMI
 public class CameraFragment extends Fragment {
 
     private static final int CAMERA_PERMISSION_CODE = 109;
-
     private CameraView view;
     private CameraViewModel viewModel;
     private Context context;
@@ -55,10 +49,6 @@ public class CameraFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, CameraView.REQUEST_CAMERA_PERMISSION);
-            return;
-        }
     }
 
     @Override
@@ -70,58 +60,32 @@ public class CameraFragment extends Fragment {
 
     @Override
     public void onPause() {
-        Log.e(view.TAG, "onPause");
-        //closeCamera();
-        view.stopBackgroundThread();
         super.onPause();
+        //when on Pause, release camera in order to be used from other applications
+        view.releaseCamera();
     }
 
     public void onResume() {
         super.onResume();
-        Log.e(CameraView.TAG, "onResume");
-        view.startBackgroundThread();
-        if (view.camera_preview.isAvailable()) {
-            view.openCamera();
-        } else {
-            view.camera_preview.setSurfaceTextureListener(view.textureListener);
+        if(MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context,new String[]{CAMERA},CAMERA_PERMISSION_CODE)){
+            view.cameraOpen();
         }
-//        if(MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context,new String[]{CAMERA},CAMERA_PERMISSION_CODE)){
-//            view.openCamera();
-//        }
-//
-//        if (checkPermission(getActivity(), CAMERA)
-//                == PackageManager.PERMISSION_GRANTED) {
-//            Log.e(CameraView.TAG, "onResume");
-//            view.startBackgroundThread();
-//            if (view.camera_preview.isAvailable()) {
-//                view.openCamera();
-//            } else {
-//                view.camera_preview.setSurfaceTextureListener(view.textureListener);
-//            }
-//            Logger.ErrorLog("PERMISSION ", " GRANTED");
-//        }else{
-//            Logger.ErrorLog("PERMISSION ", " NOT GRANTED");
-//        }
-    }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        if (requestCode == CameraView.REQUEST_CAMERA_PERMISSION) {
-//            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-//                // close the app
-//                Log.e("ashjf : ","sdghfujgs");
-//                //Toast.makeText(context, "Sorry!!!, you can't use this app without granting permission", Toast.LENGTH_LONG).show();
-////                finish();
-//            }
-//        }
-//    }
+        if (checkPermission(getActivity(), CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            view.cameraOpen();
+            Logger.ErrorLog("PERMISSION ", " GRANTED");
+        }else{
+            Logger.ErrorLog("PERMISSION ", " NOT GRANTED");
+        }
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case AddPhotoView.STORAGE_PERMISSION_CODE:
-            case CameraView.REQUEST_CAMERA_PERMISSION:
+            case CAMERA_PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 0) {
                     int counter = 0;
                     for (int result : grantResults) {
@@ -153,7 +117,7 @@ public class CameraFragment extends Fragment {
 
                         counter++;
                         if (counter == permissions.length) {
-                            view.openCamera();
+                            view.onPermissionGranted();
                         }
                     }
                     return;

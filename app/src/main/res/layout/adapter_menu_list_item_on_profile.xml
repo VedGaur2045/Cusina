@@ -203,7 +203,7 @@
         </RelativeLayout>
 
         <Button
-            android:visibility="gone"
+            android:visibility="visible"
             android:id="@+id/refillBtn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_20sdp"
@@ -221,21 +221,21 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:background="@drawable/color_solid_drawable" />
 
-        <Button
-            android:id="@+id/promoteBtn"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_20sdp"
-            android:text="@string/_PROMOTE"
-            android:textColor="@color/_000000"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:textSize="@dimen/_10ssp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:fontFamily="@font/sourcesanspro_bold"
-            tools:ignore="MissingPrefix"
-            android:layout_marginBottom="@dimen/_6sdp"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:background="@drawable/black_bachground_shadow" />
+<!--        <Button-->
+<!--            android:id="@+id/promoteBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_20sdp"-->
+<!--            android:text="@string/_PROMOTE"-->
+<!--            android:textColor="@color/_000000"-->
+<!--            android:layout_marginTop="@dimen/_5sdp"-->
+<!--            android:textSize="@dimen/_10ssp"-->
+<!--            android:layout_marginStart="@dimen/_10sdp"-->
+<!--            android:layout_marginEnd="@dimen/_10sdp"-->
+<!--            android:fontFamily="@font/sourcesanspro_bold"-->
+<!--            tools:ignore="MissingPrefix"-->
+<!--            android:layout_marginBottom="@dimen/_6sdp"-->
+<!--            style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
+<!--            android:background="@drawable/black_bachground_shadow" />-->
 
     </LinearLayout>
 
