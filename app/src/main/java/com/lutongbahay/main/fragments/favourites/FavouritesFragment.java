@@ -52,7 +52,7 @@ public class FavouritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         System.out.println(getArguments().getInt("check"));
         viewModel = new ViewModelProvider(this).get(FavouriteViewModel.class);
-        view = new FavouritesView(context,viewModel,getArguments().getInt("check"));
+        view = new FavouritesView(context,viewModel,getArguments().getInt("check"),getArguments().getString("titleName"));
         return view;
     }
 }

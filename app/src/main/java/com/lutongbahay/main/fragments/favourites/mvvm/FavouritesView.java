@@ -25,14 +25,20 @@ public class FavouritesView extends FrameLayout {
     TextView titleName;
 
 
-    public FavouritesView(@NonNull Context context, FavouriteViewModel viewModel,int Check) {
+    public FavouritesView(@NonNull Context context, FavouriteViewModel viewModel,int Check,String titleNameTxt) {
         super(context);
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_favourites, this);
         ButterKnife.bind(this, this);
         try{
             if(Check == 11){
-                titleName.setText("Home Item");
+                titleName.setText(titleNameTxt);
+            } else if(Check == 12){
+                titleName.setText(titleNameTxt);
+            } else if(Check == 13){
+                titleName.setText(titleNameTxt);
+            } else if(Check == 14){
+                titleName.setText(titleNameTxt);
             } else {
                 titleName.setText(R.string.favouriteTxt);
             }

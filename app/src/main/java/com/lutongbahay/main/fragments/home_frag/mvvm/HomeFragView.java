@@ -43,6 +43,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Optional;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -73,8 +74,6 @@ public class HomeFragView extends FrameLayout {
     ImageView notificationImgBtn;
     @BindView(R.id.filterImgBtn)
     ImageView filterImgBtn;
-    @BindView(R.id.see_more)
-    TextView see_more;
 
     private Geocoder geocoder;
     private List<Address> addressList = new ArrayList<>();
@@ -114,16 +113,6 @@ public class HomeFragView extends FrameLayout {
         }
 
 
-    }
-
-    @OnClick(R.id.see_more)
-    public void onClick(View view){
-        int id = view.getId();
-        if(id == R.id.see_more){
-            Bundle bundle = new Bundle();
-            bundle.putInt("check",11);
-            Navigation.findNavController(view).navigate(R.id.FavouritesFragment,bundle);
-        }
     }
 
     public void checkAccess() {

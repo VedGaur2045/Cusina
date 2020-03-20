@@ -1,13 +1,17 @@
 package com.lutongbahay.user_auth.fragments.select_location.mvvm;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -15,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationRequest;
@@ -28,9 +33,10 @@ import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.LocationTrackingHelper;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.main.home.HomeActivity;
-import com.lutongbahay.user_auth.activity.SplashActivity;
 import com.lutongbahay.utils.Logger;
+import com.lutongbahay.utils.TextUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -58,10 +64,14 @@ public class SelectLocationFragmentView extends FrameLayout {
     Context context;
     @BindView(R.id.locationtext)
     TextView locationTextView;
-    @BindView(R.id.searchViewHome)
-    SearchView searchViewHome;
+    @BindView(R.id.searchViewLocation)
+    SearchView searchViewLocation;
     @BindView(R.id.next)
     Button next;
+    @BindView(R.id.rv_search_result)
+    ListView rv_search_result;
+    @BindView(R.id.currentlocation)
+    RelativeLayout currentlocation;
     private Geocoder geocoder;
     private List<Address> addressList = new ArrayList<>();
     private static boolean check = false;
@@ -82,29 +92,14 @@ public class SelectLocationFragmentView extends FrameLayout {
     }
 
 
-    @OnClick({R.id.next, R.id.close})
+    @OnClick({R.id.next, R.id.close,R.id.searchViewLocation})
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.next) {
-//            if(check){
-////            next.setEnabled(true);
-//                HomeActivity.openHomeActivity(getContext());
-//            } else {
-////            next.setEnabled(false);
-//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                builder.setMessage("Location Not Found...");
-//                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        dialogInterface.dismiss();
-//                    }
-//                });
-//                builder.show();
-//            }
             HomeActivity.openHomeActivity(getContext());
-
         } else if (id == R.id.close) {
             Navigation.findNavController(v).navigateUp();
+        } else if(id == R.id.searchViewLocation){
         }
     }
 

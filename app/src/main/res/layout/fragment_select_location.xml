@@ -37,6 +37,7 @@
         android:src="@mipmap/close" />
 
     <LinearLayout
+        android:id="@+id/bottomObject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/next"
@@ -64,27 +65,27 @@
             tools:ignore="MissingPrefix" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/close"
         android:layout_marginLeft="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginRight="@dimen/_40sdp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@+id/bottomObject">
 
         <RelativeLayout
             android:id="@+id/searchLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
-            android:background="@color/_FFFFFF">
+            android:background="@drawable/borderless">
 
             <SearchView
-                android:id="@+id/searchViewHome"
+                android:id="@+id/searchViewLocation"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:background="@drawable/borderless"
                 android:iconifiedByDefault="false"
                 android:queryHint="@string/searchAddress"
                 tools:targetApi="lollipop"
@@ -95,6 +96,7 @@
 
         <RelativeLayout
             android:id="@+id/currentlocation"
+            android:layout_below="@+id/searchLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
@@ -128,5 +130,18 @@
             </LinearLayout>
 
         </RelativeLayout>
-    </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_search_result"
+            android:layout_below="@id/searchLayout"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            tools:listitem="@layout/adapter_search_location_list_item"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:scrollbarThumbVertical="@color/transparent"/>
+
+    </RelativeLayout>
+
 </RelativeLayout>

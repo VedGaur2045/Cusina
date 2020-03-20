@@ -178,6 +178,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:visibility="gone"
             android:background="@color/_FFFFFF"
             android:layout_marginTop="@dimen/_3sdp"
             android:id="@+id/changePassword"

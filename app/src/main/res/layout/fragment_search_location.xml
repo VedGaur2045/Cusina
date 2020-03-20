@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbarHeader"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageButton
+            android:id="@+id/backBtnImg"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:background="@color/transparent"
+            android:src="@mipmap/back"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <SearchView
+        android:layout_below="@+id/toolbarHeader"
+        android:visibility="visible"
+        android:id="@+id/searchViewLocation"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/borderless"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/searchAddress"
+        tools:targetApi="lollipop"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:queryBackground="@color/_00000000" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_search"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_search_error"
+        android:text="@string/could_not_find_any_search_result_for_the_given_query"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="@dimen/_10ssp"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:gravity="center"
+        android:layout_below="@+id/searchViewLocation"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_search_result"
+        android:layout_below="@id/searchViewLocation"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:visibility="gone" />
+
+</RelativeLayout>
