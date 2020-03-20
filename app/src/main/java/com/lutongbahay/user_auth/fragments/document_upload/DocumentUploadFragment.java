@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,12 +28,14 @@ public class DocumentUploadFragment extends Fragment {
 
     private Uri fileUri;
     private String filePath;
+    private AppCompatActivity compatActivity;
 
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
+        compatActivity = (AppCompatActivity) context;
     }
 
     @Override
@@ -47,15 +50,7 @@ public class DocumentUploadFragment extends Fragment {
         return view;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void getFileFromGallery(int requestCode) {
-//        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-//        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        intent.setType("file/*");
-        startActivityForResult(intent, requestCode);
-    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

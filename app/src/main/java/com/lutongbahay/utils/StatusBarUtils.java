@@ -58,4 +58,38 @@ public class StatusBarUtils {
         }
     }
 
+    public static void SetStatusBarColor(Activity activity ,String statusBarColor, StatusBarState state)
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
+            Window window = activity.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor(statusBarColor));
+            int newUiVisibility = (int)window.getDecorView().getSystemUiVisibility();
+
+            if (state == StatusBarState.Light)
+            {
+                //Dark Text to show up on your light status bar
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    newUiVisibility |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+            }
+            else if (state == StatusBarState.Dark)
+            {
+                //Light Text to show up on your dark status bar
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    newUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                }
+            }
+            window.getDecorView().setSystemUiVisibility(newUiVisibility);
+        }
+    }
+
+    public enum StatusBarState
+    {
+        Light,
+        Dark
+    }
+
 }

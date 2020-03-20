@@ -69,7 +69,7 @@ public class SelectLocationFragmentView extends FrameLayout {
     @BindView(R.id.next)
     Button next;
     @BindView(R.id.rv_search_result)
-    ListView rv_search_result;
+    RecyclerView rv_search_result;
     @BindView(R.id.currentlocation)
     RelativeLayout currentlocation;
     private Geocoder geocoder;

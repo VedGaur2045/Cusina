@@ -98,7 +98,7 @@ public class HomeFragView extends FrameLayout {
         geocoder = new Geocoder(context, Locale.getDefault());
 
         if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
-           // fetchLocation();
+            fetchLocation();
         }
 
         List<Address> addressList = new ArrayList<>();
@@ -162,7 +162,7 @@ public class HomeFragView extends FrameLayout {
 
                     if (addressList != null && !addressList.isEmpty()) {
                         String addressLine = addressList.get(0).getAddressLine(0);
-                        locationTxt.setText("Current Location \n" + addressLine);
+                        locationTxt.setText(addressLine);
                         System.out.println("hajsg ? "+addressList.get(0));
                         check = true;
                         CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));

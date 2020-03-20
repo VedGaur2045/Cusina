@@ -165,6 +165,7 @@ dependencies {
 
     // otp
     implementation 'com.chaos.view:pinview:1.4.3'
+    implementation project(path: ':library')
 
 }
 

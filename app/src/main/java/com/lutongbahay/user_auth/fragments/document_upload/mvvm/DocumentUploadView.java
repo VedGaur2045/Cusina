@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -11,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
@@ -48,11 +50,14 @@ public class DocumentUploadView extends FrameLayout {
     @BindView(R.id.nextBtnUpload)
     Button nextBtnUpload;
 
+    AppCompatActivity compatActivity;
+
     DocumentUploadFragment fragment = new DocumentUploadFragment();
 
     public DocumentUploadView(@NonNull Context context, DocumentUploadViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
+        compatActivity = (AppCompatActivity) context;
         inflate(context,R.layout.fragment_document_upload,this);
         ButterKnife.bind(this,this);
 
@@ -73,15 +78,25 @@ public class DocumentUploadView extends FrameLayout {
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpCompleteFragment());
                 break;
             case R.id.uploadFileIdFirst:
-                fragment.getFileFromGallery(101);
+                getFileFromGallery(101);
                 break;
             case R.id.uploadFileIdSecond:
-                //fragment.getFileFromGallery(102);
+                getFileFromGallery(102);
                 break;
             case R.id.uploadFileIdThird:
-                //fragment.getFileFromGallery(103);
+                getFileFromGallery(103);
                 break;
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void getFileFromGallery(int requestCode) {
+//        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setType("file/*");
+        compatActivity.startActivityForResult(intent, requestCode);
     }
 
 

@@ -73,19 +73,19 @@
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_centerHorizontal="true">
 
                     <ImageView
                         android:id="@+id/ellipse_1"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:src="@mipmap/ellipse_4"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginLeft="@dimen/_5sdp" />
+                        />
 
                     <ImageView
                         android:id="@+id/line_1"
-                        android:layout_width="@dimen/_66sdp"
+                        android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_16sdp"
                         android:src="@mipmap/line_3"
                         android:layout_marginStart="@dimen/_7sdp"
@@ -99,11 +99,11 @@
 
                     <ImageView
                         android:id="@+id/line_2"
-                        android:layout_width="@dimen/_66sdp"
+                        android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_16sdp"
                         android:src="@mipmap/line_3"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_marginEnd="@dimen/_7sdp"/>
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"/>
 
                     <ImageView
                         android:id="@+id/ellipse_3"
@@ -113,11 +113,11 @@
 
                     <ImageView
                         android:id="@+id/line_3"
-                        android:layout_width="@dimen/_66sdp"
+                        android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_16sdp"
                         android:src="@mipmap/line_3"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_marginEnd="@dimen/_7sdp"/>
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"/>
 
                     <ImageView
                         android:id="@+id/ellipse_4"
@@ -132,10 +132,11 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/processingTextLayout"
                     android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_5sdp">
+                    android:layout_marginEnd="@dimen/_5sdp">
 
                     <TextView
                         android:id="@+id/ConfirmOrder"
@@ -156,8 +157,8 @@
                         android:textColor="@color/_000000"
                         android:fontFamily="@font/sourcesanspro_regular"
                         tools:ignore="MissingPrefix"
-                        android:layout_marginStart="@dimen/_50sdp"
-                        android:layout_marginLeft="@dimen/_50sdp" />
+                        android:layout_marginStart="@dimen/_45sdp"
+                        android:layout_marginLeft="@dimen/_45sdp" />
 
                     <TextView
                         android:id="@+id/Deliver"
@@ -180,8 +181,8 @@
                         android:textColor="@color/_000000"
                         tools:ignore="MissingPrefix"
                         android:fontFamily="@font/sourcesanspro_regular"
-                        android:layout_marginStart="@dimen/_75sdp"
-                        android:layout_marginLeft="@dimen/_75sdp"/>
+                        android:layout_marginStart="@dimen/_65sdp"
+                        android:layout_marginLeft="@dimen/_65sdp"/>
 
                 </LinearLayout>
 
