@@ -94,13 +94,13 @@
 
     </fragment>
 
-<!--    <fragment-->
-<!--        android:id="@+id/selectLocationFragment"-->
-<!--        android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"-->
-<!--        android:label="privacy_fragment"-->
-<!--        tools:layout="@layout/fragment_select_location">-->
+    <fragment
+        android:id="@+id/selectLocationFragment"
+        android:name="com.lutongbahay.user_auth.fragments.select_location.SelectLocationFragment"
+        android:label="privacy_fragment"
+        tools:layout="@layout/fragment_select_location">
 
-<!--    </fragment>-->
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
@@ -296,6 +296,8 @@
             app:destination="@id/profileFragment"/>
         <action android:id="@+id/toCameraFragment"
             app:destination="@id/CameraFragment"/>
+        <action android:id="@+id/toCameraSecondFragment"
+            app:destination="@id/CameraSecondFragment"/>
 
     </fragment>
 
@@ -308,6 +310,9 @@
         <action
             android:id="@+id/toCameraFragment"
             app:destination="@id/CameraFragment"/>
+        <action
+            android:id="@+id/toCameraSecondFragment"
+            app:destination="@id/CameraSecondFragment"/>
         <action
             android:id="@+id/toCompletedDetails"
             app:destination="@id/CompletedDetailsFragment"/>
@@ -577,6 +582,21 @@
         android:name="com.lutongbahay.main.fragments.camera.CameraFragment"
         android:label="camera_fragment"
         tools:layout="@layout/fragment_camera">
+
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
+        <action
+            android:id="@+id/toChooseCategory"
+            app:destination="@id/ChooseCategoryFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CameraSecondFragment"
+        android:name="com.lutongbahay.main.fragments.camera_second.CameraSecondFragment"
+        android:label="camera_second_fragment"
+        tools:layout="@layout/fragment_camera_second">
 
         <action
             android:id="@+id/toAddPhoto"

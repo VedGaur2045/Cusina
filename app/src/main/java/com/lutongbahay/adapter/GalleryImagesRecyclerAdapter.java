@@ -114,7 +114,7 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Navigation.findNavController(view).navigate(AddPhotoFragmentDirections.toCameraFragment());
+                Navigation.findNavController(view).navigate(AddPhotoFragmentDirections.toCameraSecondFragment());
             }
         });
     }

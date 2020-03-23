@@ -5,36 +5,106 @@
     android:layout_height="match_parent"
     android:background="@color/lightgray">
 
-    <View
-        android:id="@+id/view"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@+id/bottomObject"
+        android:layout_marginBottom="@dimen/_10ssp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@mipmap/close" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/close"
+                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_40sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/searchLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/borderless">
+
+                    <EditText
+                        android:id="@+id/searchViewLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:hint="@string/searchAddress"
+                        android:background="@drawable/borderless"
+                        android:drawableLeft="@mipmap/search"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/currentlocation"
+                    android:layout_below="@+id/searchLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/borderless">
+
+                    <ImageView
+                        android:id="@+id/gps"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:src="@mipmap/gps_fixed" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/gps"
+                        android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/next"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:fontFamily="@font/sourcesanspro_semibold"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_above="@+id/view"
-        android:layout_marginLeft="@dimen/_40sdp"
-        android:layout_marginRight="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
-        android:background="@drawable/commonbuttonbg"
-        android:text="@string/use_this_address"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14ssp"
-        tools:ignore="MissingPrefix" />
+                        <TextView
+                            android:id="@+id/locationtext"
+                            android:fontFamily="@font/sourcesanspro_regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_12sdp"
+                            android:text="Current Location \n1 Canley Road, Pasig City"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/close"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:src="@mipmap/close" />
+                </RelativeLayout>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_search_result"
+                    android:layout_below="@id/searchLayout"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="visible"
+                    android:background="@color/background_grey"
+                    tools:listitem="@layout/adapter_search_location_list_item"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:scrollbarThumbVertical="@color/transparent"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/bottomObject"
@@ -42,7 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/next"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_90sdp"
         android:orientation="vertical">
 
         <TextView
@@ -65,82 +136,20 @@
             tools:ignore="MissingPrefix" />
     </LinearLayout>
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/next"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:fontFamily="@font/sourcesanspro_semibold"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/close"
+        android:layout_height="@dimen/_35sdp"
         android:layout_marginLeft="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginRight="@dimen/_40sdp"
-        android:orientation="vertical"
-        android:layout_above="@+id/bottomObject">
-
-        <RelativeLayout
-            android:id="@+id/searchLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:background="@drawable/borderless">
-
-            <EditText
-                android:id="@+id/searchViewLocation"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:hint="@string/searchAddress"
-                android:drawableLeft="@mipmap/search"
-                android:paddingLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_2sdp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/currentlocation"
-            android:layout_below="@+id/searchLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/borderless">
-
-            <ImageView
-                android:id="@+id/gps"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:src="@mipmap/gps_fixed" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/gps"
-                android:orientation="vertical">
-
-
-                <TextView
-                    android:id="@+id/locationtext"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_12sdp"
-                    android:text="Current Location \n1 Canley Road, Pasig City"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp"
-                    tools:ignore="MissingPrefix" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rv_search_result"
-            android:layout_below="@id/searchLayout"
-            android:layout_alignParentBottom="true"
-            android:visibility="visible"
-            android:background="@color/background_grey"
-            tools:listitem="@layout/adapter_search_location_list_item"
-            android:layout_marginBottom="@dimen/_50sdp"
-            android:scrollbarThumbVertical="@color/transparent"/>
-
-    </RelativeLayout>
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/commonbuttonbg"
+        android:text="@string/use_this_address"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        tools:ignore="MissingPrefix" />
 
 </RelativeLayout>

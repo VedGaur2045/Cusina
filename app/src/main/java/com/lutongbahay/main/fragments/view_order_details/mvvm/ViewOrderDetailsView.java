@@ -75,12 +75,12 @@ public class ViewOrderDetailsView extends FrameLayout {
                 Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.RateServer:
-                openRateServer();
+                openRateServer(view);
                 break;
         }
     }
 
-    private void openRateServer(){
+    private void openRateServer(View view1){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.custom_popup_add_review, null);
 
@@ -96,8 +96,10 @@ public class ViewOrderDetailsView extends FrameLayout {
         Button getStarted = popupView.findViewById(R.id.submitBtn);
 
         closeBtn.setOnClickListener(v -> dialog.dismiss());
-        getStarted.setOnClickListener(v ->
-                Navigation.findNavController(v).navigate(ViewOrdersDetailsFragmentDirections.toSelectLocation()));
+        getStarted.setOnClickListener(view -> {
+            Navigation.findNavController(view1).navigate(ViewOrdersDetailsFragmentDirections.toSelectLocation());
+            dialog.dismiss();
+        });
     }
 
 

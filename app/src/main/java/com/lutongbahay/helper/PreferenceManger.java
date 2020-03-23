@@ -20,6 +20,7 @@ public class PreferenceManger {
     public static final String PREF_KEY = "waiter_preference";
     public static final String AUTH_TOKEN = "auth_token";
     public static final String CURRENT_LOCATION = "current_location";
+    public static final String MOBILE_NUMBER = "mobile_number";
 
     private SharedPreferences mSharedPreferences;
 
@@ -92,6 +93,7 @@ public class PreferenceManger {
         return gson.fromJson(json, Address.class);
     }
 
+    public void putMobileNumber(int mobileNumber){
 
-
+    }
 }

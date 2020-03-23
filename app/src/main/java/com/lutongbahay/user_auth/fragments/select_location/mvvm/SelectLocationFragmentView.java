@@ -125,14 +125,13 @@ public class SelectLocationFragmentView extends FrameLayout {
     }
 
 
-    @OnClick({R.id.next, R.id.close,R.id.searchViewLocation})
+    @OnClick({R.id.next, R.id.close})
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.next) {
             HomeActivity.openHomeActivity(getContext());
         } else if (id == R.id.close) {
             Navigation.findNavController(v).navigateUp();
-        } else if(id == R.id.searchViewLocation){
         }
     }
 
@@ -197,7 +196,7 @@ public class SelectLocationFragmentView extends FrameLayout {
 
 
     public void searchLocation(String location){
-        Call<GooglePlacesAPIData> googlePlacesAPIDataCall = GooglePlacesServices.getGooglePlacesRetrofitInstance().getPlacesData(location, "AIzaSyBXpRQkPuDA5_yQEwtYAVb00ljayJsQvjM");
+        Call<GooglePlacesAPIData> googlePlacesAPIDataCall = GooglePlacesServices.getGooglePlacesRetrofitInstance().getPlacesData(location, "AIzaSyAmYQJFMFtI3CToUHQcyKTayysA2zicF4E");
         googlePlacesAPIDataCall.enqueue(new Callback<GooglePlacesAPIData>() {
             @Override
             public void onResponse(@NotNull Call<GooglePlacesAPIData> call, @NotNull Response<GooglePlacesAPIData> response) {
@@ -205,13 +204,37 @@ public class SelectLocationFragmentView extends FrameLayout {
 
                 if (googlePlacesAPIData.predictions.size() > 0){
                     rv_search_result.setVisibility(VISIBLE);
+                    currentlocation.setVisibility(GONE);
                 }else{
                     rv_search_result.setVisibility(GONE);
+                    currentlocation.setVisibility(VISIBLE);
                 }
 
                 Logger.ErrorLog("Data count ",googlePlacesAPIData.predictions.size() + "");
                 GooglePlacesAutocompleteAdapter googlePlaceEditProfileListAdapter = new GooglePlacesAutocompleteAdapter(context, googlePlacesAPIData.predictions);
                 rv_search_result.setAdapter(googlePlaceEditProfileListAdapter);
+
+                rv_search_result.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        System.out.println(googlePlacesAPIData.predictions.get(i).description);
+                        locationTextView.setText("Selected Location \n" + googlePlacesAPIData.predictions.get(i).description);
+                        addressList.get(0).setAddressLine(0,googlePlacesAPIData.predictions.get(i).description);
+                        addressList.get(0).setFeatureName(null);
+                        addressList.get(0).setAdminArea(null);
+                        addressList.get(0).setSubAdminArea(null);
+                        addressList.get(0).setLocality(null);
+                        addressList.get(0).setPostalCode(null);
+                        addressList.get(0).setCountryCode(null);
+                        addressList.get(0).setCountryName(null);
+                        System.out.println("Aghgsxdhjb s   =   "+addressList.get(0).getAddressLine(0));
+                        CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+                        rv_search_result.setVisibility(GONE);
+                        currentlocation.setVisibility(VISIBLE);
+                    }
+                });
+
             }
 
             @Override
@@ -220,4 +243,6 @@ public class SelectLocationFragmentView extends FrameLayout {
             }
         });
     }
+
+
 }

@@ -63,12 +63,12 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_height="@dimen/_35sdp"
             android:background="@drawable/btn_bg"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:text="@string/submit"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/_FFFFFF"
             android:layout_marginTop="@dimen/_20sdp"
-            fonthPath="fonts/sourcesanspro_semibold.otf"
+            android:fontFamily="@font/sourcesanspro_semibold"
             tools:ignore="MissingPrefix" />
 
     </LinearLayout>
