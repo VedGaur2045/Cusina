@@ -1,15 +1,26 @@
 package com.lutongbahay.adapter;
 
+import android.os.Build;
+import android.os.Environment;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.profile_frag.ProfileFragmentDirections;
+
+import java.io.File;
 
 import butterknife.ButterKnife;
 
@@ -34,6 +45,10 @@ public class ServerMenuRecyclerAdapter extends RecyclerView.Adapter<ServerMenuRe
         });
 
     }
+
+
+
+
 
     @Override
     public int getItemCount() {

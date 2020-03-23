@@ -81,16 +81,14 @@
             android:layout_height="@dimen/_40sdp"
             android:background="@drawable/borderless">
 
-            <SearchView
+            <EditText
                 android:id="@+id/searchViewLocation"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:iconifiedByDefault="false"
-                android:queryHint="@string/searchAddress"
-                tools:targetApi="lollipop"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:queryBackground="@color/_00000000" />
+                android:hint="@string/searchAddress"
+                android:drawableLeft="@mipmap/search"
+                android:paddingLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_2sdp" />
 
         </RelativeLayout>
 
@@ -131,13 +129,14 @@
 
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rv_search_result"
             android:layout_below="@id/searchLayout"
             android:layout_alignParentBottom="true"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:background="@color/background_grey"
             tools:listitem="@layout/adapter_search_location_list_item"
             android:layout_marginBottom="@dimen/_50sdp"
             android:scrollbarThumbVertical="@color/transparent"/>
