@@ -97,8 +97,7 @@ public class ViewOrderDetailsView extends FrameLayout {
 
         closeBtn.setOnClickListener(v -> dialog.dismiss());
         getStarted.setOnClickListener(v ->
-//                Navigation.findNavController(v).navigate(ViewOrdersDetailsFragmentDirections.toSelectLocation())
-                  dialog.dismiss()  );
+                Navigation.findNavController(v).navigate(ViewOrdersDetailsFragmentDirections.toSelectLocation()));
     }
 
 
