@@ -1,18 +1,18 @@
 
-package com.lutongbahay.rest.response.GET.verify_kitchen;
+package com.lutongbahay.rest.response;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseVerifyKitchen {
+public class ResponseDishCategory {
 
     @SerializedName("success")
     @Expose
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<Datum> data = null;
+    private List<DishCategoryData> data = null;
     @SerializedName("message")
     @Expose
     private String message;
@@ -25,11 +25,11 @@ public class ResponseVerifyKitchen {
         this.success = success;
     }
 
-    public List<Datum> getData() {
+    public List<DishCategoryData> getData() {
         return data;
     }
 
-    public void setData(List<Datum> data) {
+    public void setData(List<DishCategoryData> data) {
         this.data = data;
     }
 

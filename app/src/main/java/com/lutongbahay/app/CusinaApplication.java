@@ -5,6 +5,8 @@ import android.content.Context;
 import androidx.multidex.MultiDexApplication;
 
 import com.lutongbahay.R;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.helper.CheckInternetConnection;
 import com.lutongbahay.helper.PreferenceManger;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
@@ -51,5 +53,20 @@ public class CusinaApplication extends MultiDexApplication {
             preferenceManger = new PreferenceManger(getInstance().getSharedPreferences(PreferenceManger.PREF_KEY, Context.MODE_PRIVATE));
         }
         return preferenceManger;
+    }
+
+    public boolean isInternetConnected(Context context, boolean showDialog) {
+        if (new CheckInternetConnection(this).isConnected())
+            return true;
+        else {
+            if (showDialog) {
+                CusinaAlertDialog.showDCAlertDialog(context, 0, "Network Error!!",
+                        getApplicationContext().getResources().getString(R.string.no_internet_connection), null, "Ok", null, (view, dialog) -> {
+
+                        }, null);
+            }
+            //  ToastUtils.longToast(R.string.no_internet_connection);
+            return false;
+        }
     }
 }

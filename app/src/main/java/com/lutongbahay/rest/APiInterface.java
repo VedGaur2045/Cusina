@@ -1,7 +1,9 @@
 package com.lutongbahay.rest;
 
 
+import com.lutongbahay.rest.request.register_as_mobile.RequestRegisterAsMobile;
 import com.lutongbahay.rest.response.BaseResponse;
+import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.google_places_response.GooglePlacesAPIData;
 
 import retrofit2.Call;
@@ -21,6 +23,6 @@ public interface APiInterface {
     Call<GooglePlacesAPIData> getPlacesData(@Query("input") String type, @Query("key") String key);
 
     // <----- AUTH APIs START ----->
-    @POST("v1/auth/login_employee")
-    Call<BaseResponse> loginEmployee();
+    @POST("register-mobile")
+    Call<ResponseRegisterAsMobile> registerMobile(@Body RequestRegisterAsMobile registerAsMobile);
 }

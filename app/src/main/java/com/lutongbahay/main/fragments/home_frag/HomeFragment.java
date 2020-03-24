@@ -14,14 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragView;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
-import com.lutongbahay.main.fragments.my_tray.MyTrayFragmentDirections;
-import com.lutongbahay.user_auth.activity.SplashActivity;
+import com.lutongbahay.user_auth.activity.splash.SplashActivity;
 import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 

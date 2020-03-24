@@ -24,6 +24,8 @@
     <string name="ok">Ok</string>
     <string name="alert">Alert</string>
 
+    <string name="no_internet_connection">Please enable data or wifi connection.</string>
+
     <!-- SPLASH SCREEN -->
     <string name="splash_message">See what\'s cooking at Lutong Bahay</string>
     <string name="Enter_mobile_hint">Enter Mobile Number</string>

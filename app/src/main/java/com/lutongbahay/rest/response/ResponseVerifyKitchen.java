@@ -1,11 +1,11 @@
 
-package com.lutongbahay.rest.response.GET.dish_category;
+package com.lutongbahay.rest.response;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseDishCategory {
+public class ResponseVerifyKitchen {
 
     @SerializedName("success")
     @Expose

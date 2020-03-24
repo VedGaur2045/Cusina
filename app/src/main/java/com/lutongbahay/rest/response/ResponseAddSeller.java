@@ -1,5 +1,5 @@
 
-package com.lutongbahay.rest.response.POST.add_seller;
+package com.lutongbahay.rest.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 
 import com.lutongbahay.main.fragments.payment_method.mvvm.PaymentMethodView;
 import com.lutongbahay.main.fragments.payment_method.mvvm.PaymentMethodViewModel;
-import com.lutongbahay.user_auth.activity.SplashActivity;
 import com.lutongbahay.utils.StatusBarUtils;
 
 /**

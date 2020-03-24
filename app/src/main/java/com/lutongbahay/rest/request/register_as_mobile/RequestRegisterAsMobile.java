@@ -10,9 +10,6 @@ public class RequestRegisterAsMobile {
     @Expose
     private String mobile;
 
-    public RequestRegisterAsMobile(String mobile) {
-        this.mobile = mobile;
-    }
 
     public String getMobile() {
         return mobile;
