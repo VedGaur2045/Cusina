@@ -1,20 +1,20 @@
 
-package com.lutongbahay.rest.response.GET.verify_kitchen;
+package com.lutongbahay.rest.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datum {
+public class PaymentData {
 
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("user_id")
-    @Expose
-    private Integer userId;
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("status")
+    @Expose
+    private String status;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -30,20 +30,20 @@ public class Datum {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCreatedAt() {

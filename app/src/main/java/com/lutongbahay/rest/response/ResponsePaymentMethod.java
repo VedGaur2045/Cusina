@@ -1,5 +1,5 @@
 
-package com.lutongbahay.rest.response.GET.payment_method;
+package com.lutongbahay.rest.response;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -12,7 +12,7 @@ public class ResponsePaymentMethod {
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<Datum> data = null;
+    private List<PaymentData> data = null;
     @SerializedName("message")
     @Expose
     private String message;
@@ -25,11 +25,11 @@ public class ResponsePaymentMethod {
         this.success = success;
     }
 
-    public List<Datum> getData() {
+    public List<PaymentData> getData() {
         return data;
     }
 
-    public void setData(List<Datum> data) {
+    public void setData(List<PaymentData> data) {
         this.data = data;
     }
 

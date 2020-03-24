@@ -1,4 +1,4 @@
-package com.lutongbahay.user_auth.activity;
+package com.lutongbahay.user_auth.activity.splash;
 
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -8,23 +8,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.Navigation;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.hbb20.CountryCodePicker;
 import com.lutongbahay.R;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.AppAction;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.home.HomeActivity;
-import com.lutongbahay.user_auth.fragments.login.LoginFragmentDirections;
+import com.lutongbahay.rest.request.register_as_mobile.RequestRegisterAsMobile;
+import com.lutongbahay.user_auth.activity.AuthActivity;
 import com.lutongbahay.utils.SnackbarUtils;
 import com.lutongbahay.utils.StatusBarUtils;
+import com.lutongbahay.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +49,8 @@ public class SplashActivity extends AppCompatActivity {
     @BindView(R.id.nextImageBtn)
     ImageButton nextImageBtn;
 
+    private SplashViewModel viewModel;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
@@ -59,6 +63,9 @@ public class SplashActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             StatusBarUtils.redStatusBar(this);
         }
+
+        viewModel = ViewModelProviders.of(this).get(SplashViewModel.class);
+
         ButterKnife.bind(this);
     }
 
@@ -67,6 +74,28 @@ public class SplashActivity extends AppCompatActivity {
         Intent intent = new Intent(context, SplashActivity.class);
         context.startActivity(intent, bndlAnimation);
         ((AppCompatActivity) context).finish();
+    }
+
+
+    public void registerUserMobile(AppCompatActivity context ){
+        RequestRegisterAsMobile registerAsMobile = new RequestRegisterAsMobile();
+        registerAsMobile.setMobile(mobileNumberEdt.getText().toString());
+        viewModel.registerMobile(context, registerAsMobile).observe(context, response -> {
+            if (response == null) {
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
+            } else {
+
+                    if (!response.getSuccess()) {
+                        showErrorAlert(context, response.getMessage());
+                    } else {
+                        ToastUtils.shortToast(response.getMessage());
+                        HomeActivity.openHomeActivity(context);
+                        (context).finish();
+                    }
+
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
     }
 
     @OnClick({R.id.skipFroNowId,R.id.nextImageBtn})
@@ -85,7 +114,15 @@ public class SplashActivity extends AppCompatActivity {
                 System.out.println(mobile);
                 CusinaApplication.getPreferenceManger().putMobileNumber(mobile);
                 AuthActivity.openAuthActivity(SplashActivity.this);
+                registerUserMobile(SplashActivity.this);
             }
         }
+    }
+
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+                (view, dialog) -> {
+
+                }, null);
     }
 }

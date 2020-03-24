@@ -9,16 +9,14 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.Otp_Frag.mvvm.OtpBasedView;
 import com.lutongbahay.main.fragments.Otp_Frag.mvvm.OtpBasedViewModel;
-import com.lutongbahay.user_auth.activity.SplashActivity;
+import com.lutongbahay.user_auth.activity.splash.SplashActivity;
 import com.lutongbahay.utils.StatusBarUtils;
 
 public class OtpBasedFragment extends Fragment {

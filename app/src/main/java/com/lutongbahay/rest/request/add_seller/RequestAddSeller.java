@@ -37,18 +37,6 @@ public class RequestAddSeller {
     @Expose
     private String kitchen;
 
-    public RequestAddSeller(String name, String mobile, String email, String address1, String address2, String city, String zipcode, String country, String gender, String kitchen) {
-        this.name = name;
-        this.mobile = mobile;
-        this.email = email;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.country = country;
-        this.gender = gender;
-        this.kitchen = kitchen;
-    }
 
     public String getName() {
         return name;

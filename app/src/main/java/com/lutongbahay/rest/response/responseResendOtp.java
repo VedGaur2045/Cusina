@@ -1,10 +1,10 @@
 
-package com.lutongbahay.rest.response.POST.resgister_mobile;
+package com.lutongbahay.rest.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class responseRegisterAsMobile {
+public class responseResendOtp {
 
     @SerializedName("success")
     @Expose
