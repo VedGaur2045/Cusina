@@ -25,6 +25,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
@@ -107,6 +108,13 @@ public class HomeActivity extends AppCompatActivity {
             Constants.isRegistered = true;
             navController.navigate(R.id.profileFragment);
         }
+
+        try{
+            System.out.println("Mobile Number : "+ CusinaApplication.getPreferenceManger().getStringValue(CusinaApplication.getPreferenceManger().MOBILE_NUMBER));
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
 

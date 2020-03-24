@@ -97,21 +97,22 @@ public class HomeFragView extends FrameLayout {
         locationTxt.setText("Current Location" );
         geocoder = new Geocoder(context, Locale.getDefault());
 
-        if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
-            fetchLocation();
+        if(CusinaApplication.getPreferenceManger().getLastSavedLocation() == null) {
+            if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
+                fetchLocation();
+            }
+        } else {
+            List<Address> addressList = new ArrayList<>();
+            addressList = Collections.singletonList(CusinaApplication.getPreferenceManger().getLastSavedLocation());
+
+            try {
+                System.out.println(addressList.get(0).getAddressLine(0));
+
+                locationTxt.setText(addressList.get(0).getAddressLine(0));
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
-
-        List<Address> addressList = new ArrayList<>();
-        addressList = Collections.singletonList(CusinaApplication.getPreferenceManger().getLastSavedLocation());
-
-        try {
-            System.out.println(addressList.get(0).getAddressLine(0));
-
-            locationTxt.setText(addressList.get(0).getAddressLine(0));
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
 
     }
 

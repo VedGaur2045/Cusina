@@ -129,6 +129,7 @@ public class SelectLocationFragmentView extends FrameLayout {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.next) {
+            CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
             HomeActivity.openHomeActivity(getContext());
         } else if (id == R.id.close) {
             Navigation.findNavController(v).navigateUp();
@@ -185,7 +186,7 @@ public class SelectLocationFragmentView extends FrameLayout {
                         locationTextView.setText("Current Location \n" + addressLine);
                         System.out.println("hajsg ? "+addressList.get(0));
                         check = true;
-                        CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+                        //CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                     }else {
                         check = false;
                         locationTextView.setText("");
@@ -229,7 +230,7 @@ public class SelectLocationFragmentView extends FrameLayout {
                         addressList.get(0).setCountryCode(null);
                         addressList.get(0).setCountryName(null);
                         System.out.println("Aghgsxdhjb s   =   "+addressList.get(0).getAddressLine(0));
-                        CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+                        //CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                         rv_search_result.setVisibility(GONE);
                         currentlocation.setVisibility(VISIBLE);
                     }

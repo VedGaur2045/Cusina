@@ -19,6 +19,7 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 import com.hbb20.CountryCodePicker;
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.AppAction;
 import com.lutongbahay.main.home.HomeActivity;
 import com.lutongbahay.user_auth.fragments.login.LoginFragmentDirections;
@@ -80,6 +81,9 @@ public class SplashActivity extends AppCompatActivity {
             if(android.text.TextUtils.isEmpty(mobileNumberEdt.getText().toString()) || mobileNumberEdt.getText().toString().length() < 10 && countryCodeHolder.getSelectedCountryCode().isEmpty()){
                 SnackbarUtils.showSnackBar(view, "Please enter a valid mobile number", Snackbar.LENGTH_LONG);
             }else{
+                String mobile = countryCodeHolder.getSelectedCountryCodeWithPlus().toString()+""+mobileNumberEdt.getText().toString();
+                System.out.println(mobile);
+                CusinaApplication.getPreferenceManger().putMobileNumber(mobile);
                 AuthActivity.openAuthActivity(SplashActivity.this);
             }
         }
