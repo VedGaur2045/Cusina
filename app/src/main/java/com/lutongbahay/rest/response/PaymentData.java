@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class PaymentData {
 
+
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -61,5 +62,4 @@ public class PaymentData {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-
 }

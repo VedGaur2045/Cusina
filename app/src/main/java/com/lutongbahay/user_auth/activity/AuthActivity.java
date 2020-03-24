@@ -26,9 +26,10 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class AuthActivity extends AppCompatActivity {
 
-    public static void openAuthActivity(Context context){
+    public static void openAuthActivity(Context context, String otp){
         Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(context, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
         Intent intent = new Intent(context, AuthActivity.class);
+        intent.putExtra("otp",otp);
         context.startActivity(intent,bndlAnimation);
         ((AppCompatActivity)context).finish();
     }

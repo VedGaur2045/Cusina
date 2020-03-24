@@ -10,8 +10,11 @@ import androidx.lifecycle.MutableLiveData;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.rest.APiInterface;
-import com.lutongbahay.rest.request.register_as_mobile.RequestRegisterAsMobile;
+import com.lutongbahay.rest.request.RequestAddSeller;
+import com.lutongbahay.rest.request.RequestRegisterAsMobile;
+import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
+import com.lutongbahay.rest.response.ResponseResendOtp;
 import com.lutongbahay.utils.Logger;
 
 import retrofit2.Call;
@@ -58,6 +61,30 @@ public class AuthService {
         return data;
     }
 
+    public static LiveData<ResponseResendOtp> resendOtp(final Context context, int userId){
+        final MutableLiveData<ResponseResendOtp> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseResendOtp> call = apiService.resendOtp(userId);
+        call.enqueue(new Callback<ResponseResendOtp>() {
+            @Override
+            public void onResponse(Call<ResponseResendOtp> call, Response<ResponseResendOtp> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
 
+            @Override
+            public void onFailure(Call<ResponseResendOtp> call, Throwable t) {
+                //show error message here
+                Logger.ErrorLog("RESEND OTP API FAILED " , t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
 
 }

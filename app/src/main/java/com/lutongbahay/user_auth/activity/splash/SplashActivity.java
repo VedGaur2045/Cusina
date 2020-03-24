@@ -18,11 +18,10 @@ import com.google.android.material.snackbar.Snackbar;
 import com.hbb20.CountryCodePicker;
 import com.lutongbahay.R;
 import com.lutongbahay.app.CusinaApplication;
-import com.lutongbahay.dialogs.AppAction;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.home.HomeActivity;
-import com.lutongbahay.rest.request.register_as_mobile.RequestRegisterAsMobile;
+import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.user_auth.activity.AuthActivity;
 import com.lutongbahay.utils.SnackbarUtils;
 import com.lutongbahay.utils.StatusBarUtils;
@@ -84,15 +83,15 @@ public class SplashActivity extends AppCompatActivity {
             if (response == null) {
                 showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
             } else {
-
                     if (!response.getSuccess()) {
                         showErrorAlert(context, response.getMessage());
                     } else {
                         ToastUtils.shortToast(response.getMessage());
-                        HomeActivity.openHomeActivity(context);
+                        System.out.println("Otp : "+response.getData().getOtp());
+//                        HomeActivity.openHomeActivity(context);
+                        AuthActivity.openAuthActivity(SplashActivity.this,response.getData().getOtp());
                         (context).finish();
                     }
-
             }
             ProgressDialogFragment.dismissProgressDialog(context);
         });
@@ -113,7 +112,7 @@ public class SplashActivity extends AppCompatActivity {
                 String mobile = countryCodeHolder.getSelectedCountryCodeWithPlus().toString()+""+mobileNumberEdt.getText().toString();
                 System.out.println(mobile);
                 CusinaApplication.getPreferenceManger().putMobileNumber(mobile);
-                AuthActivity.openAuthActivity(SplashActivity.this);
+//                AuthActivity.openAuthActivity(SplashActivity.this);
                 registerUserMobile(SplashActivity.this);
             }
         }

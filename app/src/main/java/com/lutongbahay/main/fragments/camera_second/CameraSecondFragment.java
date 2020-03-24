@@ -4,34 +4,49 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.camera_second.mvvm.CameraSecondView;
 import com.lutongbahay.main.fragments.camera_second.mvvm.CameraSecondViewModel;
+import com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragmentDirections;
 
 public class CameraSecondFragment extends Fragment {
     private CameraSecondView view;
     private CameraSecondViewModel viewModel;
     private Context context;
+    AppCompatActivity compatActivity;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
+        compatActivity = (AppCompatActivity) context;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).navigate(CameraSecondFragmentDirections.toAddPhoto());
+                compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

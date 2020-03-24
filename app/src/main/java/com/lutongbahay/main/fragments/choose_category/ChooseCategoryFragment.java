@@ -46,7 +46,7 @@ public class ChooseCategoryFragment extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCameraFragment());
+                Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCameraSecondFragment());
                 compatActivity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                         WindowManager.LayoutParams.FLAG_FULLSCREEN);
             }

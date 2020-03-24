@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 
 import com.lutongbahay.app.BaseViewModel;
-import com.lutongbahay.rest.request.register_as_mobile.RequestRegisterAsMobile;
+import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.service.AuthService;
 

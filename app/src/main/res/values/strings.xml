@@ -454,4 +454,9 @@
     <string name="otpInformTxt">We\'ve sent a code to the mobile number 1234567890. Please enter the code in that message</string>
     <string name="resendCode">Resend OTP</string>
     <string name="could_not_find_any_search_result_for_the_given_query">Could not find any search result for the given query</string>
+    <string name="kitchenName">Kitchen Name</string>
+    <string name="kitchenName_placeholder">Kitchen Name(should be unique)</string>
+    <string name="paymentGateway">Payment Gateway</string>
+    <string name="creditCard">Credit Card</string>
+    <string name="prepaidCard">Prepaid Card</string>
 </resources>

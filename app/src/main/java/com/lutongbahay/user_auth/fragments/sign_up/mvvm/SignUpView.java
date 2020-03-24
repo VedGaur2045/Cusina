@@ -1,6 +1,8 @@
 package com.lutongbahay.user_auth.fragments.sign_up.mvvm;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -10,14 +12,21 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
+import com.lutongbahay.rest.request.RequestAddSeller;
+import com.lutongbahay.user_auth.activity.AuthActivity;
+import com.lutongbahay.user_auth.activity.splash.SplashActivity;
 import com.lutongbahay.user_auth.fragments.sign_up.SignUpFragmentDirections;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragment;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragmentDirections;
 import com.lutongbahay.utils.SnackbarUtils;
+import com.lutongbahay.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +36,8 @@ public class SignUpView extends FrameLayout {
     private final SignUpViewModel viewModel;
     @BindView(R.id.close)
     ImageButton close;
+    @BindView(R.id.kitchenName)
+    EditText kitchenName;
     @BindView(R.id.username)
     EditText username;
     @BindView(R.id.usermobile)
@@ -49,7 +60,7 @@ public class SignUpView extends FrameLayout {
     Button NextBtn;
 
     final String[] gender = new String[]{"Gender", "Male", "Female", "Other"};
-    final String[] countries = new String[]{"Country","Abra","Agusan del Norte","Agusan del Sur",
+    final String[] countries = new String[]{"City","Abra","Agusan del Norte","Agusan del Sur",
             "Aklan", "Albay","Antique","Bataan","Batanes","Batangas","Benguet","Bohol","Bukidnon","Bulacan",
             "Cagayan","Camarines Norte","Camarines Sur","Camiguin","Capiz","Catanduanes","Cavite","Cebu","Basilan"," Eastern Samar",
             "Davao del Sur","Davao Oriental","Ifugao","Ilocos Norte"," Ilocos Sur","Iloilo","Isabela","Laguna","Lanao del Norte","Lanao del Sur",
@@ -72,7 +83,26 @@ public class SignUpView extends FrameLayout {
 
         citylist.setAdapter(adapter2);
 
+        kitchenName.addTextChangedListener(textWatcher);
+
     }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            verifyKitchenName((AppCompatActivity) getContext(), editable.toString());
+        }
+    };
 
     @OnClick({R.id.close,R.id.NextBtn})
     public void onClick(View view){
@@ -82,15 +112,79 @@ public class SignUpView extends FrameLayout {
                 Navigation.findNavController(view).navigate(SignUpFragmentDirections.toSellWithLutongBehay());
                 break;
             case R.id.NextBtn:
-                if(username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0
+                System.out.println(citylist.getSelectedItem().toString()+"     "+genderlist.getSelectedItem().toString());
+                if(kitchenName.getText().length()>0 && username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0
                         && useradddressline1.getText().length()>0 && useradddressline2.getText().length()>0 && zipcode.getText().length()>0
                         && usercountry.getText().length()>0 && citylist.getSelectedItemPosition()>0 && genderlist.getSelectedItemPosition()>0){
-                    Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
+                    addSellerInfoData((AppCompatActivity) getContext(),view);
                 } else {
                     SnackbarUtils.showSnackBar(view, "Please fill all field", Snackbar.LENGTH_LONG);
-                    Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
+                    //Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
                 }
                 break;
         }
     }
+
+    public void addSellerInfoData(AppCompatActivity compatActivity,View view){
+        RequestAddSeller requestAddSeller = new RequestAddSeller();
+        requestAddSeller.setName(username.getText().toString());
+        requestAddSeller.setMobile(usermobile.getText().toString());
+        requestAddSeller.setEmail(useremail.getText().toString());
+        requestAddSeller.setAddress1(useradddressline1.getText().toString());
+        requestAddSeller.setAddress2(useradddressline2.getText().toString());
+        requestAddSeller.setCity(citylist.getSelectedItem().toString());
+        requestAddSeller.setZipcode(zipcode.getText().toString());
+        requestAddSeller.setCountry(usercountry.getText().toString());
+        requestAddSeller.setGender(genderlist.getSelectedItem().toString());
+        requestAddSeller.setKitchen(kitchenName.getText().toString());
+
+        viewModel.addSeller(compatActivity, requestAddSeller).observe(compatActivity, response -> {
+            if (response == null) {
+                showErrorAlert(compatActivity, "Oops!! Server error occurred. Please try again.");
+            } else {
+                if (!response.getSuccess()) {
+                    showErrorAlert(compatActivity, response.getMessage());
+                } else {
+                    //ToastUtils.shortToast(response.getMessage());
+                    if(response.getMessage().matches("Kitchen already exists")){
+                        SnackbarUtils.showSnackBar(view,"Kitchen already exists",Snackbar.LENGTH_LONG);
+                    } else if(response.getMessage().matches("Mobile number already exists")){
+                        SnackbarUtils.showSnackBar(view,"Mobile number already exists",Snackbar.LENGTH_LONG);
+                    } else if(response.getMessage().matches("Email id already register.")){
+                        SnackbarUtils.showSnackBar(view,"Email id already register.",Snackbar.LENGTH_LONG);
+                    } else {
+                        Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
+                    }
+                }
+            }
+            ProgressDialogFragment.dismissProgressDialog(compatActivity);
+        });
+    }
+
+    public void verifyKitchenName(AppCompatActivity compatActivity, String kitchenName){
+        viewModel.verifyKitchen(compatActivity,kitchenName).observe(compatActivity, responseVerifyKitchen -> {
+            if(responseVerifyKitchen == null){
+                showErrorAlert(compatActivity, "Oops!! Server error occurred. Please try again.");
+            } else {
+                if(!responseVerifyKitchen.getSuccess()){
+                    showErrorAlert(compatActivity,responseVerifyKitchen.getMessage());
+                } else {
+                    if(responseVerifyKitchen.getSuccess().equals("Kitchen already exists")){
+                        showErrorAlert(compatActivity,"Kitchen already exists, try another");
+                    } else {
+                        ToastUtils.shortToast(responseVerifyKitchen.getMessage());
+                    }
+                }
+            }
+        });
+    }
+
+
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+                (view, dialog) -> {
+
+                }, null);
+    }
+
 }

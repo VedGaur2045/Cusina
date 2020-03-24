@@ -129,7 +129,11 @@ public class SelectLocationFragmentView extends FrameLayout {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.next) {
-            CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+            try {
+                CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+            } catch (Exception e){
+                e.printStackTrace();
+            }
             HomeActivity.openHomeActivity(getContext());
         } else if (id == R.id.close) {
             Navigation.findNavController(v).navigateUp();

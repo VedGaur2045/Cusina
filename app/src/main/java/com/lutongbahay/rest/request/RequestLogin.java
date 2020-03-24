@@ -1,5 +1,5 @@
 
-package com.lutongbahay.rest.request.login;
+package com.lutongbahay.rest.request;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

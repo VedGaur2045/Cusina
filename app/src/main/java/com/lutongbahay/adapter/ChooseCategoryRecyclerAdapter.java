@@ -13,10 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragmentDirections;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ChooseCategoryRecyclerAdapter extends RecyclerView.Adapter<ChooseCategoryRecyclerAdapter.ChooseCategoryViewHolder> {
+
+    private ArrayList<String> dishCategoryList = new ArrayList<>();
+
+    public ChooseCategoryRecyclerAdapter(ArrayList<String> dishCategoryList) {
+        this.dishCategoryList = dishCategoryList;
+    }
 
     @NonNull
     @Override
@@ -27,14 +35,17 @@ public class ChooseCategoryRecyclerAdapter extends RecyclerView.Adapter<ChooseCa
 
     @Override
     public void onBindViewHolder(@NonNull ChooseCategoryViewHolder holder, int position) {
-        holder.categoryNameLayout.setOnClickListener(view -> {
-            Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCompletedDetails());
-        });
+
+        for(int i=0;i<dishCategoryList.size();i++){
+            holder.categoryName.setText(dishCategoryList.get(i));
+        }
+
+        holder.categoryNameLayout.setOnClickListener(view -> Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCompletedDetails()));
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return dishCategoryList.size();
     }
 
     class ChooseCategoryViewHolder extends RecyclerView.ViewHolder{

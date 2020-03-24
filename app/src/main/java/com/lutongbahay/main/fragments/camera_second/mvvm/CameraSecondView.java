@@ -124,7 +124,7 @@ public class CameraSecondView extends FrameLayout {
 
     }
 
-    @OnClick({R.id.capturedImageBtn,R.id.rightBtn,R.id.flashAutoBtn})
+    @OnClick({R.id.capturedImageBtn,R.id.chooseImageCategory,R.id.flashAutoBtn})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
@@ -135,7 +135,7 @@ public class CameraSecondView extends FrameLayout {
                 compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 //    Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
                 break;
-            case R.id.rightBtn:
+            case R.id.chooseImageCategory:
                 Navigation.findNavController(view).navigate(CameraSecondFragmentDirections.toChooseCategory());
                 compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 break;
