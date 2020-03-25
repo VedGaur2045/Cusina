@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -16,17 +17,27 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.helper.MarshMallowPermission;
+import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragment;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragmentDirections;
+import com.lutongbahay.utils.FileUtils;
+import com.lutongbahay.utils.SnackbarUtils;
+
+import java.io.File;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
-import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
@@ -65,6 +76,7 @@ public class DocumentUploadView extends FrameLayout {
             return;
         }
 
+
     }
 
     @OnClick({R.id.close,R.id.nextBtnUpload,R.id.uploadFileIdFirst,R.id.uploadFileIdSecond,R.id.uploadFileIdThird})
@@ -75,6 +87,11 @@ public class DocumentUploadView extends FrameLayout {
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpFragment());
                 break;
             case R.id.nextBtnUpload :
+                Log.e("File1 : ",getFileName(fileNameFirstUploaded.getText().toString()));
+                Log.e("File2 : ",getFileName(fileNameSecondUploaded.getText().toString()));
+                Log.e("File3 : ",getFileName(fileNameThirdUploaded.getText().toString()));
+                //fileSet(fragment.fileUri1,fragment.fileUri2,fragment.fileUri3,fileNameFirstUploaded.getText().toString(),fileNameSecondUploaded.getText().toString(),fileNameThirdUploaded.getText().toString(),view);
+
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpCompleteFragment());
                 break;
             case R.id.uploadFileIdFirst:
@@ -99,6 +116,65 @@ public class DocumentUploadView extends FrameLayout {
         compatActivity.startActivityForResult(intent, requestCode);
     }
 
+    private String getFileName(String fullFilePath){
+        String[] saperated = fullFilePath.split("/");
+        String fileName = "";
+        for(int i=0;i<saperated.length;i++){
+            if(i == saperated.length-1){
+                fileName = saperated[i];
+            }
+        }
+        System.out.println("File Name : "+fileName);
+        return fileName;
+    }
 
+    private void fileSet(Uri fileUri1, Uri fileUri2, Uri fileUri3,String fileName1, String fileName2, String fileName3, View view){
+        MultipartBody.Part file1 = prepareFilePart("File1",fileUri1);
+        MultipartBody.Part file2 = prepareFilePart("File2",fileUri2);
+        MultipartBody.Part file3 = prepareFilePart("FIle3",fileUri3);
+        documentUpload(compatActivity,file1,file2,file3,view,fileName1,fileName2,fileName3);
+    }
+
+    private MultipartBody.Part prepareFilePart(String partName, Uri fileUri) {
+        // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
+        // use the FileUtils to get the actual file by uri
+        File file = FileUtils.getFile(compatActivity, fileUri);
+
+        // create RequestBody instance from file
+        RequestBody requestFile =
+                RequestBody.create(
+                        MediaType.parse(Objects.requireNonNull(compatActivity.getContentResolver().getType(fileUri))),
+                        file
+                );
+
+        // MultipartBody.Part is used to send also the actual file name
+        return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
+    }
+
+    public void documentUpload(Context context, MultipartBody.Part file1, MultipartBody.Part file2, MultipartBody.Part file3,View view, String fileName1, String fileName2, String fileName3){
+        RequestDocumentUpload documentUpload = new RequestDocumentUpload();
+        documentUpload.setId1Type(fileName1);
+        documentUpload.setId2Type(fileName2);
+        documentUpload.setId3Type(fileName3);
+        documentUpload.setUserId(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID));
+        viewModel.documentUpload(context,documentUpload,file1,file2,file3).observe(compatActivity, responseDocument -> {
+            if(responseDocument == null){
+                showErrorAlert(context,"Oops!! Server error occurred. Please try again.");
+            } else {
+                if(!responseDocument.isSuccess()){
+                    showErrorAlert(context,responseDocument.getMessage());
+                } else {
+                    SnackbarUtils.showSnackBar(view,responseDocument.getMessage(),Snackbar.LENGTH_LONG);
+                }
+            }
+        });
+    }
+
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+                (view, dialog) -> {
+
+                }, null);
+    }
 
 }

@@ -9,6 +9,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragmentDirections;
 import com.lutongbahay.main.fragments.item_detail.mvvm.ItemDetailView;
 import com.lutongbahay.main.fragments.item_detail.mvvm.ItemDetailViewModel;

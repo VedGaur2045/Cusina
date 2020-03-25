@@ -2,20 +2,28 @@ package com.lutongbahay.rest;
 
 
 import com.lutongbahay.rest.request.RequestAddSeller;
+import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
+import com.lutongbahay.rest.response.ResponseDishesList;
+import com.lutongbahay.rest.response.ResponseDocument;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseResendOtp;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.rest.response.google_places_response.GooglePlacesAPIData;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -32,19 +40,27 @@ public interface APiInterface {
     @POST("register-mobile")
     Call<ResponseRegisterAsMobile> registerMobile(@Body RequestRegisterAsMobile registerAsMobile);
 
-    @GET("resend-otp")
-    Call<ResponseResendOtp> resendOtp(@Query("id") int page);
+    @GET("resend-otp/{id}")
+    Call<ResponseResendOtp> resendOtp(@Path("id") int page);
 
+    @Headers("Cache-control: no-cache")
     @POST("seller")
     Call<ResponseAddSeller> addSeller(@Body RequestAddSeller addSeller);
 
-    @GET("verify-kitchen")
-    Call<ResponseVerifyKitchen> verifyKitchen(@Query("kitchen") String kitchenName);
+    @GET("verify-kitchen/{kitchen}")
+    Call<ResponseVerifyKitchen> verifyKitchen(@Header("Authorization") String token, @Path("kitchen") String kitchenName);
 
     @GET("food-type")
     Call<ResponseDishCategory> dishCategory(@Header("Authorization") String token);
 
     @GET("payment-type")
     Call<ResponsePaymentMethod> paymentMethod(@Header("Authorization") String token);
+
+    @GET("dishes")
+    Call<ResponseDishesList> dishesList(@Header("Authorization") String token);
+
+    @Multipart
+    @POST("document")
+    Call<ResponseDocument> documentUpload(@Body RequestDocumentUpload documentUpload,@Part MultipartBody.Part file1,@Part MultipartBody.Part file2,@Part MultipartBody.Part file3);
 
 }

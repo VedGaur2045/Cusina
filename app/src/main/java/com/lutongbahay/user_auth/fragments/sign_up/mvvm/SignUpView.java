@@ -1,8 +1,11 @@
 package com.lutongbahay.user_auth.fragments.sign_up.mvvm;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,6 +28,7 @@ import com.lutongbahay.user_auth.activity.splash.SplashActivity;
 import com.lutongbahay.user_auth.fragments.sign_up.SignUpFragmentDirections;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragment;
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragmentDirections;
+import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.SnackbarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
@@ -66,6 +70,7 @@ public class SignUpView extends FrameLayout {
             "Davao del Sur","Davao Oriental","Ifugao","Ilocos Norte"," Ilocos Sur","Iloilo","Isabela","Laguna","Lanao del Norte","Lanao del Sur",
             "La Union","Leyte"};
 
+    @SuppressLint("ClickableViewAccessibility")
     public SignUpView(@NonNull Context context, SignUpViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
@@ -83,8 +88,6 @@ public class SignUpView extends FrameLayout {
 
         citylist.setAdapter(adapter2);
 
-        kitchenName.addTextChangedListener(textWatcher);
-
     }
 
     private TextWatcher textWatcher = new TextWatcher() {
@@ -95,12 +98,12 @@ public class SignUpView extends FrameLayout {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            //verifyKitchenName((AppCompatActivity) getContext(), charSequence.toString());
         }
 
         @Override
         public void afterTextChanged(Editable editable) {
-            verifyKitchenName((AppCompatActivity) getContext(), editable.toString());
+
         }
     };
 
@@ -116,10 +119,13 @@ public class SignUpView extends FrameLayout {
                 if(kitchenName.getText().length()>0 && username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0
                         && useradddressline1.getText().length()>0 && useradddressline2.getText().length()>0 && zipcode.getText().length()>0
                         && usercountry.getText().length()>0 && citylist.getSelectedItemPosition()>0 && genderlist.getSelectedItemPosition()>0){
-                    addSellerInfoData((AppCompatActivity) getContext(),view);
+
+                    //verifyKitchenName((AppCompatActivity) getContext(),kitchenName.getText().toString(), Constants.TOKEN,view);
+                       // addSellerInfoData((AppCompatActivity) getContext(), view);
+
                 } else {
                     SnackbarUtils.showSnackBar(view, "Please fill all field", Snackbar.LENGTH_LONG);
-                    //Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
+                    Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
                 }
                 break;
         }
@@ -153,6 +159,7 @@ public class SignUpView extends FrameLayout {
                     } else if(response.getMessage().matches("Email id already register.")){
                         SnackbarUtils.showSnackBar(view,"Email id already register.",Snackbar.LENGTH_LONG);
                     } else {
+                        System.out.println("Data Successfully Added");
                         Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
                     }
                 }
@@ -161,8 +168,8 @@ public class SignUpView extends FrameLayout {
         });
     }
 
-    public void verifyKitchenName(AppCompatActivity compatActivity, String kitchenName){
-        viewModel.verifyKitchen(compatActivity,kitchenName).observe(compatActivity, responseVerifyKitchen -> {
+    public void verifyKitchenName(AppCompatActivity compatActivity, String kitchenName, String token, View view){
+        viewModel.verifyKitchen(compatActivity,kitchenName,token).observe(compatActivity, responseVerifyKitchen -> {
             if(responseVerifyKitchen == null){
                 showErrorAlert(compatActivity, "Oops!! Server error occurred. Please try again.");
             } else {
@@ -173,9 +180,12 @@ public class SignUpView extends FrameLayout {
                         showErrorAlert(compatActivity,"Kitchen already exists, try another");
                     } else {
                         ToastUtils.shortToast(responseVerifyKitchen.getMessage());
+                        System.out.println("On Kitchen Name Success : "+responseVerifyKitchen.getMessage());
+                        addSellerInfoData(compatActivity,view);
                     }
                 }
             }
+            ProgressDialogFragment.dismissProgressDialog(compatActivity);
         });
     }
 

@@ -17,6 +17,8 @@ import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseResendOtp;
 import com.lutongbahay.utils.Logger;
 
+import org.jetbrains.annotations.NotNull;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,7 +72,7 @@ public class AuthService {
         Call<ResponseResendOtp> call = apiService.resendOtp(userId);
         call.enqueue(new Callback<ResponseResendOtp>() {
             @Override
-            public void onResponse(Call<ResponseResendOtp> call, Response<ResponseResendOtp> response) {
+            public void onResponse(@NotNull Call<ResponseResendOtp> call, @NotNull Response<ResponseResendOtp> response) {
                 if(response.body() != null){
                     data.setValue(response.body());
                 } else {
@@ -79,7 +81,7 @@ public class AuthService {
             }
 
             @Override
-            public void onFailure(Call<ResponseResendOtp> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResponseResendOtp> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("RESEND OTP API FAILED " , t.getLocalizedMessage());
             }

@@ -21,6 +21,8 @@ public class PreferenceManger {
     public static final String AUTH_TOKEN = "auth_token";
     public static final String CURRENT_LOCATION = "current_location";
     public final String MOBILE_NUMBER = "mobile_number";
+    public final String USER_ID = "user_id";
+    public final String CHECK_USER_IS_LOGGED_IN = "user_logged_in";
 
     private SharedPreferences mSharedPreferences;
 
@@ -63,7 +65,6 @@ public class PreferenceManger {
         return mSharedPreferences.getString(key, "");
     }
 
-
     public String getStringValue(String key, String def) {
         return mSharedPreferences.getString(key, def);
     }
@@ -98,5 +99,12 @@ public class PreferenceManger {
         String json = gson.toJson(mobileNumber);
         putString(MOBILE_NUMBER,json);
     }
+    public void putUserId(int userID){
+        Gson gson = new Gson();
+        int json = Integer.parseInt(gson.toJson(userID));
+        putBoolean(CHECK_USER_IS_LOGGED_IN,true);
+        putInt(USER_ID,json);
+    }
+
 
 }

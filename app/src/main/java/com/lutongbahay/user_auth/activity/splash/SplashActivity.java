@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -66,6 +68,9 @@ public class SplashActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(SplashViewModel.class);
 
         ButterKnife.bind(this);
+
+        Log.e("Session : ", String.valueOf(CusinaApplication.getPreferenceManger().getBooleanValue(CusinaApplication.getPreferenceManger().CHECK_USER_IS_LOGGED_IN)));
+
     }
 
     public static void openSplashActivity(Context context) {
@@ -88,6 +93,7 @@ public class SplashActivity extends AppCompatActivity {
                     } else {
                         ToastUtils.shortToast(response.getMessage());
                         System.out.println("Otp : "+response.getData().getOtp());
+                        CusinaApplication.getPreferenceManger().putUserId(response.getData().getId());
 //                        HomeActivity.openHomeActivity(context);
                         AuthActivity.openAuthActivity(SplashActivity.this,response.getData().getOtp());
                         (context).finish();

@@ -9,15 +9,22 @@ import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.rest.APiInterface;
 import com.lutongbahay.rest.request.RequestAddSeller;
+import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
+import com.lutongbahay.rest.response.ResponseDishesList;
+import com.lutongbahay.rest.response.ResponseDocument;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.utils.Logger;
 
+import org.jetbrains.annotations.NotNull;
+
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Part;
 
 public class MainService {
     private static final APiInterface apiService =
@@ -35,7 +42,7 @@ public class MainService {
         Call<ResponseAddSeller> call = apiService.addSeller(requestAddSeller);
         call.enqueue(new Callback<ResponseAddSeller>() {
             @Override
-            public void onResponse(Call<ResponseAddSeller> call, Response<ResponseAddSeller> response) {
+            public void onResponse(@NotNull Call<ResponseAddSeller> call, @NotNull Response<ResponseAddSeller> response) {
                 if (response.body() != null) {
                     data.setValue(response.body());
                 } else {
@@ -44,7 +51,7 @@ public class MainService {
             }
 
             @Override
-            public void onFailure(Call<ResponseAddSeller> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResponseAddSeller> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("ADD SELLER API FAILED " , t.getLocalizedMessage());
             }
@@ -53,16 +60,16 @@ public class MainService {
         return data;
     }
 
-    public static LiveData<ResponseVerifyKitchen> verifyKitchen(final Context context, String kitchenName){
+    public static LiveData<ResponseVerifyKitchen> verifyKitchen(final Context context, String kitchenName, String token){
         final MutableLiveData<ResponseVerifyKitchen> data = new MutableLiveData<>();
         if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
             return data;
         }
         ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-        Call<ResponseVerifyKitchen> call = apiService.verifyKitchen(kitchenName);
+        Call<ResponseVerifyKitchen> call = apiService.verifyKitchen(kitchenName, token);
         call.enqueue(new Callback<ResponseVerifyKitchen>() {
             @Override
-            public void onResponse(Call<ResponseVerifyKitchen> call, Response<ResponseVerifyKitchen> response) {
+            public void onResponse(@NotNull Call<ResponseVerifyKitchen> call, @NotNull Response<ResponseVerifyKitchen> response) {
                 if (response.body() != null) {
                     data.setValue(response.body());
                 } else {
@@ -71,7 +78,7 @@ public class MainService {
             }
 
             @Override
-            public void onFailure(Call<ResponseVerifyKitchen> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResponseVerifyKitchen> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("DISH CATEGORY API FAILED " , t.getLocalizedMessage());
             }
@@ -89,7 +96,7 @@ public class MainService {
         Call<ResponseDishCategory> call = apiService.dishCategory("Bearer " + token);
         call.enqueue(new Callback<ResponseDishCategory>() {
             @Override
-            public void onResponse(Call<ResponseDishCategory> call, Response<ResponseDishCategory> response) {
+            public void onResponse(@NotNull Call<ResponseDishCategory> call, @NotNull Response<ResponseDishCategory> response) {
                 if (response.body() != null) {
                     data.setValue(response.body());
                 } else {
@@ -98,7 +105,7 @@ public class MainService {
             }
 
             @Override
-            public void onFailure(Call<ResponseDishCategory> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResponseDishCategory> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("DISH CATEGORY API FAILED " , t.getLocalizedMessage());
             }
@@ -116,7 +123,7 @@ public class MainService {
         Call<ResponsePaymentMethod> call = apiService.paymentMethod("Bearer " + token);
         call.enqueue(new Callback<ResponsePaymentMethod>() {
             @Override
-            public void onResponse(Call<ResponsePaymentMethod> call, Response<ResponsePaymentMethod> response) {
+            public void onResponse(@NotNull Call<ResponsePaymentMethod> call, @NotNull Response<ResponsePaymentMethod> response) {
                 if (response.body() != null) {
                     data.setValue(response.body());
                 } else {
@@ -125,9 +132,59 @@ public class MainService {
             }
 
             @Override
-            public void onFailure(Call<ResponsePaymentMethod> call, Throwable t) {
+            public void onFailure(@NotNull Call<ResponsePaymentMethod> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("DISH CATEGORY API FAILED " , t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
+    public static LiveData<ResponseDishesList> dishesList(final Context context, String token){
+        final MutableLiveData<ResponseDishesList> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseDishesList> call = apiService.dishesList("Bearer " + token);
+        call.enqueue(new Callback<ResponseDishesList>() {
+            @Override
+            public void onResponse(@NotNull Call<ResponseDishesList> call, @NotNull Response<ResponseDishesList> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<ResponseDishesList> call, @NotNull Throwable t) {
+                Logger.ErrorLog("DISHES LIST API FAILED ", t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
+    public static LiveData<ResponseDocument> documentUpload(final Context context, RequestDocumentUpload documentUpload, MultipartBody.Part file1, MultipartBody.Part file2, MultipartBody.Part file3){
+        final MutableLiveData<ResponseDocument> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseDocument> call = apiService.documentUpload(documentUpload,file1,file2,file3);
+        call.enqueue(new Callback<ResponseDocument>() {
+            @Override
+            public void onResponse(@NotNull Call<ResponseDocument> call, @NotNull Response<ResponseDocument> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<ResponseDocument> call, @NotNull Throwable t) {
+                Logger.ErrorLog("DOCUMENT UPLOAD API FAILED ", t.getLocalizedMessage());
             }
         });
         return data;

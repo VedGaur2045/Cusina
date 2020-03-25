@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import com.chaos.view.PinView;
 import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.fragments.Otp_Frag.OtpBasedFragmentDirections;
@@ -49,6 +50,9 @@ public class OtpBasedView extends FrameLayout {
         try {
             otp = compatActivity.getIntent().getExtras().getString("otp");
             System.out.println("Given otp from main activity : "+otp);
+
+            showErrorAlert(context,"Your otp : "+otp,"OTP");
+
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -73,12 +77,13 @@ public class OtpBasedView extends FrameLayout {
     public void resendOtp(AppCompatActivity context, int userId,View view){
         viewModel.resendOtp(context,userId).observe(context, responseResendOtp -> {
             if(responseResendOtp == null){
-                showErrorAlert(context,"User Id is not valid");
+                showErrorAlert(context,"User Id is not valid","Error");
             } else {
                 if (!responseResendOtp.getSuccess()){
-                    showErrorAlert(context,responseResendOtp.getMessage());
+                    showErrorAlert(context,responseResendOtp.getMessage(),"Message");
                 } else {
                     ToastUtils.shortToast(responseResendOtp.getData().getOtp());
+                    showErrorAlert(context,"Your otp : "+responseResendOtp.getData().getOtp(),"OTP");
                     checkOtpView(view,responseResendOtp.getData().getOtp());
                 }
             }
@@ -87,8 +92,8 @@ public class OtpBasedView extends FrameLayout {
     }
 
 
-    public void showErrorAlert(Context context, String errorMessage) {
-        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+    public void showErrorAlert(Context context, String errorMessage, String title) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, title, errorMessage, null, "Ok", null,
                 (view, dialog) -> {
 
                 }, null);

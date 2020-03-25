@@ -34,12 +34,12 @@ public class SuccessConfirmationView extends FrameLayout {
         ButterKnife.bind(this,this);
     }
 
-    @OnClick(R.id.backBtn)
+    @OnClick({R.id.backBtn,R.id.backToHomeBtn,R.id.addanotherluto})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
             case R.id.backBtn :
-                Navigation.findNavController(view).navigateUp();
+                Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toProfileFragment());
                 break;
             case R.id.backToHomeBtn :
                 Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toHomeFragment());

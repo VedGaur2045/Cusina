@@ -36,9 +36,7 @@ public class ChooseCategoryRecyclerAdapter extends RecyclerView.Adapter<ChooseCa
     @Override
     public void onBindViewHolder(@NonNull ChooseCategoryViewHolder holder, int position) {
 
-        for(int i=0;i<dishCategoryList.size();i++){
-            holder.categoryName.setText(dishCategoryList.get(i));
-        }
+        holder.categoryName.setText(dishCategoryList.get(position));
 
         holder.categoryNameLayout.setOnClickListener(view -> Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCompletedDetails()));
     }

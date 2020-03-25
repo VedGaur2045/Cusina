@@ -48,12 +48,9 @@ public class StatusBarUtils {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
         {
             Window window = context.getWindow();
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            window.getDecorView().setSystemUiVisibility(0);  // View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            window.setStatusBarTextColor(context.getResources().getColor(R.color.white));
-            ActionBar actionBar = context.getActionBar();
-//            actionBar.hide();
             window.setStatusBarColor(Color.parseColor("#A00000"));
         }
     }

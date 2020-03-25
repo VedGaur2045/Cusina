@@ -26,7 +26,7 @@ public class DocumentUploadFragment extends Fragment {
     private DocumentUploadViewModel viewModel;
     private Context context;
 
-    private Uri fileUri;
+    public Uri fileUri1,fileUri2,fileUri3;
     private String filePath;
     private AppCompatActivity compatActivity;
 
@@ -58,22 +58,22 @@ public class DocumentUploadFragment extends Fragment {
         switch (requestCode) {
             case 101:
                 if (resultCode == -1) {
-                    fileUri = data.getData();
-                    filePath = fileUri.getPath();
+                    fileUri1 = data.getData();
+                    filePath = fileUri1.getPath();
                     view.fileNameFirstUploaded.setText(filePath);
                 }
                 break;
             case 102:
                 if (resultCode == -1) {
-                    fileUri = data.getData();
-                    filePath = fileUri.getPath();
+                    fileUri2 = data.getData();
+                    filePath = fileUri2.getPath();
                     view.fileNameSecondUploaded.setText(filePath);
                 }
                 break;
             case 103:
                 if (resultCode == -1) {
-                    fileUri = data.getData();
-                    filePath = fileUri.getPath();
+                    fileUri3 = data.getData();
+                    filePath = fileUri3.getPath();
                     view.fileNameThirdUploaded.setText(filePath);
                 }
                 break;
