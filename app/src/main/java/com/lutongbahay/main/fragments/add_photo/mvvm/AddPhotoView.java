@@ -24,6 +24,7 @@ import com.lutongbahay.adapter.GalleryImagesRecyclerAdapter;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.DialogHelperClass;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.list.AddPhotoAdapter;
@@ -111,9 +112,11 @@ public class AddPhotoView extends FrameLayout {
 
 
     public void onPermissionGranted() {
+        ProgressDialogFragment.showProgressDialog(getContext(),"Please wait...");
         allImages = getAllShownImagesPath((AppCompatActivity) appContext);
         GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter = new GalleryImagesRecyclerAdapter(appContext,allImages);
         gridViewGalleryPhotoList.setAdapter(galleryImagesRecyclerAdapter);
+        ProgressDialogFragment.dismissProgressDialog(getContext());
     }
 
     public void showErrorAlert(Context context, String errorMessage) {

@@ -1,10 +1,14 @@
 package com.lutongbahay.user_auth.fragments.sign_up.mvvm;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,7 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +37,7 @@ import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragme
 import com.lutongbahay.user_auth.fragments.sign_up_complete.SignUpCompleteFragmentDirections;
 import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.SnackbarUtils;
+import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
 import butterknife.BindView;
@@ -59,7 +67,7 @@ public class SignUpView extends FrameLayout {
     @BindView(R.id.usercountry)
     EditText usercountry;
     @BindView(R.id.genderlist)
-    Spinner genderlist;
+    TextView genderlist;
     @BindView(R.id.NextBtn)
     Button NextBtn;
 
@@ -77,12 +85,7 @@ public class SignUpView extends FrameLayout {
         inflate(context, R.layout.fragment_sign_up,this);
         ButterKnife.bind(this,this);
 
-        genderlist.setPrompt("Gender");
         citylist.setPrompt("Country");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.custom_spinner_row, R.id.item, gender);
-
-        genderlist.setAdapter(adapter);
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(), R.layout.custom_spinner_row,R.id.item,countries);
 
@@ -107,7 +110,7 @@ public class SignUpView extends FrameLayout {
         }
     };
 
-    @OnClick({R.id.close,R.id.NextBtn})
+    @OnClick({R.id.close,R.id.NextBtn,R.id.genderlist})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
@@ -115,10 +118,10 @@ public class SignUpView extends FrameLayout {
                 Navigation.findNavController(view).navigate(SignUpFragmentDirections.toSellWithLutongBehay());
                 break;
             case R.id.NextBtn:
-                System.out.println(citylist.getSelectedItem().toString()+"     "+genderlist.getSelectedItem().toString());
+                System.out.println(citylist.getSelectedItem().toString()+"     "+genderlist.getText().toString());
                 if(kitchenName.getText().length()>0 && username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0
                         && useradddressline1.getText().length()>0 && useradddressline2.getText().length()>0 && zipcode.getText().length()>0
-                        && usercountry.getText().length()>0 && citylist.getSelectedItemPosition()>0 && genderlist.getSelectedItemPosition()>0){
+                        && usercountry.getText().length()>0 && citylist.getSelectedItemPosition()>0 && genderlist.getText().length()>0){
 
                     //verifyKitchenName((AppCompatActivity) getContext(),kitchenName.getText().toString(), Constants.TOKEN,view);
                        // addSellerInfoData((AppCompatActivity) getContext(), view);
@@ -128,7 +131,53 @@ public class SignUpView extends FrameLayout {
                     Navigation.findNavController(view).navigate(SignUpFragmentDirections.toDocumentUploadFragment());
                 }
                 break;
+            case R.id.genderlist:
+                selectGender(view);
+                break;
         }
+    }
+
+    private void selectGender(View mainView){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            StatusBarUtils.setLightStatusBar((Activity) getContext(),"#99000000");
+        }
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View popUpView = inflater.inflate(R.layout.popup_gender_selection_layout,null);
+
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.MATCH_PARENT;
+        boolean focusable = true;
+
+        TextView maleBtn = popUpView.findViewById(R.id.maleTxt);
+        TextView femaleTxt = popUpView.findViewById(R.id.femaleTxt);
+        TextView cancelTxt = popUpView.findViewById(R.id.cancelTxt);
+
+        final PopupWindow popupWindow = new PopupWindow(popUpView,width,height,focusable);
+
+        popupWindow.showAtLocation(mainView, Gravity.BOTTOM,0,0);
+
+        popupWindow.setOutsideTouchable(false);
+
+        maleBtn.setOnClickListener(view -> {
+            genderlist.setText(maleBtn.getText().toString());
+            popupWindow.dismiss();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                StatusBarUtils.redStatusBar((Activity) getContext());
+            }
+        });
+        femaleTxt.setOnClickListener(view -> {
+            genderlist.setText(femaleTxt.getText().toString());
+            popupWindow.dismiss();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                StatusBarUtils.redStatusBar((Activity) getContext());
+            }
+        });
+        cancelTxt.setOnClickListener(view -> {
+            popupWindow.dismiss();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                StatusBarUtils.redStatusBar((Activity) getContext());
+            }
+        });
     }
 
     public void addSellerInfoData(AppCompatActivity compatActivity,View view){
@@ -141,7 +190,7 @@ public class SignUpView extends FrameLayout {
         requestAddSeller.setCity(citylist.getSelectedItem().toString());
         requestAddSeller.setZipcode(zipcode.getText().toString());
         requestAddSeller.setCountry(usercountry.getText().toString());
-        requestAddSeller.setGender(genderlist.getSelectedItem().toString());
+        requestAddSeller.setGender(genderlist.getText().toString());
         requestAddSeller.setKitchen(kitchenName.getText().toString());
 
         viewModel.addSeller(compatActivity, requestAddSeller).observe(compatActivity, response -> {

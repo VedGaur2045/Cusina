@@ -212,7 +212,7 @@
                             android:layout_height="@dimen/_24sdp"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginRight="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
                             android:src="@mipmap/arrowdown"/>
                     </RelativeLayout>
 
@@ -277,7 +277,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/usergender"
+                android:text="@string/userGender"
                 android:textColor="@color/black"
                 tools:ignore="MissingPrefix"
                 android:fontFamily="@font/sourcesanspro_regular"
@@ -293,7 +293,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="5"
                     android:layout_height="wrap_content">
-                    <Spinner
+                    <TextView
                         android:id="@+id/genderlist"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
@@ -301,15 +301,17 @@
                         android:scrollbarThumbVertical="@color/transparent"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:prompt="@string/select_gender"
+                        android:hint="@string/userGender"
+                        android:gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
+                        android:paddingLeft="@dimen/_20sdp"
                         android:background="@drawable/userinputbg" />
                     <ImageView
                         android:layout_width="@dimen/_24sdp"
                         android:layout_height="@dimen/_24sdp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/_30sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
                         android:src="@mipmap/arrowdown"/>
                 </RelativeLayout>
                 <RelativeLayout

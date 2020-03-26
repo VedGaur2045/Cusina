@@ -1,5 +1,6 @@
 package com.lutongbahay.user_auth.fragments.document_upload.mvvm;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,18 +50,48 @@ public class DocumentUploadView extends FrameLayout {
     ImageButton close;
     @BindView(R.id.uploadFileIdFirst)
     Button uploadFileIdFirst;
-    @BindView(R.id.fileNameFirstUploaded)
-    public TextView fileNameFirstUploaded;
     @BindView(R.id.uploadFileIdSecond)
     Button uploadFileIdSecond;
-    @BindView(R.id.fileNameSecondUploaded)
-    public TextView fileNameSecondUploaded;
     @BindView(R.id.uploadFileIdThird)
     Button uploadFileIdThird;
-    @BindView(R.id.fileNameThirdUploaded)
-    public TextView fileNameThirdUploaded;
     @BindView(R.id.nextBtnUpload)
     Button nextBtnUpload;
+    @BindView(R.id.imageFirst)
+    public ImageView imageFirst;
+    @BindView(R.id.imageSecond)
+    public ImageView imageSecond;
+    @BindView(R.id.imageThird)
+    public ImageView imageThird;
+    @BindView(R.id.imageForth)
+    public ImageView imageForth;
+    @BindView(R.id.imageFifth)
+    public ImageView imageFifth;
+    @BindView(R.id.imageSixth)
+    public ImageView imageSixth;
+    @BindView(R.id.imageSeventh)
+    public ImageView imageSeventh;
+    @BindView(R.id.imageEighth)
+    public ImageView imageEighth;
+    @BindView(R.id.imageNinth)
+    public ImageView imageNinth;
+    @BindView(R.id.closeFirst)
+    public ImageView closeFirst;
+    @BindView(R.id.closeSecond)
+    public ImageView closeSecond;
+    @BindView(R.id.closeThird)
+    public ImageView closeThird;
+    @BindView(R.id.closeForth)
+    public ImageView closeForth;
+    @BindView(R.id.closeFifth)
+    public ImageView closeFifth;
+    @BindView(R.id.closeSixth)
+    public ImageView closeSixth;
+    @BindView(R.id.closeSeventh)
+    public ImageView closeSeventh;
+    @BindView(R.id.closeEighth)
+    public ImageView closeEighth;
+    @BindView(R.id.closeNinth)
+    public ImageView closeNinth;
 
     AppCompatActivity compatActivity;
 
@@ -79,7 +111,8 @@ public class DocumentUploadView extends FrameLayout {
 
     }
 
-    @OnClick({R.id.close,R.id.nextBtnUpload,R.id.uploadFileIdFirst,R.id.uploadFileIdSecond,R.id.uploadFileIdThird})
+    @OnClick({R.id.close,R.id.nextBtnUpload,R.id.uploadFileIdFirst,R.id.uploadFileIdSecond,R.id.uploadFileIdThird,R.id.imageFirst,
+            R.id.imageSecond,R.id.imageThird,R.id.imageForth,R.id.imageFifth,R.id.imageSixth,R.id.imageSeventh,R.id.imageEighth,R.id.imageNinth})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
@@ -87,22 +120,38 @@ public class DocumentUploadView extends FrameLayout {
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpFragment());
                 break;
             case R.id.nextBtnUpload :
-                Log.e("File1 : ",getFileName(fileNameFirstUploaded.getText().toString()));
-                Log.e("File2 : ",getFileName(fileNameSecondUploaded.getText().toString()));
-                Log.e("File3 : ",getFileName(fileNameThirdUploaded.getText().toString()));
                 //fileSet(fragment.fileUri1,fragment.fileUri2,fragment.fileUri3,fileNameFirstUploaded.getText().toString(),fileNameSecondUploaded.getText().toString(),fileNameThirdUploaded.getText().toString(),view);
 
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpCompleteFragment());
                 break;
             case R.id.uploadFileIdFirst:
-                getFileFromGallery(101);
+//                getFileFromGallery(101);
                 break;
             case R.id.uploadFileIdSecond:
-                getFileFromGallery(102);
+//                getFileFromGallery(102);
                 break;
             case R.id.uploadFileIdThird:
-                getFileFromGallery(103);
+//                getFileFromGallery(103);
                 break;
+            case R.id.imageFirst: getFileFromGallery(101); break;
+            case R.id.imageSecond: getFileFromGallery(102); break;
+            case R.id.imageThird: getFileFromGallery(103); break;
+            case R.id.imageForth: getFileFromGallery(104); break;
+            case R.id.imageFifth: getFileFromGallery(105); break;
+            case R.id.imageSixth: getFileFromGallery(106); break;
+            case R.id.imageSeventh: getFileFromGallery(107); break;
+            case R.id.imageEighth: getFileFromGallery(108); break;
+            case R.id.imageNinth: getFileFromGallery(109); break;
+            case R.id.closeFirst: imageFirst.setImageResource(R.drawable.add_button); closeFirst.setVisibility(GONE); break;
+            case R.id.closeSecond: imageSecond.setImageResource(R.drawable.add_button); closeSecond.setVisibility(GONE); break;
+            case R.id.closeThird: imageThird.setImageResource(R.drawable.add_button); closeThird.setVisibility(GONE); break;
+            case R.id.closeForth: imageForth.setImageResource(R.drawable.add_button); closeForth.setVisibility(GONE); break;
+            case R.id.closeFifth: imageFifth.setImageResource(R.drawable.add_button); closeFifth.setVisibility(GONE); break;
+            case R.id.closeSixth: imageSixth.setImageResource(R.drawable.add_button); closeSixth.setVisibility(GONE); break;
+            case R.id.closeSeventh: imageSeventh.setImageResource(R.drawable.add_button); closeSeventh.setVisibility(GONE); break;
+            case R.id.closeEighth: imageEighth.setImageResource(R.drawable.add_button); closeEighth.setVisibility(GONE); break;
+            case R.id.closeNinth: imageNinth.setImageResource(R.drawable.add_button); closeNinth.setVisibility(GONE); break;
+
         }
     }
 
@@ -110,9 +159,9 @@ public class DocumentUploadView extends FrameLayout {
     private void getFileFromGallery(int requestCode) {
 //        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
 //        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        intent.setType("file/*");
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        //intent.setAction(Intent.ACTION_PICK);  //ACTION_GET_CONTENT
+        intent.setType("image/*");
         compatActivity.startActivityForResult(intent, requestCode);
     }
 

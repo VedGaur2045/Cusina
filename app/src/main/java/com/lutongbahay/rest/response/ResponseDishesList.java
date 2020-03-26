@@ -3,7 +3,7 @@ package com.lutongbahay.rest.response;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseDishesList{
+public class ResponseDishesList {
 
 	@SerializedName("data")
 	private List<DataItem> data;

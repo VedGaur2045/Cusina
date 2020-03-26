@@ -20,11 +20,17 @@
                 android:layout_height="@dimen/_180sdp">
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/productImgItem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@mipmap/product_img_item"
                     android:scaleType="fitXY"/>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pagerSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
                 <ImageButton
                     android:id="@+id/backBtnImg"
@@ -60,6 +66,22 @@
                     android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@color/_FFFFFF"
+                android:clipToPadding="false"
+                android:gravity="bottom"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                app:tabBackground="@drawable/tabselection"
+                app:tabGravity="center"
+                app:tabIndicatorColor="@android:color/transparent"
+                app:tabMinWidth="0dp"
+                app:tabMode="fixed"/>
 
             <RelativeLayout
                 android:id="@+id/mainLayout"

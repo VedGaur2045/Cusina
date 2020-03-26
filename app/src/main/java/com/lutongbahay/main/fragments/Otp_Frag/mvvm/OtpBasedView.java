@@ -39,7 +39,7 @@ public class OtpBasedView extends FrameLayout {
     @BindView(R.id.nextBtn)
     Button nextBtn;
     AppCompatActivity compatActivity;
-    String otp;
+    static String otp;
 
     public OtpBasedView(@NonNull Context context, OtpBasedViewModel viewModel) {
         super(context);
@@ -83,6 +83,7 @@ public class OtpBasedView extends FrameLayout {
                     showErrorAlert(context,responseResendOtp.getMessage(),"Message");
                 } else {
                     ToastUtils.shortToast(responseResendOtp.getData().getOtp());
+                    otp = responseResendOtp.getData().getOtp();
                     showErrorAlert(context,"Your otp : "+responseResendOtp.getData().getOtp(),"OTP");
                     checkOtpView(view,responseResendOtp.getData().getOtp());
                 }
@@ -103,12 +104,12 @@ public class OtpBasedView extends FrameLayout {
         if (otp_view.getText().toString().isEmpty()){
             SnackbarUtils.showSnackBar(view,"Please enter the otp...", Snackbar.LENGTH_LONG);
         } else {
-//            if(otp_view.getText().toString().equals(otp)){
-//                Navigation.findNavController(view).navigate(OtpBasedFragmentDirections.toPrivacyFragment());
-//            } else {
-//                SnackbarUtils.showSnackBar(view,"Otp does not match...",Snackbar.LENGTH_LONG);
-//            }
-            Navigation.findNavController(view).navigate(OtpBasedFragmentDirections.toPrivacyFragment());
+            if(otp_view.getText().toString().equals(otp)){
+                Navigation.findNavController(view).navigate(OtpBasedFragmentDirections.toPrivacyFragment());
+            } else {
+                SnackbarUtils.showSnackBar(view,"Otp does not match...",Snackbar.LENGTH_LONG);
+            }
+           // Navigation.findNavController(view).navigate(OtpBasedFragmentDirections.toPrivacyFragment());
         }
     }
 

@@ -38,16 +38,16 @@ public class ProfileFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             StatusBarUtils.redStatusBar((Activity) context);
         }
-//        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
-//            @Override
-//            public void handleOnBackPressed() {
-//                Navigation.findNavController(view).navigate(ProfileFragmentDirections.toHomeFragment());
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                    StatusBarUtils.redStatusBar((Activity) context);
-//                }
-//            }
-//        };
-//        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(view).navigate(ProfileFragmentDirections.toHomeFragment());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    StatusBarUtils.redStatusBar((Activity) context);
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

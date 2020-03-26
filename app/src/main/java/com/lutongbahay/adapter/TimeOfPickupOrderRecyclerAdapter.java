@@ -3,6 +3,7 @@ package com.lutongbahay.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,15 @@ public class TimeOfPickupOrderRecyclerAdapter extends RecyclerView.Adapter<TimeO
 
     @Override
     public void onBindViewHolder(@NonNull TimeOfPickupOrderViewHolder holder, int position) {
+        if(position == 0){
+            holder.mainLayout.setOnClickListener(view -> {
+                holder.mainLayout.setBackgroundResource(R.drawable.selected_item_time_date_drawable);
+            });
+        } else {
+            holder.mainLayout.setOnClickListener(view -> {
+                holder.mainLayout.setBackgroundResource(R.drawable.bg_black_border_border_nine);
+            });
+        }
 
     }
 
@@ -38,6 +48,8 @@ public class TimeOfPickupOrderRecyclerAdapter extends RecyclerView.Adapter<TimeO
         TextView timeStartTxt;
         @BindView(R.id.timeEndTxt)
         TextView timeEndTxt;
+        @BindView(R.id.mainLayout)
+        RelativeLayout mainLayout;
 
         TimeOfPickupOrderViewHolder(@NonNull View itemView) {
             super(itemView);

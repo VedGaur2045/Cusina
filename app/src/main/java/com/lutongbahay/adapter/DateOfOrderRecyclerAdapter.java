@@ -3,6 +3,7 @@ package com.lutongbahay.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,15 @@ public class DateOfOrderRecyclerAdapter extends RecyclerView.Adapter<DateOfOrder
         holder.dayNameTxt.setText("Monday");
         holder.dateTxt.setText("21");
         holder.monthNameTxt.setText("April");
+        if(position == 0) {
+            holder.mainLayout.setOnClickListener(view -> {
+                holder.mainLayout.setBackgroundResource(R.drawable.selected_item_time_date_drawable);
+            });
+        } else {
+            holder.mainLayout.setOnClickListener(view -> {
+                holder.mainLayout.setBackgroundResource(R.drawable.bg_black_border_border_nine);
+            });
+        }
     }
 
     @Override
@@ -44,6 +54,8 @@ public class DateOfOrderRecyclerAdapter extends RecyclerView.Adapter<DateOfOrder
         TextView dateTxt;
         @BindView(R.id.monthNameTxt)
         TextView monthNameTxt;
+        @BindView(R.id.mainLayout)
+        RelativeLayout mainLayout;
 
         DateOfOrderViewHolder(@NonNull View itemView) {
             super(itemView);

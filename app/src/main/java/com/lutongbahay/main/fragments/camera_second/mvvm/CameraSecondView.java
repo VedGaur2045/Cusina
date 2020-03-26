@@ -3,6 +3,7 @@ package com.lutongbahay.main.fragments.camera_second.mvvm;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -17,6 +18,8 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -87,6 +90,8 @@ public class CameraSecondView extends FrameLayout {
     ImageButton chooseImageCategory;
     @BindView(R.id.rightBtn)
     RelativeLayout rightBtn;
+    @BindView(R.id.rightImage)
+    ImageButton rightImage;
 
     public static final String TAG = "AndroidCameraApi";
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
@@ -110,7 +115,9 @@ public class CameraSecondView extends FrameLayout {
     private boolean mFlashSupported;
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
-    private boolean flashState;
+    private static boolean flashState = false;
+    boolean deviceHasCameraFlash;
+    CameraManager manager;
 
     public CameraSecondView(@NonNull Context context, CameraSecondViewModel viewModel) {
         super(context);
@@ -122,9 +129,11 @@ public class CameraSecondView extends FrameLayout {
         compatActivity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        deviceHasCameraFlash = compatActivity.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+        manager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
     }
 
-    @OnClick({R.id.capturedImageBtn,R.id.chooseImageCategory,R.id.flashAutoBtn})
+    @OnClick({R.id.capturedImageBtn,R.id.rightImage,R.id.flashAutoBtn})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
@@ -135,11 +144,23 @@ public class CameraSecondView extends FrameLayout {
                 compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 //    Navigation.findNavController(view).navigate(CameraFragmentDirections.toAddPhoto());
                 break;
-            case R.id.chooseImageCategory:
+            case R.id.rightImage:
                 Navigation.findNavController(view).navigate(CameraSecondFragmentDirections.toChooseCategory());
                 compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 break;
             case R.id.flashAutoBtn:
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    Handler handler = new Handler();
+                    CameraManager.TorchCallback torchCallback = new CameraManager.TorchCallback() {
+                        @Override
+                        public void onTorchModeChanged(@NonNull String cameraId, boolean enabled) {
+                            super.onTorchModeChanged(cameraId, enabled);
+                            flashState = enabled;
+                        }
+                    };
+                    manager.registerTorchCallback(torchCallback, handler);
+                    Log.v(TAG, "registered torch callback");
+                }
 
                 break;
         }
@@ -249,12 +270,14 @@ public class CameraSecondView extends FrameLayout {
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             final File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()+ "/Camera/Cusina/IMG_" +timeStamp+".jpeg");
             System.out.println("File Name  : "+file);
+
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader reader) {
                     Image image = null;
                     try {
                         image = reader.acquireLatestImage();
+                        System.out.println("ABC : "+image);
                         ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                         byte[] bytes = new byte[buffer.capacity()];
                         buffer.get(bytes);
@@ -269,6 +292,7 @@ public class CameraSecondView extends FrameLayout {
                 }
 
                 private void save(byte[] bytes) throws IOException {
+                    System.out.println("Bytes : "+bytes);
                     OutputStream output = null;
                     try {
                         output = new FileOutputStream(file);
@@ -306,6 +330,14 @@ public class CameraSecondView extends FrameLayout {
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    private void galleryAddPic(String currentPhotoPath) {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(currentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        compatActivity.sendBroadcast(mediaScanIntent);
     }
 
     protected void createCameraPreview() {

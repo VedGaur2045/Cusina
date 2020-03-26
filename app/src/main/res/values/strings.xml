@@ -93,7 +93,7 @@
     <string name="userzipcode_placeholder">XXXXXX</string>
     <string name="usercountry">Country</string>
     <string name="city_name">PHILIPPINES</string>
-    <string name="usergender">Gender</string>
+    <string name="userGender">Gender</string>
     <string name="select_gender">Select Gender</string>
 
     <!-- PROFILE-->
@@ -459,4 +459,6 @@
     <string name="paymentGateway">Payment Gateway</string>
     <string name="creditCard">Credit Card</string>
     <string name="prepaidCard">Prepaid Card</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>

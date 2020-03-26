@@ -59,11 +59,12 @@ public class ChooseCategoryView extends FrameLayout {
 
     }
 
-    @OnClick({R.id.backBtnImg,R.id.imageSecond,R.id.imageThird})
+    @OnClick({R.id.backBtnImg,R.id.imageSecond,R.id.imageThird,R.id.imageFirst})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
             case R.id.backBtnImg:
+            case R.id.imageFirst:
             case R.id.imageSecond:
             case R.id.imageThird:
                 Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCameraFragment());

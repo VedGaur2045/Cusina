@@ -9,7 +9,8 @@
     android:paddingStart="@dimen/_10sdp"
     android:paddingEnd="@dimen/_10sdp"
     android:layout_marginStart="@dimen/_7sdp"
-    android:layout_marginEnd="@dimen/_7sdp">
+    android:layout_marginEnd="@dimen/_7sdp"
+    android:id="@+id/mainLayout">
 
     <TextView
         android:id="@+id/timeStartTxt"

@@ -148,7 +148,7 @@
                     android:background="@color/transparent"
                     android:src="@drawable/btn_oval_bg" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/rightImage"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_18sdp"
