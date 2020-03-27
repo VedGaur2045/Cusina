@@ -47,7 +47,7 @@ public class AddPhotoFragment extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                Navigation.findNavController(view).navigate(AddPhotoFragmentDirections.toProfileFragment());
+                Navigation.findNavController(view).navigateUp();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     StatusBarUtils.redStatusBar((Activity) context);
                 }
@@ -58,8 +58,13 @@ public class AddPhotoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        int val = getArguments().getInt("openPhotos");
+        String titleName = getArguments().getString("titleName");
+        String text1 = getArguments().getString("text_1");
+        String text2 = getArguments().getString("text_2");
+        String text3 = getArguments().getString("text_3");
         viewModel = new ViewModelProvider(this).get(AddPhotoViewModel.class);
-        view = new AddPhotoView(context,viewModel);
+        view = new AddPhotoView(context,viewModel,val,titleName,text1,text2,text3);
         return view;
     }
 

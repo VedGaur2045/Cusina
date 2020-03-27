@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.main.fragments.favourites.FavouritesFragmentDirections;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
 
 import butterknife.BindView;
@@ -37,10 +38,10 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
 
         if(TYPE_CLICK == 1){
             holder.imageSection.setOnClickListener(v -> {
-                Navigation.findNavController(v).navigate(HomeFragmentDirections.openItemDetailFragment());
+                Navigation.findNavController(v).navigate(FavouritesFragmentDirections.openItemDetailFragment());
             });
             holder.ratingImg.setOnClickListener(view -> {
-                Navigation.findNavController(view).navigate(HomeFragmentDirections.toDishReviewFragment());
+                Navigation.findNavController(view).navigate(FavouritesFragmentDirections.toDishReviewFragment());
             });
         }
 

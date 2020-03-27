@@ -20,63 +20,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_25sdp">
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="wrap_content"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:visibility="visible"
+                    android:id="@+id/category_image_rv"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                    app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                    app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                    app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true">
-
-                    <ImageView
-                        android:id="@+id/imageFirst"
-                        android:layout_width="@dimen/_78sdp"
-                        android:layout_height="@dimen/_78sdp"
-                        android:layout_centerVertical="true"
-                        android:scaleType="fitXY"
-                        android:src="@mipmap/splashbg" />
-
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                    app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                    app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                    app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                    android:layout_centerInParent="true">
-
-                    <ImageView
-                        android:id="@+id/imageSecond"
-                        android:layout_width="@dimen/_78sdp"
-                        android:layout_height="@dimen/_78sdp"
-                        android:scaleType="fitXY"
-                        android:background="@drawable/add_picture" />
-
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                    app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                    app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                    app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true">
-
-                    <ImageView
-                        android:id="@+id/imageThird"
-                        android:layout_width="@dimen/_78sdp"
-                        android:layout_height="@dimen/_78sdp"
-                        android:scaleType="fitXY"
-                        android:background="@drawable/add_picture" />
-
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
+                    tools:spanCount="3"
+                    tools:itemCount="3"
+                    android:layout_margin="@dimen/_5sdp"
+                    tools:listitem="@layout/adapter_choose_category"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
             </RelativeLayout>
 

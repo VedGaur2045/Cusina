@@ -102,9 +102,9 @@ public class ItemDetailView extends FrameLayout {
     private int currentPage = 0;
     private int NUM_PAGES = 0;
 
-    private ArrayList<String> imageArray = new ArrayList<>();
+    private ArrayList<Integer> imageArray = new ArrayList<>();
     private ArrayList<Integer> images=new ArrayList<>();
-    private String[] imageSell;
+    private int[] imageSell = {R.mipmap.product_img_item,R.mipmap.product_img,R.mipmap.maestro_img};
 
     public ItemDetailView(@NonNull AppCompatActivity context, ItemDetailViewModel viewModel) {
         super(context);
@@ -134,7 +134,7 @@ public class ItemDetailView extends FrameLayout {
         switch (id){
             case R.id.addToTrayBtn:
             case R.id.backBtnImg:
-                Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toHomeFragment());
+                Navigation.findNavController(view).navigateUp();
                 break;
             case R.id.ratingImg:
                 Navigation.findNavController(view).navigate(ItemDetailFragmentDirections.toDishReviewFragment());
@@ -153,9 +153,6 @@ public class ItemDetailView extends FrameLayout {
 
         currentPage=0;
         NUM_PAGES=0;
-
-        imageArray.clear();
-        imageSell = new String[]{"R.mipmap.product_img_item","R.mipmap.product_img","R.mipmap.maestro_img"};
 
         int i;
         for(i=0;i<imageSell.length;i++){

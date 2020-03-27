@@ -20,13 +20,14 @@ import java.util.ArrayList;
 
 public class SliderAdapter extends PagerAdapter {
 
-    ArrayList<String> image;
+    ArrayList<Integer> image;
     private Context context;
     private LayoutInflater inflater;
 
-    public SliderAdapter(ArrayList<String> image, Context context) {
+    public SliderAdapter(ArrayList<Integer> image, Context context) {
         this.image = image;
         this.context = context;
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -41,21 +42,23 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return false;
+        return view.equals(object);
     }
 
     public Object instantiateItem(ViewGroup view, final int position) {
 
-        inflater = LayoutInflater.from(context);
+        System.out.println("Image : "+image.get(0));
 
         View layoutSlider = inflater.inflate(R.layout.adpter_image_slider_layout, view, false);
 
+        assert layoutSlider != null;
+
         ImageView imageView = layoutSlider.findViewById(R.id.productImgItem);
 
-        //imageView.setImageResource(image.get(position));
-        Glide.with(context).load(image.get(position)).into(imageView);
+        imageView.setImageResource(image.get(position));
+        //Glide.with(context).load(image.get(position)).into(imageView);
 
-        view.addView(layoutSlider, position);
+        view.addView(layoutSlider, 0);
 
         return layoutSlider;
     }

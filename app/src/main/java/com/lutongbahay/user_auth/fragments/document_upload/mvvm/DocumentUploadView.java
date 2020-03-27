@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +19,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.DocumentUploadRecyclerAdapter;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragment;
@@ -31,6 +37,9 @@ import com.lutongbahay.utils.FileUtils;
 import com.lutongbahay.utils.SnackbarUtils;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -56,103 +65,129 @@ public class DocumentUploadView extends FrameLayout {
     Button uploadFileIdThird;
     @BindView(R.id.nextBtnUpload)
     Button nextBtnUpload;
-    @BindView(R.id.imageFirst)
-    public ImageView imageFirst;
-    @BindView(R.id.imageSecond)
-    public ImageView imageSecond;
-    @BindView(R.id.imageThird)
-    public ImageView imageThird;
-    @BindView(R.id.imageForth)
-    public ImageView imageForth;
-    @BindView(R.id.imageFifth)
-    public ImageView imageFifth;
-    @BindView(R.id.imageSixth)
-    public ImageView imageSixth;
-    @BindView(R.id.imageSeventh)
-    public ImageView imageSeventh;
-    @BindView(R.id.imageEighth)
-    public ImageView imageEighth;
-    @BindView(R.id.imageNinth)
-    public ImageView imageNinth;
-    @BindView(R.id.closeFirst)
-    public ImageView closeFirst;
-    @BindView(R.id.closeSecond)
-    public ImageView closeSecond;
-    @BindView(R.id.closeThird)
-    public ImageView closeThird;
-    @BindView(R.id.closeForth)
-    public ImageView closeForth;
-    @BindView(R.id.closeFifth)
-    public ImageView closeFifth;
-    @BindView(R.id.closeSixth)
-    public ImageView closeSixth;
-    @BindView(R.id.closeSeventh)
-    public ImageView closeSeventh;
-    @BindView(R.id.closeEighth)
-    public ImageView closeEighth;
-    @BindView(R.id.closeNinth)
-    public ImageView closeNinth;
+    @BindView(R.id.fileNameFirstUploaded)
+    TextView fileNameFirstUploaded;
+    @BindView(R.id.fileNameSecondUploaded)
+    TextView fileNameSecondUploaded;
+    @BindView(R.id.fileNameThirdUploaded)
+    TextView fileNameThirdUploaded;
+    @BindView(R.id.governmentId_rv)
+    RecyclerView governmentId_rv;
+    @BindView(R.id.sanitaryPermit_rv)
+    RecyclerView sanitaryPermit_rv;
+    @BindView(R.id.addressProof_rv)
+    RecyclerView addressProof_rv;
 
     AppCompatActivity compatActivity;
 
     DocumentUploadFragment fragment = new DocumentUploadFragment();
+    ArrayList<String> image = new ArrayList<>();
 
-    public DocumentUploadView(@NonNull Context context, DocumentUploadViewModel viewModel) {
+    static int checkBtnClick = 0;
+
+    public DocumentUploadView(@NonNull Context context, DocumentUploadViewModel viewModel, ArrayList<String> imageList) {
         super(context);
         this.viewModel = viewModel;
         compatActivity = (AppCompatActivity) context;
         inflate(context,R.layout.fragment_document_upload,this);
         ButterKnife.bind(this,this);
 
+        //image.addAll(imageList);
+
         if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE)) {
             return;
         }
 
+        LinearLayoutManager horizontalLayoutManager1= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager horizontalLayoutManager2= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager horizontalLayoutManager3= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+
+        governmentId_rv.setLayoutManager(horizontalLayoutManager1);
+        sanitaryPermit_rv.setLayoutManager(horizontalLayoutManager2);
+        addressProof_rv.setLayoutManager(horizontalLayoutManager3);
+
+        if (checkBtnClick == 12){
+            DocumentUploadRecyclerAdapter recyclerAdapter = new DocumentUploadRecyclerAdapter(setArray(imageList),getContext());
+            setVisibilityOfText(fileNameSecondUploaded,fileNameFirstUploaded,fileNameThirdUploaded);
+            setVisibilityOfRecyclerView(governmentId_rv,sanitaryPermit_rv,addressProof_rv);
+            governmentId_rv.setAdapter(recyclerAdapter);
+        } else if (checkBtnClick == 13) {
+            DocumentUploadRecyclerAdapter recyclerAdapter = new DocumentUploadRecyclerAdapter(setArray(imageList),getContext());
+            setVisibilityOfText(fileNameFirstUploaded,fileNameSecondUploaded,fileNameThirdUploaded);
+            setVisibilityOfRecyclerView(sanitaryPermit_rv,governmentId_rv,addressProof_rv);
+            sanitaryPermit_rv.setAdapter(recyclerAdapter);
+        } else if (checkBtnClick == 14) {
+            DocumentUploadRecyclerAdapter recyclerAdapter = new DocumentUploadRecyclerAdapter(setArray(imageList),getContext());
+            setVisibilityOfText(fileNameThirdUploaded,fileNameSecondUploaded,fileNameFirstUploaded);
+            setVisibilityOfRecyclerView(addressProof_rv,governmentId_rv,sanitaryPermit_rv);
+            addressProof_rv.setAdapter(recyclerAdapter);
+        } else {
+            fileNameFirstUploaded.setVisibility(VISIBLE);
+            fileNameSecondUploaded.setVisibility(VISIBLE);
+            fileNameThirdUploaded.setVisibility(VISIBLE);
+            governmentId_rv.setVisibility(GONE);
+            sanitaryPermit_rv.setVisibility(GONE);
+            addressProof_rv.setVisibility(GONE);
+        }
 
     }
 
-    @OnClick({R.id.close,R.id.nextBtnUpload,R.id.uploadFileIdFirst,R.id.uploadFileIdSecond,R.id.uploadFileIdThird,R.id.imageFirst,
-            R.id.imageSecond,R.id.imageThird,R.id.imageForth,R.id.imageFifth,R.id.imageSixth,R.id.imageSeventh,R.id.imageEighth,R.id.imageNinth})
+    @OnClick({R.id.close,R.id.nextBtnUpload,R.id.uploadFileIdFirst,R.id.uploadFileIdSecond,R.id.uploadFileIdThird})
     public void onClick(View view){
         int id = view.getId();
+        Bundle bundle = new Bundle();
+        bundle.putString("titleName","Upload Documents");
+        bundle.putString("text_1","Recents");
+        bundle.putString("text_2","Choose up to 3 images");
+        bundle.putString("text_3","Minimum of 1 image");
         switch (id){
             case R.id.close :
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpFragment());
                 break;
             case R.id.nextBtnUpload :
                 //fileSet(fragment.fileUri1,fragment.fileUri2,fragment.fileUri3,fileNameFirstUploaded.getText().toString(),fileNameSecondUploaded.getText().toString(),fileNameThirdUploaded.getText().toString(),view);
-
                 Navigation.findNavController(view).navigate(DocumentUploadFragmentDirections.toSignUpCompleteFragment());
                 break;
             case R.id.uploadFileIdFirst:
-//                getFileFromGallery(101);
+                checkBtnClick = 12;
+                bundle.putInt("openPhotos",12);
+                Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 break;
             case R.id.uploadFileIdSecond:
-//                getFileFromGallery(102);
+                checkBtnClick = 13;
+                bundle.putInt("openPhotos",13);
+                Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 break;
             case R.id.uploadFileIdThird:
-//                getFileFromGallery(103);
+                checkBtnClick = 14;
+                bundle.putInt("openPhotos",14);
+                Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 break;
-            case R.id.imageFirst: getFileFromGallery(101); break;
-            case R.id.imageSecond: getFileFromGallery(102); break;
-            case R.id.imageThird: getFileFromGallery(103); break;
-            case R.id.imageForth: getFileFromGallery(104); break;
-            case R.id.imageFifth: getFileFromGallery(105); break;
-            case R.id.imageSixth: getFileFromGallery(106); break;
-            case R.id.imageSeventh: getFileFromGallery(107); break;
-            case R.id.imageEighth: getFileFromGallery(108); break;
-            case R.id.imageNinth: getFileFromGallery(109); break;
-            case R.id.closeFirst: imageFirst.setImageResource(R.drawable.add_button); closeFirst.setVisibility(GONE); break;
-            case R.id.closeSecond: imageSecond.setImageResource(R.drawable.add_button); closeSecond.setVisibility(GONE); break;
-            case R.id.closeThird: imageThird.setImageResource(R.drawable.add_button); closeThird.setVisibility(GONE); break;
-            case R.id.closeForth: imageForth.setImageResource(R.drawable.add_button); closeForth.setVisibility(GONE); break;
-            case R.id.closeFifth: imageFifth.setImageResource(R.drawable.add_button); closeFifth.setVisibility(GONE); break;
-            case R.id.closeSixth: imageSixth.setImageResource(R.drawable.add_button); closeSixth.setVisibility(GONE); break;
-            case R.id.closeSeventh: imageSeventh.setImageResource(R.drawable.add_button); closeSeventh.setVisibility(GONE); break;
-            case R.id.closeEighth: imageEighth.setImageResource(R.drawable.add_button); closeEighth.setVisibility(GONE); break;
-            case R.id.closeNinth: imageNinth.setImageResource(R.drawable.add_button); closeNinth.setVisibility(GONE); break;
-
         }
+    }
+
+    private ArrayList<String> setArray(ArrayList<String> imageList){
+        String separeteString = imageList.get(0).replace("[","").replace(",","").replace("]","");
+
+        String[] separeted = separeteString.split(" ");
+
+        image.addAll(Arrays.asList(separeted));
+
+        System.out.println(image.size());
+
+        return image;
+
+    }
+
+    private void setVisibilityOfText(TextView text1, TextView text2, TextView text3){
+        text1.setVisibility(VISIBLE);
+        text2.setVisibility(GONE);
+        text3.setVisibility(GONE);
+    }
+    private void setVisibilityOfRecyclerView(RecyclerView rv1, RecyclerView rv2, RecyclerView rv3){
+        rv1.setVisibility(VISIBLE);
+        rv2.setVisibility(GONE);
+        rv3.setVisibility(GONE);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

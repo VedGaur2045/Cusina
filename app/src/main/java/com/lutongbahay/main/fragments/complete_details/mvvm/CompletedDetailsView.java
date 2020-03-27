@@ -75,6 +75,8 @@ public class CompletedDetailsView extends FrameLayout {
     RelativeLayout add_MinServing;
     @BindView(R.id.listMyLutoSubmitBtn)
     Button listMyLutoSubmitBtn;
+    @BindView(R.id.category)
+    TextView category;
 
     public static Integer countSell=1;
     public static Integer countServe=1;

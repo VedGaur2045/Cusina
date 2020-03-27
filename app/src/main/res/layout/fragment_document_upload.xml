@@ -71,100 +71,29 @@
                     android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_marginTop="@dimen/_15sdp"/>
 
-                <RelativeLayout
-                    android:layout_marginTop="@dimen/_7sdp"
+                <TextView
+                    android:visibility="visible"
+                    android:id="@+id/fileNameFirstUploaded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NoFilesChosen"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="MissingPrefix"
+                    android:fontFamily="@font/sourcesanspro_it"
+                    android:textColor="@color/_80000000"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:id="@+id/governmentId_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                        <com.github.florent37.shapeofview.shapes.RoundRectView
-                            android:id="@+id/first"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                            app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                            app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                            app:shape_roundRect_topRightRadius="@dimen/_11sdp">
-
-                            <ImageView
-                                android:id="@+id/imageFirst"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerVertical="true"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/add_picture" />
-
-                        </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                        <ImageView
-                            android:id="@+id/closeFirst"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_alignEnd="@+id/first"
-                            android:layout_margin="@dimen/_2sdp"
-                            android:background="@android:color/transparent"
-                            android:src="@mipmap/close_red_img"
-                            android:tint="#EC0000"
-                            android:visibility="visible" />
-
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerInParent="true">
-
-                        <ImageView
-                            android:id="@+id/imageSecond"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeSecond"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:id="@+id/imageThird"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeThird"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    tools:spanCount="3"
+                    tools:itemCount="3"
+                    android:layout_margin="@dimen/_5sdp"
+                    tools:listitem="@layout/adapter_uploaded_document"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
                 <TextView
@@ -190,100 +119,30 @@
                     android:textSize="@dimen/_12ssp"
                     tools:ignore="MissingPrefix" />
 
-                <RelativeLayout
-                    android:layout_marginTop="@dimen/_7sdp"
+                <TextView
+                    android:visibility="visible"
+                    android:id="@+id/fileNameSecondUploaded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NoFilesChosen"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="MissingPrefix"
+                    android:fontFamily="@font/sourcesanspro_it"
+                    android:textColor="@color/_80000000"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:id="@+id/sanitaryPermit_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    tools:spanCount="3"
+                    tools:itemCount="3"
+                    android:layout_margin="@dimen/_5sdp"
+                    tools:listitem="@layout/adapter_uploaded_document"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true">
-
-                        <ImageView
-                            android:id="@+id/imageForth"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:layout_centerVertical="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeForth"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerInParent="true">
-
-                        <ImageView
-                            android:id="@+id/imageFifth"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeFifth"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:id="@+id/imageSixth"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeSixth"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                </RelativeLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -308,100 +167,29 @@
                     android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_marginTop="@dimen/_15sdp"/>
 
-                <RelativeLayout
-                    android:layout_marginTop="@dimen/_7sdp"
+                <TextView
+                    android:visibility="visible"
+                    android:id="@+id/fileNameThirdUploaded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NoFilesChosen"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="MissingPrefix"
+                    android:fontFamily="@font/sourcesanspro_it"
+                    android:textColor="@color/_80000000"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:id="@+id/addressProof_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true">
-
-                        <ImageView
-                            android:id="@+id/imageSeventh"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:layout_centerVertical="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeSeventh"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerInParent="true">
-
-                        <ImageView
-                            android:id="@+id/imageEighth"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeEighth"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                    <com.github.florent37.shapeofview.shapes.RoundRectView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
-                        app:shape_roundRect_topRightRadius="@dimen/_11sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:id="@+id/imageNinth"
-                            android:layout_width="@dimen/_78sdp"
-                            android:layout_height="@dimen/_78sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/add_picture" />
-
-                        <ImageView
-                            android:visibility="gone"
-                            android:id="@+id/closeNinth"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="right"
-                            android:tint="#EC0000"
-                            android:src="@mipmap/close_red_img"/>
-
-                    </com.github.florent37.shapeofview.shapes.RoundRectView>
-
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    tools:spanCount="3"
+                    tools:itemCount="3"
+                    android:layout_margin="@dimen/_5sdp"
+                    tools:listitem="@layout/adapter_uploaded_document"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                 <RelativeLayout
                     android:layout_marginTop="@dimen/_40sdp"

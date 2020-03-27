@@ -5,13 +5,40 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:visibility="visible"
-        android:id="@+id/galleryImg"
-        android:src="@mipmap/product_img"
-        android:scaleType="fitXY"
+    <RelativeLayout
+        android:id="@+id/imageLayout"
         android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp" />
+        android:layout_height="@dimen/_70sdp"
+        android:background="@color/_FFFFFF">
+
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/galleryImg"
+            android:src="@mipmap/product_img"
+            android:scaleType="fitXY"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp" />
+
+        <ImageView
+            android:id="@+id/imageBg"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:src="@drawable/red_border_bold_drawable"/>
+
+        <TextView
+            android:id="@+id/selectedCount"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:background="@color/_EC0000"
+            android:text="@string/_1"
+            android:gravity="center"
+            android:layout_margin="@dimen/_5sdp"
+            android:textColor="@color/_FFFFFF"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/sourcesanspro_semibold"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/cameraLayout"

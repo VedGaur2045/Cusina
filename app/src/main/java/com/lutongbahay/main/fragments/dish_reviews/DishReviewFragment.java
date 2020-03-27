@@ -43,7 +43,7 @@ public class DishReviewFragment extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                Navigation.findNavController(view).navigate(DishReviewFragmentDirections.toHomeFragment());
+                Navigation.findNavController(view).navigateUp();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     StatusBarUtils.redStatusBar((Activity) context);
                 }

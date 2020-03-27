@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.View;
@@ -33,6 +34,7 @@ import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
 import com.lutongbahay.utils.Logger;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +60,10 @@ public class AddPhotoView extends FrameLayout {
     TextView next;
     @BindView(R.id.gallery_rv)
     RecyclerView gridViewGalleryPhotoList;
+    @BindView(R.id.choosePhotoTxt)
+    TextView choosePhotoTxt;
+    @BindView(R.id.minimumPhotoTxt)
+    TextView minimumPhotoTxt;
 
     public static final int LOCATION_PERMISSION_REQUEST_CODE = 304;
     public static final int SETTINGS_REQUEST_CODE_STORAGE = 305;
@@ -72,12 +78,19 @@ public class AddPhotoView extends FrameLayout {
     private Uri[] mUrls = null;
     Context appContext;
 
-    public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel) {
+    static int valGet;
+
+    GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter;
+
+    public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel, int val, String titleNameTxt, String text1, String text2, String text3) {
         super(context);
         this.viewModel = viewModel;
         this.appContext = context;
         inflate(context, R.layout.fragment_add_photo,this);
         ButterKnife.bind(this,this);
+
+        System.out.println("Val : "+val);
+        valGet = val;
 
         int spanCount = 5; // 3 columns
         int spacing = 20; // 50px
@@ -86,7 +99,10 @@ public class AddPhotoView extends FrameLayout {
 
         gridViewGalleryPhotoList.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
-        titleName.setText(R.string.addDishPhoto);
+        titleName.setText(titleNameTxt);
+        allPhoto.setText(text1);
+        choosePhotoTxt.setText(text2);
+        minimumPhotoTxt.setText(text3);
         backBtnImg.setVisibility(GONE);
         takeStoragePermission();
 
@@ -114,7 +130,7 @@ public class AddPhotoView extends FrameLayout {
     public void onPermissionGranted() {
         ProgressDialogFragment.showProgressDialog(getContext(),"Please wait...");
         allImages = getAllShownImagesPath((AppCompatActivity) appContext);
-        GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter = new GalleryImagesRecyclerAdapter(appContext,allImages);
+        galleryImagesRecyclerAdapter = new GalleryImagesRecyclerAdapter(appContext,allImages,valGet);
         gridViewGalleryPhotoList.setAdapter(galleryImagesRecyclerAdapter);
         ProgressDialogFragment.dismissProgressDialog(getContext());
     }
@@ -167,11 +183,19 @@ public class AddPhotoView extends FrameLayout {
     }
 
 
-    @OnClick(R.id.closeImgBtn)
+    @OnClick({R.id.closeImgBtn,R.id.next})
     public void onClick(View view){
         int id = view.getId();
         if(id == R.id.closeImgBtn){
-            Navigation.findNavController(view).navigate(AddPhotoFragmentDirections.toProfileFragment());
+            Navigation.findNavController(view).navigateUp();
+        } else if(id == R.id.next){
+            String[] imageArr = new String[galleryImagesRecyclerAdapter.selectedImage.size()];
+            for(int i=0;i<galleryImagesRecyclerAdapter.selectedImage.size();i++){
+                imageArr[i] = galleryImagesRecyclerAdapter.selectedImage.get(i);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putStringArray("photoList",imageArr);
+            Navigation.findNavController(view).navigate(R.id.DocumentUploadFragment,bundle);
         }
     }
 

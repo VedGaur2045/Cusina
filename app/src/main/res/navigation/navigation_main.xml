@@ -298,6 +298,9 @@
             app:destination="@id/CameraFragment"/>
         <action android:id="@+id/toCameraSecondFragment"
             app:destination="@id/CameraSecondFragment"/>
+        <action
+            android:id="@+id/toDocumentUploadFragment"
+            app:destination="@id/DocumentUploadFragment"/>
 
     </fragment>
 
@@ -385,6 +388,12 @@
         <action
             android:id="@+id/toSettingsFragment"
             app:destination="@id/SettingFragment"/>
+        <action
+            android:id="@+id/openItemDetailFragment"
+            app:destination="@id/detailFragment"/>
+        <action
+            android:id="@+id/toDishReviewFragment"
+            app:destination="@id/DishReviewFragment"/>
 
     </fragment>
 
@@ -460,6 +469,9 @@
         <action
             android:id="@+id/toSignUpFragment"
             app:destination="@id/SignUpFragment"/>
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
 
         <action
             android:id="@+id/toSignUpCompleteFragment"

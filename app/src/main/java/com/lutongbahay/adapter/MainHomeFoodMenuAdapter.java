@@ -46,7 +46,6 @@ public class MainHomeFoodMenuAdapter extends RecyclerView.Adapter<MainHomeFoodMe
             holder.verticalRecycler.setAdapter(verticalHomeFoodMenuAdapter);
             holder.title.setText(CusinaApplication.getInstance().getResources().getString(R.string.BagongLutoNearMe));
             holder.subTitle.setText(CusinaApplication.getInstance().getResources().getString(R.string.BagongLutoNearMe));
-
             seeMoreClick(holder,11,holder.title.getText().toString());
 
         }else if (position == 1){

@@ -1,5 +1,6 @@
 package com.lutongbahay.main.fragments.dish_reviews.mvvm;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.Rating;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.lutongbahay.adapter.DishReviewRecyclerAdapter;
 import com.lutongbahay.main.fragments.dish_reviews.DishReviewFragment;
 import com.lutongbahay.main.fragments.dish_reviews.DishReviewFragmentDirections;
 import com.lutongbahay.utils.RatingBarUtils;
+import com.lutongbahay.utils.StatusBarUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -74,6 +76,7 @@ public class DishReviewView extends FrameLayout {
         int id = view.getId();
         if(id == R.id.closeImgBtn){
             Navigation.findNavController(view).navigateUp();
+            StatusBarUtils.redStatusBar((Activity) getContext());
         }
     }
 

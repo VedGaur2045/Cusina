@@ -124,8 +124,8 @@ public class ProcessOrderView extends FrameLayout {
     }
 
     private void colorChange(ImageView imageView,ImageView imageView2){
-        imageView.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        imageView2.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
+        imageView.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        imageView2.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
     private void orderHistoryItemClickEvent(){
@@ -133,13 +133,13 @@ public class ProcessOrderView extends FrameLayout {
         ConfirmOrderBtn.setVisibility(GONE);
         DELIVER_Btn.setVisibility(GONE);
         COMPLETE_ORDER_Btn.setVisibility(GONE);
-        ellipse_1.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        ellipse_2.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        ellipse_3.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        ellipse_4.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        line_1.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        line_2.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
-        line_3.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
+        ellipse_1.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        ellipse_2.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        ellipse_3.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        ellipse_4.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        line_1.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        line_2.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
+        line_3.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
         STATUS_COMPLETE.setVisibility(VISIBLE);
         ORDER_TIME_TXT.setText(R.string.TIME_TO_COMPLETE);
         ORDER_TIME_TXT.setTextColor(Color.parseColor("#7BCC86"));
@@ -155,7 +155,7 @@ public class ProcessOrderView extends FrameLayout {
         ConfirmOrderBtn.setVisibility(VISIBLE);
         DELIVER_Btn.setVisibility(GONE);
         COMPLETE_ORDER_Btn.setVisibility(GONE);
-        ellipse_1.setColorFilter(ContextCompat.getColor(getContext(), R.color._7BCC86), android.graphics.PorterDuff.Mode.MULTIPLY);
+        ellipse_1.setColorFilter(ContextCompat.getColor(getContext(), R.color._01CB1D), android.graphics.PorterDuff.Mode.MULTIPLY);
         ellipse_2.setColorFilter(ContextCompat.getColor(getContext(), R.color._4D000000), android.graphics.PorterDuff.Mode.MULTIPLY);
         ellipse_3.setColorFilter(ContextCompat.getColor(getContext(), R.color._4D000000), android.graphics.PorterDuff.Mode.MULTIPLY);
         ellipse_4.setColorFilter(ContextCompat.getColor(getContext(), R.color._4D000000), android.graphics.PorterDuff.Mode.MULTIPLY);

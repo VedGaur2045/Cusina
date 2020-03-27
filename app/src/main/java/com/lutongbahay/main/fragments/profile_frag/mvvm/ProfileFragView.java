@@ -1,6 +1,7 @@
 package com.lutongbahay.main.fragments.profile_frag.mvvm;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -110,7 +111,13 @@ public class ProfileFragView extends FrameLayout {
                 Navigation.findNavController(view).navigate(ProfileFragmentDirections.savedPlaced());
                 break;
             case R.id.AddNewLuto:
-                Navigation.findNavController(view).navigate(ProfileFragmentDirections.toAddPhoto());
+                Bundle bundle = new Bundle();
+                bundle.putInt("openPhotos",11);
+                bundle.putString("titleName",CusinaApplication.getInstance().getString(R.string.addDishPhoto));
+                bundle.putString("text_1",CusinaApplication.getInstance().getString(R.string._allPhoto));
+                bundle.putString("text_2",CusinaApplication.getInstance().getString(R.string._choosePhotoTxt));
+                bundle.putString("text_3",CusinaApplication.getInstance().getString(R.string._minimumPhotoTxt));
+                Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 break;
             case R.id.more_less_tv:
                 showHideBasicDetails();

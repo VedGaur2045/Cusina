@@ -110,6 +110,35 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
+                android:text="@string/Category"
+                android:layout_marginStart="@dimen/_25sdp" />
+
+            <EditText
+                android:id="@+id/category"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:hint="@string/Category"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:textColorHint="@color/black"
+                android:singleLine="true"
+                android:inputType="text"
+                android:background="@color/transparent"
+                tools:ignore="MissingPrefix"
+                android:fontFamily="@font/sourcesanspro_lightit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sdp"
+                tools:ignore="MissingPrefix"
+                android:fontFamily="@font/cabin_semibold"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_25sdp"
                 android:text="@string/price"
                 android:layout_marginStart="@dimen/_25sdp" />
 
@@ -261,7 +290,8 @@
                             android:textSize="@dimen/_11sdp"
                             android:textColor="@color/black"
                             tools:ignore="MissingPrefix"
-
+                            android:gravity="center"
+                            android:layout_centerVertical="true"
                             android:fontFamily="@font/sourcesanspro_regular"/>
                         <LinearLayout
                             android:id="@+id/selectdatefrom"
@@ -276,7 +306,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_gravity="center"
                                 android:src="@drawable/down_icon" />
 
                         </LinearLayout>
@@ -318,6 +348,7 @@
                             android:text="Fri, Oct 12 2019"
                             android:textSize="@dimen/_11sdp"
                             android:textColor="@color/black"
+                            android:layout_centerVertical="true"
                             tools:ignore="MissingPrefix"
                             android:fontFamily="@font/sourcesanspro_regular"/>
                         <LinearLayout
@@ -333,7 +364,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_gravity="center"
                                 android:src="@drawable/down_icon" />
                         </LinearLayout>
                         <View
@@ -406,7 +437,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_gravity="center"
                                 android:src="@drawable/down_icon" />
 
                         </LinearLayout>
@@ -462,7 +493,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_gravity="center"
                                 android:src="@drawable/down_icon" />
                         </LinearLayout>
 

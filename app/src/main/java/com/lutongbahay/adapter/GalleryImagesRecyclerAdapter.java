@@ -32,10 +32,13 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
 
     Context context;
     ArrayList<String> images = new ArrayList<>();
+    static int countSelectedImage;
+    public ArrayList<String> selectedImage = new ArrayList<>();
 
-    public GalleryImagesRecyclerAdapter(Context context, ArrayList<String> images) {
+    public GalleryImagesRecyclerAdapter(Context context, ArrayList<String> images, int val) {
         this.context = context;
         this.images = images;
+        countSelectedImage = 0;
     }
 
     @NonNull
@@ -50,16 +53,45 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
 
         if (position == 0){
             holder.cameraLayout.setVisibility(View.VISIBLE);
-            holder.imageView.setVisibility(View.GONE);
+            holder.imageLayout.setVisibility(View.GONE);
             holder.itemView.setOnClickListener(v -> openAlertBox(holder.itemView));
         }else{
             holder.cameraLayout.setVisibility(View.GONE);
-            holder.imageView.setVisibility(View.VISIBLE);
+            holder.imageLayout.setVisibility(View.VISIBLE);
+            holder.imageBg.setVisibility(View.GONE);
+            holder.selectedCount.setVisibility(View.GONE);
             Logger.DebugLog("IMAGE POSITION " + position + " ", images.get(position));
 
             File file = new File(images.get(position));
             Uri imageUri = Uri.fromFile(file);
             GlideApp.with(context).load(file).placeholder(R.drawable.no_image_placeholder).into(holder.imageView);
+
+            holder.imageLayout.setOnClickListener(view -> {
+                if(countSelectedImage == 3){
+                    holder.imageBg.setVisibility(View.GONE);
+                    holder.selectedCount.setVisibility(View.GONE);
+                    if(countSelectedImage >= 0){
+                        countSelectedImage = 0;
+                    } else {
+                        countSelectedImage--;
+                        
+                    }
+                } else {
+                    countSelectedImage++;
+                    if(selectedImage.size() > 2){
+                        Logger.ErrorLog("Out Of Array Size : ","Now Data not set");
+                    } else {
+                        holder.imageBg.setVisibility(View.VISIBLE);
+                        holder.selectedCount.setVisibility(View.VISIBLE);
+                        holder.selectedCount.setText(Integer.toString(countSelectedImage));
+                        selectedImage.add(images.get(position));
+                        System.out  .println("Size OD hghjgj : "+selectedImage.size()+"   "+countSelectedImage);
+                    }
+
+                }
+                System.out.println(countSelectedImage);
+            });
+
         }
 
     }
@@ -79,6 +111,12 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
         TextView newPhoto;
         @BindView(R.id.cameraLayout)
         RelativeLayout cameraLayout;
+        @BindView(R.id.imageLayout)
+        RelativeLayout imageLayout;
+        @BindView(R.id.imageBg)
+        ImageView imageBg;
+        @BindView(R.id.selectedCount)
+        TextView selectedCount;
 
 
         public GalleryViewHolder(@NonNull View itemView) {

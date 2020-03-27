@@ -134,6 +134,7 @@
                     android:textColor="@color/_000000"/>
 
                 <Button
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:id="@+id/signUpBtn"
                     android:text="@string/_signUp"
                     android:layout_width="match_parent"

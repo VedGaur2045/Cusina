@@ -12,12 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.ChooseCategoryImageRecyclerAdapter;
 import com.lutongbahay.adapter.ChooseCategoryRecyclerAdapter;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
+import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragmentDirections;
 import com.lutongbahay.utils.Constants;
 
@@ -35,16 +39,12 @@ public class ChooseCategoryView extends FrameLayout {
     ImageButton closeImgBtn;
     @BindView(R.id.backBtnImg)
     ImageButton backBtnImg;
-    @BindView(R.id.imageFirst)
-    ImageView imageFirst;
-    @BindView(R.id.imageSecond)
-    ImageView imageSecond;
-    @BindView(R.id.imageThird)
-    ImageView imageThird;
     @BindView(R.id.searchViewHome)
     SearchView searchViewHome;
     @BindView(R.id.listView)
     RecyclerView listView;
+    @BindView(R.id.category_image_rv)
+    RecyclerView category_image_rv;
 
     public ChooseCategoryView(@NonNull Context context, ChooseCategoryViewModel viewModel) {
         super(context);
@@ -55,18 +55,21 @@ public class ChooseCategoryView extends FrameLayout {
         titleName.setText(R.string.choose_category);
         closeImgBtn.setVisibility(GONE);
 
-        dishCategory((AppCompatActivity) context, Constants.TOKEN);
+        LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+
+        category_image_rv.setLayoutManager(horizontalLayoutManager);
+
+        ChooseCategoryImageRecyclerAdapter chooseCategory = new ChooseCategoryImageRecyclerAdapter();
+
+        category_image_rv.setAdapter(chooseCategory);
 
     }
 
-    @OnClick({R.id.backBtnImg,R.id.imageSecond,R.id.imageThird,R.id.imageFirst})
+    @OnClick({R.id.backBtnImg})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
             case R.id.backBtnImg:
-            case R.id.imageFirst:
-            case R.id.imageSecond:
-            case R.id.imageThird:
                 Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCameraFragment());
                 break;
         }

@@ -71,7 +71,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp">
 
-        <TextView
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:textAllCaps="false"
             android:id="@+id/FastTransaction"
             android:gravity="center"
             android:layout_width="@dimen/_100sdp"
@@ -86,7 +88,9 @@
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"/>
 
-        <TextView
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:textAllCaps="false"
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/Punctual"
             android:gravity="center"
@@ -114,7 +118,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp">
 
-        <TextView
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:textAllCaps="false"
             android:id="@+id/CustomerService"
             android:gravity="center"
             android:layout_width="@dimen/_100sdp"
@@ -129,7 +135,9 @@
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"/>
 
-        <TextView
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:textAllCaps="false"
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/FastDelivery"
             android:gravity="center"
@@ -157,7 +165,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp">
 
-        <TextView
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:textAllCaps="false"
             android:id="@+id/Polite"
             android:gravity="center"
             android:layout_width="@dimen/_100sdp"
@@ -172,7 +182,9 @@
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"/>
 
-        <TextView
+        <Button
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:textAllCaps="false"
             android:layout_marginStart="@dimen/_10sdp"
             android:id="@+id/Products"
             android:gravity="center"

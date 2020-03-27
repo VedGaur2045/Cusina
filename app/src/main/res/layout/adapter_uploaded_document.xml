@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/first"
+        android:layout_width="@dimen/_78sdp"
+        android:layout_height="@dimen/_78sdp"
+        app:shape_roundRect_bottomLeftRadius="@dimen/_11sdp"
+        app:shape_roundRect_bottomRightRadius="@dimen/_11sdp"
+        app:shape_roundRect_topLeftRadius="@dimen/_11sdp"
+        app:shape_roundRect_topRightRadius="@dimen/_11sdp">
+
+        <ImageView
+            android:id="@+id/imageSelected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/product_img"/>
+
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_16sdp"
+        android:layout_alignEnd="@+id/first"
+        android:layout_margin="@dimen/_2sdp"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/close_red_img"
+        android:tint="#EC0000"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

@@ -80,12 +80,14 @@
                android:layout_centerHorizontal="true"
                android:layout_marginTop="@dimen/_10sdp">
 
-               <TextView
+               <Button
                    android:id="@+id/WellPrepared"
                    android:gravity="center"
                    android:layout_width="@dimen/_100sdp"
                    android:layout_height="@dimen/_24sdp"
                    android:background="@drawable/bg_layout"
+                   style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                   android:textAllCaps="false"
                    android:text="@string/WellPrepared"
                    android:textColor="@color/_000000"
                    tools:ignore="MissingPrefix"
@@ -95,7 +97,9 @@
                    android:paddingStart="@dimen/_10sdp"
                    android:paddingEnd="@dimen/_10sdp"/>
 
-               <TextView
+               <Button
+                   style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                   android:textAllCaps="false"
                    android:layout_marginStart="@dimen/_10sdp"
                    android:id="@+id/NewlyCooked"
                    android:gravity="center"
@@ -123,7 +127,9 @@
                android:layout_centerHorizontal="true"
                android:layout_marginTop="@dimen/_10sdp">
 
-               <TextView
+               <Button
+                   style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                   android:textAllCaps="false"
                    android:id="@+id/Clean"
                    android:gravity="center"
                    android:layout_width="@dimen/_100sdp"
@@ -138,7 +144,9 @@
                    android:paddingStart="@dimen/_10sdp"
                    android:paddingEnd="@dimen/_10sdp"/>
 
-               <TextView
+               <Button
+                   style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                   android:textAllCaps="false"
                    android:layout_marginStart="@dimen/_10sdp"
                    android:id="@+id/FoodQuality"
                    android:gravity="center"
@@ -166,7 +174,9 @@
                android:layout_centerHorizontal="true"
                android:layout_marginTop="@dimen/_10sdp">
 
-               <TextView
+               <Button
+                   style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                   android:textAllCaps="false"
                    android:id="@+id/FastDelivery"
                    android:gravity="center"
                    android:layout_width="@dimen/_100sdp"
@@ -181,7 +191,9 @@
                    android:paddingStart="@dimen/_10sdp"
                    android:paddingEnd="@dimen/_10sdp"/>
 
-               <TextView
+               <Button
+                   style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                   android:textAllCaps="false"
                    android:layout_marginStart="@dimen/_10sdp"
                    android:id="@+id/WellPackaged"
                    android:gravity="center"
