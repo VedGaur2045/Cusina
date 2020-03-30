@@ -20,7 +20,10 @@ import com.lutongbahay.utils.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -172,6 +175,31 @@ public class MainService {
         }
         ProgressDialogFragment.showProgressDialog(context,"Please wait...");
         Call<ResponseDocument> call = apiService.documentUpload(documentUpload,file1,file2,file3);
+        call.enqueue(new Callback<ResponseDocument>() {
+            @Override
+            public void onResponse(@NotNull Call<ResponseDocument> call, @NotNull Response<ResponseDocument> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<ResponseDocument> call, @NotNull Throwable t) {
+                Logger.ErrorLog("DOCUMENT UPLOAD API FAILED ", t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
+    public static LiveData<ResponseDocument> documentUpload(final Context context, @Part RequestBody userId, List<MultipartBody.Part> files){
+        final MutableLiveData<ResponseDocument> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseDocument> call = apiService.documentUpload(userId,files);
         call.enqueue(new Callback<ResponseDocument>() {
             @Override
             public void onResponse(@NotNull Call<ResponseDocument> call, @NotNull Response<ResponseDocument> response) {

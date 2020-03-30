@@ -14,7 +14,10 @@ import com.lutongbahay.rest.response.ResponseResendOtp;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.rest.response.google_places_response.GooglePlacesAPIData;
 
+import java.util.List;
+
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -63,4 +66,7 @@ public interface APiInterface {
     @POST("document")
     Call<ResponseDocument> documentUpload(@Body RequestDocumentUpload documentUpload,@Part MultipartBody.Part file1,@Part MultipartBody.Part file2,@Part MultipartBody.Part file3);
 
+    @Multipart
+    @POST("document")
+    Call<ResponseDocument> documentUpload(@Part("user_id") RequestBody id, @Part List<MultipartBody.Part> files);
 }

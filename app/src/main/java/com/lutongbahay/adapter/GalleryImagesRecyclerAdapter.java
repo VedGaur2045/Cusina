@@ -21,9 +21,12 @@ import com.lutongbahay.R;
 import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
 import com.lutongbahay.utils.Logger;
+import com.lutongbahay.utils.ToastUtils;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +37,8 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
     ArrayList<String> images = new ArrayList<>();
     static int countSelectedImage;
     public ArrayList<String> selectedImage = new ArrayList<>();
+
+    public ArrayList<File> selectedFiles = new ArrayList<>();
 
     public GalleryImagesRecyclerAdapter(Context context, ArrayList<String> images, int val) {
         this.context = context;
@@ -66,30 +71,53 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
             Uri imageUri = Uri.fromFile(file);
             GlideApp.with(context).load(file).placeholder(R.drawable.no_image_placeholder).into(holder.imageView);
 
+            if (selectedFiles.contains(file)){
+                int index = Collections.singletonList(selectedFiles).indexOf(file);
+                holder.imageBg.setVisibility(View.VISIBLE);
+                holder.selectedCount.setVisibility(View.VISIBLE);
+                holder.selectedCount.setText(Integer.toString(index));
+            }else{
+                holder.imageBg.setVisibility(View.GONE);
+                holder.selectedCount.setVisibility(View.GONE);
+            }
+
+
             holder.imageLayout.setOnClickListener(view -> {
-                if(countSelectedImage == 3){
-                    holder.imageBg.setVisibility(View.GONE);
-                    holder.selectedCount.setVisibility(View.GONE);
-                    if(countSelectedImage >= 0){
-                        countSelectedImage = 0;
+
+
+                if (selectedFiles.contains(file)){
+                    selectedFiles.remove(file);
+                }else {
+                    if (selectedFiles.size() == 3) {
+                        ToastUtils.shortToast("Maximum three images selected");
                     } else {
-                        countSelectedImage--;
-                        
-                    }
-                } else {
-                    countSelectedImage++;
-                    if(selectedImage.size() > 2){
-                        Logger.ErrorLog("Out Of Array Size : ","Now Data not set");
-                    } else {
-                        holder.imageBg.setVisibility(View.VISIBLE);
-                        holder.selectedCount.setVisibility(View.VISIBLE);
-                        holder.selectedCount.setText(Integer.toString(countSelectedImage));
-                        selectedImage.add(images.get(position));
-                        System.out  .println("Size OD hghjgj : "+selectedImage.size()+"   "+countSelectedImage);
+                        selectedFiles.add(file);
                     }
 
                 }
-                System.out.println(countSelectedImage);
+                  notifyDataSetChanged();
+//                if(countSelectedImage == 3){
+//                    holder.imageBg.setVisibility(View.GONE);
+//                    holder.selectedCount.setVisibility(View.GONE);
+//                    if(countSelectedImage >= 0){
+//                        countSelectedImage = 0;
+//                    } else {
+//                        countSelectedImage--;
+//
+//                    }
+//                } else {
+//                    countSelectedImage++;
+//                    if(selectedImage.size() > 2){
+//                        Logger.ErrorLog("Out Of Array Size : ","Now Data not set");
+//                    } else {
+//                        holder.imageBg.setVisibility(View.VISIBLE);
+//                        holder.selectedCount.setVisibility(View.VISIBLE);
+//                        holder.selectedCount.setText(Integer.toString(countSelectedImage));
+//                        selectedImage.add(images.get(position));
+//                        System.out  .println("Size OD hghjgj : "+selectedImage.size()+"   "+countSelectedImage);
+//                    }
+//
+//                }
             });
 
         }

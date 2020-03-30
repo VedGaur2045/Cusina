@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.DialogHelperClass;
+import com.lutongbahay.interfaces.DocumentMediaInterface;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoView;
 import com.lutongbahay.main.fragments.add_photo.mvvm.AddPhotoViewModel;
 import com.lutongbahay.main.fragments.my_tray.MyTrayFragmentDirections;
@@ -31,6 +32,9 @@ public class AddPhotoFragment extends Fragment {
     private AddPhotoView view;
     private AddPhotoViewModel viewModel;
     private Context context;
+    public static DocumentMediaInterface documentMediaInterface;
+
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -64,7 +68,7 @@ public class AddPhotoFragment extends Fragment {
         String text2 = getArguments().getString("text_2");
         String text3 = getArguments().getString("text_3");
         viewModel = new ViewModelProvider(this).get(AddPhotoViewModel.class);
-        view = new AddPhotoView(context,viewModel,val,titleName,text1,text2,text3);
+        view = new AddPhotoView(context,viewModel,val,titleName,text1,text2,text3,documentMediaInterface);
         return view;
     }
 
