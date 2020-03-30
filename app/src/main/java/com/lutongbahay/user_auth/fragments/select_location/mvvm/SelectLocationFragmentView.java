@@ -39,6 +39,7 @@ import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.main.home.HomeActivity;
 import com.lutongbahay.rest.response.google_places_response.GooglePlacesAPIData;
 import com.lutongbahay.rest.service.GooglePlacesServices;
+import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
 import com.lutongbahay.utils.TextUtils;
 
@@ -189,6 +190,10 @@ public class SelectLocationFragmentView extends FrameLayout {
                         String addressLine = addressList.get(0).getAddressLine(0);
                         locationTextView.setText("Current Location \n" + addressLine);
                         System.out.println("hajsg ? "+addressList.get(0));
+
+                        Constants.LAT = addressList.get(0).getLatitude();
+                        Constants.LNG = addressList.get(0).getLongitude();
+
                         check = true;
                         //CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                     }else {
@@ -233,6 +238,8 @@ public class SelectLocationFragmentView extends FrameLayout {
                         addressList.get(0).setPostalCode(null);
                         addressList.get(0).setCountryCode(null);
                         addressList.get(0).setCountryName(null);
+                        Constants.LNG = addressList.get(0).getLongitude();
+                        Constants.LAT = addressList.get(0).getLatitude();
                         System.out.println("Aghgsxdhjb s   =   "+addressList.get(0).getAddressLine(0));
                         //CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                         rv_search_result.setVisibility(GONE);

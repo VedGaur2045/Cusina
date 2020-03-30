@@ -35,9 +35,11 @@ import com.lutongbahay.helper.LocationTrackingHelper;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.list.PaymentMethodListView;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
+import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -90,32 +92,35 @@ public class HomeFragView extends FrameLayout {
         inflate(context, R.layout.fragment_home, this);
         ButterKnife.bind(this, this);
 
+        if(Constants.LNG == 0.00 && Constants.LAT == 0.00){
+            locationTxt.setText("Current Location" );
+            geocoder = new Geocoder(context, Locale.getDefault());
 
+            if(CusinaApplication.getPreferenceManger().getLastSavedLocation() == null) {
+                if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
+                    fetchLocation();
+                }
+            } else {
+                List<Address> addressList = new ArrayList<>();
+                addressList = Collections.singletonList(CusinaApplication.getPreferenceManger().getLastSavedLocation());
+
+                try {
+                    System.out.println(addressList.get(0).getAddressLine(0));
+
+                    Constants.LAT = addressList.get(0).getLatitude();
+                    Constants.LNG = addressList.get(0).getLongitude();
+
+                    locationTxt.setText(addressList.get(0).getAddressLine(0));
+                } catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
 
         MainHomeFoodMenuAdapter mainHomeFoodMenuAdapter = new MainHomeFoodMenuAdapter(getContext());
         foodMenuRv.setAdapter(mainHomeFoodMenuAdapter);
 
         trayHome.setOnClickListener(v -> Navigation.findNavController(v).navigate(HomeFragmentDirections.openCartFragment()));
-
-        locationTxt.setText("Current Location" );
-        geocoder = new Geocoder(context, Locale.getDefault());
-
-        if(CusinaApplication.getPreferenceManger().getLastSavedLocation() == null) {
-            if (MarshMallowPermission.checkMashMallowPermissions((AppCompatActivity) context, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,CAMERA}, PERMISSION_REQUEST_CODE)) {
-                fetchLocation();
-            }
-        } else {
-            List<Address> addressList = new ArrayList<>();
-            addressList = Collections.singletonList(CusinaApplication.getPreferenceManger().getLastSavedLocation());
-
-            try {
-                System.out.println(addressList.get(0).getAddressLine(0));
-
-                locationTxt.setText(addressList.get(0).getAddressLine(0));
-            } catch (Exception e){
-                System.out.println(e.getMessage());
-            }
-        }
 
     }
 
@@ -168,6 +173,10 @@ public class HomeFragView extends FrameLayout {
                         String addressLine = addressList.get(0).getAddressLine(0);
                         locationTxt.setText(addressLine);
                         System.out.println("hajsg ? "+addressList.get(0));
+
+                        Constants.LAT = addressList.get(0).getLatitude();
+                        Constants.LNG = addressList.get(0).getLongitude();
+
                         check = true;
                         CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                     }else {
@@ -178,26 +187,26 @@ public class HomeFragView extends FrameLayout {
 
     }
 
-    private void homeList(AppCompatActivity context, String lat, String lng, String token){
-        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
-            if(responseHomeList == null){
-                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
-            } else {
-                if (responseHomeList.getMessage() == null){
-                    showErrorAlert(context, responseHomeList.getMessage());
-                } else {
-
-                }
-            }
-        });
-    }
-
-    public void showErrorAlert(Context context, String errorMessage) {
-        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
-                (view, dialog) -> {
-
-                }, null);
-    }
+//    private void homeList(AppCompatActivity context, String lat, String lng, String token){
+//        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
+//            if(responseHomeList == null){
+//                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
+//            } else {
+//                if (responseHomeList.getMessage() == null){
+//                    showErrorAlert(context, responseHomeList.getMessage());
+//                } else {
+//
+//                }
+//            }
+//        });
+//    }
+//
+//    public void showErrorAlert(Context context, String errorMessage) {
+//        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+//                (view, dialog) -> {
+//
+//                }, null);
+//    }
 
 
 }

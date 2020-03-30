@@ -17,7 +17,7 @@ public class HomeFragViewModel extends ViewModel {
     public HomeFragViewModel() {
     }
 
-    public LiveData<ResponseHomeList> homeList(Context context, String token, String lat, String lng){
+    public LiveData<ResponseHomeList> homeList(Context context, String token, double lat, double lng){
         return MainService.homeList(context,token,lat,lng);
     }
 

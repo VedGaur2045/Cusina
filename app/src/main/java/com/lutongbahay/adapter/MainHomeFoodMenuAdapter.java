@@ -8,12 +8,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.app.CusinaApplication;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
+import com.lutongbahay.glide.GlideApp;
+import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
+import com.lutongbahay.rest.response.NearMeItem;
+import com.lutongbahay.utils.Constants;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,11 +48,13 @@ public class MainHomeFoodMenuAdapter extends RecyclerView.Adapter<MainHomeFoodMe
     @Override
     public void onBindViewHolder(@NonNull MainHomeViewHolder holder, int position) {
 
+        homeList((AppCompatActivity) context, Constants.LAT,Constants.LNG, Constants.TOKEN);
+
         LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager verticalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         if (position == 0){
             holder.verticalRecycler.setLayoutManager(verticalLayoutManager);
-            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1);
+            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1,51);
             holder.verticalRecycler.setAdapter(verticalHomeFoodMenuAdapter);
             holder.title.setText(CusinaApplication.getInstance().getResources().getString(R.string.BagongLutoNearMe));
             holder.subTitle.setText(CusinaApplication.getInstance().getResources().getString(R.string.BagongLutoNearMe));
@@ -64,7 +76,7 @@ public class MainHomeFoodMenuAdapter extends RecyclerView.Adapter<MainHomeFoodMe
             seeMoreClick(holder,13,holder.title.getText().toString());
         }else if (position == 3){
             holder.verticalRecycler.setLayoutManager(verticalLayoutManager);
-            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1);
+            VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1,52);
             holder.verticalRecycler.setAdapter(verticalHomeFoodMenuAdapter);
             holder.title.setText(CusinaApplication.getInstance().getResources().getString(R.string.IhahainSoonNearMe));
             holder.subTitle.setText(CusinaApplication.getInstance().getResources().getString(R.string.nearMeDishesTxtShort));
@@ -103,6 +115,33 @@ public class MainHomeFoodMenuAdapter extends RecyclerView.Adapter<MainHomeFoodMe
             bundle.putString("titleName",titleName);
             Navigation.findNavController(view).navigate(R.id.FavouritesFragment,bundle);
         });
+    }
+
+    private void homeList(AppCompatActivity context, double lat, double lng, String token){
+        HomeFragViewModel viewModel = new HomeFragViewModel();
+        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
+            if(responseHomeList == null){
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
+            } else {
+                if (responseHomeList.getMessage() == null){
+                    showErrorAlert(context, responseHomeList.getMessage());
+                } else {
+                    ArrayList<NearMeItem> arrayList = new ArrayList<>();
+                    for(int i=0;i<responseHomeList.getData().getNearMe().size();i++){
+                        arrayList.add(i,responseHomeList.getData().getNearMe().get(i));
+                    }
+                    System.out.println("Size : "+arrayList.size());
+                }
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+                (view, dialog) -> {
+
+                }, null);
     }
 
 }

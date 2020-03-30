@@ -24,6 +24,8 @@ import com.lutongbahay.adapter.DateOfOrderRecyclerAdapter;
 import com.lutongbahay.adapter.SliderAdapter;
 import com.lutongbahay.adapter.TimeOfPickupOrderRecyclerAdapter;
 import com.lutongbahay.dialogs.AppAction;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.fragments.item_detail.ItemDetailFragmentDirections;
 import com.lutongbahay.utils.Logger;
 
@@ -102,8 +104,8 @@ public class ItemDetailView extends FrameLayout {
     private int currentPage = 0;
     private int NUM_PAGES = 0;
 
-    private ArrayList<Integer> imageArray = new ArrayList<>();
-    private ArrayList<Integer> images=new ArrayList<>();
+    private ArrayList<String> imageArray = new ArrayList<>();
+    private ArrayList<String> images=new ArrayList<>();
     private int[] imageSell = {R.mipmap.product_img_item,R.mipmap.product_img,R.mipmap.maestro_img};
 
     public ItemDetailView(@NonNull AppCompatActivity context, ItemDetailViewModel viewModel) {
@@ -123,8 +125,6 @@ public class ItemDetailView extends FrameLayout {
 
         dateListItem.setAdapter(dateOfOrderRecyclerAdapter);
         timeListItem.setAdapter(timeOfPickupOrderRecyclerAdapter);
-
-        init();
 
     }
 
@@ -149,14 +149,14 @@ public class ItemDetailView extends FrameLayout {
     }
 
 
-    private void init() {
+    private void init(ArrayList<String> imageArr) {
 
         currentPage=0;
         NUM_PAGES=0;
 
         int i;
-        for(i=0;i<imageSell.length;i++){
-            imageArray.add(imageSell[i]);
+        for(i=0;i<imageArr.size();i++){
+            imageArray.add(imageArr.get(i));
         }
 
         viewPager.setAdapter(new SliderAdapter(imageArray,getContext()));
@@ -183,6 +183,36 @@ public class ItemDetailView extends FrameLayout {
 
             }
         });
+    }
+
+    public void dishDetail(AppCompatActivity context,int  itemid, String token,double Lat,double Long ){
+        viewModel.dishDetail(context, itemid,token,Lat,Long).observe(context, responseDishDetail -> {
+            if(responseDishDetail == null){
+                showErrorAlert(context,"Dish details not found!","Error");
+            } else {
+                if (!responseDishDetail.getSuccess()){
+                    showErrorAlert(context,responseDishDetail.getMessage(),"Message");
+                } else {
+                    for(int i=0;i<responseDishDetail.getData().getImages().size();i++){
+                        images.add(String.valueOf(responseDishDetail.getData().getImages().get(i)));
+                    }
+                    init(images);
+                    productPlaceName.setText(responseDishDetail.getData().getName());
+                    productDeliveryFee.setText(responseDishDetail.getData().getDeliveryPrice());
+                    productPrice.setText(responseDishDetail.getData().getPrice());
+                    descriptionTxt.setText(responseDishDetail.getData().getDescription());
+                    productRatingCount.setText(responseDishDetail.getData().getRating());
+                }
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+
+    public void showErrorAlert(Context context, String errorMessage, String title) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, title, errorMessage, null, "Ok", null,
+                (view, dialog) -> {
+
+                }, null);
     }
 
 }

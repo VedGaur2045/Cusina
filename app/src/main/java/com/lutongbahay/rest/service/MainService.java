@@ -14,9 +14,11 @@ import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.response.ResponseAddDish;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
+import com.lutongbahay.rest.response.ResponseDishDetail;
 import com.lutongbahay.rest.response.ResponseDocument;
 import com.lutongbahay.rest.response.ResponseHomeList;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
+import com.lutongbahay.rest.response.ResponseSeeAllDishes;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.utils.Logger;
 
@@ -141,7 +143,7 @@ public class MainService {
         return data;
     }
 
-    public static LiveData<ResponseHomeList> homeList(final Context context, String token, String lat, String lng){
+    public static LiveData<ResponseHomeList> homeList(final Context context, String token, double lat, double lng){
         final MutableLiveData<ResponseHomeList> data = new MutableLiveData<>();
         if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
             return data;
@@ -215,6 +217,58 @@ public class MainService {
         });
         return data;
     }
+
+
+    public static LiveData<ResponseSeeAllDishes> seeDishesList(final Context context, String token, double Lat, double Long){
+        final MutableLiveData<ResponseSeeAllDishes> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseSeeAllDishes> call = apiService.dishesList(token,Lat,Long);
+        call.enqueue(new Callback<ResponseSeeAllDishes>() {
+            @Override
+            public void onResponse(@NotNull Call<ResponseSeeAllDishes> call, @NotNull Response<ResponseSeeAllDishes> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<ResponseSeeAllDishes> call, @NotNull Throwable t) {
+                Logger.ErrorLog("DISHLIST API FAILED", t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
+    public static LiveData<ResponseDishDetail> dishDetail(Context context, String token, int itemId, double lng, double lat){
+        final MutableLiveData<ResponseDishDetail> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseDishDetail> call = apiService.dishDetail(token,itemId,lat,lng);
+        call.enqueue(new Callback<ResponseDishDetail>() {
+            @Override
+            public void onResponse(@NotNull Call<ResponseDishDetail> call, @NotNull Response<ResponseDishDetail> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<ResponseDishDetail> call, @NotNull Throwable t) {
+                Logger.ErrorLog("DISHDETAILS API FAILED", t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
 
 //    public static LiveData<ResponseDish> dish(final Context context, int itemId, String lat, String lng){
 //        final MutableLiveData<ResponseDish> data = new MutableLiveData<>();

@@ -15,16 +15,17 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.lutongbahay.R;
+import com.lutongbahay.glide.GlideApp;
 
 import java.util.ArrayList;
 
 public class SliderAdapter extends PagerAdapter {
 
-    ArrayList<Integer> image;
+    ArrayList<String> image;
     private Context context;
     private LayoutInflater inflater;
 
-    public SliderAdapter(ArrayList<Integer> image, Context context) {
+    public SliderAdapter(ArrayList<String> image, Context context) {
         this.image = image;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -55,8 +56,8 @@ public class SliderAdapter extends PagerAdapter {
 
         ImageView imageView = layoutSlider.findViewById(R.id.productImgItem);
 
-        imageView.setImageResource(image.get(position));
-        //Glide.with(context).load(image.get(position)).into(imageView);
+        //imageView.setImageResource(image.get(position));
+        GlideApp.with(context).load(image.get(position)).into(imageView);
 
         view.addView(layoutSlider, 0);
 

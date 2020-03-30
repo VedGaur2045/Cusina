@@ -91,6 +91,8 @@ public class SignUpView extends FrameLayout {
 
         citylist.setAdapter(adapter2);
 
+        kitchenName.addTextChangedListener(textWatcher);
+
     }
 
     private TextWatcher textWatcher = new TextWatcher() {
@@ -101,7 +103,7 @@ public class SignUpView extends FrameLayout {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            //verifyKitchenName((AppCompatActivity) getContext(), charSequence.toString());
+            verifyKitchenName((AppCompatActivity) getContext(),kitchenName.getText().toString(), Constants.TOKEN);
         }
 
         @Override
@@ -122,9 +124,7 @@ public class SignUpView extends FrameLayout {
                 if(kitchenName.getText().length()>0 && username.getText().length()>0 && usermobile.getText().length()>0 && useremail.getText().length()>0
                         && useradddressline1.getText().length()>0 && useradddressline2.getText().length()>0 && zipcode.getText().length()>0
                         && usercountry.getText().length()>0 && citylist.getSelectedItemPosition()>0 && genderlist.getText().length()>0){
-
-                    //verifyKitchenName((AppCompatActivity) getContext(),kitchenName.getText().toString(), Constants.TOKEN,view);
-                       // addSellerInfoData((AppCompatActivity) getContext(), view);
+                    addSellerInfoData((AppCompatActivity) getContext(), view);
 
                 } else {
                     SnackbarUtils.showSnackBar(view, "Please fill all field", Snackbar.LENGTH_LONG);
@@ -217,7 +217,7 @@ public class SignUpView extends FrameLayout {
         });
     }
 
-    public void verifyKitchenName(AppCompatActivity compatActivity, String kitchenName, String token, View view){
+    public void verifyKitchenName(AppCompatActivity compatActivity, String kitchenName, String token){
         viewModel.verifyKitchen(compatActivity,kitchenName,token).observe(compatActivity, responseVerifyKitchen -> {
             if(responseVerifyKitchen == null){
                 showErrorAlert(compatActivity, "Oops!! Server error occurred. Please try again.");
@@ -230,7 +230,7 @@ public class SignUpView extends FrameLayout {
                     } else {
                         ToastUtils.shortToast(responseVerifyKitchen.getMessage());
                         System.out.println("On Kitchen Name Success : "+responseVerifyKitchen.getMessage());
-                        addSellerInfoData(compatActivity,view);
+                        //addSellerInfoData(compatActivity,view);
                     }
                 }
             }

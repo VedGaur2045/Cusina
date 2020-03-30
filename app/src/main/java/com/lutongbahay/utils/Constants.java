@@ -8,6 +8,8 @@ package com.lutongbahay.utils;
 
 public class Constants {
 
+    public static double LAT;
+    public static double LNG;
     public static boolean isRegistered = false;
     public static boolean openProfile = false;
     public static int constVal;

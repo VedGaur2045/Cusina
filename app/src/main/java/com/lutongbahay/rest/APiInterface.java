@@ -8,11 +8,13 @@ import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseAddDish;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
+import com.lutongbahay.rest.response.ResponseDishDetail;
 import com.lutongbahay.rest.response.ResponseDocument;
 import com.lutongbahay.rest.response.ResponseHomeList;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseResendOtp;
+import com.lutongbahay.rest.response.ResponseSeeAllDishes;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.rest.response.google_places_response.GooglePlacesAPIData;
 
@@ -59,7 +61,7 @@ public interface APiInterface {
     Call<ResponsePaymentMethod> paymentMethod(@Header("Authorization") String token);
 
     @GET("dishes")
-    Call<ResponseHomeList> homeList(@Header("Authorization") String token, @Query("lng") String lat, @Query("long") String lng);
+    Call<ResponseHomeList> homeList(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
 
     @Multipart
     @POST("document")
@@ -68,6 +70,12 @@ public interface APiInterface {
     @Multipart
     @POST("dish")
     Call<ResponseAddDish> addDish(@Body RequestAddDish addDish,@Part MultipartBody.Part file1);
+
+    @GET("see-all/{}")
+    Call<ResponseSeeAllDishes> dishesList(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
+
+    @GET("dish/{id}")
+    Call<ResponseDishDetail> dishDetail(@Header("Authorization") String token, @Path("id") int itemId, @Query("lng") double lat, @Query("long") double lng);
 
 //    @GET("dish/{id}")
 //    Call<ResponseDish> dish(@Path("id") int itemId,@Query("lng") String lat, @Query("long") String lng);
