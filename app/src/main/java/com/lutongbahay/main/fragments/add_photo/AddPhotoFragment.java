@@ -52,7 +52,7 @@ public class AddPhotoFragment extends Fragment {
                     StatusBarUtils.redStatusBar((Activity) context);
                 }
             }
-        };
+        };m
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 

@@ -449,7 +449,7 @@
     <string name="dateTxt">21</string>
     <string name="startingTime">9:00 am</string>
     <string name="endTime">10:00 am</string>
-    <string name="dashIcon">\u0020 - \u0020</string>
+    <string name="dashIcon">\u0020-\u0020</string>
     <string name="enterOTP">Enter OTP</string>
     <string name="otpInformTxt">We\'ve sent a code to the mobile number 1234567890. Please enter the code in that message</string>
     <string name="resendCode">Resend OTP</string>
@@ -462,4 +462,5 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="Category">Category</string>
+    <string name="_AM">AM</string>
 </resources>

@@ -1,13 +1,15 @@
 package com.lutongbahay.rest;
 
 
+import com.lutongbahay.rest.request.RequestAddDish;
 import com.lutongbahay.rest.request.RequestAddSeller;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.request.RequestRegisterAsMobile;
+import com.lutongbahay.rest.response.ResponseAddDish;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
-import com.lutongbahay.rest.response.ResponseDishesList;
 import com.lutongbahay.rest.response.ResponseDocument;
+import com.lutongbahay.rest.response.ResponseHomeList;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseResendOtp;
@@ -57,10 +59,17 @@ public interface APiInterface {
     Call<ResponsePaymentMethod> paymentMethod(@Header("Authorization") String token);
 
     @GET("dishes")
-    Call<ResponseDishesList> dishesList(@Header("Authorization") String token);
+    Call<ResponseHomeList> homeList(@Header("Authorization") String token, @Query("lng") String lat, @Query("long") String lng);
 
     @Multipart
     @POST("document")
     Call<ResponseDocument> documentUpload(@Body RequestDocumentUpload documentUpload,@Part MultipartBody.Part file1,@Part MultipartBody.Part file2,@Part MultipartBody.Part file3);
+
+    @Multipart
+    @POST("dish")
+    Call<ResponseAddDish> addDish(@Body RequestAddDish addDish,@Part MultipartBody.Part file1);
+
+//    @GET("dish/{id}")
+//    Call<ResponseDish> dish(@Path("id") int itemId,@Query("lng") String lat, @Query("long") String lng);
 
 }

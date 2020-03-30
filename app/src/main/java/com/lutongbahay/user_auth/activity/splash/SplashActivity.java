@@ -88,16 +88,16 @@ public class SplashActivity extends AppCompatActivity {
             if (response == null) {
                 showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
             } else {
-                    if (!response.getSuccess()) {
-                        showErrorAlert(context, response.getMessage());
-                    } else {
-                        ToastUtils.shortToast(response.getMessage());
-                        System.out.println("Otp : "+response.getData().getOtp());
-                        CusinaApplication.getPreferenceManger().putUserId(response.getData().getId());
+                if (!response.getSuccess()) {
+                    showErrorAlert(context, response.getMessage());
+                } else {
+                    ToastUtils.shortToast(response.getMessage());
+                    System.out.println("Otp : "+response.getData().getOtp());
+                    CusinaApplication.getPreferenceManger().putUserId(response.getData().getId());
 //                        HomeActivity.openHomeActivity(context);
-                        AuthActivity.openAuthActivity(SplashActivity.this,response.getData().getOtp());
-                        (context).finish();
-                    }
+                    AuthActivity.openAuthActivity(SplashActivity.this,response.getData().getOtp());
+                    (context).finish();
+                }
             }
             ProgressDialogFragment.dismissProgressDialog(context);
         });

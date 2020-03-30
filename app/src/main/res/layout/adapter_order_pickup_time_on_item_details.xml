@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/_7sdp"
-    android:paddingBottom="@dimen/_7sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_5sdp"
     android:paddingStart="@dimen/_10sdp"
     android:paddingEnd="@dimen/_10sdp"
     android:layout_marginStart="@dimen/_7sdp"
@@ -13,18 +13,54 @@
     android:id="@+id/mainLayout">
 
     <TextView
-        android:id="@+id/timeStartTxt"
+        android:id="@+id/timeStartTxt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/startingTime"
+        android:text="@string/_03"
         android:textColor="@color/_000000"
         android:fontFamily="@font/sourcesanspro_regular"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_8sdp"
         android:layout_centerVertical="true"/>
 
     <TextView
-        android:layout_toEndOf="@+id/timeStartTxt"
+        android:id="@+id/timeStartTxt"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_colonIcon"
+        android:layout_toRightOf="@+id/timeStartTxt_1"
+        android:textColor="@color/_000000"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/timeStartTxt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_03"
+        android:textColor="@color/_000000"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_toRightOf="@+id/timeStartTxt"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/time_AM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_AM"
+        android:textColor="@color/_000000"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_toRightOf="@+id/timeStartTxt_2"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
         android:id="@+id/dashTxt"
+        android:layout_toRightOf="@+id/time_AM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dashIcon"
@@ -34,14 +70,50 @@
         android:layout_centerVertical="true"/>
 
     <TextView
-        android:layout_toEndOf="@+id/dashTxt"
-        android:id="@+id/timeEndTxt"
+        android:id="@+id/timeEndTxt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/endTime"
+        android:text="@string/_03"
+        android:layout_toRightOf="@+id/dashTxt"
         android:textColor="@color/_000000"
         android:fontFamily="@font/sourcesanspro_regular"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/timeEndTxt"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_colonIcon"
+        android:layout_toRightOf="@+id/timeEndTxt_1"
+        android:textColor="@color/_000000"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/timeEndTxt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_03"
+        android:textColor="@color/_000000"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_toRightOf="@+id/timeEndTxt"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/timeEnd_AM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_AM"
+        android:textColor="@color/_000000"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_toRightOf="@+id/timeEndTxt_2"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textSize="@dimen/_8sdp"
         android:layout_centerVertical="true"/>
 
 </RelativeLayout>

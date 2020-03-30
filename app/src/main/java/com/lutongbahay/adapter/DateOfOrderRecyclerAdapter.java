@@ -18,6 +18,8 @@ import butterknife.ButterKnife;
 
 public class DateOfOrderRecyclerAdapter extends RecyclerView.Adapter<DateOfOrderRecyclerAdapter.DateOfOrderViewHolder> {
 
+    private static int checkedPosition = 0;
+
     @NonNull
     @Override
     public DateOfOrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,15 +32,7 @@ public class DateOfOrderRecyclerAdapter extends RecyclerView.Adapter<DateOfOrder
         holder.dayNameTxt.setText("Monday");
         holder.dateTxt.setText("21");
         holder.monthNameTxt.setText("April");
-        if(position == 0) {
-            holder.mainLayout.setOnClickListener(view -> {
-                holder.mainLayout.setBackgroundResource(R.drawable.selected_item_time_date_drawable);
-            });
-        } else {
-            holder.mainLayout.setOnClickListener(view -> {
-                holder.mainLayout.setBackgroundResource(R.drawable.bg_black_border_border_nine);
-            });
-        }
+        holder.bind(holder.mainLayout);
     }
 
     @Override
@@ -46,7 +40,7 @@ public class DateOfOrderRecyclerAdapter extends RecyclerView.Adapter<DateOfOrder
         return 10;
     }
 
-    static class DateOfOrderViewHolder extends RecyclerView.ViewHolder {
+    class DateOfOrderViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.dayNameTxt)
         TextView dayNameTxt;
@@ -61,6 +55,30 @@ public class DateOfOrderRecyclerAdapter extends RecyclerView.Adapter<DateOfOrder
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
+
+        void bind(final RelativeLayout employee) {
+            if (checkedPosition == -1) {
+                mainLayout.setBackgroundResource(R.drawable.bg_black_border_border_nine);
+            } else {
+                if (checkedPosition == getAdapterPosition()) {
+                    mainLayout.setBackgroundResource(R.drawable.selected_item_time_date_drawable);
+                } else {
+                    mainLayout.setBackgroundResource(R.drawable.bg_black_border_border_nine);
+                }
+            }
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mainLayout.setBackgroundResource(R.drawable.selected_item_time_date_drawable);
+                    if (checkedPosition != getAdapterPosition()) {
+                        notifyItemChanged(checkedPosition);
+                        checkedPosition = getAdapterPosition();
+                    }
+                }
+            });
+        }
+
     }
 
 }

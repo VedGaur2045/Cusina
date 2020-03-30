@@ -29,9 +29,11 @@ import com.google.android.gms.tasks.Task;
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.MainHomeFoodMenuAdapter;
 import com.lutongbahay.app.CusinaApplication;
+import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.LocationTrackingHelper;
 import com.lutongbahay.helper.MarshMallowPermission;
+import com.lutongbahay.list.PaymentMethodListView;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
 import com.lutongbahay.utils.Logger;
 
@@ -87,6 +89,7 @@ public class HomeFragView extends FrameLayout {
         this.context = context;
         inflate(context, R.layout.fragment_home, this);
         ButterKnife.bind(this, this);
+
 
 
         MainHomeFoodMenuAdapter mainHomeFoodMenuAdapter = new MainHomeFoodMenuAdapter(getContext());
@@ -173,6 +176,27 @@ public class HomeFragView extends FrameLayout {
                     }
                 });
 
+    }
+
+    private void homeList(AppCompatActivity context, String lat, String lng, String token){
+        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
+            if(responseHomeList == null){
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
+            } else {
+                if (responseHomeList.getMessage() == null){
+                    showErrorAlert(context, responseHomeList.getMessage());
+                } else {
+
+                }
+            }
+        });
+    }
+
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+                (view, dialog) -> {
+
+                }, null);
     }
 
 

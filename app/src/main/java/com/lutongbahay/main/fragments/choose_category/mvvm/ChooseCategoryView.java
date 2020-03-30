@@ -63,6 +63,8 @@ public class ChooseCategoryView extends FrameLayout {
 
         category_image_rv.setAdapter(chooseCategory);
 
+        dishCategory((AppCompatActivity) context,Constants.TOKEN);
+
     }
 
     @OnClick({R.id.backBtnImg})

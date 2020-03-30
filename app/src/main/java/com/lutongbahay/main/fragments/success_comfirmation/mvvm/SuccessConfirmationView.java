@@ -1,6 +1,7 @@
 package com.lutongbahay.main.fragments.success_comfirmation.mvvm;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.main.fragments.success_comfirmation.SuccessConfirmationFragment;
 import com.lutongbahay.main.fragments.success_comfirmation.SuccessConfirmationFragmentDirections;
 import com.lutongbahay.main.home.HomeActivity;
@@ -26,6 +28,7 @@ public class SuccessConfirmationView extends FrameLayout {
     Button backToHomeBtn;
     @BindView(R.id.addanotherluto)
     Button addanotherluto;
+    static int checkBtnClick = 0;
 
     public SuccessConfirmationView(@NonNull Context context, SuccessConfirmationViewModel viewModel) {
         super(context);
@@ -45,7 +48,13 @@ public class SuccessConfirmationView extends FrameLayout {
                 Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toHomeFragment());
                 break;
             case R.id.addanotherluto:
-                Navigation.findNavController(view).navigate(SuccessConfirmationFragmentDirections.toAddPhoto());
+                Bundle bundle = new Bundle();
+                bundle.putInt("openPhotos",11);
+                bundle.putString("titleName", CusinaApplication.getInstance().getString(R.string.addDishPhoto));
+                bundle.putString("text_1",CusinaApplication.getInstance().getString(R.string._allPhoto));
+                bundle.putString("text_2",CusinaApplication.getInstance().getString(R.string._choosePhotoTxt));
+                bundle.putString("text_3",CusinaApplication.getInstance().getString(R.string._minimumPhotoTxt));
+                Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 break;
         }
     }
