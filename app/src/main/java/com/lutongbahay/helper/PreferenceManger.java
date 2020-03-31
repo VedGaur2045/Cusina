@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
+import com.lutongbahay.rest.response.ResponseLogin;
+import com.lutongbahay.rest.response.ResponseLoginUserDetails;
 
 
 /**
@@ -21,6 +23,10 @@ public class PreferenceManger {
     public static final String AUTH_TOKEN = "auth_token";
     public static final String CURRENT_LOCATION = "current_location";
     public final String MOBILE_NUMBER = "mobile_number";
+
+    public final String LOGIN_DETAILS = "login_details";
+    public final String USER_DETAILS = "user_details";
+
     public final String USER_ID = "user_id";
     public final String CHECK_USER_IS_LOGGED_IN = "user_logged_in";
 
@@ -104,6 +110,30 @@ public class PreferenceManger {
         int json = Integer.parseInt(gson.toJson(userID));
         putBoolean(CHECK_USER_IS_LOGGED_IN,true);
         putInt(USER_ID,json);
+    }
+
+    public void putLoginDetails(ResponseLogin responseLogin) {
+        Gson gson = new Gson();
+        String json = gson.toJson(responseLogin);
+        putString(LOGIN_DETAILS, json);
+    }
+
+    public ResponseLogin getLoginDetails() {
+        Gson gson = new Gson();
+        String json = getStringValue(LOGIN_DETAILS);
+        return gson.fromJson(json, ResponseLogin.class);
+    }
+
+    public void putUserDetails(ResponseLoginUserDetails userDetails) {
+        Gson gson = new Gson();
+        String json = gson.toJson(userDetails);
+        putString(USER_DETAILS, json);
+    }
+
+    public ResponseLoginUserDetails getUserDetails() {
+        Gson gson = new Gson();
+        String json = getStringValue(USER_DETAILS);
+        return gson.fromJson(json, ResponseLoginUserDetails.class);
     }
 
 

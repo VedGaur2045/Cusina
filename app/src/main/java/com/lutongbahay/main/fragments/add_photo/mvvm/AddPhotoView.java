@@ -28,11 +28,13 @@ import com.lutongbahay.dialogs.DialogHelperClass;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
+import com.lutongbahay.interfaces.DocumentMediaInterface;
 import com.lutongbahay.list.AddPhotoAdapter;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragment;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
 import com.lutongbahay.utils.Logger;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,16 +80,19 @@ public class AddPhotoView extends FrameLayout {
     private Uri[] mUrls = null;
     Context appContext;
 
+    DocumentMediaInterface documentMediaInterface;
     static int valGet;
 
     GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter;
 
-    public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel, int val, String titleNameTxt, String text1, String text2, String text3) {
+    public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel, int val, String titleNameTxt, String text1, String text2, String text3,DocumentMediaInterface documentMediaInterface) {
         super(context);
         this.viewModel = viewModel;
         this.appContext = context;
+        this.documentMediaInterface = documentMediaInterface;
         inflate(context, R.layout.fragment_add_photo,this);
         ButterKnife.bind(this,this);
+
 
         System.out.println("Val : "+val);
         valGet = val;
@@ -195,7 +200,12 @@ public class AddPhotoView extends FrameLayout {
             }
             Bundle bundle = new Bundle();
             bundle.putStringArray("photoList",imageArr);
-            Navigation.findNavController(view).navigate(R.id.DocumentUploadFragment,bundle);
+            if (documentMediaInterface != null){
+                Logger.ErrorLog("CALLBACK","RECEIVED");
+                documentMediaInterface.mediaCallBack(galleryImagesRecyclerAdapter.selectedFiles);
+            }
+
+            Navigation.findNavController(view).navigateUp();
         }
     }
 

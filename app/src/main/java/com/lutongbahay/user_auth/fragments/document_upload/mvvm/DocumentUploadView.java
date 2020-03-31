@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,12 +32,17 @@ import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
+import com.lutongbahay.helper.PreferenceManger;
+import com.lutongbahay.interfaces.DocumentMediaInterface;
+import com.lutongbahay.main.fragments.add_photo.AddPhotoFragment;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragment;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragmentDirections;
 import com.lutongbahay.utils.FileUtils;
+import com.lutongbahay.utils.Logger;
 import com.lutongbahay.utils.SnackbarUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +59,7 @@ import okhttp3.RequestBody;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-public class DocumentUploadView extends FrameLayout {
+public class DocumentUploadView extends FrameLayout implements DocumentMediaInterface {
     private static final int PERMISSION_REQUEST_CODE = 902;
     private final DocumentUploadViewModel viewModel;
     @BindView(R.id.close)
@@ -150,6 +157,7 @@ public class DocumentUploadView extends FrameLayout {
                 break;
             case R.id.uploadFileIdFirst:
                 checkBtnClick = 12;
+                AddPhotoFragment.documentMediaInterface = this::mediaCallBack;
                 bundle.putInt("openPhotos",12);
                 Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 break;
@@ -216,7 +224,7 @@ public class DocumentUploadView extends FrameLayout {
         MultipartBody.Part file1 = prepareFilePart("File1",fileUri1);
         MultipartBody.Part file2 = prepareFilePart("File2",fileUri2);
         MultipartBody.Part file3 = prepareFilePart("FIle3",fileUri3);
-        documentUpload(compatActivity,file1,file2,file3,view,fileName1,fileName2,fileName3);
+       // documentUpload(compatActivity,file1,file2,file3,view,fileName1,fileName2,fileName3);
     }
 
     private MultipartBody.Part prepareFilePart(String partName, Uri fileUri) {
@@ -254,6 +262,22 @@ public class DocumentUploadView extends FrameLayout {
         });
     }
 
+    public void documentUpload(Context context,List<MultipartBody.Part> multiImages){
+       // RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), String.valueOf(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID)));
+        RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), "108");
+        viewModel.documentUpload(context,userId,multiImages).observe(compatActivity, responseDocument -> {
+            if(responseDocument == null){
+                showErrorAlert(context,"Oops!! Server error occurred. Please try again.");
+            } else {
+                if(!responseDocument.isSuccess()){
+                    showErrorAlert(context,responseDocument.getMessage());
+                } else {
+                   // SnackbarUtils.showSnackBar(view,responseDocument.getMessage(),Snackbar.LENGTH_LONG);
+                }
+            }
+        });
+    }
+
     public void showErrorAlert(Context context, String errorMessage) {
         CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
                 (view, dialog) -> {
@@ -261,4 +285,23 @@ public class DocumentUploadView extends FrameLayout {
                 }, null);
     }
 
+    @Override
+    public void mediaCallBack(List<File> fileList) {
+        if (fileList != null && fileList.size() > 0){
+
+            List<MultipartBody.Part> requestFiles = new ArrayList<>();
+            for (int i =0; i < fileList.size(); i++){
+
+                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), fileList.get(i));
+                MultipartBody.Part fileData =
+                        MultipartBody.Part.createFormData("file" + (i + 1), fileList.get(i).getName(), requestFile);
+
+                requestFiles.add(fileData);
+            }
+
+            if (requestFiles.size() > 0)
+            documentUpload(compatActivity,requestFiles);
+
+        }
+    }
 }

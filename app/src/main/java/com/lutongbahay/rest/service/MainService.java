@@ -8,17 +8,13 @@ import androidx.lifecycle.MutableLiveData;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.rest.APiInterface;
-import com.lutongbahay.rest.request.RequestAddDish;
 import com.lutongbahay.rest.request.RequestAddSeller;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
-import com.lutongbahay.rest.response.ResponseAddDish;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
-import com.lutongbahay.rest.response.ResponseDishDetail;
+import com.lutongbahay.rest.response.ResponseDishesList;
 import com.lutongbahay.rest.response.ResponseDocument;
-import com.lutongbahay.rest.response.ResponseHomeList;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
-import com.lutongbahay.rest.response.ResponseSeeAllDishes;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.utils.Logger;
 
@@ -28,6 +24,7 @@ import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Part;
 
 public class MainService {
     private static final APiInterface apiService =
@@ -143,16 +140,16 @@ public class MainService {
         return data;
     }
 
-    public static LiveData<ResponseHomeList> homeList(final Context context, String token, double lat, double lng){
-        final MutableLiveData<ResponseHomeList> data = new MutableLiveData<>();
+    public static LiveData<ResponseDishesList> dishesList(final Context context, String token){
+        final MutableLiveData<ResponseDishesList> data = new MutableLiveData<>();
         if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
             return data;
         }
         ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-        Call<ResponseHomeList> call = apiService.homeList("Bearer " + token,lat,lng);
-        call.enqueue(new Callback<ResponseHomeList>() {
+        Call<ResponseDishesList> call = apiService.dishesList("Bearer " + token);
+        call.enqueue(new Callback<ResponseDishesList>() {
             @Override
-            public void onResponse(@NotNull Call<ResponseHomeList> call, @NotNull Response<ResponseHomeList> response) {
+            public void onResponse(@NotNull Call<ResponseDishesList> call, @NotNull Response<ResponseDishesList> response) {
                 if(response.body() != null){
                     data.setValue(response.body());
                 } else {
@@ -161,8 +158,8 @@ public class MainService {
             }
 
             @Override
-            public void onFailure(@NotNull Call<ResponseHomeList> call, @NotNull Throwable t) {
-                Logger.ErrorLog("HOME LIST API FAILED ", t.getLocalizedMessage());
+            public void onFailure(@NotNull Call<ResponseDishesList> call, @NotNull Throwable t) {
+                Logger.ErrorLog("DISHES LIST API FAILED ", t.getLocalizedMessage());
             }
         });
         return data;
@@ -192,107 +189,5 @@ public class MainService {
         });
         return data;
     }
-
-    public static LiveData<ResponseAddDish> addDish(final Context context, RequestAddDish requestAddDish,MultipartBody.Part file){
-        final MutableLiveData<ResponseAddDish> data = new MutableLiveData<>();
-        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
-            return data;
-        }
-        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-        Call<ResponseAddDish> addDishCall = apiService.addDish(requestAddDish,file);
-        addDishCall.enqueue(new Callback<ResponseAddDish>() {
-            @Override
-            public void onResponse(Call<ResponseAddDish> call, Response<ResponseAddDish> response) {
-                if(response.body() != null){
-                    data.setValue(response.body());
-                } else {
-                    data.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseAddDish> call, Throwable t) {
-                Logger.ErrorLog("ADD DISH API FAILED",t.getLocalizedMessage());
-            }
-        });
-        return data;
-    }
-
-
-    public static LiveData<ResponseSeeAllDishes> seeDishesList(final Context context, String token, double Lat, double Long){
-        final MutableLiveData<ResponseSeeAllDishes> data = new MutableLiveData<>();
-        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
-            return data;
-        }
-        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-        Call<ResponseSeeAllDishes> call = apiService.dishesList(token,Lat,Long);
-        call.enqueue(new Callback<ResponseSeeAllDishes>() {
-            @Override
-            public void onResponse(@NotNull Call<ResponseSeeAllDishes> call, @NotNull Response<ResponseSeeAllDishes> response) {
-                if(response.body() != null){
-                    data.setValue(response.body());
-                } else {
-                    data.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<ResponseSeeAllDishes> call, @NotNull Throwable t) {
-                Logger.ErrorLog("DISHLIST API FAILED", t.getLocalizedMessage());
-            }
-        });
-        return data;
-    }
-
-    public static LiveData<ResponseDishDetail> dishDetail(Context context, String token, int itemId, double lng, double lat){
-        final MutableLiveData<ResponseDishDetail> data = new MutableLiveData<>();
-        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
-            return data;
-        }
-        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-        Call<ResponseDishDetail> call = apiService.dishDetail(token,itemId,lat,lng);
-        call.enqueue(new Callback<ResponseDishDetail>() {
-            @Override
-            public void onResponse(@NotNull Call<ResponseDishDetail> call, @NotNull Response<ResponseDishDetail> response) {
-                if(response.body() != null){
-                    data.setValue(response.body());
-                } else {
-                    data.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<ResponseDishDetail> call, @NotNull Throwable t) {
-                Logger.ErrorLog("DISHDETAILS API FAILED", t.getLocalizedMessage());
-            }
-        });
-        return data;
-    }
-
-
-//    public static LiveData<ResponseDish> dish(final Context context, int itemId, String lat, String lng){
-//        final MutableLiveData<ResponseDish> data = new MutableLiveData<>();
-//        if (!CusinaApplication.getInstance().isInternetConnected(context,true)){
-//            return data;
-//        }
-//        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-//        Call<ResponseDish> dishCall = apiService.dish(itemId,lat,lng);
-//        dishCall.enqueue(new Callback<ResponseDish>() {
-//            @Override
-//            public void onResponse(Call<ResponseDish> call, Response<ResponseDish> response) {
-//                if(response.body() != null){
-//                    data.setValue(response.body());
-//                } else {
-//                    data.setValue(null);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseDish> call, Throwable t) {
-//                Logger.ErrorLog("DISH API FAILED",t.getLocalizedMessage());
-//            }
-//        });
-//        return data;
-//    }
 
 }
