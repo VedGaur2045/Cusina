@@ -202,6 +202,7 @@ public class ItemDetailView extends FrameLayout {
                     productPrice.setText(responseDishDetail.getData().getPrice());
                     descriptionTxt.setText(responseDishDetail.getData().getDescription());
                     productRatingCount.setText(responseDishDetail.getData().getRating());
+                    productDelTime.setText(responseDishDetail.getData().getPreparationTime());
                 }
             }
             ProgressDialogFragment.dismissProgressDialog(context);
