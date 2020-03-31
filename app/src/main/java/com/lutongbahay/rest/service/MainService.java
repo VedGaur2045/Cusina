@@ -12,7 +12,6 @@ import com.lutongbahay.rest.request.RequestAddSeller;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
-import com.lutongbahay.rest.response.ResponseDishesList;
 import com.lutongbahay.rest.response.ResponseDocument;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
@@ -135,31 +134,6 @@ public class MainService {
             public void onFailure(@NotNull Call<ResponsePaymentMethod> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("DISH CATEGORY API FAILED " , t.getLocalizedMessage());
-            }
-        });
-        return data;
-    }
-
-    public static LiveData<ResponseDishesList> dishesList(final Context context, String token){
-        final MutableLiveData<ResponseDishesList> data = new MutableLiveData<>();
-        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
-            return data;
-        }
-        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
-        Call<ResponseDishesList> call = apiService.dishesList("Bearer " + token);
-        call.enqueue(new Callback<ResponseDishesList>() {
-            @Override
-            public void onResponse(@NotNull Call<ResponseDishesList> call, @NotNull Response<ResponseDishesList> response) {
-                if(response.body() != null){
-                    data.setValue(response.body());
-                } else {
-                    data.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<ResponseDishesList> call, @NotNull Throwable t) {
-                Logger.ErrorLog("DISHES LIST API FAILED ", t.getLocalizedMessage());
             }
         });
         return data;

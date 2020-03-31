@@ -6,7 +6,6 @@ import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
-import com.lutongbahay.rest.response.ResponseDishesList;
 import com.lutongbahay.rest.response.ResponseDocument;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
@@ -55,9 +54,6 @@ public interface APiInterface {
 
     @GET("payment-type")
     Call<ResponsePaymentMethod> paymentMethod(@Header("Authorization") String token);
-
-    @GET("dishes")
-    Call<ResponseDishesList> dishesList(@Header("Authorization") String token);
 
     @Multipart
     @POST("document")
