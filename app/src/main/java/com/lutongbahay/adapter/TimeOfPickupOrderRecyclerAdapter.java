@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.utils.Constants;
 
 import org.w3c.dom.Text;
 
@@ -64,6 +65,8 @@ public class TimeOfPickupOrderRecyclerAdapter extends RecyclerView.Adapter<TimeO
             } else {
                 if (checkedPosition == getAdapterPosition()) {
                     mainLayout.setBackgroundResource(R.drawable.selected_item_time_date_drawable);
+                    Constants.startTime = timeStartTxt_1.getText().toString()+" : "+timeStartTxt_2.getText().toString()+" "+time_AM.getText().toString();
+                    Constants.endTime = timeEndTxt_1.getText().toString()+" : "+timeEndTxt_2.getText().toString()+" "+timeEnd_AM.getText().toString();
                 } else {
                     mainLayout.setBackgroundResource(R.drawable.bg_black_border_border_nine);
                 }
@@ -80,13 +83,5 @@ public class TimeOfPickupOrderRecyclerAdapter extends RecyclerView.Adapter<TimeO
                 }
             });
         }
-
     }
-//
-//    public Employee getSelected() {
-//        if (checkedPosition != -1) {
-//            return employees.get(checkedPosition);
-//        }
-//        return null;
-//    }
 }

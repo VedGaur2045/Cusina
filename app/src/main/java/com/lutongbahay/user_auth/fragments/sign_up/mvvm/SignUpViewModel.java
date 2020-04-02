@@ -13,8 +13,8 @@ import com.lutongbahay.rest.service.MainService;
 public class SignUpViewModel extends ViewModel {
     public SignUpViewModel() {
     }
-    public LiveData<ResponseAddSeller> addSeller(Context context, RequestAddSeller addSeller){
-        return MainService.addSeller(context,addSeller);
+    public LiveData<ResponseAddSeller> addSeller(Context context, String token, RequestAddSeller addSeller){
+        return MainService.addSeller(context,token,addSeller);
     }
     public LiveData<ResponseVerifyKitchen> verifyKitchen(Context context, String kitchenName,String token){
         return MainService.verifyKitchen(context,kitchenName,token);

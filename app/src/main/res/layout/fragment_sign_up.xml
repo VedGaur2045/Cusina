@@ -5,16 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarThumbVertical="@color/transparent">
+        android:scrollbarThumbVertical="@color/transparent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="@dimen/_25sdp"
-            android:layout_marginRight="@dimen/_25sdp">
+            android:layout_marginRight="@dimen/_25sdp"
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -22,159 +27,200 @@
 
                 <ImageButton
                     android:id="@+id/close"
-                    android:background="@color/transparent"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
+                    android:background="@color/transparent"
                     android:src="@mipmap/close" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/personal_info"
-                    tools:ignore="MissingPrefix"
-                    android:fontFamily="@font/cabin_semibold"
-                    android:textSize="@dimen/_16ssp"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/black"/>
+                    android:fontFamily="@font/cabin_semibold"
+                    android:text="@string/personal_info"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16ssp"
+                    tools:ignore="MissingPrefix" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/profile_icon"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="@dimen/_1sdp" />
+
+                <Button
+                    android:id="@+id/upload_img"
+                    style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_below="@+id/profile_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/commonbuttonbg"
+                    android:fontFamily="@font/sourcesanspro_bold"
+                    android:text="@string/_UPLOAD"
+                    android:textAllCaps="false"
+                    android:textColor="@color/_FFFFFF"
+                    android:textSize="@dimen/_16ssp" />
+
             </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/kitchenName"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_9ssp"
-                android:layout_marginTop="@dimen/_30sdp"/>
+                tools:ignore="MissingPrefix" />
 
             <EditText
                 android:id="@+id/kitchenName"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/kitchenName_placeholder"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/username"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_9ssp"
-                android:layout_marginTop="@dimen/_15sdp"/>
+                tools:ignore="MissingPrefix" />
+
             <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/username_placeholder"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/usermobile"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_15sdp"/>
+                tools:ignore="MissingPrefix" />
+
             <EditText
                 android:id="@+id/usermobile"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/Enter_mobile_hint"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="phone"
                 android:maxLength="10"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/useremail"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_15sdp"/>
+                tools:ignore="MissingPrefix" />
+
             <EditText
                 android:id="@+id/useremail"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/useremail_placeholder"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/useraddress"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_15sdp"/>
+                tools:ignore="MissingPrefix" />
+
             <EditText
                 android:id="@+id/useradddressline1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/useraddress_line1"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <EditText
                 android:id="@+id/useradddressline2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/useraddress_line2"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="10">
+                android:layout_weight="10"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/selectcity"
@@ -182,144 +228,157 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:text="@string/usercity"
                         android:textColor="@color/black"
-                        tools:ignore="MissingPrefix"
-                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textSize="@dimen/_8ssp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        tools:ignore="MissingPrefix" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp">
+
                         <Spinner
                             android:id="@+id/citylist"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
-                            android:visibility="visible"
-                            android:singleLine="true"
+                            android:background="@drawable/userinputbg"
+                            android:prompt="@string/city_name"
                             android:scrollIndicators="none"
                             android:scrollbarThumbVertical="@color/transparent"
+                            android:singleLine="true"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp"
-                            android:prompt="@string/city_name"
-                            android:background="@drawable/userinputbg" />
+                            android:visibility="visible" />
+
                         <ImageView
                             android:layout_width="@dimen/_24sdp"
                             android:layout_height="@dimen/_24sdp"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="@dimen/_5sdp"
-                            android:src="@mipmap/arrowdown"/>
+                            android:src="@mipmap/arrowdown" />
                     </RelativeLayout>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/enterzipcode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_weight="5"
                     android:layout_toRightOf="@id/selectcity"
+                    android:layout_weight="5"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/sourcesanspro_regular"
                         android:text="@string/userzipcode"
                         android:textColor="@color/black"
-                        tools:ignore="MissingPrefix"
-                        android:fontFamily="@font/sourcesanspro_regular"
                         android:textSize="@dimen/_8ssp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        tools:ignore="MissingPrefix" />
+
                     <EditText
                         android:id="@+id/zipcode"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/userinputbg"
+                        android:fontFamily="@font/sourcesanspro_it"
                         android:hint="@string/userzipcode_placeholder"
-                        android:textSize="@dimen/_12ssp"
-                        android:textColor="@color/black"
-                        android:singleLine="true"
                         android:inputType="number"
                         android:paddingLeft="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        tools:ignore="MissingPrefix"
-                        android:fontFamily="@font/sourcesanspro_it"
-                        android:background="@drawable/userinputbg"/>
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/usercountry"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_15sdp"/>
+                tools:ignore="MissingPrefix" />
+
             <EditText
                 android:id="@+id/usercountry"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/userinputbg"
+                android:fontFamily="@font/sourcesanspro_it"
                 android:hint="@string/city_name"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"
-                android:singleLine="true"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_it"
-                android:background="@drawable/userinputbg"/>
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/sourcesanspro_regular"
                 android:text="@string/userGender"
                 android:textColor="@color/black"
-                tools:ignore="MissingPrefix"
-                android:fontFamily="@font/sourcesanspro_regular"
                 android:textSize="@dimen/_8ssp"
-                android:layout_marginTop="@dimen/_15sdp"/>
+                tools:ignore="MissingPrefix" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_weight="10"
-                android:layout_marginTop="@dimen/_15sdp">
+                android:orientation="horizontal">
+
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_weight="5"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5">
+
                     <TextView
                         android:id="@+id/genderlist"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
-                        android:visibility="visible"
+                        android:background="@drawable/userinputbg"
+                        android:gravity="center_vertical"
+                        android:hint="@string/userGender"
+                        android:paddingLeft="@dimen/_20sdp"
                         android:scrollbarThumbVertical="@color/transparent"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:hint="@string/userGender"
-                        android:gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
-                        android:paddingLeft="@dimen/_20sdp"
-                        android:background="@drawable/userinputbg" />
+                        android:visibility="visible" />
+
                     <ImageView
                         android:layout_width="@dimen/_24sdp"
                         android:layout_height="@dimen/_24sdp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/_5sdp"
-                        android:src="@mipmap/arrowdown"/>
+                        android:src="@mipmap/arrowdown" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_24sdp"
-                    android:layout_height="wrap_content">
-                </RelativeLayout>
+                    android:layout_weight="5"></RelativeLayout>
             </LinearLayout>
 
             <Button
@@ -327,16 +386,17 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
-                android:text="@string/next"
-                android:background="@drawable/commonbuttonbg"
-                android:textSize="@dimen/_12ssp"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:onClick="backToHomeBtnClick"
                 android:layout_marginTop="@dimen/_23sdp"
-                tools:ignore="MissingPrefix"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/commonbuttonbg"
                 android:fontFamily="@font/sourcesanspro_semibold"
-                android:textColor="@color/white"/>
+                android:onClick="backToHomeBtnClick"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -345,62 +405,69 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_45sdp"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12ssp"
-                        tools:ignore="MissingPrefix"
                         android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="@string/term_msg1"
                         android:textColor="@color/black"
-                        android:text="@string/term_msg1"/>
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
                     <TextView
                         android:id="@+id/terms"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12ssp"
-                        tools:ignore="MissingPrefix"
-                        android:fontFamily="@font/sourcesanspro_regular"
-                        android:textColor="@color/terms_color"
                         android:layout_marginLeft="@dimen/_3sdp"
-                        android:text="@string/terms_of_use"/>
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="@string/terms_of_use"
+                        android:textColor="@color/terms_color"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12ssp"
-                        tools:ignore="MissingPrefix"
                         android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="@string/and"
                         android:textColor="@color/black"
-                        android:text="@string/and"/>
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
                     <TextView
                         android:id="@+id/privacypolicy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12ssp"
-                        tools:ignore="MissingPrefix"
-                        android:fontFamily="@font/sourcesanspro_regular"
-                        android:textColor="@color/terms_color"
                         android:layout_marginLeft="@dimen/_3sdp"
-                        android:text="@string/privacy_policy"/>
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="@string/privacy_policy"
+                        android:textColor="@color/terms_color"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12ssp"
-                        tools:ignore="MissingPrefix"
-                        android:fontFamily="@font/sourcesanspro_regular"
-                        android:textColor="@color/black"
                         android:layout_marginLeft="@dimen/_3sdp"
-                        android:text="@string/term_msg2"/>
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="@string/term_msg2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

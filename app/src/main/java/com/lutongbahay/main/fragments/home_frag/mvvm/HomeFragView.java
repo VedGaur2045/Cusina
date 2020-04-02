@@ -17,6 +17,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +36,9 @@ import com.lutongbahay.helper.LocationTrackingHelper;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.list.PaymentMethodListView;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
+import com.lutongbahay.rest.response.Data;
+import com.lutongbahay.rest.response.NearMeItem;
+import com.lutongbahay.rest.response.ResponseHomeList;
 import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
 
@@ -110,6 +114,8 @@ public class HomeFragView extends FrameLayout {
                     Constants.LAT = addressList.get(0).getLatitude();
                     Constants.LNG = addressList.get(0).getLongitude();
 
+
+
                     locationTxt.setText(addressList.get(0).getAddressLine(0));
                 } catch (Exception e){
                     System.out.println(e.getMessage());
@@ -117,11 +123,23 @@ public class HomeFragView extends FrameLayout {
             }
         }
 
-        MainHomeFoodMenuAdapter mainHomeFoodMenuAdapter = new MainHomeFoodMenuAdapter(getContext());
-        foodMenuRv.setAdapter(mainHomeFoodMenuAdapter);
+        homeList(Constants.LAT,Constants.LNG,Constants.TOKEN);
+
 
         trayHome.setOnClickListener(v -> Navigation.findNavController(v).navigate(HomeFragmentDirections.openCartFragment()));
 
+    }
+
+    private void homeList(double lat, double lng, String token){
+        viewModel.homeList(context,token,lat,lng).observe((AppCompatActivity) context, responseHomeList -> {
+            if(responseHomeList == null){
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
+            } else {
+                MainHomeFoodMenuAdapter mainHomeFoodMenuAdapter = new MainHomeFoodMenuAdapter(getContext(), responseHomeList.getData());
+                foodMenuRv.setAdapter(mainHomeFoodMenuAdapter);
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
     }
 
     public void checkAccess() {
@@ -177,6 +195,8 @@ public class HomeFragView extends FrameLayout {
                         Constants.LAT = addressList.get(0).getLatitude();
                         Constants.LNG = addressList.get(0).getLongitude();
 
+
+                        locationTxt.setText(addressList.get(0).getAddressLine(0));
                         check = true;
                         CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
                     }else {
@@ -187,26 +207,11 @@ public class HomeFragView extends FrameLayout {
 
     }
 
-//    private void homeList(AppCompatActivity context, String lat, String lng, String token){
-//        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
-//            if(responseHomeList == null){
-//                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
-//            } else {
-//                if (responseHomeList.getMessage() == null){
-//                    showErrorAlert(context, responseHomeList.getMessage());
-//                } else {
-//
-//                }
-//            }
-//        });
-//    }
-//
-//    public void showErrorAlert(Context context, String errorMessage) {
-//        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
-//                (view, dialog) -> {
-//
-//                }, null);
-//    }
+    public void showErrorAlert(Context context, String errorMessage) {
+        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
+                (view, dialog) -> {
 
+                }, null);
+    }
 
 }

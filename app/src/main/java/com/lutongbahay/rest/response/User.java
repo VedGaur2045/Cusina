@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class User{
 
+	@SerializedName("image")
+	private String image;
+
 	@SerializedName("name")
 	private String name;
 
@@ -15,6 +18,14 @@ public class User{
 
 	@SerializedName("email")
 	private String email;
+
+	public void setImage(String image){
+		this.image = image;
+	}
+
+	public String getImage(){
+		return image;
+	}
 
 	public void setName(String name){
 		this.name = name;

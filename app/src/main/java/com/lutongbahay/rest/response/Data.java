@@ -12,7 +12,7 @@ public class Data{
 	private List<TopRatedItem> topRated;
 
 	@SerializedName("scheduleMeals")
-	private List<ScheduleMealsItem> scheduleMeals;
+	private List<NearMeItem> scheduleMeals;
 
 	@SerializedName("preOrdered")
 	private List<PreOrderedItem> preOrdered;
@@ -33,11 +33,11 @@ public class Data{
 		return topRated;
 	}
 
-	public void setScheduleMeals(List<ScheduleMealsItem> scheduleMeals){
+	public void setScheduleMeals(List<NearMeItem> scheduleMeals){
 		this.scheduleMeals = scheduleMeals;
 	}
 
-	public List<ScheduleMealsItem> getScheduleMeals(){
+	public List<NearMeItem> getScheduleMeals(){
 		return scheduleMeals;
 	}
 

@@ -2,10 +2,12 @@ package com.lutongbahay.rest.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class TopRatedItem{
 
 	@SerializedName("images")
-	private String images;
+	private List<String> images;
 
 	@SerializedName("name")
 	private String name;
@@ -13,12 +15,12 @@ public class TopRatedItem{
 	@SerializedName("id")
 	private int id;
 
-	public void setImages(String images){
-		this.images = images;
+	public List<String> getImages() {
+		return images;
 	}
 
-	public String getImages(){
-		return images;
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
 
 	public void setName(String name){

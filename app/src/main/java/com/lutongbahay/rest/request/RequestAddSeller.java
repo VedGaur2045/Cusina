@@ -4,6 +4,9 @@ package com.lutongbahay.rest.request;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.File;
+import java.util.List;
+
 public class RequestAddSeller {
 
     @SerializedName("name")
@@ -12,6 +15,9 @@ public class RequestAddSeller {
     @SerializedName("mobile")
     @Expose
     private String mobile;
+    @SerializedName("image")
+    @Expose
+    private List<String> image;
     @SerializedName("email")
     @Expose
     private String email;
@@ -117,5 +123,9 @@ public class RequestAddSeller {
     public void setKitchen(String kitchen) {
         this.kitchen = kitchen;
     }
+
+    public void setImage(List<String> image) { this.image = image; }
+
+    public List<String> getImage() { return image; }
 
 }

@@ -243,35 +243,38 @@ public class DocumentUploadView extends FrameLayout implements DocumentMediaInte
         return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
     }
 
-    public void documentUpload(Context context, MultipartBody.Part file1, MultipartBody.Part file2, MultipartBody.Part file3,View view, String fileName1, String fileName2, String fileName3){
-        RequestDocumentUpload documentUpload = new RequestDocumentUpload();
-        documentUpload.setId1Type(fileName1);
-        documentUpload.setId2Type(fileName2);
-        documentUpload.setId3Type(fileName3);
-        documentUpload.setUserId(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID));
-        viewModel.documentUpload(context,documentUpload,file1,file2,file3).observe(compatActivity, responseDocument -> {
-            if(responseDocument == null){
-                showErrorAlert(context,"Oops!! Server error occurred. Please try again.");
-            } else {
-                if(!responseDocument.isSuccess()){
-                    showErrorAlert(context,responseDocument.getMessage());
-                } else {
-                    SnackbarUtils.showSnackBar(view,responseDocument.getMessage(),Snackbar.LENGTH_LONG);
-                }
-            }
-        });
-    }
+//    public void documentUpload(Context context, MultipartBody.Part file1, MultipartBody.Part file2, MultipartBody.Part file3,View view, String fileName1, String fileName2, String fileName3){
+//        RequestDocumentUpload documentUpload = new RequestDocumentUpload();
+//        documentUpload.setId1Type(fileName1);
+//        documentUpload.setId2Type(fileName2);
+//        documentUpload.setId3Type(fileName3);
+//        documentUpload.setUserId(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID));
+//        viewModel.documentUpload(context,documentUpload,file1,file2,file3).observe(compatActivity, responseDocument -> {
+//            if(responseDocument == null){
+//                showErrorAlert(context,"Oops!! Server error occurred. Please try again.");
+//            } else {
+//                if(!responseDocument.isSuccess()){
+//                    showErrorAlert(context,responseDocument.getMessage());
+//                } else {
+//                    SnackbarUtils.showSnackBar(view,responseDocument.getMessage(),Snackbar.LENGTH_LONG);
+//                }
+//            }
+//        });
+//    }
 
     public void documentUpload(Context context,List<MultipartBody.Part> multiImages){
        // RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), String.valueOf(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID)));
-        RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), "108");
-        viewModel.documentUpload(context,userId,multiImages).observe(compatActivity, responseDocument -> {
+//        RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), "108");
+        RequestDocumentUpload documentUpload = new RequestDocumentUpload();
+        documentUpload.setUserId(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID));
+        viewModel.documentUpload(context,documentUpload,multiImages).observe(compatActivity, responseDocument -> {
             if(responseDocument == null){
                 showErrorAlert(context,"Oops!! Server error occurred. Please try again.");
             } else {
                 if(!responseDocument.isSuccess()){
                     showErrorAlert(context,responseDocument.getMessage());
                 } else {
+                    Logger.ErrorLog("Message : ",responseDocument.getMessage());
                    // SnackbarUtils.showSnackBar(view,responseDocument.getMessage(),Snackbar.LENGTH_LONG);
                 }
             }

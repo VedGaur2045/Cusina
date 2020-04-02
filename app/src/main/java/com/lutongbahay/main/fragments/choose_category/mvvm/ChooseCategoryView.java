@@ -46,6 +46,8 @@ public class ChooseCategoryView extends FrameLayout {
     @BindView(R.id.category_image_rv)
     RecyclerView category_image_rv;
 
+    ArrayList<String> allImages= new ArrayList<>();
+
     public ChooseCategoryView(@NonNull Context context, ChooseCategoryViewModel viewModel) {
         super(context);
         this.viewModel = viewModel;
@@ -59,7 +61,10 @@ public class ChooseCategoryView extends FrameLayout {
 
         category_image_rv.setLayoutManager(horizontalLayoutManager);
 
-        ChooseCategoryImageRecyclerAdapter chooseCategory = new ChooseCategoryImageRecyclerAdapter();
+        allImages.add("http://18.188.125.212/lutong-bahay-api/public/images/dishes/1585121809.png");
+        allImages.add("http://18.188.125.212/lutong-bahay-api/public/images/dishes/1585121809.png");
+
+        ChooseCategoryImageRecyclerAdapter chooseCategory = new ChooseCategoryImageRecyclerAdapter(context,allImages);
 
         category_image_rv.setAdapter(chooseCategory);
 
@@ -91,7 +96,7 @@ public class ChooseCategoryView extends FrameLayout {
                         dishCategoryList.add(responseDishCategory.getData().get(i).getName());
                         System.out.println("dishCategoryList : "+responseDishCategory.getData().get(i).getName());
                     }
-                    ChooseCategoryRecyclerAdapter chooseCategoryRecyclerAdapter = new ChooseCategoryRecyclerAdapter(dishCategoryList);
+                    ChooseCategoryRecyclerAdapter chooseCategoryRecyclerAdapter = new ChooseCategoryRecyclerAdapter(compatActivity,dishCategoryList,allImages);
                     listView.setAdapter(chooseCategoryRecyclerAdapter);
                 }
             }

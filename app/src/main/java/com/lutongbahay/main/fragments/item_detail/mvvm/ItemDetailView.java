@@ -27,8 +27,10 @@ import com.lutongbahay.dialogs.AppAction;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.fragments.item_detail.ItemDetailFragmentDirections;
+import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.Logger;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -104,15 +106,19 @@ public class ItemDetailView extends FrameLayout {
     private int currentPage = 0;
     private int NUM_PAGES = 0;
 
+    DecimalFormat df = new DecimalFormat("#.00");
+
     private ArrayList<String> imageArray = new ArrayList<>();
     private ArrayList<String> images=new ArrayList<>();
     private int[] imageSell = {R.mipmap.product_img_item,R.mipmap.product_img,R.mipmap.maestro_img};
 
-    public ItemDetailView(@NonNull AppCompatActivity context, ItemDetailViewModel viewModel) {
+    public ItemDetailView(@NonNull AppCompatActivity context, ItemDetailViewModel viewModel, int itemId) {
         super(context);
         this.viewModel = viewModel;
         inflate(context,R.layout.fragment_item_detail,this);
         ButterKnife.bind(this,this);
+
+        dishDetail(context,itemId, Constants.TOKEN,Constants.LAT,Constants.LNG);
 
         LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager((Context) context, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager horizontalLayoutManagerDef= new LinearLayoutManager((Context) context, LinearLayoutManager.HORIZONTAL, false);
@@ -198,11 +204,12 @@ public class ItemDetailView extends FrameLayout {
                     }
                     init(images);
                     productPlaceName.setText(responseDishDetail.getData().getName());
-                    productDeliveryFee.setText(responseDishDetail.getData().getDeliveryPrice());
-                    productPrice.setText(responseDishDetail.getData().getPrice());
+                    productDeliveryFee.setText("Delivery Fee : PHP "+responseDishDetail.getData().getDeliveryPrice());
+                    productPrice.setText(Integer.toString(responseDishDetail.getData().getPrice()));
                     descriptionTxt.setText(responseDishDetail.getData().getDescription());
-                    productRatingCount.setText(responseDishDetail.getData().getRating());
-                    productDelTime.setText(responseDishDetail.getData().getPreparationTime());
+                    productRatingCount.setText(Integer.toString(responseDishDetail.getData().getRating()));
+                    productDelTime.setText(Integer.toString(responseDishDetail.getData().getPreparationTime())+" mins");
+                    addToTrayBtn.setText("Add to Tray - "+responseDishDetail.getData().getPrice());
                 }
             }
             ProgressDialogFragment.dismissProgressDialog(context);

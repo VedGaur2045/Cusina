@@ -51,8 +51,10 @@ public class CompletedDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        String categoryName = getArguments().getString("categoryName");
         viewModel = new ViewModelProvider(this).get(CompletedDetailsViewModel.class);
-        view = new CompletedDetailsView(context,viewModel);
+        view = new CompletedDetailsView(context,viewModel, categoryName);
         return view;
     }
 }

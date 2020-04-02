@@ -457,6 +457,9 @@
         <action
             android:id="@+id/toSellWithLutongBehay"
             app:destination="@id/SellWithLutongBehay" />
+        <action
+            android:id="@+id/toAddPhoto"
+            app:destination="@id/AddPhotoFragment"/>
 
     </fragment>
 

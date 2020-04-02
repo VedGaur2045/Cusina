@@ -1,21 +1,29 @@
 package com.lutongbahay.rest;
 
 
+import com.lutongbahay.rest.request.RequestAddDish;
 import com.lutongbahay.rest.request.RequestAddSeller;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.rest.request.RequestRegisterAsMobile;
+import com.lutongbahay.rest.response.ResponseAddDish;
 import com.lutongbahay.rest.response.ResponseAddSeller;
 import com.lutongbahay.rest.response.ResponseDishCategory;
+import com.lutongbahay.rest.response.ResponseDishDetail;
 import com.lutongbahay.rest.response.ResponseDocument;
+import com.lutongbahay.rest.response.ResponseHomeList;
 import com.lutongbahay.rest.response.ResponsePaymentMethod;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseResendOtp;
+import com.lutongbahay.rest.response.ResponseSeeAllDishes;
 import com.lutongbahay.rest.response.ResponseVerifyKitchen;
 import com.lutongbahay.rest.response.google_places_response.GooglePlacesAPIData;
+
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -44,7 +52,7 @@ public interface APiInterface {
 
     @Headers("Cache-control: no-cache")
     @POST("seller")
-    Call<ResponseAddSeller> addSeller(@Body RequestAddSeller addSeller);
+    Call<ResponseAddSeller> addSeller(@Header("Authorization") String token, @Body RequestAddSeller addSeller);
 
     @GET("verify-kitchen/{kitchen}")
     Call<ResponseVerifyKitchen> verifyKitchen(@Header("Authorization") String token, @Path("kitchen") String kitchenName);
@@ -55,8 +63,33 @@ public interface APiInterface {
     @GET("payment-type")
     Call<ResponsePaymentMethod> paymentMethod(@Header("Authorization") String token);
 
+    @GET("dishes")
+    Call<ResponseHomeList> homeList(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
+
     @Multipart
     @POST("document")
-    Call<ResponseDocument> documentUpload(@Body RequestDocumentUpload documentUpload,@Part MultipartBody.Part file1,@Part MultipartBody.Part file2,@Part MultipartBody.Part file3);
+    Call<ResponseDocument> documentUpload(@Body RequestDocumentUpload documentUpload, @Part List<MultipartBody.Part> files);
+
+    @Multipart
+    @POST("dish")
+    Call<ResponseAddDish> addDish(@Body RequestAddDish addDish, @Part List<MultipartBody.Part> file1);
+
+    @GET("see-all/preOrdered")
+    Call<ResponseSeeAllDishes> dishesListPreOrdered(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
+
+    @GET("see-all/topRated")
+    Call<ResponseSeeAllDishes> dishesListTopRated(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
+
+    @GET("see-all/nearMe")
+    Call<ResponseSeeAllDishes> dishesListNearMe(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
+
+    @GET("see-all/scheduleMeals")
+    Call<ResponseSeeAllDishes> dishesListScheduleMeals(@Header("Authorization") String token, @Query("lat") double lat, @Query("long") double lng);
+
+    @GET("dish/{id}")
+    Call<ResponseDishDetail> dishDetail(@Header("Authorization") String token, @Path("id") int itemId, @Query("lat") double lat, @Query("long") double lng);
+
+//    @GET("dish/{id}")
+//    Call<ResponseDish> dish(@Path("id") int itemId,@Query("lng") String lat, @Query("long") String lng);
 
 }

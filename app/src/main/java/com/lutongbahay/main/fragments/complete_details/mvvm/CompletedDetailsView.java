@@ -2,7 +2,6 @@ package com.lutongbahay.main.fragments.complete_details.mvvm;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,19 +28,27 @@ import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.AppAction;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
+import com.lutongbahay.interfaces.DocumentMediaInterface;
 import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragmentDirections;
 import com.lutongbahay.rest.request.RequestAddDish;
 import com.lutongbahay.utils.Constants;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
-public class CompletedDetailsView extends FrameLayout {
+public class CompletedDetailsView extends FrameLayout implements DocumentMediaInterface {
     private final CompletedDetailsViewModel viewModel;
+    private AppCompatActivity compatActivity;
     @BindView(R.id.titleName)
     TextView titleName;
     @BindView(R.id.closeImgBtn)
@@ -101,20 +108,26 @@ public class CompletedDetailsView extends FrameLayout {
     @BindView(R.id.calenderLayout)
     RelativeLayout calenderLayout;
 
-    static String deliveryMethod;
+    ArrayList<String> image = new ArrayList<>();
+
+    static int deliveryMethod;
     public static Integer countSell=1;
     public static Integer countServe=1;
     static boolean checkFromCal = true;
     static boolean checkToCal = true;
+    private static String startTxt,endTxt;
 
-    public CompletedDetailsView(@NonNull Context context, CompletedDetailsViewModel viewModel) {
+    public CompletedDetailsView(@NonNull Context context, CompletedDetailsViewModel viewModel, String categoryName) {
         super(context);
+        compatActivity = (AppCompatActivity) context;
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_completed_details,this);
         ButterKnife.bind(this,this);
 
         titleName.setText(R.string.complete_dish_details);
         closeImgBtn.setVisibility(GONE);
+
+        category.setText(categoryName);
 
         deliveryMethod = selectedRadioBtn();
 
@@ -126,15 +139,15 @@ public class CompletedDetailsView extends FrameLayout {
 
     }
 
-    private String selectedRadioBtn(){
-        String selectId = "";
+    private int selectedRadioBtn(){
+        int selectId = 0;
         int selectedRdId = radioGroup.getCheckedRadioButtonId();
         switch (selectedRdId){
             case R.id.pickUpOnly_RD_Btn :
-                deliveryMethod = "1";
+                deliveryMethod = 1;
                 break;
             case R.id.delivery_RD_Btn :
-                deliveryMethod = "0";
+                deliveryMethod = 0;
                 break;
         }
         return selectId;
@@ -222,21 +235,21 @@ public class CompletedDetailsView extends FrameLayout {
         textView.setText(date+" "+month+" "+year);
     }
 
-
-    private void addDishDetail(AppCompatActivity context, MultipartBody.Part file,View view){
+    private void addDishDetail(AppCompatActivity context, List<MultipartBody.Part> file, View view){
         RequestAddDish addDish = new RequestAddDish();
+        addDish.setUserId(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID));
         addDish.setName(dishName.getText().toString());
         addDish.setDescription(description.getText().toString());
+        addDish.setMinQty(Integer.parseInt(quantity2.getText().toString()));
+        //addDish.setFoodType();
         addDish.setPrice(price.getText().toString());
         addDish.setDeliveryType(deliveryMethod);
         addDish.setDeliveryPrice(feeOfDelivery.getText().toString());
         addDish.setDatesAvailableFrom(dateFrom.getText().toString());
         addDish.setDatesAvailableTo(dateTo.getText().toString());
-//        addDish.setTimeAvailableFrom(timefrom.getText().toString());
-//        addDish.setTimeAvailableTo(timeto.getText().toString());
-        addDish.setMinQty(quantity2.getText().toString());
-        addDish.setTotalQty(quantity.getText().toString());
-        addDish.setUserId(CusinaApplication.getPreferenceManger().USER_ID);
+        addDish.setTimeAvailableFrom(Constants.startTime);
+        addDish.setTimeAvailableTo(Constants.endTime);
+        addDish.setTotalQty(Integer.parseInt(quantity.getText().toString()));
         viewModel.responseAddDish(context,addDish,file).observe(context,responseAddDish -> {
             if(responseAddDish == null){
                 showErrorAlert(context,"Oops!! Server error occurred. Please try again.","Error");
@@ -257,6 +270,38 @@ public class CompletedDetailsView extends FrameLayout {
                 (view, dialog) -> {
 
                 }, null);
+    }
+
+    @Override
+    public void mediaCallBack(List<File> fileList) {
+        if (fileList != null && fileList.size() > 0){
+
+            List<MultipartBody.Part> requestFiles = new ArrayList<>();
+            for (int i =0; i < fileList.size(); i++){
+
+                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), fileList.get(i));
+                MultipartBody.Part fileData =
+                        MultipartBody.Part.createFormData("file" + (i + 1), fileList.get(i).getName(), requestFile);
+
+                requestFiles.add(fileData);
+            }
+
+            if (requestFiles.size() > 0)
+                addDishDetail(compatActivity,requestFiles,getRootView());
+        }
+    }
+
+    private ArrayList<String> setArray(ArrayList<String> imageList){
+        String separeteString = imageList.get(0).replace("[","").replace(",","").replace("]","");
+
+        String[] separeted = separeteString.split(" ");
+
+        image.addAll(Arrays.asList(separeted));
+
+        System.out.println(image.size());
+
+        return image;
+
     }
 
 }

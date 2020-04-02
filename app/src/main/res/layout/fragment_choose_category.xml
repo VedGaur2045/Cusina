@@ -22,16 +22,14 @@
                 android:layout_margin="@dimen/_25sdp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:visibility="visible"
                     android:id="@+id/category_image_rv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:spanCount="3"
-                    tools:itemCount="3"
-                    android:layout_margin="@dimen/_5sdp"
+                    tools:itemCount="10"
                     tools:listitem="@layout/adapter_choose_category"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             </RelativeLayout>
 

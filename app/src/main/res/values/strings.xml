@@ -463,4 +463,5 @@
     <string name="female">Female</string>
     <string name="Category">Category</string>
     <string name="_AM">AM</string>
+    <string name="_UPLOAD">Upload</string>
 </resources>

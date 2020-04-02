@@ -16,13 +16,25 @@ import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
+import com.lutongbahay.rest.response.PreOrderedItem;
+import com.lutongbahay.rest.response.ScheduleMealsItem;
+import com.lutongbahay.rest.response.TopRatedItem;
 import com.lutongbahay.utils.Constants;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HorizontalHomeProductAdapter extends RecyclerView.Adapter<HorizontalHomeProductAdapter.ProductViewHolder> {
     private Context context;
+
+    List<TopRatedItem> mealsItems;
+
+    public HorizontalHomeProductAdapter(Context context, List<TopRatedItem> mealsItems) {
+        this.context = context;
+        this.mealsItems = mealsItems;
+    }
 
     @NonNull
     @Override
@@ -35,12 +47,12 @@ public class HorizontalHomeProductAdapter extends RecyclerView.Adapter<Horizonta
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        //homeList_TopRated((AppCompatActivity) context,Constants.LAT,Constants.LNG,Constants.TOKEN,holder,position);
+            holder.bindTopRated(mealsItems.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 7;
+        return mealsItems.size();
     }
 
     class ProductViewHolder extends RecyclerView.ViewHolder{
@@ -53,24 +65,18 @@ public class HorizontalHomeProductAdapter extends RecyclerView.Adapter<Horizonta
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
+
+
+        public void bindTopRated(TopRatedItem topRatedItem){
+            productName.setText(topRatedItem.getName());
+            for(int i=0;i<topRatedItem.getImages().size();i++) {
+                GlideApp.with(context).load(topRatedItem.getImages().get(i)).placeholder(R.drawable.no_image_placeholder).into(productImg);
+            }
+        }
     }
 
-    private void homeList_TopRated(AppCompatActivity context, double lat, double lng, String token, ProductViewHolder holder, int position){
-        HomeFragViewModel viewModel = new HomeFragViewModel();
-        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
-            if(responseHomeList == null){
-                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
-            } else {
-                if (responseHomeList.getMessage() == null){
-                    showErrorAlert(context, responseHomeList.getMessage());
-                } else {
-                    GlideApp.with(context).load(responseHomeList.getData().getTopRated().get(position).getImages()).placeholder(R.drawable.no_image_placeholder).into(holder.productImg);
-                    holder.productName.setText(responseHomeList.getData().getTopRated().get(position).getName());
-                }
-            }
-            ProgressDialogFragment.dismissProgressDialog(context);
-        });
-    }
+
+
 
     public void showErrorAlert(Context context, String errorMessage) {
         CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,

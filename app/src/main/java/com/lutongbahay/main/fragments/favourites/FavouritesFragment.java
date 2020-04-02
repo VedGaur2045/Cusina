@@ -45,6 +45,8 @@ public class FavouritesFragment extends Fragment {
                 }
             }
         };
+
+
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 

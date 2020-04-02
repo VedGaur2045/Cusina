@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.View;
@@ -29,9 +30,11 @@ import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.interfaces.DocumentMediaInterface;
+import com.lutongbahay.interfaces.SignUpInterface;
 import com.lutongbahay.list.AddPhotoAdapter;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragment;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragmentDirections;
+import com.lutongbahay.user_auth.fragments.sign_up.mvvm.SignUpView;
 import com.lutongbahay.utils.Logger;
 
 import java.io.File;
@@ -81,18 +84,19 @@ public class AddPhotoView extends FrameLayout {
     Context appContext;
 
     DocumentMediaInterface documentMediaInterface;
+    SignUpInterface signUpInterface;
     static int valGet;
 
     GalleryImagesRecyclerAdapter galleryImagesRecyclerAdapter;
 
-    public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel, int val, String titleNameTxt, String text1, String text2, String text3,DocumentMediaInterface documentMediaInterface) {
+    public AddPhotoView(@NonNull Context context, AddPhotoViewModel viewModel, int val, String titleNameTxt, String text1, String text2, String text3, DocumentMediaInterface documentMediaInterface, SignUpInterface signUpInterface) {
         super(context);
         this.viewModel = viewModel;
         this.appContext = context;
         this.documentMediaInterface = documentMediaInterface;
+        this.signUpInterface = signUpInterface;
         inflate(context, R.layout.fragment_add_photo,this);
         ButterKnife.bind(this,this);
-
 
         System.out.println("Val : "+val);
         valGet = val;
@@ -194,15 +198,28 @@ public class AddPhotoView extends FrameLayout {
         if(id == R.id.closeImgBtn){
             Navigation.findNavController(view).navigateUp();
         } else if(id == R.id.next){
-            String[] imageArr = new String[galleryImagesRecyclerAdapter.selectedImage.size()];
-            for(int i=0;i<galleryImagesRecyclerAdapter.selectedImage.size();i++){
-                imageArr[i] = galleryImagesRecyclerAdapter.selectedImage.get(i);
-            }
-            Bundle bundle = new Bundle();
-            bundle.putStringArray("photoList",imageArr);
-            if (documentMediaInterface != null){
-                Logger.ErrorLog("CALLBACK","RECEIVED");
-                documentMediaInterface.mediaCallBack(galleryImagesRecyclerAdapter.selectedFiles);
+            if(valGet == 12 || valGet == 13 || valGet == 14) {
+                String[] imageArr = new String[galleryImagesRecyclerAdapter.selectedImage.size()];
+                for (int i = 0; i < galleryImagesRecyclerAdapter.selectedImage.size(); i++) {
+                    imageArr[i] = galleryImagesRecyclerAdapter.selectedImage.get(i);
+                }
+                Bundle bundle = new Bundle();
+                bundle.putStringArray("photoList", imageArr);
+                if (documentMediaInterface != null) {
+                    Logger.ErrorLog("CALLBACK", "RECEIVED");
+                    documentMediaInterface.mediaCallBack(galleryImagesRecyclerAdapter.selectedFiles);
+                }
+            } else if(valGet == 15) {
+                String file = String.valueOf(galleryImagesRecyclerAdapter.selectedFiles.get(0).getAbsolutePath());
+                System.out.println(file+"    "+valGet);
+                Bundle bundle = new Bundle();
+                bundle.putString("fileImage", file);
+                if (signUpInterface != null) {
+                    Logger.ErrorLog("CALLBACK", "RECEIVED");
+                    signUpInterface.mediaCallBack(galleryImagesRecyclerAdapter.selectedFiles);
+                }
+            } else {
+                Logger.ErrorLog("CALLBACK", "RECEIVED NOT SET");
             }
 
             Navigation.findNavController(view).navigateUp();

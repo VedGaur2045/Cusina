@@ -12,12 +12,13 @@
 
         <TextView
             android:id="@+id/categoryName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_25sdp"
             android:textSize="@dimen/_14ssp"
             android:fontFamily="@font/sourcesanspro_regular"
             android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
             android:paddingRight="@dimen/_10sdp"
             android:text="@string/_itemName"

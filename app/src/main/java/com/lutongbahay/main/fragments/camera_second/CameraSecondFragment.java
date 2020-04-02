@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.lutongbahay.R;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.main.fragments.camera_second.mvvm.CameraSecondView;
 import com.lutongbahay.main.fragments.camera_second.mvvm.CameraSecondViewModel;
 import com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragmentDirections;
@@ -42,7 +43,13 @@ public class CameraSecondFragment extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                Navigation.findNavController(view).navigate(CameraSecondFragmentDirections.toAddPhoto());
+                Bundle bundle = new Bundle();
+                bundle.putInt("openPhotos",11);
+                bundle.putString("titleName", CusinaApplication.getInstance().getString(R.string.addDishPhoto));
+                bundle.putString("text_1",CusinaApplication.getInstance().getString(R.string._allPhoto));
+                bundle.putString("text_2",CusinaApplication.getInstance().getString(R.string._choosePhotoTxt));
+                bundle.putString("text_3",CusinaApplication.getInstance().getString(R.string._minimumPhotoTxt));
+                Navigation.findNavController(view).navigate(R.id.AddPhotoFragment,bundle);
                 compatActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             }
         };

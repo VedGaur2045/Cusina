@@ -1,6 +1,8 @@
 package com.lutongbahay.user_auth.fragments.sign_up;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,9 @@ import android.view.ViewGroup;
 import com.lutongbahay.R;
 import com.lutongbahay.user_auth.fragments.sign_up.mvvm.SignUpView;
 import com.lutongbahay.user_auth.fragments.sign_up.mvvm.SignUpViewModel;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class SignUpFragment extends Fragment {
 
@@ -34,8 +39,16 @@ public class SignUpFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        String imgPath = "";
+        try {
+            imgPath = getArguments().getString("fileImage");
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        //Bitmap bitmap = BitmapFactory.decodeFile(new File(imgPath));
+
         viewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
-        view = new SignUpView(context,viewModel);
+        view = new SignUpView(context,viewModel,imgPath);
         return view;
     }
 }

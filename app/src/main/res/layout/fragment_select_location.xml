@@ -144,7 +144,7 @@
         android:layout_height="@dimen/_35sdp"
         android:layout_marginLeft="@dimen/_40sdp"
         android:layout_marginRight="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_35sdp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/commonbuttonbg"
         android:text="@string/use_this_address"

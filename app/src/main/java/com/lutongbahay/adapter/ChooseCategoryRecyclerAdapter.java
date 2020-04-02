@@ -1,5 +1,7 @@
 package com.lutongbahay.adapter;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.main.fragments.choose_category.ChooseCategoryFragmentDirections;
+import com.lutongbahay.main.fragments.complete_details.CompletedDetailsFragment;
+import com.lutongbahay.main.fragments.complete_details.mvvm.CompletedDetailsView;
+import com.lutongbahay.utils.Logger;
 
 import java.util.ArrayList;
 
@@ -21,9 +26,11 @@ import butterknife.ButterKnife;
 public class ChooseCategoryRecyclerAdapter extends RecyclerView.Adapter<ChooseCategoryRecyclerAdapter.ChooseCategoryViewHolder> {
 
     private ArrayList<String> dishCategoryList = new ArrayList<>();
+    private ArrayList<String> dishImageList = new ArrayList<>();
 
-    public ChooseCategoryRecyclerAdapter(ArrayList<String> dishCategoryList) {
+    public ChooseCategoryRecyclerAdapter(Context context, ArrayList<String> dishCategoryList, ArrayList<String> dishImageList) {
         this.dishCategoryList = dishCategoryList;
+        this.dishImageList = dishImageList;
     }
 
     @NonNull
@@ -37,8 +44,15 @@ public class ChooseCategoryRecyclerAdapter extends RecyclerView.Adapter<ChooseCa
     public void onBindViewHolder(@NonNull ChooseCategoryViewHolder holder, int position) {
 
         holder.categoryName.setText(dishCategoryList.get(position));
-
-        holder.categoryNameLayout.setOnClickListener(view -> Navigation.findNavController(view).navigate(ChooseCategoryFragmentDirections.toCompletedDetails()));
+        holder.categoryName.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("categoryName",holder.categoryName.getText().toString());
+//            if (completedDetails != null){
+//                Logger.ErrorLog("CALLBACK","RECEIVED");
+//                completedDetails.mediaCallBack(dishImageList);
+//            }
+            Navigation.findNavController(view).navigate(R.id.CompletedDetailsFragment,bundle);
+        });
     }
 
     @Override

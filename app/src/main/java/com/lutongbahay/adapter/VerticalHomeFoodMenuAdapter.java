@@ -1,6 +1,7 @@
 package com.lutongbahay.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,22 +19,29 @@ import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.favourites.FavouritesFragmentDirections;
+import com.lutongbahay.main.fragments.favourites.mvvm.FavouriteViewModel;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragView;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
+import com.lutongbahay.rest.response.NearMeItem;
 import com.lutongbahay.utils.Constants;
+import com.lutongbahay.utils.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHomeFoodMenuAdapter.VerticalViewHolder> {
 
-    private int TYPE_CLICK,CONDITION_CHECK;
+    private int TYPE_CLICK;
     public Context context;
+    List<NearMeItem> nearMeItemList = new ArrayList<>();
 
-    public VerticalHomeFoodMenuAdapter(int check,int conditionCheck) {
+    public VerticalHomeFoodMenuAdapter(int check,List<NearMeItem> nearMeItemList) {
         this.TYPE_CLICK = check ;
-        this.CONDITION_CHECK = conditionCheck;
+        this.nearMeItemList = nearMeItemList;
     }
 
     @NonNull
@@ -48,27 +56,24 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
     @Override
     public void onBindViewHolder(@NonNull VerticalViewHolder holder, int position) {
 
-//        if(CONDITION_CHECK == 51){
-//            homeList_NearMe((AppCompatActivity) context,Constants.LAT,Constants.LNG,Constants.TOKEN,holder,position);
-//        } else if(CONDITION_CHECK == 52){
-//            homeList_ScheduleMeals((AppCompatActivity) context,Constants.LAT,Constants.LNG,Constants.TOKEN,holder,position);
-//        }
+        holder.bindNearData(nearMeItemList.get(position));
 
         if(TYPE_CLICK == 1){
             holder.imageSection.setOnClickListener(v -> {
-                Navigation.findNavController(v).navigate(FavouritesFragmentDirections.openItemDetailFragment());
+                Bundle bundle = new Bundle();
+                bundle.putInt("itemId",nearMeItemList.get(position).getId());
+                Navigation.findNavController(v).navigate(R.id.detailFragment,bundle);
             });
             holder.ratingImg.setOnClickListener(view -> {
                 Navigation.findNavController(view).navigate(FavouritesFragmentDirections.toDishReviewFragment());
             });
-            //homeList((AppCompatActivity) context, Constants.LAT,Constants.LNG,Constants.TOKEN,holder,position);
         }
 
     }
 
     @Override
     public int getItemCount() {
-        return 7;
+        return nearMeItemList.size();
     }
 
 
@@ -109,57 +114,33 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
+
+        public void bindNearData(NearMeItem nearMeItem) {
+            System.out.println("Price : "+nearMeItem.getDeliveryPrice());
+            productName.setText(nearMeItem.getName());
+            productMinimumOrderCount.setText("" + nearMeItem.getMinQty());
+            for(int i=0;i<nearMeItem.getImages().size();i++){
+                GlideApp.with(context).load(nearMeItem.getImages().get(i)).placeholder(R.drawable.no_image_placeholder).into(productImg);
+            }
+            productServingLeft.setText(nearMeItem.getTotalQty()+" Serving Left");
+            productTime.setText(nearMeItem.getPreparationTime() + " mins");
+            productDeliveryFee.setText("Delivery Fee : PHP "+Integer.toString(nearMeItem.getDeliveryPrice()));
+            productDeliveryDistance.setText(nearMeItem.getDistance());
+            productRatingCount.setText(""+nearMeItem.getRating());
+            if(nearMeItem.getKitchen() == null){
+                productPlaceName.setText("");
+            } else {
+                productPlaceName.setText(nearMeItem.getKitchen().getName());
+            }
+            if(nearMeItem.getUser() == null){
+                productShopName.setText("");
+            } else {
+                productShopName.setText("by "+nearMeItem.getUser().getName());
+            }
+            likeCount.setText(Integer.toString(nearMeItem.getLikes()));
+        }
     }
 
-    private void homeList_NearMe(AppCompatActivity context, double lat, double lng, String token, VerticalViewHolder holder, int position){
-        HomeFragViewModel viewModel = new HomeFragViewModel();
-        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
-            if(responseHomeList == null){
-                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
-            } else {
-                if (responseHomeList.getMessage() == null){
-                    showErrorAlert(context, responseHomeList.getMessage());
-                } else {
-                    holder.likeCount.setText(responseHomeList.getData().getNearMe().get(position).getLikes());
-                    holder.productDeliveryDistance.setText(responseHomeList.getData().getNearMe().get(position).getDistance());
-                    holder.productDeliveryFee.setText("Delivery Fee : PHP "+responseHomeList.getData().getNearMe().get(position).getDeliveryPrice());
-                    GlideApp.with(context).load(responseHomeList.getData().getNearMe().get(position).getImages()).placeholder(R.drawable.no_image_placeholder).into(holder.productImg);
-                    holder.productMinimumOrderCount.setText(responseHomeList.getData().getNearMe().get(position).getMinQty());
-                    holder.productName.setText(responseHomeList.getData().getNearMe().get(position).getName());
-                    holder.productPrice.setText(responseHomeList.getData().getNearMe().get(position).getPrice());
-                    holder.productTime.setText(responseHomeList.getData().getNearMe().get(position).getPreparationTime()+" mins");
-                    holder.productRatingCount.setText(responseHomeList.getData().getNearMe().get(position).getRating()+".0");
-                    holder.productServingLeft.setText(responseHomeList.getData().getNearMe().get(position).getTotalQty()+" Serving Left");
-                }
-            }
-            ProgressDialogFragment.dismissProgressDialog(context);
-        });
-    }
-
-    private void homeList_ScheduleMeals(AppCompatActivity context, double lat, double lng, String token, VerticalViewHolder holder, int position){
-        HomeFragViewModel viewModel = new HomeFragViewModel();
-        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
-            if(responseHomeList == null){
-                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
-            } else {
-                if (responseHomeList.getMessage() == null){
-                    showErrorAlert(context, responseHomeList.getMessage());
-                } else {
-                    holder.likeCount.setText(responseHomeList.getData().getScheduleMeals().get(position).getLikes());
-                    holder.productDeliveryDistance.setText(responseHomeList.getData().getScheduleMeals().get(position).getDistance());
-                    holder.productDeliveryFee.setText("Delivery Fee : PHP "+responseHomeList.getData().getScheduleMeals().get(position).getDeliveryPrice());
-                    GlideApp.with(context).load(responseHomeList.getData().getScheduleMeals().get(position).getImages()).placeholder(R.drawable.no_image_placeholder).into(holder.productImg);
-                    holder.productMinimumOrderCount.setText(responseHomeList.getData().getScheduleMeals().get(position).getMinQty());
-                    holder.productName.setText(responseHomeList.getData().getScheduleMeals().get(position).getName());
-                    holder.productPrice.setText(responseHomeList.getData().getScheduleMeals().get(position).getPrice());
-                    holder.productTime.setText(responseHomeList.getData().getScheduleMeals().get(position).getPreparationTime()+" mins");
-                    holder.productRatingCount.setText(responseHomeList.getData().getScheduleMeals().get(position).getRating()+".0");
-                    holder.productServingLeft.setText(responseHomeList.getData().getScheduleMeals().get(position).getTotalQty()+" Serving Left");
-                }
-            }
-            ProgressDialogFragment.dismissProgressDialog(context);
-        });
-    }
 
     public void showErrorAlert(Context context, String errorMessage) {
         CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,

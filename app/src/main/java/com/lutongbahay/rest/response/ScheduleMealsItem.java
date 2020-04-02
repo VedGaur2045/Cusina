@@ -38,8 +38,8 @@ public class ScheduleMealsItem{
 	@SerializedName("id")
 	private int id;
 
-	@SerializedName("kitchen")
-	private List<Object> kitchen;
+//	@SerializedName("kitchen")
+//	private List<Object> kitchen;
 
 	@SerializedName("longitude")
 	private double longitude;
@@ -48,7 +48,7 @@ public class ScheduleMealsItem{
 	private int likes;
 
 	@SerializedName("images")
-	private String images;
+	private List<String> images;
 
 	@SerializedName("min_qty")
 	private int minQty;
@@ -74,8 +74,8 @@ public class ScheduleMealsItem{
 	@SerializedName("dates_available_from")
 	private String datesAvailableFrom;
 
-	@SerializedName("user")
-	private List<Object> user;
+//	@SerializedName("user")
+//	private List<Object> user;
 
 	@SerializedName("status")
 	private String status;
@@ -171,13 +171,13 @@ public class ScheduleMealsItem{
 		return id;
 	}
 
-	public void setKitchen(List<Object> kitchen){
-		this.kitchen = kitchen;
-	}
-
-	public List<Object> getKitchen(){
-		return kitchen;
-	}
+//	public void setKitchen(List<Object> kitchen){
+//		this.kitchen = kitchen;
+//	}
+//
+//	public List<Object> getKitchen(){
+//		return kitchen;
+//	}
 
 	public void setLongitude(double longitude){
 		this.longitude = longitude;
@@ -195,12 +195,13 @@ public class ScheduleMealsItem{
 		return likes;
 	}
 
-	public void setImages(String images){
-		this.images = images;
+
+	public List<String> getImages() {
+		return images;
 	}
 
-	public String getImages(){
-		return images;
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
 
 	public void setMinQty(int minQty){
@@ -267,13 +268,13 @@ public class ScheduleMealsItem{
 		return datesAvailableFrom;
 	}
 
-	public void setUser(List<Object> user){
-		this.user = user;
-	}
-
-	public List<Object> getUser(){
-		return user;
-	}
+//	public void setUser(List<Object> user){
+//		this.user = user;
+//	}
+//
+//	public List<Object> getUser(){
+//		return user;
+//	}
 
 	public void setStatus(String status){
 		this.status = status;

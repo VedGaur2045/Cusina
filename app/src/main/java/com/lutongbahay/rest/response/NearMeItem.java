@@ -38,8 +38,8 @@ public class NearMeItem {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("kitchen")
-    private Kitchen kitchen;
+//    @SerializedName("kitchen")
+//    private Kitchen kitchen;
 
     @SerializedName("longitude")
     private double longitude;
@@ -76,6 +76,9 @@ public class NearMeItem {
 
     @SerializedName("user")
     private User user;
+
+    @SerializedName("kitchen")
+    private Kitchen kitchen;
 
     @SerializedName("status")
     private String status;
@@ -169,6 +172,14 @@ public class NearMeItem {
 
     public int getId(){
         return id;
+    }
+
+    public void setUser(User user){
+        this.user = user;
+    }
+
+    public User getUser(){
+        return user;
     }
 
     public void setKitchen(Kitchen kitchen){
@@ -267,13 +278,13 @@ public class NearMeItem {
         return datesAvailableFrom;
     }
 
-    public void setUser(User user){
-        this.user = user;
-    }
-
-    public User getUser(){
-        return user;
-    }
+//    public void setUser(User user){
+//        this.user = user;
+//    }
+//
+//    public User getUser(){
+//        return user;
+//    }
 
     public void setStatus(String status){
         this.status = status;

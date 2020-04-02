@@ -36,7 +36,11 @@ import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.LocationTrackingHelper;
 import com.lutongbahay.helper.MarshMallowPermission;
+import com.lutongbahay.rest.response.PreOrderedItem;
 import com.lutongbahay.utils.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,7 +75,8 @@ public class MapView extends FrameLayout implements OnMapReadyCallback {
 
         LinearLayoutManager horizontalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
-        HorizontalHomeFoodMenuAdapter horizontalHomeFoodMenuAdapter = new HorizontalHomeFoodMenuAdapter();
+        List<PreOrderedItem> preOrderedItems = new ArrayList<>();
+        HorizontalHomeFoodMenuAdapter horizontalHomeFoodMenuAdapter = new HorizontalHomeFoodMenuAdapter(context,preOrderedItems);
         recyclerView.setAdapter(horizontalHomeFoodMenuAdapter);
     }
 

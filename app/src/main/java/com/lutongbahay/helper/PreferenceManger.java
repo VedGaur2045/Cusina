@@ -83,7 +83,7 @@ public class PreferenceManger {
         return mSharedPreferences.getBoolean(key, defaultValue);
     }
 
-    public int getIntegerValue(String key) {
+        public int getIntegerValue(String key) {
         return mSharedPreferences.getInt(key, 0);
     }
 

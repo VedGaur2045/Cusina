@@ -4,6 +4,8 @@ package com.lutongbahay.rest.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ResponseAddSeller {
 
     @SerializedName("success")
@@ -65,6 +67,9 @@ public class ResponseAddSeller {
         @SerializedName("country")
         @Expose
         private String country;
+        @SerializedName("images")
+        @Expose
+        private List<String> images = null;
         @SerializedName("gender")
         @Expose
         private String gender;
@@ -194,6 +199,14 @@ public class ResponseAddSeller {
 
         public void setKitchen(String kitchen) {
             this.kitchen = kitchen;
+        }
+
+        public List<String> getImages() {
+            return images;
+        }
+
+        public void setImages(List<String> images) {
+            this.images = images;
         }
 
     }

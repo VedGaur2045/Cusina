@@ -30,7 +30,7 @@
             android:layout_width="@dimen/_16sdp"
             android:layout_height="@dimen/_16sdp"
             android:background="@color/_EC0000"
-            android:text="@string/_1"
+            android:text="@string/_0"
             android:gravity="center"
             android:layout_margin="@dimen/_5sdp"
             android:textColor="@color/_FFFFFF"

@@ -39,7 +39,7 @@ public class PreOrderedItem{
 	private int id;
 
 	@SerializedName("kitchen")
-	private List<Object> kitchen;
+	private Kitchen kitchen;
 
 	@SerializedName("longitude")
 	private double longitude;
@@ -48,7 +48,7 @@ public class PreOrderedItem{
 	private int likes;
 
 	@SerializedName("images")
-	private String images;
+	private List<String> images;
 
 	@SerializedName("min_qty")
 	private int minQty;
@@ -75,7 +75,7 @@ public class PreOrderedItem{
 	private String datesAvailableFrom;
 
 	@SerializedName("user")
-	private List<Object> user;
+	private User user;
 
 	@SerializedName("status")
 	private String status;
@@ -171,11 +171,11 @@ public class PreOrderedItem{
 		return id;
 	}
 
-	public void setKitchen(List<Object> kitchen){
+	public void setKitchen(Kitchen kitchen){
 		this.kitchen = kitchen;
 	}
 
-	public List<Object> getKitchen(){
+	public Kitchen getKitchen(){
 		return kitchen;
 	}
 
@@ -195,12 +195,12 @@ public class PreOrderedItem{
 		return likes;
 	}
 
-	public void setImages(String images){
-		this.images = images;
+	public List<String> getImages() {
+		return images;
 	}
 
-	public String getImages(){
-		return images;
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
 
 	public void setMinQty(int minQty){
@@ -267,11 +267,11 @@ public class PreOrderedItem{
 		return datesAvailableFrom;
 	}
 
-	public void setUser(List<Object> user){
+	public void setUser(User user){
 		this.user = user;
 	}
 
-	public List<Object> getUser(){
+	public User getUser(){
 		return user;
 	}
 

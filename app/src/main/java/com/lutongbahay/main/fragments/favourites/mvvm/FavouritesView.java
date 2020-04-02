@@ -9,13 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.FavouriteDishesAdapter;
 import com.lutongbahay.adapter.VerticalHomeFoodMenuAdapter;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
+import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.utils.Constants;
+import com.lutongbahay.utils.Logger;
 import com.lutongbahay.utils.StatusBarUtils;
 
 import butterknife.BindView;
@@ -29,37 +33,39 @@ public class FavouritesView extends FrameLayout {
     RecyclerView favrouiteRecyclerView;
     @BindView(R.id.titleName)
     TextView titleName;
-    VerticalHomeFoodMenuAdapter verticalHomeFoodMenuAdapter;
 
+    FavouriteDishesAdapter favouriteDishesAdapter;
 
     public FavouritesView(@NonNull Context context, FavouriteViewModel viewModel,int Check,String titleNameTxt) {
         super(context);
+        this.context = context;
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_favourites, this);
         ButterKnife.bind(this, this);
-        try{
+
+        //        LinearLayoutManager verticalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true);
+//        favrouiteRecyclerView.setHasFixedSize(true);
+//        favrouiteRecyclerView.setLayoutManager(verticalLayoutManager);
+     //   try{
             if(Check == 11){
                 titleName.setText(titleNameTxt);
-                verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1,53);
+                seeAllDishesNearMe(Constants.LAT,Constants.LNG,Constants.TOKEN);
             } else if(Check == 12){
                 titleName.setText(titleNameTxt);
-                verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1,54);
+                seeAllDishesTopRated(Constants.LAT,Constants.LNG,Constants.TOKEN);
             } else if(Check == 13){
                 titleName.setText(titleNameTxt);
-                verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1,55);
+                seeAllDishesPreOrdered(Constants.LAT,Constants.LNG,Constants.TOKEN);
             } else if(Check == 14){
                 titleName.setText(titleNameTxt);
-                verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(1,56);
+                seeAllDishesScheduleMeals(Constants.LAT,Constants.LNG,Constants.TOKEN);
             } else {
                 titleName.setText(R.string.favouriteTxt);
-                verticalHomeFoodMenuAdapter = new VerticalHomeFoodMenuAdapter(0,57);
+                seeAllDishesNearMe(Constants.LAT,Constants.LNG,Constants.TOKEN);
             }
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
-
-        favrouiteRecyclerView.setAdapter(verticalHomeFoodMenuAdapter);
+//        } catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
 
     }
 
@@ -78,16 +84,48 @@ public class FavouritesView extends FrameLayout {
                 }, null);
     }
 
-    public void dishList(AppCompatActivity context, double Lat, double Long ){
-        viewModel.seeAllDishes(context, Constants.TOKEN,Lat,Long).observe(context, responseSeeAllDishes -> {
+    private void seeAllDishesNearMe(double lat, double lng, String token){
+        viewModel.seeAllDishesNearMe(context,token,lat,lng).observe((AppCompatActivity) context, responseSeeAllDishes -> {
             if(responseSeeAllDishes == null){
-                showErrorAlert(context,"List not found!","Error");
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.","Error");
             } else {
-                if (!responseSeeAllDishes.isSuccess()){
-                    showErrorAlert(context,responseSeeAllDishes.getMessage(),"Message");
-                } else {
-                    // ToastUtils.shortToast(responseSeeAllDishes.getData().getOtp());
-                }
+                System.out.println("dfkhknb : "+responseSeeAllDishes.getData().size());
+                FavouriteDishesAdapter favouriteDishesAdapter = new FavouriteDishesAdapter(1, responseSeeAllDishes.getData());
+                favrouiteRecyclerView.setAdapter(favouriteDishesAdapter);
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+
+    private void seeAllDishesTopRated(double lat, double lng, String token){
+        viewModel.seeAllDishesTopRated(context,token,lat,lng).observe((AppCompatActivity) context, responseSeeAllDishes -> {
+            if(responseSeeAllDishes == null){
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.","Error");
+            } else {
+                favouriteDishesAdapter = new FavouriteDishesAdapter(1, responseSeeAllDishes.getData());
+                favrouiteRecyclerView.setAdapter(favouriteDishesAdapter);
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+    private void seeAllDishesPreOrdered(double lat, double lng, String token){
+        viewModel.seeAllDishesPreOrdered(context,token,lat,lng).observe((AppCompatActivity) context, responseSeeAllDishes -> {
+            if(responseSeeAllDishes == null){
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.","Error");
+            } else {
+                favouriteDishesAdapter = new FavouriteDishesAdapter(1, responseSeeAllDishes.getData());
+                favrouiteRecyclerView.setAdapter(favouriteDishesAdapter);
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+    private void seeAllDishesScheduleMeals(double lat, double lng, String token){
+        viewModel.seeAllDishesScheduleMeals(context,token,lat,lng).observe((AppCompatActivity) context, responseSeeAllDishes -> {
+            if(responseSeeAllDishes == null){
+                showErrorAlert(context, "Oops!! Server error occurred. Please try again.","Error");
+            } else {
+                favouriteDishesAdapter = new FavouriteDishesAdapter(1, responseSeeAllDishes.getData());
+                favrouiteRecyclerView.setAdapter(favouriteDishesAdapter);
             }
             ProgressDialogFragment.dismissProgressDialog(context);
         });

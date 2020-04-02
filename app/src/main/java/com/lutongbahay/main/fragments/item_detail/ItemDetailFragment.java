@@ -58,8 +58,10 @@ public class ItemDetailFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        int itemId = getArguments().getInt("itemId");
+        System.out.println("itemId : "+itemId);
         viewModel = new ViewModelProvider(this).get(ItemDetailViewModel.class);
-        view = new ItemDetailView((AppCompatActivity) context,viewModel);
+        view = new ItemDetailView((AppCompatActivity) context,viewModel,itemId);
         return view;
     }
 }

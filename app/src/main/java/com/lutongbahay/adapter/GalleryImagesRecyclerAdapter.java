@@ -37,12 +37,14 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
     ArrayList<String> images = new ArrayList<>();
     static int countSelectedImage;
     public ArrayList<String> selectedImage = new ArrayList<>();
-
     public ArrayList<File> selectedFiles = new ArrayList<>();
+    int val;
+    public File fileProfileImg;
 
     public GalleryImagesRecyclerAdapter(Context context, ArrayList<String> images, int val) {
         this.context = context;
         this.images = images;
+        this.val = val;
         countSelectedImage = 0;
     }
 
@@ -55,7 +57,6 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-
         if (position == 0){
             holder.cameraLayout.setVisibility(View.VISIBLE);
             holder.imageLayout.setVisibility(View.GONE);
@@ -70,32 +71,56 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
             File file = new File(images.get(position));
             Uri imageUri = Uri.fromFile(file);
             GlideApp.with(context).load(file).placeholder(R.drawable.no_image_placeholder).into(holder.imageView);
-
-            if (selectedFiles.contains(file)){
-                int index = Collections.singletonList(selectedFiles).indexOf(file);
-                holder.imageBg.setVisibility(View.VISIBLE);
-                holder.selectedCount.setVisibility(View.VISIBLE);
-                holder.selectedCount.setText(Integer.toString(index));
-            }else{
-                holder.imageBg.setVisibility(View.GONE);
-                holder.selectedCount.setVisibility(View.GONE);
-            }
-
-
-            holder.imageLayout.setOnClickListener(view -> {
-
-
-                if (selectedFiles.contains(file)){
-                    selectedFiles.remove(file);
-                }else {
-                    if (selectedFiles.size() == 3) {
-                        ToastUtils.shortToast("Maximum three images selected");
-                    } else {
-                        selectedFiles.add(file);
-                    }
-
+            if(val == 11){
+                Logger.ErrorLog("Gallery : ","Image");
+            } else if(val == 15){
+                if(selectedFiles.contains(file)){
+                    holder.imageBg.setVisibility(View.VISIBLE);
+                } else {
+                    holder.imageBg.setVisibility(View.GONE);
                 }
-                  notifyDataSetChanged();
+                holder.imageLayout.setOnClickListener(view -> {
+                    if (selectedFiles.contains(file)) {
+                        selectedFiles.remove(file);
+                    } else {
+                        if (selectedFiles.size() == 1) {
+                            ToastUtils.shortToast("Only One Image Select");
+                        } else {
+                            selectedFiles.add(file);
+                            try {
+                                System.out.println(selectedFiles.get(position));
+                            } catch (Exception e) {
+                                System.out.println(e.fillInStackTrace());
+                            }
+                        }
+
+                    }
+                    notifyDataSetChanged();
+                });
+            } else {
+                if (selectedFiles.contains(file)) {
+                    countSelectedImage = countSelectedImage++;
+                    int index = Collections.singletonList(selectedFiles).indexOf(file);
+                    holder.imageBg.setVisibility(View.VISIBLE);
+                    holder.selectedCount.setVisibility(View.VISIBLE);
+                    holder.selectedCount.setText(Integer.toString(index));
+                } else {
+                    holder.imageBg.setVisibility(View.GONE);
+                    holder.selectedCount.setVisibility(View.GONE);
+                }
+
+                holder.imageLayout.setOnClickListener(view -> {
+                    if (selectedFiles.contains(file)) {
+                        selectedFiles.remove(file);
+                    } else {
+                        if (selectedFiles.size() == 3) {
+                            ToastUtils.shortToast("Maximum three images selected");
+                        } else {
+                            selectedFiles.add(file);
+                        }
+
+                    }
+                    notifyDataSetChanged();
 //                if(countSelectedImage == 3){
 //                    holder.imageBg.setVisibility(View.GONE);
 //                    holder.selectedCount.setVisibility(View.GONE);
@@ -118,8 +143,8 @@ public class GalleryImagesRecyclerAdapter extends RecyclerView.Adapter<GalleryIm
 //                    }
 //
 //                }
-            });
-
+                });
+            }
         }
 
     }

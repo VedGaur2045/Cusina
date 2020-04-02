@@ -35,11 +35,17 @@ public class DataItem{
 	@SerializedName("preparation_time")
 	private int preparationTime;
 
+	@SerializedName("kitchen_id")
+	private int kitchenId;
+
 	@SerializedName("id")
 	private int id;
 
 	@SerializedName("kitchen")
-	private List<Object> kitchen;
+	private Kitchen kitchen;
+
+	@SerializedName("menu_id")
+	private int menuId;
 
 	@SerializedName("longitude")
 	private double longitude;
@@ -75,7 +81,7 @@ public class DataItem{
 	private String datesAvailableFrom;
 
 	@SerializedName("user")
-	private List<Object> user;
+	private User user;
 
 	@SerializedName("status")
 	private String status;
@@ -163,6 +169,14 @@ public class DataItem{
 		return preparationTime;
 	}
 
+	public void setKitchenId(int kitchenId){
+		this.kitchenId = kitchenId;
+	}
+
+	public int getKitchenId(){
+		return kitchenId;
+	}
+
 	public void setId(int id){
 		this.id = id;
 	}
@@ -171,12 +185,20 @@ public class DataItem{
 		return id;
 	}
 
-	public void setKitchen(List<Object> kitchen){
+	public void setKitchen(Kitchen kitchen){
 		this.kitchen = kitchen;
 	}
 
-	public List<Object> getKitchen(){
+	public Kitchen getKitchen(){
 		return kitchen;
+	}
+
+	public void setMenuId(int menuId){
+		this.menuId = menuId;
+	}
+
+	public int getMenuId(){
+		return menuId;
 	}
 
 	public void setLongitude(double longitude){
@@ -267,11 +289,11 @@ public class DataItem{
 		return datesAvailableFrom;
 	}
 
-	public void setUser(List<Object> user){
+	public void setUser(User user){
 		this.user = user;
 	}
 
-	public List<Object> getUser(){
+	public User getUser(){
 		return user;
 	}
 

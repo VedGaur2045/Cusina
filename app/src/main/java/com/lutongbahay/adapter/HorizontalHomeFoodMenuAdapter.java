@@ -21,15 +21,24 @@ import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
 import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
 import com.lutongbahay.main.fragments.map_view.MapViewFragmentDirections;
+import com.lutongbahay.rest.response.PreOrderedItem;
 import com.lutongbahay.utils.Constants;
 
 import org.w3c.dom.Text;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<HorizontalHomeFoodMenuAdapter.HorizontalHomeViewHolder>{
     private Context context;
+    List<PreOrderedItem> preOrderedItemList;
+
+    public HorizontalHomeFoodMenuAdapter(Context context, List<PreOrderedItem> preOrderedItemList) {
+        this.context = context;
+        this.preOrderedItemList = preOrderedItemList;
+    }
 
     @NonNull
     @Override
@@ -42,7 +51,8 @@ public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public void onBindViewHolder(@NonNull HorizontalHomeViewHolder holder, int position) {
-        //homeList_PreOrdered((AppCompatActivity) context, Constants.LAT,Constants.LNG,Constants.TOKEN,holder,position);
+
+        holder.bindPreOrder(preOrderedItemList.get(position));
 
         holder.itemView.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(MapViewFragmentDirections.openItemDetailFragment());
@@ -51,7 +61,7 @@ public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public int getItemCount() {
-        return 7;
+        return preOrderedItemList.size();
     }
 
     class HorizontalHomeViewHolder extends RecyclerView.ViewHolder{
@@ -80,33 +90,26 @@ public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<Horizont
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
-    }
 
-    private void homeList_PreOrdered(AppCompatActivity context, double lat, double lng, String token, HorizontalHomeViewHolder holder, int position){
-        HomeFragViewModel viewModel = new HomeFragViewModel();
-        viewModel.homeList(context,token,lat,lng).observe(context,responseHomeList -> {
-            if(responseHomeList == null){
-                showErrorAlert(context, "Oops!! Server error occurred. Please try again.");
-            } else {
-                if (responseHomeList.getMessage() == null){
-                    showErrorAlert(context, responseHomeList.getMessage());
-                } else {
-                    GlideApp.with(context).load(responseHomeList.getData().getPreOrdered().get(position).getImages()).placeholder(R.drawable.no_image_placeholder).into(holder.productImage);
-                    holder.productName.setText(responseHomeList.getData().getPreOrdered().get(position).getName());
-                    holder.productRatingCount.setText(responseHomeList.getData().getPreOrdered().get(position).getRating());
-                    holder.productDeliveryDistance.setText(responseHomeList.getData().getPreOrdered().get(position).getDistance());
-                    holder.productMoney.setText(responseHomeList.getData().getPreOrdered().get(position).getPrice());
-                }
+        public void bindPreOrder(PreOrderedItem preOrderedItem){
+            productName.setText(preOrderedItem.getName());
+            for(int i=0;i<preOrderedItem.getImages().size();i++){
+                GlideApp.with(context).load(preOrderedItem.getImages().get(i)).placeholder(R.drawable.no_image_placeholder).into(productImage);
             }
-            ProgressDialogFragment.dismissProgressDialog(context);
-        });
-    }
-
-    public void showErrorAlert(Context context, String errorMessage) {
-        CusinaAlertDialog.showDCAlertDialog(context, 0, "Error", errorMessage, null, "Ok", null,
-                (view, dialog) -> {
-
-                }, null);
+            productRatingCount.setText(Integer.toString(preOrderedItem.getRating()));
+            productMoney.setText("PHP "+preOrderedItem.getPrice());
+            productDeliveryDistance.setText(preOrderedItem.getDistance());
+            if(preOrderedItem.getKitchen() == null){
+                productPlaceName.setText("");
+            } else {
+                productPlaceName.setText(preOrderedItem.getKitchen().getName());
+            }
+            if(preOrderedItem.getUser() == null){
+                productShopName.setText("");
+            } else {
+                productShopName.setText("by "+preOrderedItem.getUser().getName());
+            }
+        }
     }
 
 
