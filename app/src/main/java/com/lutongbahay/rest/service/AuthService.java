@@ -13,6 +13,8 @@ import com.lutongbahay.rest.APiInterface;
 import com.lutongbahay.rest.request.RequestAddSeller;
 import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseAddSeller;
+import com.lutongbahay.rest.response.ResponseLoginUserDetail;
+import com.lutongbahay.rest.response.ResponseOtpVerify;
 import com.lutongbahay.rest.response.ResponseRegisterAsMobile;
 import com.lutongbahay.rest.response.ResponseResendOtp;
 import com.lutongbahay.utils.Logger;
@@ -84,6 +86,56 @@ public class AuthService {
             public void onFailure(@NotNull Call<ResponseResendOtp> call, @NotNull Throwable t) {
                 //show error message here
                 Logger.ErrorLog("RESEND OTP API FAILED " , t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
+    public static LiveData<ResponseOtpVerify> otpVerify(Context context, int id, String otp){
+        final MutableLiveData<ResponseOtpVerify> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseOtpVerify> otpVerify = apiService.otpVerify(id, otp);
+        otpVerify.enqueue(new Callback<ResponseOtpVerify>() {
+            @Override
+            public void onResponse(Call<ResponseOtpVerify> call, Response<ResponseOtpVerify> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseOtpVerify> call, Throwable t) {
+                Logger.ErrorLog("OTP VERIFY API FAILED", t.getLocalizedMessage());
+            }
+        });
+        return data;
+    }
+
+    public static LiveData<ResponseLoginUserDetail> loginUserDetail(String token, Context context){
+        final MutableLiveData<ResponseLoginUserDetail> data = new MutableLiveData<>();
+        if(!CusinaApplication.getInstance().isInternetConnected(context,true)){
+            return data;
+        }
+        ProgressDialogFragment.showProgressDialog(context,"Please wait...");
+        Call<ResponseLoginUserDetail> call = apiService.loginUserDetail("Bearer "+token);
+        call.enqueue(new Callback<ResponseLoginUserDetail>() {
+            @Override
+            public void onResponse(Call<ResponseLoginUserDetail> call, Response<ResponseLoginUserDetail> response) {
+                if(response.body() != null){
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseLoginUserDetail> call, Throwable t) {
+                Logger.ErrorLog("LOGIN USER DETAIL API FAILED", t.getLocalizedMessage());
             }
         });
         return data;

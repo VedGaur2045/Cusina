@@ -1,7 +1,9 @@
 package com.lutongbahay.main.fragments.favourites.mvvm;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
+import com.lutongbahay.adapter.DishesAdapter;
 import com.lutongbahay.adapter.FavouriteDishesAdapter;
 import com.lutongbahay.adapter.VerticalHomeFoodMenuAdapter;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
@@ -35,37 +38,42 @@ public class FavouritesView extends FrameLayout {
     TextView titleName;
 
     FavouriteDishesAdapter favouriteDishesAdapter;
+    DishesAdapter dishesAdapter;
 
-    public FavouritesView(@NonNull Context context, FavouriteViewModel viewModel,int Check,String titleNameTxt) {
+    public FavouritesView(@NonNull Context context, FavouriteViewModel viewModel,int Check,String titleNameTxt,int kitchen_id) {
         super(context);
         this.context = context;
         this.viewModel = viewModel;
         inflate(context, R.layout.fragment_favourites, this);
         ButterKnife.bind(this, this);
 
-        //        LinearLayoutManager verticalLayoutManager= new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true);
-//        favrouiteRecyclerView.setHasFixedSize(true);
-//        favrouiteRecyclerView.setLayoutManager(verticalLayoutManager);
-     //   try{
-            if(Check == 11){
+        switch (Check) {
+            case 11:
                 titleName.setText(titleNameTxt);
-                seeAllDishesNearMe(Constants.LAT,Constants.LNG,Constants.TOKEN);
-            } else if(Check == 12){
+                seeAllDishesNearMe(Constants.LAT, Constants.LNG, Constants.TOKEN);
+                break;
+            case 12:
                 titleName.setText(titleNameTxt);
-                seeAllDishesTopRated(Constants.LAT,Constants.LNG,Constants.TOKEN);
-            } else if(Check == 13){
+                seeAllDishesTopRated(Constants.LAT, Constants.LNG, Constants.TOKEN);
+                break;
+            case 13:
                 titleName.setText(titleNameTxt);
-                seeAllDishesPreOrdered(Constants.LAT,Constants.LNG,Constants.TOKEN);
-            } else if(Check == 14){
+                seeAllDishesPreOrdered(Constants.LAT, Constants.LNG, Constants.TOKEN);
+                break;
+            case 14:
                 titleName.setText(titleNameTxt);
-                seeAllDishesScheduleMeals(Constants.LAT,Constants.LNG,Constants.TOKEN);
-            } else {
+                seeAllDishesScheduleMeals(Constants.LAT, Constants.LNG, Constants.TOKEN);
+                break;
+            case 15:
+                Logger.ErrorLog("Kitchen_id : ", String.valueOf(kitchen_id));
+                titleName.setText(titleNameTxt);
+                getKitchenMenuDishes(context,Constants.TOKEN,Constants.LAT, Constants.LNG,kitchen_id,getRootView());
+                break;
+            default:
                 titleName.setText(R.string.favouriteTxt);
-                seeAllDishesNearMe(Constants.LAT,Constants.LNG,Constants.TOKEN);
-            }
-//        } catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }
+                seeAllDishesNearMe(Constants.LAT, Constants.LNG, Constants.TOKEN);
+                break;
+        }
 
     }
 
@@ -126,6 +134,31 @@ public class FavouritesView extends FrameLayout {
             } else {
                 favouriteDishesAdapter = new FavouriteDishesAdapter(1, responseSeeAllDishes.getData());
                 favrouiteRecyclerView.setAdapter(favouriteDishesAdapter);
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+
+    private void getKitchenMenuDishes(Context context, String token, double lat, double lng, int kitchen_id, View view){
+        viewModel.getKitchenMenuDishes(context,token,lat,lng,kitchen_id).observe((AppCompatActivity) context,responseGetKitchenMenuDishes -> {
+            if(responseGetKitchenMenuDishes == null){
+                showErrorAlert(context,"Oops!! Server error occurred. Please try again.","Error");
+            } else {
+                if(!responseGetKitchenMenuDishes.isSuccess()){
+                    showErrorAlert(context,responseGetKitchenMenuDishes.getMessage(),"Error");
+                } else {
+                    if(responseGetKitchenMenuDishes.getDataGetKitchenMenuDishes().size() == 0){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setMessage("No data available for this kitchen.");
+                        builder.setTitle("Alert");
+                        builder.setPositiveButton("Ok", (dialogInterface, i) -> Navigation.findNavController(view).navigateUp());
+                        builder.show();
+                    } else {
+                        Logger.ErrorLog("Size : ", String.valueOf(responseGetKitchenMenuDishes.getDataGetKitchenMenuDishes().size()));
+                        dishesAdapter = new DishesAdapter(1, responseGetKitchenMenuDishes.getDataGetKitchenMenuDishes());
+                        favrouiteRecyclerView.setAdapter(dishesAdapter);
+                    }
+                }
             }
             ProgressDialogFragment.dismissProgressDialog(context);
         });

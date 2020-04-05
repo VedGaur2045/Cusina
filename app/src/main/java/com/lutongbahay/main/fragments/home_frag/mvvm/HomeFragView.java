@@ -114,8 +114,6 @@ public class HomeFragView extends FrameLayout {
                     Constants.LAT = addressList.get(0).getLatitude();
                     Constants.LNG = addressList.get(0).getLongitude();
 
-
-
                     locationTxt.setText(addressList.get(0).getAddressLine(0));
                 } catch (Exception e){
                     System.out.println(e.getMessage());
@@ -123,7 +121,7 @@ public class HomeFragView extends FrameLayout {
             }
         }
 
-        homeList(Constants.LAT,Constants.LNG,Constants.TOKEN);
+        homeList(Constants.LAT,Constants.LNG,CusinaApplication.getPreferenceManger().getStringValue(CusinaApplication.getPreferenceManger().TOKEN));
 
 
         trayHome.setOnClickListener(v -> Navigation.findNavController(v).navigate(HomeFragmentDirections.openCartFragment()));

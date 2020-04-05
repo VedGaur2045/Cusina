@@ -10,22 +10,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lutongbahay.R;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
-import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.glide.GlideApp;
 import com.lutongbahay.main.fragments.favourites.FavouritesFragmentDirections;
-import com.lutongbahay.main.fragments.favourites.mvvm.FavouriteViewModel;
-import com.lutongbahay.main.fragments.home_frag.HomeFragmentDirections;
-import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragView;
-import com.lutongbahay.main.fragments.home_frag.mvvm.HomeFragViewModel;
-import com.lutongbahay.rest.response.NearMeItem;
-import com.lutongbahay.utils.Constants;
-import com.lutongbahay.utils.Logger;
+import com.lutongbahay.rest.response.DataItem;
+import com.lutongbahay.rest.response.DataItemKitchenMenu;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,46 +28,38 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHomeFoodMenuAdapter.VerticalViewHolder> {
-
+public class FavouriteDishesAdapter extends RecyclerView.Adapter<FavouriteDishesAdapter.FavouriteDishesHolder> {
     private int TYPE_CLICK;
     public Context context;
-    List<NearMeItem> nearMeItemList = new ArrayList<>();
+    List<DataItem> dataItemList = new ArrayList<>();
 
-    public VerticalHomeFoodMenuAdapter(int check,List<NearMeItem> nearMeItemList) {
+    public FavouriteDishesAdapter(int check,List<DataItem> dataItemList) {
         this.TYPE_CLICK = check ;
-        this.nearMeItemList = nearMeItemList;
+        this.dataItemList = dataItemList;
     }
 
     @NonNull
     @Override
-    public VerticalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FavouriteDishesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.adapter_product, parent, false);
-        return new VerticalViewHolder(itemView);
+        return new FavouriteDishesHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VerticalViewHolder holder, int position) {
-
-        holder.bindNearData(nearMeItemList.get(position));
+    public void onBindViewHolder(@NonNull FavouriteDishesHolder holder, int position) {
+        System.out.println("Size : "+dataItemList.size());
+        holder.bindNearData(dataItemList.get(position));
 
         if(TYPE_CLICK == 1){
             holder.imageSection.setOnClickListener(v -> {
                 Bundle bundle = new Bundle();
-                bundle.putInt("itemId",nearMeItemList.get(position).getId());
+                bundle.putInt("itemId",dataItemList.get(position).getId());
                 Navigation.findNavController(v).navigate(R.id.detailFragment,bundle);
             });
             holder.ratingImg.setOnClickListener(view -> {
                 Navigation.findNavController(view).navigate(FavouritesFragmentDirections.toDishReviewFragment());
-            });
-            holder.productShopName.setOnClickListener(view -> {
-                Bundle bundle = new Bundle();
-                bundle.putInt("check",15);
-                bundle.putString("titleName",nearMeItemList.get(position).getKitchen().getName()+" Kitchen Menu");
-                bundle.putInt("kitchen_id",nearMeItemList.get(position).getKitchen().getId());
-                Navigation.findNavController(view).navigate(R.id.FavouritesFragment,bundle);
             });
         }
 
@@ -80,11 +67,11 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
 
     @Override
     public int getItemCount() {
-        return nearMeItemList.size();
+        return dataItemList.size();
     }
 
 
-    class VerticalViewHolder extends RecyclerView.ViewHolder{
+    class FavouriteDishesHolder extends RecyclerView.ViewHolder{
 
         @BindView(R.id.imgSet)
         RelativeLayout imageSection;
@@ -117,34 +104,34 @@ public class VerticalHomeFoodMenuAdapter extends RecyclerView.Adapter<VerticalHo
         @BindView(R.id.productDeliveryFee)
         TextView productDeliveryFee;
 
-        public VerticalViewHolder(@NonNull View itemView) {
+        public FavouriteDishesHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
 
-        public void bindNearData(NearMeItem nearMeItem) {
-            System.out.println("Price : "+nearMeItem.getDeliveryPrice());
-            productName.setText(nearMeItem.getName());
-            productMinimumOrderCount.setText("" + nearMeItem.getMinQty());
-            for(int i=0;i<nearMeItem.getImages().size();i++){
-                GlideApp.with(context).load(nearMeItem.getImages().get(i)).placeholder(R.drawable.no_image_placeholder).into(productImg);
+        public void bindNearData(@NotNull DataItem dataItem) {
+            System.out.println("Price : "+dataItem.getDeliveryPrice());
+            productName.setText(dataItem.getName());
+            productMinimumOrderCount.setText("" + dataItem.getMinQty());
+            for(int i=0;i<dataItem.getImages().size();i++){
+                GlideApp.with(context).load(dataItem.getImages().get(i)).placeholder(R.drawable.no_image_placeholder).into(productImg);
             }
-            productServingLeft.setText(nearMeItem.getTotalQty()+" Serving Left");
-            productTime.setText(nearMeItem.getPreparationTime() + " mins");
-            productDeliveryFee.setText("Delivery Fee : PHP "+Integer.toString(nearMeItem.getDeliveryPrice()));
-            productDeliveryDistance.setText(nearMeItem.getDistance());
-            productRatingCount.setText(""+nearMeItem.getRating());
-            if(nearMeItem.getKitchen() == null){
+            productServingLeft.setText(dataItem.getTotalQty()+" Serving Left");
+            productTime.setText(dataItem.getPreparationTime() + " mins");
+            productDeliveryFee.setText("Delivery Fee : PHP "+Integer.toString(dataItem.getDeliveryPrice()));
+            productDeliveryDistance.setText(dataItem.getDistance());
+            productRatingCount.setText(""+dataItem.getRating());
+            if(dataItem.getKitchen() == null){
                 productPlaceName.setText("");
             } else {
-                productPlaceName.setText(nearMeItem.getKitchen().getName());
+                productPlaceName.setText("by "+dataItem.getKitchen());
             }
-            if(nearMeItem.getUser() == null){
+            if(dataItem.getUser() == null){
                 productShopName.setText("");
             } else {
-                productShopName.setText("by "+nearMeItem.getUser().getName());
+                productShopName.setText(dataItem.getUser().getName());
             }
-            likeCount.setText(Integer.toString(nearMeItem.getLikes()));
+            likeCount.setText(Integer.toString(dataItem.getLikes()));
         }
     }
 

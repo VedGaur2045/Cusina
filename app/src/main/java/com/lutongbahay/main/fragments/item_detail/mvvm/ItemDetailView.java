@@ -1,6 +1,7 @@
 package com.lutongbahay.main.fragments.item_detail.mvvm;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -132,9 +133,11 @@ public class ItemDetailView extends FrameLayout {
         dateListItem.setAdapter(dateOfOrderRecyclerAdapter);
         timeListItem.setAdapter(timeOfPickupOrderRecyclerAdapter);
 
+
+
     }
 
-    @OnClick({R.id.addToTrayBtn,R.id.backBtnImg,R.id.ratingImg,R.id.minusBtn,R.id.plusBtn})
+    @OnClick({R.id.addToTrayBtn,R.id.backBtnImg,R.id.ratingImg,R.id.minusBtn,R.id.plusBtn,R.id.ownerKitchenTxt})
     public void onClick(View view){
         int id = view.getId();
         switch (id){
@@ -210,6 +213,20 @@ public class ItemDetailView extends FrameLayout {
                     productRatingCount.setText(Integer.toString(responseDishDetail.getData().getRating()));
                     productDelTime.setText(Integer.toString(responseDishDetail.getData().getPreparationTime())+" mins");
                     addToTrayBtn.setText("Add to Tray - "+responseDishDetail.getData().getPrice());
+                    if(responseDishDetail.getData().getKitchen() == null){
+                        ownerKitchenTxt.setText("No Available Kitchen");
+                        ownerNameTxt.setText("No Available");
+                    } else {
+                        ownerKitchenTxt.setText(responseDishDetail.getData().getKitchen().getName() + "'s Kitchen");
+                        ownerNameTxt.setText(responseDishDetail.getData().getKitchen().getName());
+                    }
+                    ownerKitchenTxt.setOnClickListener(view -> {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("check",15);
+                        bundle.putString("titleName",responseDishDetail.getData().getKitchen().getName()+" Kitchen Menu");
+                        bundle.putInt("kitchen_id",responseDishDetail.getData().getKitchen().getId());
+                        Navigation.findNavController(view).navigate(R.id.FavouritesFragment,bundle);
+                    });
                 }
             }
             ProgressDialogFragment.dismissProgressDialog(context);

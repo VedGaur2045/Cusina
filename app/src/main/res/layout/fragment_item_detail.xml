@@ -433,15 +433,15 @@
                             android:id="@+id/ownerNameTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/_11ssp"
-                            android:fontFamily="@font/sourcesanspro_regular" tools:ignore="MissingPrefix"
                             android:layout_marginStart="@dimen/_2sdp"
                             android:layout_marginLeft="@dimen/_2sdp"
+                            android:layout_toEndOf="@+id/ownerTxt"
+                            android:layout_toRightOf="@+id/ownerTxt"
+                            android:fontFamily="@font/sourcesanspro_regular"
                             android:text="@string/ownerNameTxt"
                             android:textColor="@color/_000000"
-                            android:layout_toRightOf="@+id/ownerTxt"
-                            android:layout_toEndOf="@+id/ownerTxt"
-                            android:layout_below="@+id/ownerKitchenTxt"/>
+                            android:textSize="@dimen/_11ssp"
+                            tools:ignore="MissingPrefix" />
 
                     </RelativeLayout>
 

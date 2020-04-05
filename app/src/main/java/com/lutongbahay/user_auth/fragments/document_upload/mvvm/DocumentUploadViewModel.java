@@ -22,7 +22,7 @@ public class DocumentUploadViewModel extends ViewModel {
 //        return MainService.documentUpload(context,documentUpload,file1,file2,file3);
 //    }
 
-    public LiveData<ResponseDocument> documentUpload(Context context, RequestDocumentUpload documentUpload, List<MultipartBody.Part> files){
+    public LiveData<ResponseDocument> documentUpload(Context context, RequestBody documentUpload, List<MultipartBody.Part> files){
         return MainService.documentUpload(context, documentUpload, files);
     }
 }

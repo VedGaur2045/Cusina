@@ -112,7 +112,7 @@ public class ResponseDishDetail {
         private List<Object> seller = null;
         @SerializedName("kitchen")
         @Expose
-        private List<Object> kitchen = null;
+        private Kitchen kitchen = null;
         @SerializedName("foodtype")
         @Expose
         private Foodtype foodtype;
@@ -307,11 +307,11 @@ public class ResponseDishDetail {
             this.seller = seller;
         }
 
-        public List<Object> getKitchen() {
+        public Kitchen getKitchen() {
             return kitchen;
         }
 
-        public void setKitchen(List<Object> kitchen) {
+        public void setKitchen(Kitchen kitchen) {
             this.kitchen = kitchen;
         }
 

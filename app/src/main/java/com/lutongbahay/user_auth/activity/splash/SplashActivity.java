@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.hbb20.CountryCodePicker;
@@ -25,6 +26,7 @@ import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.home.HomeActivity;
 import com.lutongbahay.rest.request.RequestRegisterAsMobile;
 import com.lutongbahay.user_auth.activity.AuthActivity;
+import com.lutongbahay.utils.Logger;
 import com.lutongbahay.utils.SnackbarUtils;
 import com.lutongbahay.utils.StatusBarUtils;
 import com.lutongbahay.utils.ToastUtils;
@@ -69,7 +71,15 @@ public class SplashActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        Log.e("Session : ", String.valueOf(CusinaApplication.getPreferenceManger().getBooleanValue(CusinaApplication.getPreferenceManger().CHECK_USER_IS_LOGGED_IN)));
+        Logger.ErrorLog("Session : ",CusinaApplication.getPreferenceManger().getStringValue(CusinaApplication.getPreferenceManger().MOBILE_NUMBER));
+
+        if(CusinaApplication.getPreferenceManger().getBooleanValue(CusinaApplication.getPreferenceManger().CHECK_USER_IS_LOGGED_IN)){
+            Bundle bndlAnimation = ActivityOptions.makeCustomAnimation(this, R.animator.enter_from_right, R.animator.exit_to_left).toBundle();
+            Intent intent = new Intent(this, HomeActivity.class);
+            this.startActivity(intent,bndlAnimation);
+        } else {
+            Logger.ErrorLog("Session : ", String.valueOf(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID)));
+        }
 
     }
 
@@ -94,7 +104,7 @@ public class SplashActivity extends AppCompatActivity {
                     ToastUtils.shortToast(response.getMessage());
                     System.out.println("Otp : "+response.getData().getOtp());
                     CusinaApplication.getPreferenceManger().putUserId(response.getData().getId());
-//                        HomeActivity.openHomeActivity(context);
+                    CusinaApplication.getPreferenceManger().putMobileNumber(mobileNumberEdt.getText().toString());
                     AuthActivity.openAuthActivity(SplashActivity.this,response.getData().getOtp());
                     (context).finish();
                 }
@@ -117,8 +127,6 @@ public class SplashActivity extends AppCompatActivity {
             }else{
                 String mobile = countryCodeHolder.getSelectedCountryCodeWithPlus().toString()+""+mobileNumberEdt.getText().toString();
                 System.out.println(mobile);
-                CusinaApplication.getPreferenceManger().putMobileNumber(mobile);
-//                AuthActivity.openAuthActivity(SplashActivity.this);
                 registerUserMobile(SplashActivity.this);
             }
         }

@@ -26,6 +26,7 @@ public class FavouritesFragment extends Fragment {
     private FavouriteViewModel viewModel;
     private FavouritesView view;
     private Context context;
+    static int kichen_id;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -53,8 +54,9 @@ public class FavouritesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         System.out.println(getArguments().getInt("check"));
+        kichen_id = getArguments().getInt("kitchen_id");
         viewModel = new ViewModelProvider(this).get(FavouriteViewModel.class);
-        view = new FavouritesView(context,viewModel,getArguments().getInt("check"),getArguments().getString("titleName"));
+        view = new FavouritesView(context,viewModel,getArguments().getInt("check"),getArguments().getString("titleName"),kichen_id);
         return view;
     }
 }

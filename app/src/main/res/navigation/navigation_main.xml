@@ -301,6 +301,9 @@
         <action
             android:id="@+id/toDocumentUploadFragment"
             app:destination="@id/DocumentUploadFragment"/>
+        <action
+            android:id="@+id/toSignUpFragment"
+            app:destination="@id/SignUpFragment"/>
 
     </fragment>
 

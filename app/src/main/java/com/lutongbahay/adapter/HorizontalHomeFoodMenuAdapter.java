@@ -2,6 +2,7 @@ package com.lutongbahay.adapter;
 
 import android.content.Context;
 import android.media.Image;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,6 +110,14 @@ public class HorizontalHomeFoodMenuAdapter extends RecyclerView.Adapter<Horizont
             } else {
                 productShopName.setText("by "+preOrderedItem.getUser().getName());
             }
+            productPlaceName.setOnClickListener(view -> {
+                Bundle bundle = new Bundle();
+                bundle.putInt("check",15);
+                bundle.putString("titleName",preOrderedItem.getKitchen().getName()+" Kitchen Menu");
+                bundle.putInt("kitchen_id",preOrderedItem.getKitchen().getId());
+                Navigation.findNavController(view).navigate(R.id.FavouritesFragment,bundle);
+            });
+
         }
     }
 

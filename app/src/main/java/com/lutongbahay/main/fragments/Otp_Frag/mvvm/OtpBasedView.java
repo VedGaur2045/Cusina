@@ -21,6 +21,7 @@ import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.main.fragments.Otp_Frag.OtpBasedFragmentDirections;
 import com.lutongbahay.main.home.HomeActivity;
 import com.lutongbahay.user_auth.activity.splash.SplashActivity;
+import com.lutongbahay.utils.Constants;
 import com.lutongbahay.utils.SnackbarUtils;
 import com.lutongbahay.utils.ToastUtils;
 
@@ -40,6 +41,7 @@ public class OtpBasedView extends FrameLayout {
     Button nextBtn;
     AppCompatActivity compatActivity;
     static String otp;
+    static int userId;
 
     public OtpBasedView(@NonNull Context context, OtpBasedViewModel viewModel) {
         super(context);
@@ -47,6 +49,7 @@ public class OtpBasedView extends FrameLayout {
         inflate(context, R.layout.fragment_otp_based,this);
         ButterKnife.bind(this,this);
         compatActivity = (AppCompatActivity) context;
+        userId =  CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID);
         try {
             otp = compatActivity.getIntent().getExtras().getString("otp");
             System.out.println("Given otp from main activity : "+otp);
@@ -66,7 +69,7 @@ public class OtpBasedView extends FrameLayout {
                 SplashActivity.openSplashActivity(getContext());
                 break;
             case R.id.nextBtn:
-                checkOtpView(view,otp);
+                checkOtpView(view,otp,userId);
                 break;
             case R.id.resendOTP:
                 resendOtp(compatActivity,97,view);
@@ -85,7 +88,24 @@ public class OtpBasedView extends FrameLayout {
                     ToastUtils.shortToast(responseResendOtp.getData().getOtp());
                     otp = responseResendOtp.getData().getOtp();
                     showErrorAlert(context,"Your otp : "+responseResendOtp.getData().getOtp(),"OTP");
-                    checkOtpView(view,responseResendOtp.getData().getOtp());
+                    checkOtpView(view,responseResendOtp.getData().getOtp(),userId);
+                }
+            }
+            ProgressDialogFragment.dismissProgressDialog(context);
+        });
+    }
+
+    private void otpVerify(Context context, int id, String otp, View view){
+        viewModel.otpVerify(context,id,otp).observe(compatActivity, responseOtpVerify -> {
+            if(responseOtpVerify == null){
+                showErrorAlert(context,"User Id is not valid","Error");
+            } else {
+                if (!responseOtpVerify.isSuccess()){
+                    showErrorAlert(context,responseOtpVerify.getMessage(),"Message");
+                } else {
+                    CusinaApplication.getPreferenceManger().putUserToken(responseOtpVerify.getDataOtpVerify().getToken());
+                    CusinaApplication.getPreferenceManger().putUserType(responseOtpVerify.getDataOtpVerify().getUserType());
+                    Navigation.findNavController(view).navigate(OtpBasedFragmentDirections.toPrivacyFragment());
                 }
             }
             ProgressDialogFragment.dismissProgressDialog(context);
@@ -100,12 +120,12 @@ public class OtpBasedView extends FrameLayout {
                 }, null);
     }
 
-    private void checkOtpView(View view,String otp){
+    private void checkOtpView(View view,String otp,int userId){
         if (otp_view.getText().toString().isEmpty()){
             SnackbarUtils.showSnackBar(view,"Please enter the otp...", Snackbar.LENGTH_LONG);
         } else {
             if(otp_view.getText().toString().equals(otp)){
-                Navigation.findNavController(view).navigate(OtpBasedFragmentDirections.toPrivacyFragment());
+                otpVerify(compatActivity,userId,otp,view);
             } else {
                 SnackbarUtils.showSnackBar(view,"Otp does not match...",Snackbar.LENGTH_LONG);
             }

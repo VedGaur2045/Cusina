@@ -58,6 +58,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+import id.zelory.compressor.Compressor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -93,6 +94,7 @@ public class SignUpView extends FrameLayout implements SignUpInterface {
     @BindView(R.id.upload_img)
     Button upload_img;
 
+    static boolean check = false;
     Context compatActivity;
     ArrayList<String> file = new ArrayList<>();
 
@@ -124,7 +126,12 @@ public class SignUpView extends FrameLayout implements SignUpInterface {
 
         citylist.setAdapter(adapter2);
 
-        kitchenName.addTextChangedListener(textWatcher);
+        if(check){
+            kitchenName.addTextChangedListener(textWatcher);
+        } else {
+            Logger.ErrorLog("Text ","Not Found.");
+        }
+
 
     }
 
@@ -136,6 +143,7 @@ public class SignUpView extends FrameLayout implements SignUpInterface {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            check = true;
             verifyKitchenName((AppCompatActivity) getContext(),kitchenName.getText().toString(), Constants.TOKEN);
         }
 
@@ -300,8 +308,9 @@ public class SignUpView extends FrameLayout implements SignUpInterface {
         if (fileList != null && fileList.size() > 0) {
             for (int i =0; i < fileList.size(); i++){
                 System.out.println("Vakjkl : "+fileList.get(i));
+                File compressedImgFile  = Compressor.getDefault(getContext()).compressToFile(fileList.get(i));
                 Bitmap myBitmap = BitmapFactory.decodeFile(fileList.get(i).getAbsolutePath());
-                //GlideApp.with(compatActivity).load(fileList.get(i)).into(profile_Image);
+                GlideApp.with(compatActivity).load(compressedImgFile).into(profile_Image);
                 //file = new File(String.valueOf(fileList.get(i)));
                 Uri uri = Uri.fromFile(fileList.get(i).getAbsoluteFile());
                 System.out.println("Uri : "+uri);

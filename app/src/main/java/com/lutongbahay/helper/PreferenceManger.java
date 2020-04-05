@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
 import com.lutongbahay.rest.response.ResponseLogin;
-import com.lutongbahay.rest.response.ResponseLoginUserDetails;
+import com.lutongbahay.rest.response.ResponseLoginUserDetail;
 
 
 /**
@@ -22,7 +22,9 @@ public class PreferenceManger {
     public static final String PREF_KEY = "waiter_preference";
     public static final String AUTH_TOKEN = "auth_token";
     public static final String CURRENT_LOCATION = "current_location";
-    public final String MOBILE_NUMBER = "mobile_number";
+    public static final String MOBILE_NUMBER = "mobile_number";
+    public static final String TOKEN = "user_log_token";
+    public static final String USER_TYPE = "user_type";
 
     public final String LOGIN_DETAILS = "login_details";
     public final String USER_DETAILS = "user_details";
@@ -105,6 +107,16 @@ public class PreferenceManger {
         String json = gson.toJson(mobileNumber);
         putString(MOBILE_NUMBER,json);
     }
+    public void putUserType(String userType){
+        Gson gson = new Gson();
+        String json = gson.toJson(userType);
+        putString(USER_TYPE,json);
+    }
+    public void putUserToken(String userToken){
+        Gson gson = new Gson();
+        String json = gson.toJson(userToken);
+        putString(TOKEN,json);
+    }
     public void putUserId(int userID){
         Gson gson = new Gson();
         int json = Integer.parseInt(gson.toJson(userID));
@@ -124,16 +136,16 @@ public class PreferenceManger {
         return gson.fromJson(json, ResponseLogin.class);
     }
 
-    public void putUserDetails(ResponseLoginUserDetails userDetails) {
+    public void putUserDetails(ResponseLoginUserDetail userDetails) {
         Gson gson = new Gson();
         String json = gson.toJson(userDetails);
         putString(USER_DETAILS, json);
     }
 
-    public ResponseLoginUserDetails getUserDetails() {
+    public ResponseLoginUserDetail getUserDetails() {
         Gson gson = new Gson();
         String json = getStringValue(USER_DETAILS);
-        return gson.fromJson(json, ResponseLoginUserDetails.class);
+        return gson.fromJson(json, ResponseLoginUserDetail.class);
     }
 
 

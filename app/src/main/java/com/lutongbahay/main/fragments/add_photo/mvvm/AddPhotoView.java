@@ -216,6 +216,7 @@ public class AddPhotoView extends FrameLayout {
                 bundle.putString("fileImage", file);
                 if (signUpInterface != null) {
                     Logger.ErrorLog("CALLBACK", "RECEIVED");
+
                     signUpInterface.mediaCallBack(galleryImagesRecyclerAdapter.selectedFiles);
                 }
             } else {

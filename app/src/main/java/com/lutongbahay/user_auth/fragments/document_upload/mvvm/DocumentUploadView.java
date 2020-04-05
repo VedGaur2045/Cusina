@@ -30,15 +30,18 @@ import com.lutongbahay.R;
 import com.lutongbahay.adapter.DocumentUploadRecyclerAdapter;
 import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
+import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
 import com.lutongbahay.helper.MarshMallowPermission;
 import com.lutongbahay.helper.PreferenceManger;
 import com.lutongbahay.interfaces.DocumentMediaInterface;
+import com.lutongbahay.interfaces.OnImageCompressedListener;
 import com.lutongbahay.main.fragments.add_photo.AddPhotoFragment;
 import com.lutongbahay.rest.request.RequestDocumentUpload;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragment;
 import com.lutongbahay.user_auth.fragments.document_upload.DocumentUploadFragmentDirections;
 import com.lutongbahay.utils.FileUtils;
+import com.lutongbahay.utils.ImageCompressAsync;
 import com.lutongbahay.utils.Logger;
 import com.lutongbahay.utils.SnackbarUtils;
 
@@ -52,6 +55,8 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import id.zelory.compressor.Compressor;
+import okhttp3.Dispatcher;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -263,11 +268,11 @@ public class DocumentUploadView extends FrameLayout implements DocumentMediaInte
 //    }
 
     public void documentUpload(Context context,List<MultipartBody.Part> multiImages){
-       // RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), String.valueOf(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID)));
+        RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), String.valueOf(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID)));
 //        RequestBody userId = RequestBody.create(MediaType.parse("multipart/form-data"), "108");
         RequestDocumentUpload documentUpload = new RequestDocumentUpload();
         documentUpload.setUserId(CusinaApplication.getPreferenceManger().getIntegerValue(CusinaApplication.getPreferenceManger().USER_ID));
-        viewModel.documentUpload(context,documentUpload,multiImages).observe(compatActivity, responseDocument -> {
+        viewModel.documentUpload(context,userId,multiImages).observe(compatActivity, responseDocument -> {
             if(responseDocument == null){
                 showErrorAlert(context,"Oops!! Server error occurred. Please try again.");
             } else {
@@ -278,6 +283,7 @@ public class DocumentUploadView extends FrameLayout implements DocumentMediaInte
                    // SnackbarUtils.showSnackBar(view,responseDocument.getMessage(),Snackbar.LENGTH_LONG);
                 }
             }
+            ProgressDialogFragment.dismissProgressDialog(context);
         });
     }
 
@@ -292,10 +298,15 @@ public class DocumentUploadView extends FrameLayout implements DocumentMediaInte
     public void mediaCallBack(List<File> fileList) {
         if (fileList != null && fileList.size() > 0){
 
+
+
             List<MultipartBody.Part> requestFiles = new ArrayList<>();
             for (int i =0; i < fileList.size(); i++){
 
-                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), fileList.get(i));
+
+                File compressedImgFile  = Compressor.getDefault(getContext()).compressToFile(fileList.get(i));
+
+                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), compressedImgFile);
                 MultipartBody.Part fileData =
                         MultipartBody.Part.createFormData("file" + (i + 1), fileList.get(i).getName(), requestFile);
 

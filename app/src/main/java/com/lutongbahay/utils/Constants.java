@@ -1,6 +1,8 @@
 package com.lutongbahay.utils;
 
 
+import com.lutongbahay.app.CusinaApplication;
+
 /**
  * Created by Abhishek Thanvi on 2020-02-25.
  * Copyright © 2020 Abhishek Thanvi. All rights reserved.
@@ -8,12 +10,13 @@ package com.lutongbahay.utils;
 
 public class Constants {
 
+    public static String USER_TYPE;
     public static double LAT;
     public static double LNG;
     public static boolean isRegistered = false;
     public static boolean openProfile = false;
     public static int constVal;
-    public static final String TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjllODAxYTkwZjJjZDg0ZDI1ZWE1YTZhNmE0YTBmNjE0NzBmYTcyMTE1ZWJkY2FkM2JlNmQ0ZDVlMzE0NjQ4NmI3NWMwMjZmMTEwZDQ0Mjk4In0.eyJhdWQiOiIyIiwianRpIjoiOWU4MDFhOTBmMmNkODRkMjVlYTVhNmE2YTRhMGY2MTQ3MGZhNzIxMTVlYmRjYWQzYmU2ZDRkNWUzMTQ2NDg2Yjc1YzAyNmYxMTBkNDQyOTgiLCJpYXQiOjE1ODM2OTI0NjUsIm5iZiI6MTU4MzY5MjQ2NSwiZXhwIjoxNjE1MjI4NDY1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.WsVHwfus2vs9gA0fbiv5LVmOFhhUmn28OrnKtXx_e5O7VCOy3fQ_plRXJiLNkatGBnGBCSgny-bjI1kUOf_6m9e1Vou17WT6ouGdUZQCA5Kp0gLnxPrCLveop4qqwBGR_tl0Myvphz1UCTnHuciePYtQaqyrsuAV3ub9tZf3gJcAeH3jF2hFz1gdu_r6-ZUaMcU3nKAjQXpxZtiCGUrVPwvzjQNN7nHED_EE7xXM-JQf2_qe4AS0hVfZjUWvNPDAQZ0BfiqD0xpWObMfIkGkf5C2eMRlISEhrdobHsGd7_3XyM7gKE7pm8cZqWlAPig4tHeRSa1vfEV48tbjsXi-_-Ufr4_AQmGIe4HzsrWcnQ3ZaCEiGYeBdKdkGe2xtw64mRKtIBAEupiZtAQExvCc3ziWW64_LtZZ5THWB-4PCUzPnwQTVu_ck0PKAQ87xsZyjNPNNfyjHs-ykyGoN3N3hL-c_BmoLukGu9sDCsRrFxfkQvF5AdTZvkIhANEVXpXBqQnFzK5JwaV_-xsjQKywRRBlX1s1xMNjAD5fo4wJ3bnylL1GQBIMm4tEpKZn_MzCHcJ7bhs0j7f80yj3Hr0USDdN4xmnEN5yc0R0hKSKTaO7YpNaezpAyfJPVbsXc-7qKbIyO97RwOBLHNSh5yRXD-wIssAwstyt2DwRPpPQmiQ";
+    public static String TOKEN = CusinaApplication.getPreferenceManger().getStringValue(CusinaApplication.getPreferenceManger().TOKEN);
     public static String startTime;
     public static String endTime;
     // Month Name

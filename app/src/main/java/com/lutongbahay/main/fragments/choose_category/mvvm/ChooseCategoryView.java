@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.ChooseCategoryImageRecyclerAdapter;
 import com.lutongbahay.adapter.ChooseCategoryRecyclerAdapter;
+import com.lutongbahay.app.CusinaApplication;
 import com.lutongbahay.dialogs.CusinaAlertDialog;
 import com.lutongbahay.dialogs.ProgressDialogFragment;
 import com.lutongbahay.helper.GridSpacingItemDecoration;
@@ -68,7 +69,7 @@ public class ChooseCategoryView extends FrameLayout {
 
         category_image_rv.setAdapter(chooseCategory);
 
-        dishCategory((AppCompatActivity) context,Constants.TOKEN);
+        dishCategory((AppCompatActivity) context, CusinaApplication.getPreferenceManger().getStringValue(CusinaApplication.getPreferenceManger().TOKEN));
 
     }
 

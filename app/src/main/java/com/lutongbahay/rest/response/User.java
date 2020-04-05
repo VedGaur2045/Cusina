@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName;
 public class User{
 
 	@SerializedName("image")
-	private String image;
+	private Object image;
 
 	@SerializedName("name")
 	private String name;
 
 	@SerializedName("mobile")
-	private String mobile;
+	private Object mobile;
 
 	@SerializedName("id")
 	private int id;
@@ -19,11 +19,11 @@ public class User{
 	@SerializedName("email")
 	private String email;
 
-	public void setImage(String image){
+	public void setImage(Object image){
 		this.image = image;
 	}
 
-	public String getImage(){
+	public Object getImage(){
 		return image;
 	}
 
@@ -35,11 +35,11 @@ public class User{
 		return name;
 	}
 
-	public void setMobile(String mobile){
+	public void setMobile(Object mobile){
 		this.mobile = mobile;
 	}
 
-	public String getMobile(){
+	public Object getMobile(){
 		return mobile;
 	}
 

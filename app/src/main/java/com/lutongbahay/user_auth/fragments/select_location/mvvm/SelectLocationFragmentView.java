@@ -29,6 +29,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.Task;
 import com.lutongbahay.R;
 import com.lutongbahay.adapter.GooglePlacesAutocompleteAdapter;
@@ -204,6 +205,35 @@ public class SelectLocationFragmentView extends FrameLayout {
 
     }
 
+    public LatLng getLocationFromAddress(Context context, String strAddress) {
+
+        Geocoder coder = new Geocoder(context);
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            // May throw an IOException
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
+            }
+
+            Address location = address.get(0);
+            Constants.LAT = location.getLatitude();
+            Constants.LNG = location.getLongitude();
+
+            Logger.ErrorLog("Location : ",Constants.LAT+"  "+Constants.LNG);
+
+            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+        }
+
+        return p1;
+    }
+
 
     public void searchLocation(String location){
         Call<GooglePlacesAPIData> googlePlacesAPIDataCall = GooglePlacesServices.getGooglePlacesRetrofitInstance().getPlacesData(location, "AIzaSyAmYQJFMFtI3CToUHQcyKTayysA2zicF4E");
@@ -230,18 +260,10 @@ public class SelectLocationFragmentView extends FrameLayout {
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         System.out.println(googlePlacesAPIData.predictions.get(i).description);
                         locationTextView.setText("Selected Location \n" + googlePlacesAPIData.predictions.get(i).description);
-                        addressList.get(0).setAddressLine(0,googlePlacesAPIData.predictions.get(i).description);
-                        addressList.get(0).setFeatureName(null);
-                        addressList.get(0).setAdminArea(null);
-                        addressList.get(0).setSubAdminArea(null);
-                        addressList.get(0).setLocality(null);
-                        addressList.get(0).setPostalCode(null);
-                        addressList.get(0).setCountryCode(null);
-                        addressList.get(0).setCountryName(null);
-                        Constants.LNG = addressList.get(0).getLongitude();
-                        Constants.LAT = addressList.get(0).getLatitude();
-                        System.out.println("Aghgsxdhjb s   =   "+addressList.get(0).getAddressLine(0));
-                        //CusinaApplication.getPreferenceManger().putLastAddress(addressList.get(0));
+                        searchViewLocation.setText("");
+
+                        getLocationFromAddress(context,googlePlacesAPIData.predictions.get(i).description);
+
                         rv_search_result.setVisibility(GONE);
                         currentlocation.setVisibility(VISIBLE);
                     }
